@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>给FckEditor的工具条按钮添加文字 | 某人的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最近想要给自己的表单设计器上面的“自动生成表单”的按钮加上一个文字，让他变得更显眼一些，就像Fck自带的源代码按钮一样，可惜搜遍了全网都没找到合适的文章，而且现在Fckeditor已经过时了官方都只有CKeditor的下载了，虽然官方有文档，不过翻了半天也没结果。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="给FckEditor的工具条按钮添加文字">
+<meta property="og:url" content="http://ayeah.net/2013/07/01/fckeditor-toolbar-button-icon-text/index.html">
+<meta property="og:site_name" content="某人的博客">
+<meta property="og:description" content="最近想要给自己的表单设计器上面的“自动生成表单”的按钮加上一个文字，让他变得更显眼一些，就像Fck自带的源代码按钮一样，可惜搜遍了全网都没找到合适的文章，而且现在Fckeditor已经过时了官方都只有CKeditor的下载了，虽然官方有文档，不过翻了半天也没结果。">
+<meta property="og:image" content="http://cdn.ayeah.net/wp-content/uploads/2013/07/icontext.png">
+<meta property="og:updated_time" content="2016-12-06T02:24:23.361Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="给FckEditor的工具条按钮添加文字">
+<meta name="twitter:description" content="最近想要给自己的表单设计器上面的“自动生成表单”的按钮加上一个文字，让他变得更显眼一些，就像Fck自带的源代码按钮一样，可惜搜遍了全网都没找到合适的文章，而且现在Fckeditor已经过时了官方都只有CKeditor的下载了，虽然官方有文档，不过翻了半天也没结果。">
+<meta name="twitter:image" content="http://cdn.ayeah.net/wp-content/uploads/2013/07/icontext.png">
+  
+    <link rel="alternate" href="/atom.xml" title="某人的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">某人的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">生命在于折腾</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ayeah.net"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-fckeditor-toolbar-button-icon-text" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/07/01/fckeditor-toolbar-button-icon-text/" class="article-date">
+  <time datetime="2013-07-01T08:21:22.000Z" itemprop="datePublished">2013-07-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/杂乱无章/">杂乱无章</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      给FckEditor的工具条按钮添加文字
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近想要给自己的表单设计器上面的“自动生成表单”的按钮加上一个文字，让他变得更显眼一些，就像Fck自带的源代码按钮一样，可惜搜遍了全网都没找到合适的文章，而且现在Fckeditor已经过时了官方都只有CKeditor的下载了，虽然官方有文档，不过翻了半天也没结果。<a id="more"></a></p>
+<p>不过还好Fck是开源的，我只能从一个下载网站找到了这个老版本的下载，然后看了源代码，发现原来是靠Style这个属性来定义的，而且是用FCK自定义的常量，才可以，默认的是FCK_TOOLBARITEM_ONLYICON，可选的有FCK_TOOLBARITEM_ONLYTEXT和FCK_TOOLBARITEM_ICONTEXT，我当然是要图标和文字一起显示的啦，于是在自己的代码里面加上一行：</p>
+<p>[code lang=”js” highlight=”6”]// Create the toolbar button.<br>var topFlowItem = new FCKToolbarButton( ‘OpenForm’, FCKLang[‘OpenForm’] ) ;<br>topFlowItem.IconPath = FCKConfig.PluginsPath + ‘topflow/open.gif’ ;<br>var topFlowItem2 = new FCKToolbarButton( ‘AutoForm’, FCKLang[‘AutoForm’] ) ;<br>topFlowItem2.IconPath = FCKConfig.PluginsPath + ‘topflow/autoform.png’;<br>topFlowItem2.Style = FCK_TOOLBARITEM_ICONTEXT;</p>
+<p>//Register toolbar  items<br>FCKToolbarItems.RegisterItem( ‘OpenForm’, topFlowItem );<br>FCKToolbarItems.RegisterItem( ‘AutoForm’, topFlowItem2 );<br>[/code]</p>
+<p>搞定！显示效果如下：</p>
+<p><a href="http://www.ayeah.net/fckeditor-button-icon-text/icontext" target="_blank" rel="external"><img src="http://cdn.ayeah.net/wp-content/uploads/2013/07/icontext.png" alt="icontext"></a></p>
+<p>不过。。。我早晚会升级到CKEditor的！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://ayeah.net/2013/07/01/fckeditor-toolbar-button-icon-text/" data-id="ciwcvp1sq000lmouzzmfanstx" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2013/07/01/bluehost-unilimited-hosting/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Récent</strong>
+      <div class="article-nav-title">
+        
+          推荐一个无限量的主机：bluehost
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2013/06/23/jd-jcloud-free-10g/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title">京东也涉足网盘服务，免费10G网盘空间</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Catégories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/原创作品/">原创作品</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/原创作品/杂乱无章/">杂乱无章</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂乱无章/">杂乱无章</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Mot-clés</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OwnCloud/">OwnCloud</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/云存储/">云存储</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客-升级/">博客,升级</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/开源/">开源</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网盘/">网盘</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/C/" style="font-size: 10px;">C#</a> <a href="/tags/OwnCloud/" style="font-size: 10px;">OwnCloud</a> <a href="/tags/云存储/" style="font-size: 20px;">云存储</a> <a href="/tags/博客-升级/" style="font-size: 10px;">博客,升级</a> <a href="/tags/开源/" style="font-size: 10px;">开源</a> <a href="/tags/网盘/" style="font-size: 20px;">网盘</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/12/01/upgrading/">博客要升级了</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/17/onedrive-to-baidu-pan/">把Onedrive网盘内容搬到百度网盘</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/02/wordpress-2-thinkcmfx/">把wordpress站的内容导入到thinkcmf中</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/02/wordpress-speed-up/">Wordpress博客加速</a>
+          </li>
+        
+          <li>
+            <a href="/2016/05/07/onedrive-shrink-5g/">网盘雪上加霜： OneDrive也缩水到5G！</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 ayeah<br>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

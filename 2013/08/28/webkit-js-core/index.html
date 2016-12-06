@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>都是webkit，肿么还不一样js内核呢？ | 某人的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="浏览器真该统一了，不同的浏览器，把前端的攻城狮们都整苦了。
+今日发现个奇怪的问题，在chrome和firefox下，都很正常（早就抛弃IE了），在搜狗的高速模式下，和360安全浏览器的极速模式下，竟然会不正常，表现在字符转换时结果不一样。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="都是webkit，肿么还不一样js内核呢？">
+<meta property="og:url" content="http://ayeah.net/2013/08/28/webkit-js-core/index.html">
+<meta property="og:site_name" content="某人的博客">
+<meta property="og:description" content="浏览器真该统一了，不同的浏览器，把前端的攻城狮们都整苦了。
+今日发现个奇怪的问题，在chrome和firefox下，都很正常（早就抛弃IE了），在搜狗的高速模式下，和360安全浏览器的极速模式下，竟然会不正常，表现在字符转换时结果不一样。">
+<meta property="og:image" content="http://cdn.ayeah.net/wp-content/uploads/2013/08/parseInt.png">
+<meta property="og:updated_time" content="2016-12-06T02:24:23.286Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="都是webkit，肿么还不一样js内核呢？">
+<meta name="twitter:description" content="浏览器真该统一了，不同的浏览器，把前端的攻城狮们都整苦了。
+今日发现个奇怪的问题，在chrome和firefox下，都很正常（早就抛弃IE了），在搜狗的高速模式下，和360安全浏览器的极速模式下，竟然会不正常，表现在字符转换时结果不一样。">
+<meta name="twitter:image" content="http://cdn.ayeah.net/wp-content/uploads/2013/08/parseInt.png">
+  
+    <link rel="alternate" href="/atom.xml" title="某人的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">某人的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">生命在于折腾</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ayeah.net"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-webkit-js-core" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/08/28/webkit-js-core/" class="article-date">
+  <time datetime="2013-08-28T11:10:29.000Z" itemprop="datePublished">2013-08-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/杂乱无章/">杂乱无章</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      都是webkit，肿么还不一样js内核呢？
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>浏览器真该统一了，不同的浏览器，把前端的攻城狮们都整苦了。</p>
+<p>今日发现个奇怪的问题，在chrome和firefox下，都很正常（早就抛弃IE了），在搜狗的高速模式下，和360安全浏览器的极速模式下，竟然会不正常，表现在字符转换时结果不一样。<a id="more"></a></p>
+<p><pre lang="js">//在chrome的console下，parseInt转换的结果如下：<br>&gt;parseInt(‘00032’)<br>32<br>&gt;parseInt(‘32’)<br>32</pre></p>
+<p>//在搜狗浏览器的console下执行却是：<br>&gt;parseInt(‘00032’)<br>26<br>&gt;parseInt(‘32’)<br>32</p>
+<div id="console-prompt" spellcheck="false"><br><div></div><br><div>估计是那些所谓的“双核”浏览器，用的都是旧版的webkit，里面的js内核不一样，造成一个基本函数对字符串的解析都不一样。至于26是怎么算出来，看规律是把32当成了8进制的数字，转换成10进制就是26了。</div><br><div></div><br><div>最后还是一个正则解决了问题，就是把前面的0都去掉，再转换：</div><br><div><span style="color: #3366ff;">&gt;parseInt(‘00032’.replace(/^0+/g,””))</span></div><br><div><span style="color: #333399;">32</span></div><br><div></div><br><div><span style="color: #333399;"><a href="http://www.ayeah.net/webkit-js-core/parseint" target="_blank" rel="external"><img src="http://cdn.ayeah.net/wp-content/uploads/2013/08/parseInt.png" alt="parseInt"></a></span></div><br></div>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://ayeah.net/2013/08/28/webkit-js-core/" data-id="ciwcvp1u3001xmouzou9mfsiq" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/01/15/ddns-client-for-peanuthall/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Récent</strong>
+      <div class="article-nav-title">
+        
+          【原创】DDNS客户端 for 花生壳（含C#源代码）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2013/08/22/baidu-pan-1yuan-upgrade-1t/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title">百度网盘升级1T及纵观国内云盘</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Catégories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/原创作品/">原创作品</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/原创作品/杂乱无章/">杂乱无章</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂乱无章/">杂乱无章</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Mot-clés</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OwnCloud/">OwnCloud</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/云存储/">云存储</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客-升级/">博客,升级</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/开源/">开源</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网盘/">网盘</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/C/" style="font-size: 10px;">C#</a> <a href="/tags/OwnCloud/" style="font-size: 10px;">OwnCloud</a> <a href="/tags/云存储/" style="font-size: 20px;">云存储</a> <a href="/tags/博客-升级/" style="font-size: 10px;">博客,升级</a> <a href="/tags/开源/" style="font-size: 10px;">开源</a> <a href="/tags/网盘/" style="font-size: 20px;">网盘</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/12/01/upgrading/">博客要升级了</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/17/onedrive-to-baidu-pan/">把Onedrive网盘内容搬到百度网盘</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/02/wordpress-2-thinkcmfx/">把wordpress站的内容导入到thinkcmf中</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/02/wordpress-speed-up/">Wordpress博客加速</a>
+          </li>
+        
+          <li>
+            <a href="/2016/05/07/onedrive-shrink-5g/">网盘雪上加霜： OneDrive也缩水到5G！</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 ayeah<br>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

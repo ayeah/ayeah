@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>把Onedrive网盘内容搬到百度网盘 | 某人的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="到8月11日，Onedrive就要缩水到5G了，像我这样已经用了30多G的用户，就不能再愉快地玩耍了，所以就想着怎么把内容搬家到别的网盘上。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="把Onedrive网盘内容搬到百度网盘">
+<meta property="og:url" content="http://ayeah.net/2016/06/17/onedrive-to-baidu-pan/index.html">
+<meta property="og:site_name" content="某人的博客">
+<meta property="og:description" content="到8月11日，Onedrive就要缩水到5G了，像我这样已经用了30多G的用户，就不能再愉快地玩耍了，所以就想着怎么把内容搬家到别的网盘上。">
+<meta property="og:image" content="http://cdn.ayeah.net/wp-content/uploads/2016/06/transfer.png">
+<meta property="og:image" content="http://cdn.ayeah.net/wp-content/uploads/2016/06/pan.png">
+<meta property="og:updated_time" content="2016-12-06T02:24:23.286Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="把Onedrive网盘内容搬到百度网盘">
+<meta name="twitter:description" content="到8月11日，Onedrive就要缩水到5G了，像我这样已经用了30多G的用户，就不能再愉快地玩耍了，所以就想着怎么把内容搬家到别的网盘上。">
+<meta name="twitter:image" content="http://cdn.ayeah.net/wp-content/uploads/2016/06/transfer.png">
+  
+    <link rel="alternate" href="/atom.xml" title="某人的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">某人的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">生命在于折腾</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ayeah.net"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-onedrive-to-baidu-pan" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/17/onedrive-to-baidu-pan/" class="article-date">
+  <time datetime="2016-06-17T02:20:12.000Z" itemprop="datePublished">2016-06-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/杂乱无章/">杂乱无章</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      把Onedrive网盘内容搬到百度网盘
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>到8月11日，Onedrive就要缩水到5G了，像我这样已经用了30多G的用户，就不能再愉快地玩耍了，所以就想着怎么把内容搬家到别的网盘上。<a id="more"></a></p>
+<p>一开始想利用<a href="http://www.ayeah.net/go/onedrive" target="_blank" rel="external">OneDrive</a>的SDK，写个小程序，放在服务器上下载，然后上传到别的网盘上，程序都找好了，在github.com上的<a href="https://github.com/krizalys/onedrive-php-sdk" target="_blank" rel="external">onedrive-sdk-php</a>项目，测试了可以访问到OneDrive里面的内容，并获取下载链接，但大容量还不限流量的空间却很难找（没有vps用），这个方案只好先搁置一下。</p>
+<p>后来想起来以前玩过的MultCloud，可以管理多个网盘，就上去看了一下，果然有我需要的东西：</p>
+<blockquote>
+<p>MultCloud(<a href="https://www.multcloud.com/" target="_blank" rel="external">https://www.multcloud.com/</a>), a FREE and easy-to-use web app, supports for Managing Files and Transferring Files across Cloud Drives. Free provide 10TB traffic for data transmission.<br>可以把一个网盘的内容搬到另一个网盘，有10T的流量，足够搬家了。于是乎，直接google连接登录，添加onedrive网盘，再添加百度网盘，然后就可以添加传输任务了。</p>
+</blockquote>
+<p><a href="http://www.ayeah.net/onedrive-to-baidu-pan/transfer" target="_blank" rel="external"><img src="http://cdn.ayeah.net/wp-content/uploads/2016/06/transfer.png" alt="transfer"></a></p>
+<p>加好传输任务后，就可以关机睡觉去了，一觉醒来，发现已经传了大约1/4了，反正是服务器上慢慢传的，早晚都会传完，传完还会发邮件通知我。</p>
+<p>免费版的速度不太稳定，有时几十KB，有时又能几MB，我这个28G的目录，估计要传1天。</p>
+<p>在百度盘里面，已经可以看到部分传好的文件了：</p>
+<p><a href="http://www.ayeah.net/onedrive-to-baidu-pan/pan" target="_blank" rel="external"><img src="http://cdn.ayeah.net/wp-content/uploads/2016/06/pan.png" alt="pan"></a></p>
+<p>免费版一开始有2T的流量，给他们做个宣传就可以升级到10T流量，宣传方式很简单，发个微博，twitter，或在自己的博客上做个链接都行。</p>
+<p>虽然MultCloud支持onedrive，<a href="http://www.ayeah.net/go/dropbox" target="_blank" rel="external">dropbox</a>，谷歌云盘等10多个公有云和owncloud，ftp，webdav等私有云，但对国内网盘的支持也就只有百度网盘一家而已，像较冷门的<a href="http://www.ayeah.net/go/caiyun" target="_blank" rel="external">和彩云</a>、天翼云等都不支持，好在百度盘也够大，足够用一阵子了。</p>
+<p>等有空了，再写一个程序，从百度云搬到和彩云，让我的文件多处保存…万一…泄露了怎么办？反正都是日常生活照和录像，没啥见不得人的…</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://ayeah.net/2016/06/17/onedrive-to-baidu-pan/" data-id="ciwcvp1tr001jmouz5tlsuzbn" class="article-share-link">Partager</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/云存储/">云存储</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网盘/">网盘</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/12/01/upgrading/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Récent</strong>
+      <div class="article-nav-title">
+        
+          博客要升级了
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/06/02/wordpress-2-thinkcmfx/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title">把wordpress站的内容导入到thinkcmf中</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Catégories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/原创作品/">原创作品</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/原创作品/杂乱无章/">杂乱无章</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂乱无章/">杂乱无章</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Mot-clés</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OwnCloud/">OwnCloud</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/云存储/">云存储</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客-升级/">博客,升级</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/开源/">开源</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网盘/">网盘</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/C/" style="font-size: 10px;">C#</a> <a href="/tags/OwnCloud/" style="font-size: 10px;">OwnCloud</a> <a href="/tags/云存储/" style="font-size: 20px;">云存储</a> <a href="/tags/博客-升级/" style="font-size: 10px;">博客,升级</a> <a href="/tags/开源/" style="font-size: 10px;">开源</a> <a href="/tags/网盘/" style="font-size: 20px;">网盘</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/12/01/upgrading/">博客要升级了</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/17/onedrive-to-baidu-pan/">把Onedrive网盘内容搬到百度网盘</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/02/wordpress-2-thinkcmfx/">把wordpress站的内容导入到thinkcmf中</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/02/wordpress-speed-up/">Wordpress博客加速</a>
+          </li>
+        
+          <li>
+            <a href="/2016/05/07/onedrive-shrink-5g/">网盘雪上加霜： OneDrive也缩水到5G！</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 ayeah<br>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

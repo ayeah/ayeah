@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>把wordpress站的内容导入到thinkcmf中 | 某人的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="随着SAE价格的水涨船高，本人在SAE上的云豆也坚持不了几天了，为了节省点云豆，准备把两个站合并为一个。旧站是wordpress搭建的，新站为了更好的做二次开发，采用了thinkcmfx这个cms，虽然两个都是php+mysql的，但想要将数据整合起来，还是需要了解两套系统的数据库的。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="把wordpress站的内容导入到thinkcmf中">
+<meta property="og:url" content="http://ayeah.net/2016/06/02/wordpress-2-thinkcmfx/index.html">
+<meta property="og:site_name" content="某人的博客">
+<meta property="og:description" content="随着SAE价格的水涨船高，本人在SAE上的云豆也坚持不了几天了，为了节省点云豆，准备把两个站合并为一个。旧站是wordpress搭建的，新站为了更好的做二次开发，采用了thinkcmfx这个cms，虽然两个都是php+mysql的，但想要将数据整合起来，还是需要了解两套系统的数据库的。">
+<meta property="og:updated_time" content="2016-12-06T02:19:40.411Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="把wordpress站的内容导入到thinkcmf中">
+<meta name="twitter:description" content="随着SAE价格的水涨船高，本人在SAE上的云豆也坚持不了几天了，为了节省点云豆，准备把两个站合并为一个。旧站是wordpress搭建的，新站为了更好的做二次开发，采用了thinkcmfx这个cms，虽然两个都是php+mysql的，但想要将数据整合起来，还是需要了解两套系统的数据库的。">
+  
+    <link rel="alternate" href="/atom.xml" title="某人的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">某人的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">生命在于折腾</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ayeah.net"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-wordpress-2-thinkcmfx" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/02/wordpress-2-thinkcmfx/" class="article-date">
+  <time datetime="2016-06-02T11:11:35.000Z" itemprop="datePublished">2016-06-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/原创作品/">原创作品</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      把wordpress站的内容导入到thinkcmf中
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>随着SAE价格的水涨船高，本人在SAE上的云豆也坚持不了几天了，为了节省点云豆，准备把两个站合并为一个。旧站是wordpress搭建的，新站为了更好的做二次开发，采用了thinkcmfx这个cms，虽然两个都是php+mysql的，但想要将数据整合起来，还是需要了解两套系统的数据库的。<a id="more"></a></p>
+<p>wordpress中，一篇文章主要存在4个表中</p>
+<ol>
+<li>wp_post – 帖子的主题，内容等</li>
+<li>wp_postmeta – 帖子的扩展信息，包括缩略图，点击数等</li>
+<li>wp_terms – 帖子的标签、分类表</li>
+<li>wp_term_relationships – 帖子和标签，分类的关联<br>Thinkcmfx的表结构跟wordpress类似，只是将postmeta的内容直接存在了posts表中，使用了一个smeta字段，用json方式存放扩展信息。</li>
+</ol>
+<p>我的数据转移思路是：在本地操作，将wordpress的数据对应好字段，存到thinkcmf的数据库中，再导出为sql文件到正式环境去导入：</p>
+<p>先在wordpress数据库中建cp_posts表，用sql将wordpress中的内容插入到cp_posts表中，使用的sql如下：</p>
+<pre><code> INSERT INTO `cp_posts` (`post_author`, `post_keywords`, `post_source`, `post_date`, `post_content`, `post_title`, `post_excerpt`, `post_status`, `comment_status`, `post_modified`, `post_content_filtered`, `post_parent`, `post_type`, `post_mime_type`, `comment_count`, `smeta`, `post_hits`, `post_like`, `istop`, `recommended`)
+ SELECT `post_author`,
+ `post_title` as post_keywords,
+ (select wp_terms.name from wp_term_relationships inner join wp_terms on term_id=term_taxonomy_id where object_id=p.ID and term_id in (3,4,5,6,7)) as post_source,
+ `post_date`, `post_content`, `post_title`, `post_excerpt`, 1 as post_status, 1 as comment_status, `post_modified`, `post_content_filtered`, 0 as post_parent, null as post_type, `post_mime_type`, `comment_count`, (select concat(&apos;{&quot;thumb&quot;:&quot;&apos;,guid,&apos;&quot;}&apos;) from wp_posts where ID = (SELECT meta_value
+ FROM wp_postmeta
+ WHERE `post_id` = p.ID
+ AND `meta_key` = &apos;_thumbnail_id&apos;)
+ ) as smeta, (select meta_value from wp_postmeta where `post_id`=ID and `meta_key`=&apos;views&apos;) as post_hits,0 as post_like, 0 as istop, 0 as recommended FROM `wp_posts` as p WHERE `post_status` = &apos;publish&apos; and `post_type`=&apos;post&apos;
+ `&lt;/pre&gt;
+此sql将分类的名称放到了post_source字段中，以便后续关联，如果旧站的分类名字和新站的名字不一样，那就要更新一下才能对应上：
+&lt;pre&gt;`
+ update cp_posts set post_source = &apos;知识库&apos; where post_source = &apos;扩展模块&apos; ;`
+
+update cp_posts set post_source = &apos;知识库&apos; where post_source = &apos;常见问题&apos; ;
+
+update cp_posts set post_source = &apos;企业动态&apos; where post_source = &apos;通知公告&apos; ;&lt;/pre&gt;
+将wordpress数据库中的cp_posts表导出到sql文件，就可以到正式站上去导入了。
+
+然后就可以通过类型名字，在cp_term_relationships表里面插入关联记录了
+&lt;pre&gt;` INSERT INTO `cp_term_relationships` (`object_id`, `term_id`, `listorder`, `status`)
+ (
+ SELECT `cp_posts`.`id` AS object_id, `term_id` , 0, 1
+ FROM `cp_posts`
+ INNER JOIN `cp_terms` ON `post_source` = `cp_terms`.`name`
+ )
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://ayeah.net/2016/06/02/wordpress-2-thinkcmfx/" data-id="ciwcvp1u50020mouzvqngsibo" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/06/17/onedrive-to-baidu-pan/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Récent</strong>
+      <div class="article-nav-title">
+        
+          把Onedrive网盘内容搬到百度网盘
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/06/02/wordpress-speed-up/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title">Wordpress博客加速</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Catégories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/原创作品/">原创作品</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/原创作品/杂乱无章/">杂乱无章</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂乱无章/">杂乱无章</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Mot-clés</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OwnCloud/">OwnCloud</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/云存储/">云存储</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客-升级/">博客,升级</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/开源/">开源</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网盘/">网盘</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/C/" style="font-size: 10px;">C#</a> <a href="/tags/OwnCloud/" style="font-size: 10px;">OwnCloud</a> <a href="/tags/云存储/" style="font-size: 20px;">云存储</a> <a href="/tags/博客-升级/" style="font-size: 10px;">博客,升级</a> <a href="/tags/开源/" style="font-size: 10px;">开源</a> <a href="/tags/网盘/" style="font-size: 20px;">网盘</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/12/01/upgrading/">博客要升级了</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/17/onedrive-to-baidu-pan/">把Onedrive网盘内容搬到百度网盘</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/02/wordpress-2-thinkcmfx/">把wordpress站的内容导入到thinkcmf中</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/02/wordpress-speed-up/">Wordpress博客加速</a>
+          </li>
+        
+          <li>
+            <a href="/2016/05/07/onedrive-shrink-5g/">网盘雪上加霜： OneDrive也缩水到5G！</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 ayeah<br>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
