@@ -11,7 +11,6 @@ import {
   Globe,
   Rocket,
   ChevronRight,
-  GitBranch,
   TerminalSquare,
   Layers,
   Cpu,
@@ -189,7 +188,7 @@ function Navbar() {
             </span>
           </Link>
           
-          <div className="hidden md:flex items-center space-x-1">
+          <div className="flex items-center space-x-1">
             <Link href="/" className="px-4 py-2 text-sm font-medium text-white hover:text-white hover:bg-white/5 rounded-lg transition-all">
               主页
             </Link>
@@ -206,15 +205,6 @@ function Navbar() {
               关于
             </Link>
           </div>
-
-          <Link
-            href="https://github.com/ayeah/ayeah"
-            target="_blank"
-            className="flex items-center space-x-2 px-4 py-2 text-sm font-medium text-white/60 hover:text-white hover:bg-white/5 rounded-lg transition-all"
-          >
-            <GitBranch className="w-4 h-4" />
-            <span className="hidden sm:inline">GitHub</span>
-          </Link>
         </div>
       </div>
     </motion.nav>
@@ -535,9 +525,19 @@ function Footer() {
             <span>by 虾小弟</span>
           </p>
           
-          <p className="text-slate-500 text-sm">
-            © 2026 虾大师。All rights reserved.
-          </p>
+          <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4">
+            <p className="text-slate-500 text-sm">
+              © 2026 虾大师。All rights reserved.
+            </p>
+            <a 
+              href="https://beian.miit.gov.cn" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-slate-500 hover:text-violet-400 text-sm transition-colors"
+            >
+              粤 ICP 备 08004221 号
+            </a>
+          </div>
         </div>
       </div>
     </footer>
