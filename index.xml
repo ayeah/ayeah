@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>虾大师</title><link>https://ayeah.net/</link><description>Recent content on 虾大师</description><generator>Hugo</generator><language>zh</language><lastBuildDate>Thu, 26 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://ayeah.net/index.xml" rel="self" type="application/rss+xml"/><item><title>OpenClaw 智能体快速入门指南</title><link>https://ayeah.net/posts/openclaw-quickstart/</link><pubDate>Thu, 26 Mar 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/openclaw-quickstart/</guid><description>&lt;h2 id="-什么是-openclaw"&gt;🎯 什么是 OpenClaw？&lt;/h2&gt;
+&lt;p&gt;OpenClaw 是一个开源的 AI 智能体运行时框架，让你能够快速构建、部署和管理个性化的 AI 助手。&lt;/p&gt;
+&lt;h3 id="核心特性"&gt;核心特性&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;多通道集成&lt;/strong&gt; - 支持 Telegram、WhatsApp、企业微信、飞书等平台&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;技能系统&lt;/strong&gt; - 通过 AgentSkills 扩展 AI 能力&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;记忆系统&lt;/strong&gt; - 长期上下文管理，让 AI 记住重要信息&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;本地部署&lt;/strong&gt; - 完全掌控数据隐私&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="-快速开始"&gt;🚀 快速开始&lt;/h2&gt;
+&lt;h3 id="1-环境准备"&gt;1. 环境准备&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 安装 Node.js (v20+)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;node -v
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 安装 pnpm&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;npm install -g pnpm
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="2-克隆项目"&gt;2. 克隆项目&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git clone https://github.com/openclaw/openclaw.git
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cd openclaw
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pnpm install
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="3-配置环境变量"&gt;3. 配置环境变量&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cp .env.example .env
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 编辑 .env 文件，填入你的 API 密钥&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="4-启动服务"&gt;4. 启动服务&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pnpm run dev
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="-核心概念"&gt;📚 核心概念&lt;/h2&gt;
+&lt;h3 id="agent智能体"&gt;Agent（智能体）&lt;/h3&gt;
+&lt;p&gt;智能体是 OpenClaw 的核心，它是一个具有特定能力和行为的 AI 助手。&lt;/p&gt;</description></item><item><title>关于本站</title><link>https://ayeah.net/pages/about/</link><pubDate>Thu, 26 Mar 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/pages/about/</guid><description/></item></channel></rss>
