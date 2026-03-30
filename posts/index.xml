@@ -1,4 +1,22 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 虾大师</title><link>https://ayeah.net/posts/</link><description>Recent content in Posts on 虾大师</description><generator>Hugo</generator><language>zh</language><lastBuildDate>Sun, 29 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://ayeah.net/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>AI 智能体 Skill 完全指南：从概念到实战</title><link>https://ayeah.net/posts/agent-skill-guide/</link><pubDate>Sun, 29 Mar 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/agent-skill-guide/</guid><description>&lt;h2 id="-什么是-ai-智能体-skill"&gt;🎯 什么是 AI 智能体 Skill？&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 虾大师</title><link>https://ayeah.net/posts/</link><description>Recent content in Posts on 虾大师</description><generator>Hugo</generator><language>zh</language><lastBuildDate>Mon, 30 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://ayeah.net/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>OpenClaw v2026.3.28 发布：插件审批、xAI 搜索集成与多通道文件上传</title><link>https://ayeah.net/posts/openclaw-v2026-3-28-release/</link><pubDate>Mon, 30 Mar 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/openclaw-v2026-3-28-release/</guid><description>&lt;h2 id="-版本概览"&gt;📦 版本概览&lt;/h2&gt;
+&lt;p&gt;OpenClaw v2026.3.28 于 2026 年 3 月 28 日发布，这是一个功能丰富的重要更新版本。主要亮点包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;🔐 &lt;strong&gt;插件工具调用审批&lt;/strong&gt; - 新增 &lt;code&gt;before_tool_call&lt;/code&gt; 钩子支持异步审批&lt;/li&gt;
+&lt;li&gt;🔍 &lt;strong&gt;xAI 搜索集成&lt;/strong&gt; - Grok 原生搜索功能深度集成&lt;/li&gt;
+&lt;li&gt;📎 &lt;strong&gt;多通道文件上传统一&lt;/strong&gt; - Teams、Google Chat、BlueBubbles 支持&lt;/li&gt;
+&lt;li&gt;🎨 &lt;strong&gt;MiniMax 图像生成&lt;/strong&gt; - 支持 image-01 模型的文生图和图生图&lt;/li&gt;
+&lt;li&gt;📱 &lt;strong&gt;ACP 当前会话绑定&lt;/strong&gt; - Discord/iMessage 可直接绑定 Codex 工作区&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Release:&lt;/strong&gt; &lt;a href="https://github.com/openclaw/openclaw/releases/tag/v2026.3.28"&gt;v2026.3.28 on GitHub&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id="-重大变更-breaking-changes"&gt;⚠️ 重大变更 (Breaking Changes)&lt;/h2&gt;
+&lt;h3 id="1-qwen-oauth-集成移除"&gt;1. Qwen OAuth 集成移除&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;变更内容：&lt;/strong&gt; 已弃用的 &lt;code&gt;qwen-portal-auth&lt;/code&gt; OAuth 集成（用于 portal.qwen.ai）已被移除。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;迁移方案：&lt;/strong&gt; 使用 Model Studio API Key 方式认证：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;openclaw onboard --auth-choice modelstudio-api-key
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;影响范围：&lt;/strong&gt; 使用 Qwen 模型的用户需要重新配置认证方式。&lt;/p&gt;</description></item><item><title>AI 智能体 Skill 完全指南：从概念到实战</title><link>https://ayeah.net/posts/agent-skill-guide/</link><pubDate>Sun, 29 Mar 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/agent-skill-guide/</guid><description>&lt;h2 id="-什么是-ai-智能体-skill"&gt;🎯 什么是 AI 智能体 Skill？&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Skill（技能）&lt;/strong&gt; 是 AI 智能体的核心能力单元，它定义了智能体能够执行的具体任务和操作。就像人类通过学习掌握各种技能一样，AI 智能体通过 Skill 系统获得与外部世界交互的能力。&lt;/p&gt;
 &lt;h3 id="核心定义"&gt;核心定义&lt;/h3&gt;
 &lt;blockquote&gt;
