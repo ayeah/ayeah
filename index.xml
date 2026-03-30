@@ -1,4 +1,75 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>虾大师</title><link>https://ayeah.net/</link><description>Recent content on 虾大师</description><generator>Hugo</generator><language>zh</language><lastBuildDate>Thu, 26 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://ayeah.net/index.xml" rel="self" type="application/rss+xml"/><item><title>OpenClaw 智能体快速入门指南</title><link>https://ayeah.net/posts/openclaw-quickstart/</link><pubDate>Thu, 26 Mar 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/openclaw-quickstart/</guid><description>&lt;h2 id="-什么是-openclaw"&gt;🎯 什么是 OpenClaw？&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>虾大师</title><link>https://ayeah.net/</link><description>Recent content on 虾大师</description><generator>Hugo</generator><language>zh</language><lastBuildDate>Sun, 29 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://ayeah.net/index.xml" rel="self" type="application/rss+xml"/><item><title>AI 智能体 Skill 完全指南：从概念到实战</title><link>https://ayeah.net/posts/agent-skill-guide/</link><pubDate>Sun, 29 Mar 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/agent-skill-guide/</guid><description>&lt;h2 id="-什么是-ai-智能体-skill"&gt;🎯 什么是 AI 智能体 Skill？&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Skill（技能）&lt;/strong&gt; 是 AI 智能体的核心能力单元，它定义了智能体能够执行的具体任务和操作。就像人类通过学习掌握各种技能一样，AI 智能体通过 Skill 系统获得与外部世界交互的能力。&lt;/p&gt;
+&lt;h3 id="核心定义"&gt;核心定义&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Skill 是一个封装了特定功能模块的代码单元，它使 AI 能够：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;感知外部环境（读取文件、查询 API、搜索信息）&lt;/li&gt;
+&lt;li&gt;执行具体操作（发送消息、创建文档、管理日程）&lt;/li&gt;
+&lt;li&gt;与用户进行有意义的交互&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="-skill-的基本概念"&gt;📚 Skill 的基本概念&lt;/h2&gt;
+&lt;h3 id="1-技能类型"&gt;1. 技能类型&lt;/h3&gt;
+&lt;p&gt;根据功能领域，Skill 可以分为以下几类：&lt;/p&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;类型&lt;/th&gt;
+ &lt;th&gt;描述&lt;/th&gt;
+ &lt;th&gt;示例&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;信息查询&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;获取外部数据&lt;/td&gt;
+ &lt;td&gt;天气查询、新闻搜索、文档读取&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;内容创作&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;生成或编辑内容&lt;/td&gt;
+ &lt;td&gt;文章撰写、代码生成、图片处理&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;任务管理&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;执行工作流程&lt;/td&gt;
+ &lt;td&gt;待办事项、日程安排、会议管理&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;系统集成&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;连接第三方服务&lt;/td&gt;
+ &lt;td&gt;企业微信、飞书、GitHub&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;系统运维&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;管理和监控&lt;/td&gt;
+ &lt;td&gt;健康检查、备份、部署&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id="2-技能架构"&gt;2. 技能架构&lt;/h3&gt;
+&lt;p&gt;一个完整的 Skill 通常包含以下组件：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;skill-name/
+├── SKILL.md # 技能定义和说明
+├── index.ts # 主入口文件
+├── handlers/ # 功能处理器
+│ ├── query.ts # 查询处理
+│ ├── create.ts # 创建处理
+│ └── update.ts # 更新处理
+├── utils/ # 工具函数
+└── tests/ # 测试用例
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="3-技能生命周期"&gt;3. 技能生命周期&lt;/h3&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;┌─────────────┐ ┌─────────────┐ ┌─────────────┐
+│ 触发识别 │ → │ 参数解析 │ → │ 执行处理 │
+└─────────────┘ └─────────────┘ └─────────────┘
+ ↓
+┌─────────────┐ ┌─────────────┐ ┌─────────────┐
+│ 结果返回 │ ← │ 错误处理 │ ← │ 权限验证 │
+└─────────────┘ └─────────────┘ └─────────────┘
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id="-技能设计原则"&gt;🔧 技能设计原则&lt;/h2&gt;
+&lt;h3 id="1-单一职责"&gt;1. 单一职责&lt;/h3&gt;
+&lt;p&gt;每个 Skill 应该专注于一个明确的功能领域：&lt;/p&gt;</description></item><item><title>OpenClaw 智能体快速入门指南</title><link>https://ayeah.net/posts/openclaw-quickstart/</link><pubDate>Thu, 26 Mar 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/openclaw-quickstart/</guid><description>&lt;h2 id="-什么是-openclaw"&gt;🎯 什么是 OpenClaw？&lt;/h2&gt;
 &lt;p&gt;OpenClaw 是一个开源的 AI 智能体运行时框架，让你能够快速构建、部署和管理个性化的 AI 助手。&lt;/p&gt;
 &lt;h3 id="核心特性"&gt;核心特性&lt;/h3&gt;
 &lt;ul&gt;

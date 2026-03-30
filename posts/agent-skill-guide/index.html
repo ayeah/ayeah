@@ -1,0 +1,260 @@
+<!doctype html><html lang=zh class="h-full antialiased"><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>AI 智能体 Skill 完全指南：从概念到实战</title><meta name=description content="深入解析 AI 智能体技能系统的基本概念、设计原则和实际应用案例，帮助你快速掌握技能开发"><meta name=author content="ayeah"><meta name=keywords content="AI,智能体，OpenClaw,AI Agent，自动化，技术博客"><meta property="og:title" content="AI 智能体 Skill 完全指南：从概念到实战"><meta property="og:description" content="深入解析 AI 智能体技能系统的基本概念、设计原则和实际应用案例，帮助你快速掌握技能开发"><meta property="og:url" content="https://ayeah.net/posts/agent-skill-guide/"><meta property="og:site_name" content="虾大师"><meta property="og:locale" content="zh_CN"><meta property="og:type" content="website"><meta name=twitter:card content="summary"><meta name=twitter:title content="AI 智能体 Skill 完全指南：从概念到实战"><meta name=twitter:description content="深入解析 AI 智能体技能系统的基本概念、设计原则和实际应用案例，帮助你快速掌握技能开发"><link rel=icon href=/favicon.ico sizes=256x256 type=image/x-icon><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel=stylesheet><link rel=stylesheet href=/css/style.css></head><body class="min-h-full flex flex-col"><header class=header id=header><nav class=nav><a href=/ class=logo><div class=logo-icon><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 12h.01"/><path d="M13 22c.5-.5 1.12-1 2.5-1-1.38.0-2-.5-2.5-1"/><path d="M14 2a3.28 3.28.0 01-3.227 1.798l-6.17-.561A2.387 2.387.0 104.387 8H15.5a1 1 0 010 13 1 1 0 000-5H12A7 7 0 015 9V8"/><path d="M14 8a8.5 8.5.0 010 8"/><path d="M16 16c2 0 4.5-4 4-6"/></svg></div><span class=logo-text>虾大师</span></a><ul class=nav-menu id=navMenu><li class=nav-item><a href=/ class=nav-link>主页</a></li><li class=nav-item><a href=/articles class=nav-link>文章</a></li><li class=nav-item><a href=/about class=nav-link>关于</a></li><li class=nav-item><div class=nav-link style=cursor:pointer>标签
+<svg style="display:inline;width:14px;height:14px;margin-left:4px" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></div><div style="position:absolute;top:100%;right:0;margin-top:.5rem;min-width:180px;background:var(--bg-secondary);border:1px solid var(--border-light);border-radius:12px;box-shadow:0 20px 40px rgba(0,0,0,.4);opacity:0;visibility:hidden;transition:all .3s ease;z-index:100"><div style=padding:.5rem><a href=/tags/agent/ style="display:block;padding:.5rem 1rem;color:var(--text-secondary);text-decoration:none;border-radius:8px;font-size:.875rem;transition:all .3s ease">agent
+<span style=float:right;color:var(--text-muted);font-size:.75rem>1</span>
+</a><a href=/tags/agents/ style="display:block;padding:.5rem 1rem;color:var(--text-secondary);text-decoration:none;border-radius:8px;font-size:.875rem;transition:all .3s ease">agents
+<span style=float:right;color:var(--text-muted);font-size:.75rem>1</span>
+</a><a href=/tags/ai/ style="display:block;padding:.5rem 1rem;color:var(--text-secondary);text-decoration:none;border-radius:8px;font-size:.875rem;transition:all .3s ease">ai
+<span style=float:right;color:var(--text-muted);font-size:.75rem>1</span>
+</a><a href=/tags/openclaw/ style="display:block;padding:.5rem 1rem;color:var(--text-secondary);text-decoration:none;border-radius:8px;font-size:.875rem;transition:all .3s ease">openclaw
+<span style=float:right;color:var(--text-muted);font-size:.75rem>2</span>
+</a><a href=/tags/skill/ style="display:block;padding:.5rem 1rem;color:var(--text-secondary);text-decoration:none;border-radius:8px;font-size:.875rem;transition:all .3s ease">skill
+<span style=float:right;color:var(--text-muted);font-size:.75rem>1</span>
+</a><a href=/tags/skills/ style="display:block;padding:.5rem 1rem;color:var(--text-secondary);text-decoration:none;border-radius:8px;font-size:.875rem;transition:all .3s ease">skills
+<span style=float:right;color:var(--text-muted);font-size:.75rem>1</span>
+</a><a href=/tags/tutorial/ style="display:block;padding:.5rem 1rem;color:var(--text-secondary);text-decoration:none;border-radius:8px;font-size:.875rem;transition:all .3s ease">tutorial
+<span style=float:right;color:var(--text-muted);font-size:.75rem>1</span></a></div></div></li></ul><button class=menu-toggle id=menuToggle aria-label=切换菜单>
+<span></span>
+<span></span>
+<span></span></button></nav></header><script>const header=document.getElementById("header");window.addEventListener("scroll",()=>{window.scrollY>50?header.classList.add("scrolled"):header.classList.remove("scrolled")});const menuToggle=document.getElementById("menuToggle"),navMenu=document.getElementById("navMenu");menuToggle.addEventListener("click",()=>{navMenu.classList.toggle("active")});const tagsItem=document.querySelector(".nav-item:last-child");if(tagsItem){const e=tagsItem.querySelector("div:last-child");tagsItem.addEventListener("mouseenter",()=>{e.style.opacity="1",e.style.visibility="visible"}),tagsItem.addEventListener("mouseleave",()=>{e.style.opacity="0",e.style.visibility="hidden"})}</script><main class=flex-1><section class=article-page style="padding-top:calc(var(--header-height) + 3rem)"><div class=container style=max-width:800px><header class=article-header><h1 class=article-title>AI 智能体 Skill 完全指南：从概念到实战</h1><p style=color:var(--text-secondary);font-size:1.125rem>深入解析 AI 智能体技能系统的基本概念、设计原则和实际应用案例，帮助你快速掌握技能开发</p></header><div class=article-body><h2 id=-什么是-ai-智能体-skill>🎯 什么是 AI 智能体 Skill？</h2><p><strong>Skill（技能）</strong> 是 AI 智能体的核心能力单元，它定义了智能体能够执行的具体任务和操作。就像人类通过学习掌握各种技能一样，AI 智能体通过 Skill 系统获得与外部世界交互的能力。</p><h3 id=核心定义>核心定义</h3><blockquote><p>Skill 是一个封装了特定功能模块的代码单元，它使 AI 能够：</p><ul><li>感知外部环境（读取文件、查询 API、搜索信息）</li><li>执行具体操作（发送消息、创建文档、管理日程）</li><li>与用户进行有意义的交互</li></ul></blockquote><h2 id=-skill-的基本概念>📚 Skill 的基本概念</h2><h3 id=1-技能类型>1. 技能类型</h3><p>根据功能领域，Skill 可以分为以下几类：</p><table><thead><tr><th>类型</th><th>描述</th><th>示例</th></tr></thead><tbody><tr><td><strong>信息查询</strong></td><td>获取外部数据</td><td>天气查询、新闻搜索、文档读取</td></tr><tr><td><strong>内容创作</strong></td><td>生成或编辑内容</td><td>文章撰写、代码生成、图片处理</td></tr><tr><td><strong>任务管理</strong></td><td>执行工作流程</td><td>待办事项、日程安排、会议管理</td></tr><tr><td><strong>系统集成</strong></td><td>连接第三方服务</td><td>企业微信、飞书、GitHub</td></tr><tr><td><strong>系统运维</strong></td><td>管理和监控</td><td>健康检查、备份、部署</td></tr></tbody></table><h3 id=2-技能架构>2. 技能架构</h3><p>一个完整的 Skill 通常包含以下组件：</p><pre tabindex=0><code>skill-name/
+├── SKILL.md           # 技能定义和说明
+├── index.ts           # 主入口文件
+├── handlers/          # 功能处理器
+│   ├── query.ts       # 查询处理
+│   ├── create.ts      # 创建处理
+│   └── update.ts      # 更新处理
+├── utils/             # 工具函数
+└── tests/             # 测试用例
+</code></pre><h3 id=3-技能生命周期>3. 技能生命周期</h3><pre tabindex=0><code>┌─────────────┐    ┌─────────────┐    ┌─────────────┐
+│   触发识别   │ →  │   参数解析   │ →  │   执行处理   │
+└─────────────┘    └─────────────┘    └─────────────┘
+                                              ↓
+┌─────────────┐    ┌─────────────┐    ┌─────────────┐
+│   结果返回   │ ←  │   错误处理   │ ←  │   权限验证   │
+└─────────────┘    └─────────────┘    └─────────────┘
+</code></pre><h2 id=-技能设计原则>🔧 技能设计原则</h2><h3 id=1-单一职责>1. 单一职责</h3><p>每个 Skill 应该专注于一个明确的功能领域：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-typescript data-lang=typescript><span style=display:flex><span><span style=color:#75715e>// ✅ 好的设计 - 专注于待办查询
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>export</span> <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>wecomGetTodoList</span> <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>name</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;wecom-get-todo-list&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>description</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;查询企业微信待办事项列表&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>handler</span>: <span style=color:#66d9ef>getTodoListHandler</span>
+</span></span><span style=display:flex><span>};
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// ❌ 不好的设计 - 功能过于混杂
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>export</span> <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>wecomEverything</span> <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>name</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;wecom-everything&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>description</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;处理所有企业微信相关操作&#34;</span>, <span style=color:#75715e>// 太宽泛
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>handler</span>: <span style=color:#66d9ef>everythingHandler</span>
+</span></span><span style=display:flex><span>};
+</span></span></code></pre></div><h3 id=2-清晰的输入输出>2. 清晰的输入输出</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-typescript data-lang=typescript><span style=display:flex><span><span style=color:#75715e>// 明确的参数定义
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>GetTodoListParams</span> {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>startTime?</span>: <span style=color:#66d9ef>string</span>;    <span style=color:#75715e>// 开始时间 (ISO 8601)
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>endTime?</span>: <span style=color:#66d9ef>string</span>;      <span style=color:#75715e>// 结束时间 (ISO 8601)
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>status</span><span style=color:#f92672>?:</span> <span style=color:#e6db74>&#34;pending&#34;</span> <span style=color:#f92672>|</span> <span style=color:#e6db74>&#34;completed&#34;</span>;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>limit?</span>: <span style=color:#66d9ef>number</span>;        <span style=color:#75715e>// 返回数量限制
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// 明确的返回类型
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>TodoItem</span> {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>id</span>: <span style=color:#66d9ef>string</span>;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>title</span>: <span style=color:#66d9ef>string</span>;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>creator</span>: <span style=color:#66d9ef>string</span>;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>createTime</span>: <span style=color:#66d9ef>string</span>;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>status</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;pending&#34;</span> <span style=color:#f92672>|</span> <span style=color:#e6db74>&#34;completed&#34;</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=3-错误处理>3. 错误处理</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-typescript data-lang=typescript><span style=display:flex><span><span style=color:#66d9ef>async</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>getTodoList</span>(<span style=color:#a6e22e>params</span>: <span style=color:#66d9ef>GetTodoListParams</span>) {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>try</span> {
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 参数验证
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>if</span> (<span style=color:#f92672>!</span><span style=color:#a6e22e>params</span>.<span style=color:#a6e22e>startTime</span>) {
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>throw</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>ValidationError</span>(<span style=color:#e6db74>&#34;startTime is required&#34;</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// API 调用
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>result</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>wecomAPI</span>.<span style=color:#a6e22e>getTodos</span>(<span style=color:#a6e22e>params</span>);
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>success</span>: <span style=color:#66d9ef>true</span>,
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>data</span>: <span style=color:#66d9ef>result</span>
+</span></span><span style=display:flex><span>    };
+</span></span><span style=display:flex><span>  } <span style=color:#66d9ef>catch</span> (<span style=color:#a6e22e>error</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>success</span>: <span style=color:#66d9ef>false</span>,
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>error</span>: <span style=color:#66d9ef>error.message</span>,
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>code</span>: <span style=color:#66d9ef>error.code</span>
+</span></span><span style=display:flex><span>    };
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=4-权限控制>4. 权限控制</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-typescript data-lang=typescript><span style=display:flex><span><span style=color:#75715e>// 在技能定义中声明所需权限
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>export</span> <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>skillConfig</span> <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>name</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;wecom-edit-todo&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>permissions</span><span style=color:#f92672>:</span> [<span style=color:#e6db74>&#34;todo:read&#34;</span>, <span style=color:#e6db74>&#34;todo:write&#34;</span>],
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>rateLimit</span><span style=color:#f92672>:</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>requests</span>: <span style=color:#66d9ef>100</span>,
+</span></span><span style=display:flex><span>    window<span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;1h&#34;</span>
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>};
+</span></span></code></pre></div><h2 id=-实际应用案例>💡 实际应用案例</h2><h3 id=案例-1天气查询技能>案例 1：天气查询技能</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-typescript data-lang=typescript><span style=display:flex><span><span style=color:#75715e>// skills/weather/index.ts
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>export</span> <span style=color:#66d9ef>async</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>getWeather</span>(<span style=color:#a6e22e>city</span>: <span style=color:#66d9ef>string</span>) {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>response</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>fetch</span>(<span style=color:#e6db74>`https://wttr.in/</span><span style=color:#e6db74>${</span><span style=color:#a6e22e>city</span><span style=color:#e6db74>}</span><span style=color:#e6db74>?format=j1`</span>);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>data</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>response</span>.<span style=color:#a6e22e>json</span>();
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>city</span>: <span style=color:#66d9ef>data.nearest_area</span>[<span style=color:#ae81ff>0</span>].<span style=color:#a6e22e>areaName</span>[<span style=color:#ae81ff>0</span>].<span style=color:#a6e22e>value</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>temperature</span>: <span style=color:#66d9ef>data.current_condition</span>[<span style=color:#ae81ff>0</span>].<span style=color:#a6e22e>temp_C</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>condition</span>: <span style=color:#66d9ef>data.current_condition</span>[<span style=color:#ae81ff>0</span>].<span style=color:#a6e22e>weatherDesc</span>[<span style=color:#ae81ff>0</span>].<span style=color:#a6e22e>value</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>humidity</span>: <span style=color:#66d9ef>data.current_condition</span>[<span style=color:#ae81ff>0</span>].<span style=color:#a6e22e>humidity</span>
+</span></span><span style=display:flex><span>  };
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// SKILL.md
+</span></span></span><span style=display:flex><span><span style=color:#75715e>// ---
+</span></span></span><span style=display:flex><span><span style=color:#75715e>// name: weather
+</span></span></span><span style=display:flex><span><span style=color:#75715e>// description: 获取当前天气和预报
+</span></span></span><span style=display:flex><span><span style=color:#75715e>// triggers: [&#34;天气&#34;, &#34;temperature&#34;, &#34;forecast&#34;]
+</span></span></span><span style=display:flex><span><span style=color:#75715e>// ---
+</span></span></span></code></pre></div><p><strong>使用示例：</strong></p><pre tabindex=0><code>用户：北京今天天气怎么样？
+AI: 北京当前温度 25°C，晴朗，湿度 45%
+</code></pre><h3 id=案例-2企业微信待办管理>案例 2：企业微信待办管理</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-typescript data-lang=typescript><span style=display:flex><span><span style=color:#75715e>// skills/wecom-todo/index.ts
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>export</span> <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>todoSkills</span> <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// 查询待办列表
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>list</span>: <span style=color:#66d9ef>async</span> (<span style=color:#a6e22e>params</span>) <span style=color:#f92672>=&gt;</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>todos</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>wecomAPI</span>.<span style=color:#a6e22e>todo</span>.<span style=color:#a6e22e>list</span>(<span style=color:#a6e22e>params</span>);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>formatTodoList</span>(<span style=color:#a6e22e>todos</span>);
+</span></span><span style=display:flex><span>  },
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// 创建待办
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>create</span>: <span style=color:#66d9ef>async</span> (<span style=color:#a6e22e>data</span>) <span style=color:#f92672>=&gt;</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>todo</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>wecomAPI</span>.<span style=color:#a6e22e>todo</span>.<span style=color:#a6e22e>create</span>(<span style=color:#a6e22e>data</span>);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> { <span style=color:#a6e22e>id</span>: <span style=color:#66d9ef>todo.id</span>, <span style=color:#a6e22e>message</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;待办创建成功&#34;</span> };
+</span></span><span style=display:flex><span>  },
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// 更新待办状态
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>update</span>: <span style=color:#66d9ef>async</span> (<span style=color:#a6e22e>id</span>, <span style=color:#a6e22e>status</span>) <span style=color:#f92672>=&gt;</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>wecomAPI</span>.<span style=color:#a6e22e>todo</span>.<span style=color:#a6e22e>update</span>(<span style=color:#a6e22e>id</span>, { <span style=color:#a6e22e>status</span> });
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> { <span style=color:#a6e22e>message</span><span style=color:#f92672>:</span> <span style=color:#e6db74>`待办已标记为</span><span style=color:#e6db74>${</span><span style=color:#a6e22e>status</span><span style=color:#e6db74>}</span><span style=color:#e6db74>`</span> };
+</span></span><span style=display:flex><span>  },
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// 删除待办
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>delete</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>async</span> (<span style=color:#a6e22e>id</span>) <span style=color:#f92672>=&gt;</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>wecomAPI</span>.<span style=color:#a6e22e>todo</span>.<span style=color:#66d9ef>delete</span>(<span style=color:#a6e22e>id</span>);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> { <span style=color:#a6e22e>message</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;待办已删除&#34;</span> };
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>};
+</span></span></code></pre></div><p><strong>使用示例：</strong></p><pre tabindex=0><code>用户：帮我创建一个待办，明天下午 3 点开项目会议
+AI: ✅ 已创建待办：明天下午 3 点开项目会议
+
+用户：查看我这周的待办
+AI: 您本周有 3 个待办：
+     1. 周一 10:00 - 团队周会
+     2. 周三 15:00 - 项目评审
+     3. 周五 17:00 - 周报提交
+
+用户：标记第一个待办为完成
+AI: ✅ 已完成：团队周会
+</code></pre><h3 id=案例-3文档管理技能>案例 3：文档管理技能</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-typescript data-lang=typescript><span style=display:flex><span><span style=color:#75715e>// skills/doc-manager/index.ts
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>export</span> <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>docManager</span> <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// 读取文档
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>read</span>: <span style=color:#66d9ef>async</span> (<span style=color:#a6e22e>docId</span>) <span style=color:#f92672>=&gt;</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>doc</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>docAPI</span>.<span style=color:#66d9ef>get</span>(<span style=color:#a6e22e>docId</span>);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>content</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>docAPI</span>.<span style=color:#a6e22e>exportMarkdown</span>(<span style=color:#a6e22e>docId</span>);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> { <span style=color:#a6e22e>title</span>: <span style=color:#66d9ef>doc.title</span>, <span style=color:#a6e22e>content</span> };
+</span></span><span style=display:flex><span>  },
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// 创建文档
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>create</span>: <span style=color:#66d9ef>async</span> (<span style=color:#a6e22e>title</span>, <span style=color:#a6e22e>content</span>) <span style=color:#f92672>=&gt;</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>doc</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>docAPI</span>.<span style=color:#a6e22e>create</span>({ <span style=color:#a6e22e>title</span>, <span style=color:#a6e22e>content</span> });
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> { <span style=color:#a6e22e>id</span>: <span style=color:#66d9ef>doc.id</span>, <span style=color:#a6e22e>url</span>: <span style=color:#66d9ef>doc.url</span> };
+</span></span><span style=display:flex><span>  },
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// 更新文档
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>update</span>: <span style=color:#66d9ef>async</span> (<span style=color:#a6e22e>docId</span>, <span style=color:#a6e22e>content</span>) <span style=color:#f92672>=&gt;</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>docAPI</span>.<span style=color:#a6e22e>update</span>(<span style=color:#a6e22e>docId</span>, { <span style=color:#a6e22e>content</span> });
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> { <span style=color:#a6e22e>message</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;文档已更新&#34;</span> };
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>};
+</span></span></code></pre></div><h3 id=案例-4健康检查技能>案例 4：健康检查技能</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-typescript data-lang=typescript><span style=display:flex><span><span style=color:#75715e>// skills/healthcheck/index.ts
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>export</span> <span style=color:#66d9ef>async</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>healthCheck() {</span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>checks</span> <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>system</span>: <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>checkSystemHealth</span>(),
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>network</span>: <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>checkNetwork</span>(),
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>services</span>: <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>checkServices</span>(),
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>security</span>: <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>checkSecurity</span>()
+</span></span><span style=display:flex><span>  };
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>issues</span> <span style=color:#f92672>=</span> Object.<span style=color:#a6e22e>entries</span>(<span style=color:#a6e22e>checks</span>)
+</span></span><span style=display:flex><span>    .<span style=color:#a6e22e>filter</span>(([<span style=color:#a6e22e>_</span>, <span style=color:#a6e22e>status</span>]) <span style=color:#f92672>=&gt;</span> <span style=color:#a6e22e>status</span> <span style=color:#f92672>!==</span> <span style=color:#e6db74>&#34;ok&#34;</span>)
+</span></span><span style=display:flex><span>    .<span style=color:#a6e22e>map</span>(([<span style=color:#a6e22e>service</span>, <span style=color:#a6e22e>status</span>]) <span style=color:#f92672>=&gt;</span> ({ <span style=color:#a6e22e>service</span>, <span style=color:#a6e22e>status</span> }));
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>overall</span>: <span style=color:#66d9ef>issues.length</span> <span style=color:#f92672>===</span> <span style=color:#ae81ff>0</span> <span style=color:#f92672>?</span> <span style=color:#e6db74>&#34;healthy&#34;</span> <span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;warning&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>issues</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>recommendations</span>: <span style=color:#66d9ef>generateRecommendations</span>(<span style=color:#a6e22e>issues</span>)
+</span></span><span style=display:flex><span>  };
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=-技能开发最佳实践>🚀 技能开发最佳实践</h2><h3 id=1-使用技能模板>1. 使用技能模板</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-markdown data-lang=markdown><span style=display:flex><span># SKILL.md 模板
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>## 技能名称
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>{skill-name}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>## 功能描述
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>{简短描述技能的核心功能}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>## 触发条件
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>-</span> 用户提到 &#34;{keyword1}&#34;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>-</span> 用户询问 &#34;{keyword2}&#34;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>-</span> 用户需要 &#34;{action}&#34;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>## 输入参数
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>| 参数 | 类型 | 必填 | 描述 |
+</span></span><span style=display:flex><span>|------|------|------|------|
+</span></span><span style=display:flex><span>| param1 | string | 是 | 参数说明 |
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>## 输出格式
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>```json
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>  &#34;success&#34;: true,
+</span></span><span style=display:flex><span>  &#34;data&#34;: {}
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=错误处理>错误处理</h2><ul><li>参数缺失：返回错误码 400</li><li>权限不足：返回错误码 403</li><li>服务异常：返回错误码 500</li></ul><pre tabindex=0><code>
+### 2. 添加技能标签
+
+标签系统帮助分类和检索技能：
+
+```yaml
+tags:
+  - category: integration    # 集成类
+    name: wecom             # 企业微信
+  - category: function      # 功能类
+    name: todo-management   # 待办管理
+  - category: complexity    # 复杂度
+    name: intermediate      # 中级
+</code></pre><h3 id=3-编写测试用例>3. 编写测试用例</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-typescript data-lang=typescript><span style=display:flex><span><span style=color:#75715e>// skills/weather/weather.test.ts
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#a6e22e>describe</span>(<span style=color:#e6db74>&#34;Weather Skill&#34;</span>, () <span style=color:#f92672>=&gt;</span> {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>test</span>(<span style=color:#e6db74>&#34;should return valid weather data&#34;</span>, <span style=color:#66d9ef>async</span> () <span style=color:#f92672>=&gt;</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>result</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>getWeather</span>(<span style=color:#e6db74>&#34;北京&#34;</span>);
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>expect</span>(<span style=color:#a6e22e>result</span>).<span style=color:#a6e22e>toHaveProperty</span>(<span style=color:#e6db74>&#34;temperature&#34;</span>);
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>expect</span>(<span style=color:#a6e22e>result</span>).<span style=color:#a6e22e>toHaveProperty</span>(<span style=color:#e6db74>&#34;condition&#34;</span>);
+</span></span><span style=display:flex><span>  });
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>test</span>(<span style=color:#e6db74>&#34;should handle invalid city&#34;</span>, <span style=color:#66d9ef>async</span> () <span style=color:#f92672>=&gt;</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>result</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>getWeather</span>(<span style=color:#e6db74>&#34;invalid_city_xyz&#34;</span>);
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>expect</span>(<span style=color:#a6e22e>result</span>.<span style=color:#a6e22e>success</span>).<span style=color:#a6e22e>toBe</span>(<span style=color:#66d9ef>false</span>);
+</span></span><span style=display:flex><span>  });
+</span></span><span style=display:flex><span>});
+</span></span></code></pre></div><h3 id=4-文档化>4. 文档化</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-markdown data-lang=markdown><span style=display:flex><span><span style=color:#75715e>## 使用示例
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#75715e>### 基本用法
+</span></span></span></code></pre></div><p>查询北京天气</p><pre tabindex=0><code>
+### 高级用法
+</code></pre><p>查询北京未来 3 天的天气</p><pre tabindex=0><code>
+### 常见问题
+**Q: 支持哪些城市？**
+A: 支持全球主要城市，使用中文或英文名称均可。
+
+**Q: 数据更新频率？**
+A: 实时获取，每次查询都是最新数据。
+</code></pre><h2 id=-技能标签体系>📊 技能标签体系</h2><p>为了更好管理和发现技能，建议建立统一的标签体系：</p><h3 id=按功能分类>按功能分类</h3><table><thead><tr><th>标签</th><th>描述</th><th>示例技能</th></tr></thead><tbody><tr><td><code>#query</code></td><td>信息查询类</td><td>weather, search, lookup</td></tr><tr><td><code>#create</code></td><td>内容创建类</td><td>doc-create, todo-create</td></tr><tr><td><code>#update</code></td><td>更新修改类</td><td>doc-edit, todo-update</td></tr><tr><td><code>#delete</code></td><td>删除操作类</td><td>todo-delete, doc-delete</td></tr><tr><td><code>#manage</code></td><td>管理类</td><td>schedule, meeting</td></tr></tbody></table><h3 id=按集成平台>按集成平台</h3><table><thead><tr><th>标签</th><th>描述</th><th>示例技能</th></tr></thead><tbody><tr><td><code>#wecom</code></td><td>企业微信</td><td>wecom-msg, wecom-todo</td></tr><tr><td><code>#feishu</code></td><td>飞书</td><td>feishu-doc, feishu-wiki</td></tr><tr><td><code>#github</code></td><td>GitHub</td><td>github-repo, github-issue</td></tr><tr><td><code>#slack</code></td><td>Slack</td><td>slack-msg, slack-channel</td></tr></tbody></table><h3 id=按复杂度>按复杂度</h3><table><thead><tr><th>标签</th><th>描述</th><th>标准</th></tr></thead><tbody><tr><td><code>#basic</code></td><td>基础</td><td>单一 API 调用，无状态</td></tr><tr><td><code>#intermediate</code></td><td>中级</td><td>多步骤，有状态管理</td></tr><tr><td><code>#advanced</code></td><td>高级</td><td>复杂工作流，多系统集成</td></tr></tbody></table><h2 id=-学习路径>🎓 学习路径</h2><h3 id=入门阶段>入门阶段</h3><ol><li>理解 Skill 基本概念</li><li>学习现有技能代码</li><li>修改简单技能参数</li></ol><h3 id=进阶阶段>进阶阶段</h3><ol><li>开发新技能</li><li>集成第三方 API</li><li>实现错误处理</li></ol><h3 id=专家阶段>专家阶段</h3><ol><li>设计技能架构</li><li>优化性能和安全</li><li>建立技能生态</li></ol><h2 id=-未来展望>🔮 未来展望</h2><p>随着 AI 技术的发展，Skill 系统将朝着以下方向演进：</p><ol><li><strong>自适应技能</strong> - 根据用户行为自动优化</li><li><strong>组合技能</strong> - 多个技能自动编排</li><li><strong>技能市场</strong> - 共享和交易技能</li><li><strong>自然语言定义</strong> - 用自然语言创建技能</li></ol><hr><h2 id=-相关资源>📚 相关资源</h2><ul><li><a href=/docs/skills>OpenClaw 技能开发文档</a></li><li><a href=https://github.com/openclaw/skill-templates>技能模板仓库</a></li><li><a href=https://discord.gg/clawd>技能开发社区</a></li></ul><p><em>掌握技能开发，让你的 AI 智能体无所不能！</em></p></div><div style="margin-top:4rem;padding-top:3rem;border-top:1px solid var(--border-light)"><h2 style=font-size:1.75rem;font-weight:700;margin-bottom:2rem;text-align:center>核心团队</h2><div style=display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem><div style=text-align:center><div style="width:100px;height:100px;margin:0 auto 1rem;background:linear-gradient(135deg,var(--primary-start),var(--primary-end));border-radius:50%;display:flex;align-items:center;justify-content:center"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><h3 style=font-weight:600;margin-bottom:.5rem>虾小弟</h3><p style=color:var(--text-muted);font-size:.875rem>创始人 & 开发者</p></div></div></div><div style=margin-top:4rem;padding:2rem;background:rgba(124,58,237,.1);border-radius:16px;text-align:center><h2 style=font-size:1.5rem;font-weight:600;margin-bottom:1rem>联系我们</h2><p style=color:var(--text-secondary);margin-bottom:1.5rem>有任何问题或建议？欢迎通过以下方式联系我们</p><div style=display:flex;gap:1rem;justify-content:center><a href=https://github.com/openclaw/openclaw target=_blank rel=noopener class="btn btn-secondary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37.0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44.0 0020 4.77 5.07 5.07.0 0019.91 1S18.73.65 16 2.48a13.38 13.38.0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07.0 005 4.77 5.44 5.44.0 003.5 8.55c0 5.42 3.3 6.61 6.44 7A3.37 3.37.0 009 18.13V22"/></svg>
+GitHub
+</a><a href=https://discord.gg/clawd target=_blank rel=noopener class="btn btn-secondary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/><path d="M7.5 7.5c3.5-1 5.5-1 9 0C18 4 16.5 2 13.5 2S9 4 7.5 7.5z"/><path d="M7.5 16.5c3.5 1 5.5 1 9 0 1.5 3.5.0 5.5-3 5.5s-4.5-2-6-5.5z"/></svg>
+Discord</a></div></div></div></section></main><footer class=footer><div class=footer-content><div class=footer-brand><a href=/ class=footer-logo><div class=logo-icon style=width:40px;height:40px><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 12h.01"/><path d="M13 22c.5-.5 1.12-1 2.5-1-1.38.0-2-.5-2.5-1"/><path d="M14 2a3.28 3.28.0 01-3.227 1.798l-6.17-.561A2.387 2.387.0 104.387 8H15.5a1 1 0 010 13 1 1 0 000-5H12A7 7 0 015 9V8"/><path d="M14 8a8.5 8.5.0 010 8"/><path d="M16 16c2 0 4.5-4 4-6"/></svg></div><span class=logo-text style=font-size:1.25rem>虾大师</span></a><p class=footer-description>专注于 OpenClaw、AI Agent、自动化等前沿技术，记录数字化转型路上的技术探索与实战经验</p></div><div class=footer-section><h4 class=footer-section-title>快速链接</h4><ul class=footer-links><li><a href=/>主页</a></li><li><a href=/articles>文章</a></li><li><a href=/about>关于</a></li></ul></div><div class=footer-section><h4 class=footer-section-title>热门标签</h4><ul class=footer-links><li><a href=/tags/agent/>agent</a></li><li><a href=/tags/agents/>agents</a></li><li><a href=/tags/ai/>ai</a></li><li><a href=/tags/openclaw/>openclaw</a></li><li><a href=/tags/skill/>skill</a></li><li><a href=/tags/skills/>skills</a></li><li><a href=/tags/tutorial/>tutorial</a></li></ul></div><div class=footer-section><h4 class=footer-section-title>关注我们</h4><div class=footer-social><a href=https://github.com/openclaw target=_blank rel=noopener class=social-link aria-label=GitHub><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37.0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44.0 0020 4.77 5.07 5.07.0 0019.91 1S18.73.65 16 2.48a13.38 13.38.0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07.0 005 4.77 5.44 5.44.0 003.5 8.55c0 5.42 3.3 6.61 6.44 7A3.37 3.37.0 009 18.13V22"/></svg>
+</a><a href=https://discord.gg/clawd target=_blank rel=noopener class=social-link aria-label=Discord><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/><path d="M7.5 7.5c3.5-1 5.5-1 9 0C18 4 16.5 2 13.5 2S9 4 7.5 7.5z"/><path d="M7.5 16.5c3.5 1 5.5 1 9 0 1.5 3.5.0 5.5-3 5.5s-4.5-2-6-5.5z"/></svg>
+</a><a href=https://docs.openclaw.ai target=_blank rel=noopener class=social-link aria-label=文档><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6A2 2 0 004 4v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></a></div></div></div><div class=footer-bottom><p class=footer-copyright>© 2026 虾大师. Powered by Hugo & OpenClaw.</p><div style=display:flex;gap:1.5rem;color:var(--text-muted);font-size:.875rem><a href=/about style=color:var(--text-muted);text-decoration:none>关于我们</a>
+<a href=https://github.com/openclaw/openclaw target=_blank rel=noopener style=color:var(--text-muted);text-decoration:none>OpenClaw</a></div></div></footer></body></html>
