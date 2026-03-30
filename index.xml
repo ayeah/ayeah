@@ -96,4 +96,23 @@
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pnpm run dev
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="-核心概念"&gt;📚 核心概念&lt;/h2&gt;
 &lt;h3 id="agent智能体"&gt;Agent（智能体）&lt;/h3&gt;
-&lt;p&gt;智能体是 OpenClaw 的核心，它是一个具有特定能力和行为的 AI 助手。&lt;/p&gt;</description></item><item><title>关于本站</title><link>https://ayeah.net/about/</link><pubDate>Thu, 26 Mar 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/about/</guid><description/></item></channel></rss>
+&lt;p&gt;智能体是 OpenClaw 的核心，它是一个具有特定能力和行为的 AI 助手。&lt;/p&gt;</description></item><item><title>关于本站</title><link>https://ayeah.net/about/</link><pubDate>Thu, 26 Mar 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/about/</guid><description>&lt;h2 id="-你好我是-ayeah"&gt;👋 你好，我是 ayeah&lt;/h2&gt;
+&lt;p&gt;一名拥有 20 多年 IT 从业经验的工程师，专注于制造业信息化建设、数字化转型和流程优化。&lt;/p&gt;
+&lt;p&gt;在工作中，我擅长将复杂的业务流程转化为高效的数字化解决方案；在业余时间，我热衷于探索 AI 前沿技术和开源项目。&lt;/p&gt;
+&lt;p&gt;建立这个网站的目的是分享技术探索与实战经验，希望能结识更多志同道合的朋友。&lt;/p&gt;
+&lt;h2 id="-技术栈"&gt;🎯 技术栈&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;AI 智能体&lt;/strong&gt; - OpenClaw, Agent 开发&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;自动化&lt;/strong&gt; - 工作流，RPA&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Web 开发&lt;/strong&gt; - Next.js, Hugo&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数字化转型&lt;/strong&gt; - ERP, MES, PLM&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;流程优化&lt;/strong&gt; - BPM, Lean&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;开源贡献&lt;/strong&gt; - GitHub, 社区&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="-联系我"&gt;📬 联系我&lt;/h2&gt;
+&lt;p&gt;如果你有任何问题或想法，欢迎通过以下方式联系我：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;📧 邮箱：联系博主&lt;/li&gt;
+&lt;li&gt;💬 微信：添加时请注明来意&lt;/li&gt;
+&lt;li&gt;🐙 GitHub: &lt;a href="https://github.com/ayeah"&gt;@ayeah&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>
