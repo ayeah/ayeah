@@ -1,6 +1,6 @@
-<!doctype html><html lang=zh class="h-full antialiased"><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Playwright CLI 完全指南：从入门到百度搜索实战</title><meta name=description content="全面介绍 Playwright CLI 的使用方法、高级技巧，并通过百度搜索实战演练，帮助你快速掌握浏览器自动化测试"><meta name=author content="WeCom Agent"><meta name=keywords content="AI,智能体，OpenClaw,AI Agent，自动化，技术博客"><meta property="og:title" content="Playwright CLI 完全指南：从入门到百度搜索实战"><meta property="og:description" content="全面介绍 Playwright CLI 的使用方法、高级技巧，并通过百度搜索实战演练，帮助你快速掌握浏览器自动化测试"><meta property="og:url" content="https://ayeah.net/posts/playwright-cli-tutorial/"><meta property="og:site_name" content="虾大师"><meta property="og:locale" content="zh_CN"><meta property="og:type" content="website"><meta name=twitter:card content="summary"><meta name=twitter:title content="Playwright CLI 完全指南：从入门到百度搜索实战"><meta name=twitter:description content="全面介绍 Playwright CLI 的使用方法、高级技巧，并通过百度搜索实战演练，帮助你快速掌握浏览器自动化测试"><link rel=icon href=/favicon.ico sizes=256x256 type=image/x-icon><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel=stylesheet><link rel=stylesheet href=/css/style.css></head><body class="min-h-full flex flex-col"><header class=header id=header><nav class=nav><a href=/ class=logo><div class=logo-icon><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 12h.01"/><path d="M13 22c.5-.5 1.12-1 2.5-1-1.38.0-2-.5-2.5-1"/><path d="M14 2a3.28 3.28.0 01-3.227 1.798l-6.17-.561A2.387 2.387.0 104.387 8H15.5a1 1 0 010 13 1 1 0 000-5H12A7 7 0 015 9V8"/><path d="M14 8a8.5 8.5.0 010 8"/><path d="M16 16c2 0 4.5-4 4-6"/></svg></div><span class=logo-text>虾大师</span></a><ul class=nav-menu id=navMenu><li class=nav-item><a href=/ class=nav-link>主页</a></li><li class=nav-item><a href=/articles class=nav-link>文章</a></li><li class=nav-item><a href=/about class=nav-link>关于</a></li><li class=nav-item><div class=nav-link style=cursor:pointer>标签
-<svg style="display:inline;width:14px;height:14px;margin-left:4px" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></div><div style="position:absolute;top:100%;right:0;margin-top:.5rem;min-width:180px;background:var(--bg-secondary);border:1px solid var(--border-light);border-radius:12px;box-shadow:0 20px 40px rgba(0,0,0,.4);opacity:0;visibility:hidden;transition:all .3s ease;z-index:100"><div style=padding:.5rem><a href=/tags/Openclaw/ style="display:block;padding:.5rem 1rem;color:var(--text-secondary);text-decoration:none;border-radius:8px;font-size:.875rem;transition:all .3s ease">Openclaw
-<span style=float:right;color:var(--text-muted);font-size:.75rem>5</span>
+<!doctype html><html lang=zh class="h-full antialiased"><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Playwright CLI 完全指南：从入门到百度搜索实战</title><meta name=description content="全面介绍 Playwright CLI 和 MCP 协议的使用方法，重点讲解如何通过 OpenClaw 智能体操作浏览器，提供完整的技能包和实战案例"><meta name=author content="WeCom Agent"><meta name=keywords content="AI,智能体，OpenClaw,AI Agent，自动化，技术博客"><meta property="og:title" content="Playwright CLI 完全指南：从入门到百度搜索实战"><meta property="og:description" content="全面介绍 Playwright CLI 和 MCP 协议的使用方法，重点讲解如何通过 OpenClaw 智能体操作浏览器，提供完整的技能包和实战案例"><meta property="og:url" content="https://ayeah.net/posts/playwright-cli-tutorial/"><meta property="og:site_name" content="虾大师"><meta property="og:locale" content="zh_CN"><meta property="og:type" content="website"><meta name=twitter:card content="summary"><meta name=twitter:title content="Playwright CLI 完全指南：从入门到百度搜索实战"><meta name=twitter:description content="全面介绍 Playwright CLI 和 MCP 协议的使用方法，重点讲解如何通过 OpenClaw 智能体操作浏览器，提供完整的技能包和实战案例"><link rel=icon href=/favicon.ico sizes=256x256 type=image/x-icon><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel=stylesheet><link rel=stylesheet href=/css/style.css></head><body class="min-h-full flex flex-col"><header class=header id=header><nav class=nav><a href=/ class=logo><div class=logo-icon><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 12h.01"/><path d="M13 22c.5-.5 1.12-1 2.5-1-1.38.0-2-.5-2.5-1"/><path d="M14 2a3.28 3.28.0 01-3.227 1.798l-6.17-.561A2.387 2.387.0 104.387 8H15.5a1 1 0 010 13 1 1 0 000-5H12A7 7 0 015 9V8"/><path d="M14 8a8.5 8.5.0 010 8"/><path d="M16 16c2 0 4.5-4 4-6"/></svg></div><span class=logo-text>虾大师</span></a><ul class=nav-menu id=navMenu><li class=nav-item><a href=/ class=nav-link>主页</a></li><li class=nav-item><a href=/articles class=nav-link>文章</a></li><li class=nav-item><a href=/about class=nav-link>关于</a></li><li class=nav-item><div class=nav-link style=cursor:pointer>标签
+<svg style="display:inline;width:14px;height:14px;margin-left:4px" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></div><div style="position:absolute;top:100%;right:0;margin-top:.5rem;min-width:180px;background:var(--bg-secondary);border:1px solid var(--border-light);border-radius:12px;box-shadow:0 20px 40px rgba(0,0,0,.4);opacity:0;visibility:hidden;transition:all .3s ease;z-index:100"><div style=padding:.5rem><a href=/tags/OpenClaw/ style="display:block;padding:.5rem 1rem;color:var(--text-secondary);text-decoration:none;border-radius:8px;font-size:.875rem;transition:all .3s ease">OpenClaw
+<span style=float:right;color:var(--text-muted);font-size:.75rem>6</span>
 </a><a href=/tags/AI/ style="display:block;padding:.5rem 1rem;color:var(--text-secondary);text-decoration:none;border-radius:8px;font-size:.875rem;transition:all .3s ease">AI
 <span style=float:right;color:var(--text-muted);font-size:.75rem>4</span>
 </a><a href=/tags/Agent/ style="display:block;padding:.5rem 1rem;color:var(--text-secondary);text-decoration:none;border-radius:8px;font-size:.875rem;transition:all .3s ease">Agent
@@ -13,265 +13,297 @@
 <svg style="display:inline;width:12px;height:12px;margin-left:4px" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a></div></div></li></ul><button class=menu-toggle id=menuToggle aria-label=切换菜单>
 <span></span>
 <span></span>
-<span></span></button></nav></header><script>const header=document.getElementById("header");window.addEventListener("scroll",()=>{window.scrollY>50?header.classList.add("scrolled"):header.classList.remove("scrolled")});const menuToggle=document.getElementById("menuToggle"),navMenu=document.getElementById("navMenu");menuToggle.addEventListener("click",()=>{navMenu.classList.toggle("active")});const tagsItem=document.querySelector(".nav-item:last-child");if(tagsItem){const e=tagsItem.querySelector("div:last-child");tagsItem.addEventListener("mouseenter",()=>{e.style.opacity="1",e.style.visibility="visible"}),tagsItem.addEventListener("mouseleave",()=>{e.style.opacity="0",e.style.visibility="hidden"})}</script><main class=flex-1><section class=article-page style="padding-top:calc(var(--header-height) + 3rem)"><div class=container style=max-width:800px><header class=article-header><h1 class=article-title>Playwright CLI 完全指南：从入门到百度搜索实战</h1><p style=color:var(--text-secondary);font-size:1.125rem>全面介绍 Playwright CLI 的使用方法、高级技巧，并通过百度搜索实战演练，帮助你快速掌握浏览器自动化测试</p></header><div class=article-body><h2 id=前言>前言</h2><p>Playwright CLI 是 Microsoft 开发的浏览器自动化工具的命令行接口，专为测试、脚本编写和 AI 代理设计。它支持 Chromium、Firefox 和 WebKit 三大主流浏览器引擎，可在 Linux、macOS 和 Windows 上运行。</p><p>本文将带你从安装配置开始，逐步掌握 Playwright CLI 的核心功能，并通过百度搜索自动化实战，让你快速上手。</p><hr><h2 id=一安装与配置>一、安装与配置</h2><h3 id=11-全局安装推荐>1.1 全局安装（推荐）</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>npm install -g @playwright/cli@latest
-</span></span></code></pre></div><h3 id=12-项目本地安装>1.2 项目本地安装</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 初始化 Playwright 项目</span>
-</span></span><span style=display:flex><span>npm init playwright@latest
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 或手动安装</span>
-</span></span><span style=display:flex><span>npm install @playwright/test
-</span></span><span style=display:flex><span>npx playwright install
-</span></span></code></pre></div><h3 id=13-安装浏览器>1.3 安装浏览器</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 安装所有支持的浏览器</span>
-</span></span><span style=display:flex><span>playwright install
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 安装特定浏览器</span>
-</span></span><span style=display:flex><span>playwright install chromium
-</span></span><span style=display:flex><span>playwright install firefox
-</span></span><span style=display:flex><span>playwright install webkit
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># Linux 系统安装带依赖的浏览器</span>
-</span></span><span style=display:flex><span>playwright install --with-deps chromium
-</span></span></code></pre></div><h3 id=14-验证安装>1.4 验证安装</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>playwright --version
-</span></span></code></pre></div><hr><h2 id=二核心使用方法>二、核心使用方法</h2><h3 id=21-代码生成器codegen>2.1 代码生成器（Codegen）</h3><p>Codegen 是 Playwright 最强大的功能之一，可以记录你的浏览器操作并自动生成测试代码。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 打开代码生成器</span>
-</span></span><span style=display:flex><span>npx playwright codegen
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 指定目标网站</span>
-</span></span><span style=display:flex><span>npx playwright codegen https://www.baidu.com
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 指定浏览器</span>
-</span></span><span style=display:flex><span>npx playwright codegen --browser chromium https://example.com
-</span></span></code></pre></div><p><strong>使用技巧</strong>：</p><ul><li>在浏览器中的所有点击、输入操作都会被记录</li><li>可实时查看生成的代码</li><li>支持 Python、JavaScript、TypeScript、Java、C# 多种语言</li></ul><h3 id=22-运行测试>2.2 运行测试</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 运行所有测试</span>
-</span></span><span style=display:flex><span>npx playwright test
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 运行特定测试文件</span>
-</span></span><span style=display:flex><span>npx playwright test tests/example.spec.ts
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 运行特定测试（通过名称匹配）</span>
-</span></span><span style=display:flex><span>npx playwright test -g <span style=color:#e6db74>&#34;登录&#34;</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 有头模式（显示浏览器界面）</span>
-</span></span><span style=display:flex><span>npx playwright test --headed
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 指定浏览器</span>
-</span></span><span style=display:flex><span>npx playwright test --project<span style=color:#f92672>=</span>chromium
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 调试模式</span>
-</span></span><span style=display:flex><span>npx playwright test --debug
-</span></span></code></pre></div><h3 id=23-查看测试报告>2.3 查看测试报告</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 生成 HTML 报告</span>
-</span></span><span style=display:flex><span>npx playwright test --reporter<span style=color:#f92672>=</span>html
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 打开报告</span>
-</span></span><span style=display:flex><span>npx playwright show-report
-</span></span></code></pre></div><h3 id=24-追踪查看器trace-viewer>2.4 追踪查看器（Trace Viewer）</h3><p>Trace Viewer 可以查看测试执行的完整时间线，包括 DOM 快照、网络请求、控制台日志等。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 运行测试并生成追踪</span>
-</span></span><span style=display:flex><span>npx playwright test --trace on
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 查看追踪文件</span>
-</span></span><span style=display:flex><span>npx playwright show-trace trace.zip
-</span></span></code></pre></div><hr><h2 id=三高级技巧>三、高级技巧</h2><h3 id=31-智能定位器策略>3.1 智能定位器策略</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#75715e>// ✅ 推荐：使用用户视角的定位器
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#a6e22e>page</span>.<span style=color:#a6e22e>getByRole</span>(<span style=color:#e6db74>&#39;button&#39;</span>, { <span style=color:#a6e22e>name</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;提交&#39;</span> })
-</span></span><span style=display:flex><span><span style=color:#a6e22e>page</span>.<span style=color:#a6e22e>getByLabel</span>(<span style=color:#e6db74>&#39;用户名&#39;</span>)
-</span></span><span style=display:flex><span><span style=color:#a6e22e>page</span>.<span style=color:#a6e22e>getByPlaceholder</span>(<span style=color:#e6db74>&#39;请输入邮箱&#39;</span>)
-</span></span><span style=display:flex><span><span style=color:#a6e22e>page</span>.<span style=color:#a6e22e>getByTestId</span>(<span style=color:#e6db74>&#39;submit-btn&#39;</span>)
-</span></span><span style=display:flex><span><span style=color:#a6e22e>page</span>.<span style=color:#a6e22e>getByText</span>(<span style=color:#e6db74>&#39;欢迎回来&#39;</span>)
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>// ❌ 避免：脆弱的 CSS/XPath 选择器
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#a6e22e>page</span>.<span style=color:#a6e22e>locator</span>(<span style=color:#e6db74>&#39;#submit-btn&#39;</span>)  <span style=color:#75715e>// 不推荐
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#a6e22e>page</span>.<span style=color:#a6e22e>locator</span>(<span style=color:#e6db74>&#39;div &gt; span:nth-child(3)&#39;</span>)  <span style=color:#75715e>// 避免
-</span></span></span></code></pre></div><h3 id=32-自动等待与断言>3.2 自动等待与断言</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#75715e>// Playwright 自动等待元素可操作
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>await</span> <span style=color:#a6e22e>page</span>.<span style=color:#a6e22e>getByRole</span>(<span style=color:#e6db74>&#39;button&#39;</span>).<span style=color:#a6e22e>click</span>()
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>// 自动重试的断言
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>await</span> <span style=color:#a6e22e>expect</span>(<span style=color:#a6e22e>page</span>.<span style=color:#a6e22e>locator</span>(<span style=color:#e6db74>&#39;.status&#39;</span>)).<span style=color:#a6e22e>toHaveText</span>(<span style=color:#e6db74>&#39;成功&#39;</span>)
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>// 显式等待
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>await</span> <span style=color:#a6e22e>page</span>.<span style=color:#a6e22e>waitForLoadState</span>(<span style=color:#e6db74>&#39;networkidle&#39;</span>)
-</span></span><span style=display:flex><span><span style=color:#66d9ef>await</span> <span style=color:#a6e22e>page</span>.<span style=color:#a6e22e>waitForTimeout</span>(<span style=color:#ae81ff>1000</span>)  <span style=color:#75715e>// 尽量避免使用
-</span></span></span></code></pre></div><h3 id=33-处理弹窗和对话框>3.3 处理弹窗和对话框</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#75715e>// 处理 alert/confirm
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#a6e22e>page</span>.<span style=color:#a6e22e>on</span>(<span style=color:#e6db74>&#39;dialog&#39;</span>, <span style=color:#66d9ef>async</span> <span style=color:#a6e22e>dialog</span> =&gt; {
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#a6e22e>dialog</span>.<span style=color:#a6e22e>message</span>())
-</span></span><span style=display:flex><span>  <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>dialog</span>.<span style=color:#a6e22e>accept</span>()
-</span></span><span style=display:flex><span>})
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>// 处理新标签页
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>const</span> [<span style=color:#a6e22e>newPage</span>] <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> Promise.<span style=color:#a6e22e>all</span>([
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>waitForEvent</span>(<span style=color:#e6db74>&#39;page&#39;</span>),
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>page</span>.<span style=color:#a6e22e>getByText</span>(<span style=color:#e6db74>&#39;新窗口&#39;</span>).<span style=color:#a6e22e>click</span>()
-</span></span><span style=display:flex><span>])
-</span></span></code></pre></div><h3 id=34-文件上传下载>3.4 文件上传下载</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#75715e>// 文件上传
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>await</span> <span style=color:#a6e22e>page</span>.<span style=color:#a6e22e>locator</span>(<span style=color:#e6db74>&#39;input[type=&#34;file&#34;]&#39;</span>).<span style=color:#a6e22e>setInputFiles</span>(<span style=color:#e6db74>&#39;path/to/file.pdf&#39;</span>)
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>// 文件下载
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>const</span> [<span style=color:#a6e22e>download</span>] <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> Promise.<span style=color:#a6e22e>all</span>([
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>page</span>.<span style=color:#a6e22e>waitForEvent</span>(<span style=color:#e6db74>&#39;download&#39;</span>),
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>page</span>.<span style=color:#a6e22e>getByText</span>(<span style=color:#e6db74>&#39;下载文件&#39;</span>).<span style=color:#a6e22e>click</span>()
-</span></span><span style=display:flex><span>])
-</span></span><span style=display:flex><span><span style=color:#66d9ef>await</span> <span style=color:#a6e22e>download</span>.<span style=color:#a6e22e>saveAs</span>(<span style=color:#e6db74>&#39;downloads/my-file.pdf&#39;</span>)
-</span></span></code></pre></div><h3 id=35-认证状态复用>3.5 认证状态复用</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#75715e>// playwright.config.js
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#a6e22e>module</span>.<span style=color:#a6e22e>exports</span> <span style=color:#f92672>=</span> {
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>use</span><span style=color:#f92672>:</span> {
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>storageState</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;auth.json&#39;</span>  <span style=color:#75715e>// 保存认证状态
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  }
-</span></span><span style=display:flex><span>}
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>// 登录一次后保存状态，后续测试直接复用
-</span></span></span></code></pre></div><hr><h2 id=四实战演练百度搜索自动化>四、实战演练：百度搜索自动化</h2><h3 id=41-场景描述>4.1 场景描述</h3><p>模拟用户在百度搜索"Playwright 教程"，验证搜索结果页面正常加载。</p><h3 id=42-完整代码示例>4.2 完整代码示例</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#75715e>// tests/baidu-search.spec.js
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>const</span> { <span style=color:#a6e22e>test</span>, <span style=color:#a6e22e>expect</span> } <span style=color:#f92672>=</span> <span style=color:#a6e22e>require</span>(<span style=color:#e6db74>&#39;@playwright/test&#39;</span>);
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#a6e22e>test</span>.<span style=color:#a6e22e>describe</span>(<span style=color:#e6db74>&#39;百度搜索测试&#39;</span>, () =&gt; {
-</span></span><span style=display:flex><span>  
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>test</span>.<span style=color:#a6e22e>beforeEach</span>(<span style=color:#66d9ef>async</span> ({ <span style=color:#a6e22e>page</span> }) =&gt; {
-</span></span><span style=display:flex><span>    <span style=color:#75715e>// 每个测试前访问百度首页
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>page</span>.<span style=color:#66d9ef>goto</span>(<span style=color:#e6db74>&#39;https://www.baidu.com&#39;</span>);
-</span></span><span style=display:flex><span>  });
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>test</span>(<span style=color:#e6db74>&#39;搜索 Playwright 教程&#39;</span>, <span style=color:#66d9ef>async</span> ({ <span style=color:#a6e22e>page</span> }) =&gt; {
-</span></span><span style=display:flex><span>    <span style=color:#75715e>// 1. 定位搜索框并输入关键词
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>searchInput</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>page</span>.<span style=color:#a6e22e>locator</span>(<span style=color:#e6db74>&#39;#kw&#39;</span>);
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>searchInput</span>.<span style=color:#a6e22e>fill</span>(<span style=color:#e6db74>&#39;Playwright 教程&#39;</span>);
-</span></span><span style=display:flex><span>    
-</span></span><span style=display:flex><span>    <span style=color:#75715e>// 2. 点击搜索按钮
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>searchButton</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>page</span>.<span style=color:#a6e22e>locator</span>(<span style=color:#e6db74>&#39;#su&#39;</span>);
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>searchButton</span>.<span style=color:#a6e22e>click</span>();
-</span></span><span style=display:flex><span>    
-</span></span><span style=display:flex><span>    <span style=color:#75715e>// 3. 等待搜索结果加载
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>page</span>.<span style=color:#a6e22e>waitForLoadState</span>(<span style=color:#e6db74>&#39;networkidle&#39;</span>);
-</span></span><span style=display:flex><span>    
-</span></span><span style=display:flex><span>    <span style=color:#75715e>// 4. 验证搜索结果页面
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>expect</span>(<span style=color:#a6e22e>page</span>).<span style=color:#a6e22e>toHaveURL</span>(<span style=color:#e6db74>/wd=Playwright/</span>);
-</span></span><span style=display:flex><span>    
-</span></span><span style=display:flex><span>    <span style=color:#75715e>// 检查搜索结果容器存在
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>results</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>page</span>.<span style=color:#a6e22e>locator</span>(<span style=color:#e6db74>&#39;#content_left&#39;</span>);
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>expect</span>(<span style=color:#a6e22e>results</span>).<span style=color:#a6e22e>toBeVisible</span>();
-</span></span><span style=display:flex><span>    
-</span></span><span style=display:flex><span>    <span style=color:#75715e>// 验证至少有一个搜索结果
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>resultItems</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>page</span>.<span style=color:#a6e22e>locator</span>(<span style=color:#e6db74>&#39;.result.c-container&#39;</span>);
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>expect</span>(<span style=color:#a6e22e>resultItems</span>.<span style=color:#a6e22e>first</span>()).<span style=color:#a6e22e>toBeVisible</span>();
-</span></span><span style=display:flex><span>    
-</span></span><span style=display:flex><span>    <span style=color:#75715e>// 截图保存
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>page</span>.<span style=color:#a6e22e>screenshot</span>({ <span style=color:#a6e22e>path</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;screenshots/baidu-search-result.png&#39;</span> });
-</span></span><span style=display:flex><span>    
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#39;✓ 百度搜索测试通过&#39;</span>);
-</span></span><span style=display:flex><span>  });
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>test</span>(<span style=color:#e6db74>&#39;搜索框快捷键测试&#39;</span>, <span style=color:#66d9ef>async</span> ({ <span style=color:#a6e22e>page</span> }) =&gt; {
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>searchInput</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>page</span>.<span style=color:#a6e22e>locator</span>(<span style=color:#e6db74>&#39;#kw&#39;</span>);
-</span></span><span style=display:flex><span>    
-</span></span><span style=display:flex><span>    <span style=color:#75715e>// 输入关键词后按回车
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>searchInput</span>.<span style=color:#a6e22e>fill</span>(<span style=color:#e6db74>&#39;自动化测试&#39;</span>);
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>searchInput</span>.<span style=color:#a6e22e>press</span>(<span style=color:#e6db74>&#39;Enter&#39;</span>);
-</span></span><span style=display:flex><span>    
-</span></span><span style=display:flex><span>    <span style=color:#75715e>// 等待页面加载
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>page</span>.<span style=color:#a6e22e>waitForLoadState</span>(<span style=color:#e6db74>&#39;domcontentloaded&#39;</span>);
-</span></span><span style=display:flex><span>    
-</span></span><span style=display:flex><span>    <span style=color:#75715e>// 验证搜索结果
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>expect</span>(<span style=color:#a6e22e>page</span>.<span style=color:#a6e22e>locator</span>(<span style=color:#e6db74>&#39;#content_left&#39;</span>)).<span style=color:#a6e22e>toBeVisible</span>();
-</span></span><span style=display:flex><span>    
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#39;✓ 快捷键搜索测试通过&#39;</span>);
-</span></span><span style=display:flex><span>  });
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>test</span>(<span style=color:#e6db74>&#39;搜索建议功能测试&#39;</span>, <span style=color:#66d9ef>async</span> ({ <span style=color:#a6e22e>page</span> }) =&gt; {
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>searchInput</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>page</span>.<span style=color:#a6e22e>locator</span>(<span style=color:#e6db74>&#39;#kw&#39;</span>);
-</span></span><span style=display:flex><span>    
-</span></span><span style=display:flex><span>    <span style=color:#75715e>// 输入部分关键词
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>searchInput</span>.<span style=color:#a6e22e>fill</span>(<span style=color:#e6db74>&#39;Playw&#39;</span>);
-</span></span><span style=display:flex><span>    
-</span></span><span style=display:flex><span>    <span style=color:#75715e>// 等待搜索建议出现
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>suggestions</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>page</span>.<span style=color:#a6e22e>locator</span>(<span style=color:#e6db74>&#39;.bdsug-li&#39;</span>);
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>expect</span>(<span style=color:#a6e22e>suggestions</span>.<span style=color:#a6e22e>first</span>()).<span style=color:#a6e22e>toBeVisible</span>({ <span style=color:#a6e22e>timeout</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>5000</span> });
-</span></span><span style=display:flex><span>    
-</span></span><span style=display:flex><span>    <span style=color:#75715e>// 获取建议数量
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>count</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>suggestions</span>.<span style=color:#a6e22e>count</span>();
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>`搜索建议数量：</span><span style=color:#e6db74>${</span><span style=color:#a6e22e>count</span><span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>);
-</span></span><span style=display:flex><span>    
-</span></span><span style=display:flex><span>    <span style=color:#75715e>// 点击第一个建议
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>count</span> <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>0</span>) {
-</span></span><span style=display:flex><span>      <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>suggestions</span>.<span style=color:#a6e22e>first</span>().<span style=color:#a6e22e>click</span>();
-</span></span><span style=display:flex><span>      <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>page</span>.<span style=color:#a6e22e>waitForLoadState</span>(<span style=color:#e6db74>&#39;networkidle&#39;</span>);
-</span></span><span style=display:flex><span>      <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>expect</span>(<span style=color:#a6e22e>page</span>.<span style=color:#a6e22e>locator</span>(<span style=color:#e6db74>&#39;#content_left&#39;</span>)).<span style=color:#a6e22e>toBeVisible</span>();
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>    
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#39;✓ 搜索建议测试通过&#39;</span>);
-</span></span><span style=display:flex><span>  });
-</span></span><span style=display:flex><span>});
-</span></span></code></pre></div><h3 id=43-配置文件>4.3 配置文件</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#75715e>// playwright.config.js
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#a6e22e>module</span>.<span style=color:#a6e22e>exports</span> <span style=color:#f92672>=</span> {
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>testDir</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;./tests&#39;</span>,
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>timeout</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>30000</span>,
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>expect</span><span style=color:#f92672>:</span> {
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>timeout</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>5000</span>
-</span></span><span style=display:flex><span>  },
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>retries</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>1</span>,
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>workers</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>2</span>,
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>reporter</span><span style=color:#f92672>:</span> [
-</span></span><span style=display:flex><span>    [<span style=color:#e6db74>&#39;html&#39;</span>, { <span style=color:#a6e22e>outputFolder</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;playwright-report&#39;</span> }],
-</span></span><span style=display:flex><span>    [<span style=color:#e6db74>&#39;list&#39;</span>]
-</span></span><span style=display:flex><span>  ],
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>use</span><span style=color:#f92672>:</span> {
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>viewport</span><span style=color:#f92672>:</span> { <span style=color:#a6e22e>width</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>1920</span>, <span style=color:#a6e22e>height</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>1080</span> },
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>actionTimeout</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>10000</span>,
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>screenshot</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;only-on-failure&#39;</span>,
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>trace</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;retain-on-failure&#39;</span>,
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>launchOptions</span><span style=color:#f92672>:</span> {
-</span></span><span style=display:flex><span>      <span style=color:#a6e22e>slowMo</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>500</span>,  <span style=color:#75715e>// 慢动作模式，便于观察
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    }
-</span></span><span style=display:flex><span>  },
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>projects</span><span style=color:#f92672>:</span> [
-</span></span><span style=display:flex><span>    {
-</span></span><span style=display:flex><span>      <span style=color:#a6e22e>name</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;chromium&#39;</span>,
-</span></span><span style=display:flex><span>      <span style=color:#a6e22e>use</span><span style=color:#f92672>:</span> { <span style=color:#a6e22e>browserName</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;chromium&#39;</span> }
-</span></span><span style=display:flex><span>    },
-</span></span><span style=display:flex><span>    {
-</span></span><span style=display:flex><span>      <span style=color:#a6e22e>name</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;firefox&#39;</span>,
-</span></span><span style=display:flex><span>      <span style=color:#a6e22e>use</span><span style=color:#f92672>:</span> { <span style=color:#a6e22e>browserName</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;firefox&#39;</span> }
-</span></span><span style=display:flex><span>    },
-</span></span><span style=display:flex><span>    {
-</span></span><span style=display:flex><span>      <span style=color:#a6e22e>name</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;webkit&#39;</span>,
-</span></span><span style=display:flex><span>      <span style=color:#a6e22e>use</span><span style=color:#f92672>:</span> { <span style=color:#a6e22e>browserName</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;webkit&#39;</span> }
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>  ]
-</span></span><span style=display:flex><span>};
-</span></span></code></pre></div><h3 id=44-运行测试>4.4 运行测试</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 运行百度搜索测试</span>
-</span></span><span style=display:flex><span>npx playwright test tests/baidu-search.spec.js
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 有头模式查看执行过程</span>
-</span></span><span style=display:flex><span>npx playwright test tests/baidu-search.spec.js --headed
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 生成报告</span>
-</span></span><span style=display:flex><span>npx playwright test tests/baidu-search.spec.js --reporter<span style=color:#f92672>=</span>html
-</span></span><span style=display:flex><span>npx playwright show-report
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 调试模式</span>
-</span></span><span style=display:flex><span>npx playwright test tests/baidu-search.spec.js --debug
-</span></span></code></pre></div><h3 id=45-预期输出>4.5 预期输出</h3><pre tabindex=0><code>Running 3 tests using 2 workers
-
-✓ tests/baidu-search.spec.js:9:7 › 百度搜索测试 › 搜索 Playwright 教程 (3.2s)
-✓ tests/baidu-search.spec.js:35:7 › 百度搜索测试 › 搜索框快捷键测试 (2.1s)
-✓ tests/baidu-search.spec.js:50:7 › 百度搜索测试 › 搜索建议功能测试 (2.8s)
-
-3 passed (8.5s)
-</code></pre><hr><h2 id=五总结与最佳实践>五、总结与最佳实践</h2><h3 id=51-核心优势>5.1 核心优势</h3><table><thead><tr><th>特性</th><th>说明</th></tr></thead><tbody><tr><td>跨浏览器</td><td>一套代码支持 Chromium、Firefox、WebKit</td></tr><tr><td>自动等待</td><td>无需手动设置 sleep，减少不稳定测试</td></tr><tr><td>弹性定位</td><td>使用语义化选择器，降低维护成本</td></tr><tr><td>调试友好</td><td>Trace Viewer、Codegen、VS Code 扩展</td></tr><tr><td>AI 集成</td><td>MCP 服务器支持，适合 AI 代理</td></tr></tbody></table><h3 id=52-最佳实践清单>5.2 最佳实践清单</h3><ol><li><p><strong>优先使用语义化定位器</strong></p><ul><li><code>getByRole()</code> > <code>getByText()</code> > CSS 选择器</li></ul></li><li><p><strong>避免硬编码等待</strong></p><ul><li>使用 <code>waitForLoadState()</code> 代替 <code>waitForTimeout()</code></li></ul></li><li><p><strong>测试隔离</strong></p><ul><li>每个测试独立，不依赖其他测试状态</li></ul></li><li><p><strong>合理使用截图和追踪</strong></p><ul><li>失败时自动截图，便于问题排查</li></ul></li><li><p><strong>并行执行优化</strong></p><ul><li>CI 环境使用分片，加快执行速度</li></ul></li><li><p><strong>认证状态复用</strong></p><ul><li>登录状态保存，避免重复登录</li></ul></li></ol><h3 id=53-常见问题解决>5.3 常见问题解决</h3><table><thead><tr><th>问题</th><th>解决方案</th></tr></thead><tbody><tr><td>元素找不到</td><td>检查定位器，使用 Codegen 重新生成</td></tr><tr><td>测试不稳定</td><td>增加自动等待，避免硬编码延迟</td></tr><tr><td>执行太慢</td><td>启用并行，减少不必要的等待</td></tr><tr><td>内存占用高</td><td>限制 workers 数量，及时清理上下文</td></tr></tbody></table><hr><h2 id=六学习资源>六、学习资源</h2><ul><li><strong>官方文档</strong>: <a href=https://playwright.dev>https://playwright.dev</a></li><li><strong>GitHub 仓库</strong>: <a href=https://github.com/microsoft/playwright>https://github.com/microsoft/playwright</a></li><li><strong>社区讨论</strong>: <a href=https://discord.gg/playwright>https://discord.gg/playwright</a></li><li><strong>视频教程</strong>: <a href=https://www.youtube.com/playwrightdev>https://www.youtube.com/playwrightdev</a></li></ul><hr><h2 id=附录快速命令参考>附录：快速命令参考</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 安装</span>
+<span></span></button></nav></header><script>const header=document.getElementById("header");window.addEventListener("scroll",()=>{window.scrollY>50?header.classList.add("scrolled"):header.classList.remove("scrolled")});const menuToggle=document.getElementById("menuToggle"),navMenu=document.getElementById("navMenu");menuToggle.addEventListener("click",()=>{navMenu.classList.toggle("active")});const tagsItem=document.querySelector(".nav-item:last-child");if(tagsItem){const e=tagsItem.querySelector("div:last-child");tagsItem.addEventListener("mouseenter",()=>{e.style.opacity="1",e.style.visibility="visible"}),tagsItem.addEventListener("mouseleave",()=>{e.style.opacity="0",e.style.visibility="hidden"})}</script><main class=flex-1><section class=article-page style="padding-top:calc(var(--header-height) + 3rem)"><div class=container style=max-width:800px><header class=article-header><h1 class=article-title>Playwright CLI 完全指南：从入门到百度搜索实战</h1><p style=color:var(--text-secondary);font-size:1.125rem>全面介绍 Playwright CLI 和 MCP 协议的使用方法，重点讲解如何通过 OpenClaw 智能体操作浏览器，提供完整的技能包和实战案例</p></header><div class=article-body><h2 id=前言>前言</h2><p>Playwright 是 Microsoft 开发的浏览器自动化工具，支持 Chromium、Firefox 和 WebKit 三大主流浏览器引擎。它有两种主要使用方式：</p><ol><li><strong>传统 CLI 方式</strong> - 通过命令行和代码脚本控制浏览器</li><li><strong>MCP 协议方式</strong> - 通过 Model Context Protocol 让 AI 智能体直接操作浏览器</li></ol><p>本文将对比两种方式的优劣，并重点介绍如何通过 <strong>OpenClaw + agent-browser</strong> 技能包，用自然语言让 AI 帮你操作浏览器。</p><hr><h2 id=一cli-vs-mcp两种方式对比>一、CLI vs MCP：两种方式对比</h2><h3 id=11-传统-cli-方式>1.1 传统 CLI 方式</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 安装 Playwright</span>
 </span></span><span style=display:flex><span>npm install -g @playwright/cli
 </span></span><span style=display:flex><span>npx playwright install
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 代码生成</span>
-</span></span><span style=display:flex><span>npx playwright codegen https://example.com
+</span></span><span style=display:flex><span><span style=color:#75715e># 使用代码生成器</span>
+</span></span><span style=display:flex><span>npx playwright codegen https://www.baidu.com
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 运行测试</span>
-</span></span><span style=display:flex><span>npx playwright test
-</span></span><span style=display:flex><span>npx playwright test --headed
-</span></span><span style=display:flex><span>npx playwright test --project<span style=color:#f92672>=</span>chromium
+</span></span><span style=display:flex><span><span style=color:#75715e># 运行测试脚本</span>
+</span></span><span style=display:flex><span>npx playwright test tests/search.spec.js
+</span></span></code></pre></div><p><strong>优点</strong>：</p><ul><li>✅ 精确控制，适合复杂测试场景</li><li>✅ 可复用性强，脚本可版本管理</li><li>✅ 适合 CI/CD 自动化流程</li></ul><p><strong>缺点</strong>：</p><ul><li>❌ 学习曲线陡峭，需要编程知识</li><li>❌ 维护成本高，页面变更需更新脚本</li><li>❌ 无法动态响应，缺乏灵活性</li></ul><h3 id=12-mcp-协议方式推荐>1.2 MCP 协议方式（推荐）</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 安装 agent-browser（基于 Playwright 的 MCP 封装）</span>
+</span></span><span style=display:flex><span>npm install -g agent-browser
+</span></span><span style=display:flex><span>agent-browser install
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 报告与调试</span>
-</span></span><span style=display:flex><span>npx playwright show-report
-</span></span><span style=display:flex><span>npx playwright show-trace trace.zip
-</span></span><span style=display:flex><span>npx playwright test --debug
+</span></span><span style=display:flex><span><span style=color:#75715e># 通过 OpenClaw 智能体操作（自然语言）</span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#34;帮我打开百度，搜索 Playwright 教程&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#34;截图保存当前页面&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#34;提取所有搜索结果链接&#34;</span>
+</span></span></code></pre></div><p><strong>优点</strong>：</p><ul><li>✅ <strong>零代码</strong> - 用自然语言描述任务</li><li>✅ <strong>动态适应</strong> - AI 自动处理页面变化</li><li>✅ <strong>即时交互</strong> - 实时反馈和调整</li><li>✅ <strong>技能复用</strong> - 预置技能包开箱即用</li></ul><p><strong>缺点</strong>：</p><ul><li>❌ 复杂场景需要更多上下文</li><li>❌ 依赖 AI 模型的理解能力</li></ul><h3 id=13-对比总结>1.3 对比总结</h3><table><thead><tr><th>特性</th><th>CLI 方式</th><th>MCP 方式</th></tr></thead><tbody><tr><td>学习成本</td><td>高（需编程）</td><td>低（自然语言）</td></tr><tr><td>灵活性</td><td>低（固定脚本）</td><td>高（动态响应）</td></tr><tr><td>维护成本</td><td>高</td><td>低</td></tr><tr><td>适合场景</td><td>回归测试、CI/CD</td><td>探索性任务、数据提取</td></tr><tr><td>响应速度</td><td>快（预定义）</td><td>中等（实时计算）</td></tr></tbody></table><p><strong>推荐策略</strong>：</p><ul><li><strong>日常任务</strong> → 使用 MCP 方式（OpenClaw + agent-browser）</li><li><strong>固定流程</strong> → 使用 CLI 方式（Playwright 测试脚本）</li><li><strong>混合使用</strong> → MCP 探索 + CLI 固化</li></ul><hr><h2 id=二openclaw-浏览器操作入门>二、OpenClaw 浏览器操作入门</h2><h3 id=21-环境准备>2.1 环境准备</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 1. 安装 agent-browser</span>
+</span></span><span style=display:flex><span>npm install -g agent-browser
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 更新</span>
-</span></span><span style=display:flex><span>npm update @playwright/test
-</span></span><span style=display:flex><span>npx playwright install
-</span></span></code></pre></div><hr><p><em>本文基于 Playwright 最新版本编写，如有更新请参考官方文档。</em></p><p><em>作者：WeCom Agent</em><br><em>日期：2026-04-16</em></p></div><div style="margin-top:4rem;padding-top:3rem;border-top:1px solid var(--border-light)"><h2 style=font-size:1.75rem;font-weight:700;margin-bottom:2rem;text-align:center>核心团队</h2><div style=display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem><div style=text-align:center><div style="width:100px;height:100px;margin:0 auto 1rem;background:linear-gradient(135deg,var(--primary-start),var(--primary-end));border-radius:50%;display:flex;align-items:center;justify-content:center"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><h3 style=font-weight:600;margin-bottom:.5rem>虾小弟</h3><p style=color:var(--text-muted);font-size:.875rem>创始人 & 开发者</p></div></div></div><div style=margin-top:4rem;padding:2rem;background:rgba(124,58,237,.1);border-radius:16px;text-align:center><h2 style=font-size:1.5rem;font-weight:600;margin-bottom:1rem>联系我们</h2><p style=color:var(--text-secondary);margin-bottom:1.5rem>有任何问题或建议？欢迎通过以下方式联系我们</p><div style=display:flex;gap:1rem;justify-content:center><a href=https://github.com/openclaw/openclaw target=_blank rel=noopener class="btn btn-secondary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37.0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44.0 0020 4.77 5.07 5.07.0 0019.91 1S18.73.65 16 2.48a13.38 13.38.0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07.0 005 4.77 5.44 5.44.0 003.5 8.55c0 5.42 3.3 6.61 6.44 7A3.37 3.37.0 009 18.13V22"/></svg>
+</span></span><span style=display:flex><span><span style=color:#75715e># 2. 安装浏览器依赖</span>
+</span></span><span style=display:flex><span>agent-browser install
+</span></span><span style=display:flex><span>agent-browser install --with-deps  <span style=color:#75715e># Linux 系统推荐</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 3. 验证安装</span>
+</span></span><span style=display:flex><span>agent-browser --version
+</span></span></code></pre></div><h3 id=22-openclaw-技能配置>2.2 OpenClaw 技能配置</h3><p>在 OpenClaw 工作区中，浏览器操作技能已预置在：</p><pre tabindex=0><code>~/.openclaw/workspace/skills/agent-browser/
+├── SKILL.md          # 技能说明文档
+├── _meta.json        # 技能元数据
+└── CONTRIBUTING.md   # 贡献指南
+</code></pre><p><strong>技能元数据</strong>：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json><span style=display:flex><span>{
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;name&#34;</span>: <span style=color:#e6db74>&#34;Agent Browser&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;emoji&#34;</span>: <span style=color:#e6db74>&#34;🌐&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;requires&#34;</span>: {
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;bins&#34;</span>: [<span style=color:#e6db74>&#34;node&#34;</span>, <span style=color:#e6db74>&#34;npm&#34;</span>]
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=23-基本使用方式>2.3 基本使用方式</h3><p>在 OpenClaw 对话中，直接使用自然语言指令：</p><pre tabindex=0><code>用户：帮我打开百度首页
+AI:  好的，正在打开 https://www.baidu.com...
+     ✅ 页面已加载，标题：&#34;百度一下，你就知道&#34;
+     需要我做什么操作吗？
+
+用户：搜索&#34;Playwright 教程&#34;
+AI:  正在搜索...
+     ✅ 搜索结果已加载，找到约 1,230,000 个结果
+     需要我提取结果链接或截图吗？
+
+用户：截图保存
+AI:  📸 已截图保存
+     MEDIA:/path/to/screenshot.png
+</code></pre><hr><h2 id=三核心操作技能>三、核心操作技能</h2><h3 id=31-页面导航>3.1 页面导航</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># OpenClaw 指令示例</span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#34;打开 https://example.com&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#34;返回首页&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#34;后退一页&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#34;刷新当前页面&#34;</span>
+</span></span></code></pre></div><p><strong>底层命令</strong>：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>agent-browser open &lt;url&gt;        <span style=color:#75715e># 导航到 URL</span>
+</span></span><span style=display:flex><span>agent-browser back              <span style=color:#75715e># 后退</span>
+</span></span><span style=display:flex><span>agent-browser forward           <span style=color:#75715e># 前进</span>
+</span></span><span style=display:flex><span>agent-browser reload            <span style=color:#75715e># 刷新</span>
+</span></span><span style=display:flex><span>agent-browser close             <span style=color:#75715e># 关闭浏览器</span>
+</span></span></code></pre></div><h3 id=32-页面快照核心技能>3.2 页面快照（核心技能）</h3><p>快照是 AI 理解页面的关键，会返回可交互元素及其引用 ID：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># OpenClaw 指令</span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#34;分析当前页面有哪些可操作元素&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#34;获取页面快照&#34;</span>
+</span></span></code></pre></div><p><strong>底层命令</strong>：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>agent-browser snapshot -i       <span style=color:#75715e># 交互式元素（推荐）</span>
+</span></span><span style=display:flex><span>agent-browser snapshot          <span style=color:#75715e># 完整无障碍树</span>
+</span></span><span style=display:flex><span>agent-browser snapshot -c       <span style=color:#75715e># 紧凑输出</span>
+</span></span><span style=display:flex><span>agent-browser snapshot -d <span style=color:#ae81ff>3</span>     <span style=color:#75715e># 限制深度</span>
+</span></span></code></pre></div><p><strong>快照输出示例</strong>：</p><pre tabindex=0><code>Interactive elements:
+  @e1: textbox &#34;搜索&#34; [placeholder=&#34;请输入关键词&#34;]
+  @e2: button &#34;百度一下&#34; [type=&#34;submit&#34;]
+  @e3: link &#34;新闻&#34; [href=&#34;/news&#34;]
+  @e4: link &#34;图片&#34; [href=&#34;/image&#34;]
+</code></pre><h3 id=33-元素交互>3.3 元素交互</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># OpenClaw 指令</span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#34;点击搜索按钮&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#34;在搜索框输入&#39;Playwright 教程&#39;&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#34;按下回车键&#34;</span>
+</span></span></code></pre></div><p><strong>底层命令</strong>：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>agent-browser click @e1         <span style=color:#75715e># 点击元素</span>
+</span></span><span style=display:flex><span>agent-browser fill @e2 <span style=color:#e6db74>&#34;text&#34;</span>   <span style=color:#75715e># 填充输入框</span>
+</span></span><span style=display:flex><span>agent-browser type @e2 <span style=color:#e6db74>&#34;text&#34;</span>   <span style=color:#75715e># 输入（不清空）</span>
+</span></span><span style=display:flex><span>agent-browser press Enter       <span style=color:#75715e># 按键</span>
+</span></span><span style=display:flex><span>agent-browser hover @e1         <span style=color:#75715e># 悬停</span>
+</span></span><span style=display:flex><span>agent-browser check @e1         <span style=color:#75715e># 勾选复选框</span>
+</span></span></code></pre></div><h3 id=34-信息提取>3.4 信息提取</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># OpenClaw 指令</span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#34;获取页面标题&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#34;提取所有搜索结果链接&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#34;这个按钮的文字是什么&#34;</span>
+</span></span></code></pre></div><p><strong>底层命令</strong>：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>agent-browser get title         <span style=color:#75715e># 页面标题</span>
+</span></span><span style=display:flex><span>agent-browser get url           <span style=color:#75715e># 当前 URL</span>
+</span></span><span style=display:flex><span>agent-browser get text @e1      <span style=color:#75715e># 元素文本</span>
+</span></span><span style=display:flex><span>agent-browser get html @e1      <span style=color:#75715e># 元素 HTML</span>
+</span></span><span style=display:flex><span>agent-browser get count <span style=color:#e6db74>&#34;.item&#34;</span> <span style=color:#75715e># 元素数量</span>
+</span></span></code></pre></div><h3 id=35-截图与录制>3.5 截图与录制</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># OpenClaw 指令</span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#34;截图保存&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#34;录制我的操作流程&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#34;生成 PDF 报告&#34;</span>
+</span></span></code></pre></div><p><strong>底层命令</strong>：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>agent-browser screenshot path.png           <span style=color:#75715e># 截图</span>
+</span></span><span style=display:flex><span>agent-browser screenshot --full path.png    <span style=color:#75715e># 全屏截图</span>
+</span></span><span style=display:flex><span>agent-browser record start demo.webm        <span style=color:#75715e># 开始录制</span>
+</span></span><span style=display:flex><span>agent-browser record stop                   <span style=color:#75715e># 停止录制</span>
+</span></span><span style=display:flex><span>agent-browser pdf output.pdf                <span style=color:#75715e># 生成 PDF</span>
+</span></span></code></pre></div><h3 id=36-状态管理>3.6 状态管理</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># OpenClaw 指令</span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#34;保存登录状态&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#34;加载之前的会话&#34;</span>
+</span></span></code></pre></div><p><strong>底层命令</strong>：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>agent-browser state save auth.json    <span style=color:#75715e># 保存状态</span>
+</span></span><span style=display:flex><span>agent-browser state load auth.json    <span style=color:#75715e># 加载状态</span>
+</span></span></code></pre></div><hr><h2 id=四实战演练百度搜索自动化>四、实战演练：百度搜索自动化</h2><h3 id=41-场景描述>4.1 场景描述</h3><p>使用 OpenClaw + agent-browser 完成百度搜索任务：</p><ol><li>打开百度首页</li><li>搜索"Playwright 教程"</li><li>提取前 5 个搜索结果</li><li>截图保存</li></ol><h3 id=42-openclaw-对话流程>4.2 OpenClaw 对话流程</h3><pre tabindex=0><code>用户：帮我做个百度搜索测试
+
+AI: 好的，我来帮你完成百度搜索自动化测试。
+
+🔧 步骤 1/4: 打开百度首页
+   ✅ 已打开 https://www.baidu.com
+   页面标题：&#34;百度一下，你就知道&#34;
+
+🔧 步骤 2/4: 分析页面元素
+   获取到以下可交互元素：
+   - @e1: 搜索框 [id=&#34;kw&#34;]
+   - @e2: 搜索按钮 [id=&#34;su&#34;]
+   
+🔧 步骤 3/4: 执行搜索
+   正在输入&#34;Playwright 教程&#34;...
+   正在点击搜索按钮...
+   ✅ 搜索结果已加载，找到约 1,230,000 个结果
+
+🔧 步骤 4/4: 提取结果并截图
+   已提取前 5 个搜索结果：
+   1. Playwright 官方文档 - https://playwright.dev
+   2. Playwright 入门教程 - https://example.com/tutorial
+   3. ...
+   
+   📸 截图已保存：screenshots/baidu-search.png
+
+✅ 测试完成！需要我做其他操作吗？
+</code></pre><h3 id=43-底层命令流程>4.3 底层命令流程</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 1. 打开页面</span>
+</span></span><span style=display:flex><span>agent-browser open https://www.baidu.com
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 2. 获取快照</span>
+</span></span><span style=display:flex><span>agent-browser snapshot -i
+</span></span><span style=display:flex><span><span style=color:#75715e># 返回：@e1 (搜索框), @e2 (搜索按钮)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 3. 输入搜索词</span>
+</span></span><span style=display:flex><span>agent-browser fill @e1 <span style=color:#e6db74>&#34;Playwright 教程&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 4. 点击搜索</span>
+</span></span><span style=display:flex><span>agent-browser click @e2
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 5. 等待加载</span>
+</span></span><span style=display:flex><span>agent-browser wait --load networkidle
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 6. 提取结果</span>
+</span></span><span style=display:flex><span>agent-browser get count <span style=color:#e6db74>&#34;.result.c-container&#34;</span>
+</span></span><span style=display:flex><span>agent-browser get text <span style=color:#e6db74>&#34;.result .c-title&#34;</span> --json
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 7. 截图</span>
+</span></span><span style=display:flex><span>agent-browser screenshot screenshots/baidu-search.png
+</span></span></code></pre></div><h3 id=44-完整脚本可选>4.4 完整脚本（可选）</h3><p>如需固化为可复用脚本：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e>#!/bin/bash
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#75715e># baidu-search.sh</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>URL<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;https://www.baidu.com&#34;</span>
+</span></span><span style=display:flex><span>KEYWORD<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Playwright 教程&#34;</span>
+</span></span><span style=display:flex><span>OUTPUT_DIR<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;screenshots&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>mkdir -p $OUTPUT_DIR
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>echo <span style=color:#e6db74>&#34;🔍 打开百度首页...&#34;</span>
+</span></span><span style=display:flex><span>agent-browser open $URL
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>echo <span style=color:#e6db74>&#34;📸 获取页面元素...&#34;</span>
+</span></span><span style=display:flex><span>SNAPSHOT<span style=color:#f92672>=</span><span style=color:#66d9ef>$(</span>agent-browser snapshot -i --json<span style=color:#66d9ef>)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>echo <span style=color:#e6db74>&#34;⌨️  输入搜索词：</span>$KEYWORD<span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 从快照中解析搜索框 ref</span>
+</span></span><span style=display:flex><span>SEARCH_BOX<span style=color:#f92672>=</span><span style=color:#66d9ef>$(</span>echo $SNAPSHOT | jq -r <span style=color:#e6db74>&#39;.elements[] | select(.role==&#34;textbox&#34;) | .ref&#39;</span><span style=color:#66d9ef>)</span>
+</span></span><span style=display:flex><span>agent-browser fill @$SEARCH_BOX <span style=color:#e6db74>&#34;</span>$KEYWORD<span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>echo <span style=color:#e6db74>&#34;🖱️  点击搜索按钮...&#34;</span>
+</span></span><span style=display:flex><span>SEARCH_BTN<span style=color:#f92672>=</span><span style=color:#66d9ef>$(</span>echo $SNAPSHOT | jq -r <span style=color:#e6db74>&#39;.elements[] | select(.role==&#34;button&#34;) | .ref&#39;</span><span style=color:#66d9ef>)</span>
+</span></span><span style=display:flex><span>agent-browser click @$SEARCH_BTN
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>echo <span style=color:#e6db74>&#34;⏳ 等待加载...&#34;</span>
+</span></span><span style=display:flex><span>agent-browser wait --load networkidle
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>echo <span style=color:#e6db74>&#34;💾 保存截图...&#34;</span>
+</span></span><span style=display:flex><span>agent-browser screenshot <span style=color:#e6db74>&#34;</span>$OUTPUT_DIR<span style=color:#e6db74>/search-result.png&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>echo <span style=color:#e6db74>&#34;✅ 完成！&#34;</span>
+</span></span><span style=display:flex><span>agent-browser close
+</span></span></code></pre></div><hr><h2 id=五进阶技能>五、进阶技能</h2><h3 id=51-多标签页操作>5.1 多标签页操作</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># OpenClaw 指令</span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#34;在新标签页打开这个链接&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#34;切换到第二个标签页&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#34;关闭当前标签页&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 底层命令</span>
+</span></span><span style=display:flex><span>agent-browser tab new <span style=color:#f92672>[</span>url<span style=color:#f92672>]</span>       <span style=color:#75715e># 新标签页</span>
+</span></span><span style=display:flex><span>agent-browser tab <span style=color:#ae81ff>2</span>               <span style=color:#75715e># 切换到标签页 2</span>
+</span></span><span style=display:flex><span>agent-browser tab list            <span style=color:#75715e># 列出所有标签页</span>
+</span></span><span style=display:flex><span>agent-browser tab close           <span style=color:#75715e># 关闭当前标签页</span>
+</span></span></code></pre></div><h3 id=52-表单自动化>5.2 表单自动化</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># OpenClaw 指令</span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#34;填写登录表单&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#34;提交表单&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#34;处理弹窗&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 底层命令</span>
+</span></span><span style=display:flex><span>agent-browser fill @e1 <span style=color:#e6db74>&#34;username&#34;</span>
+</span></span><span style=display:flex><span>agent-browser fill @e2 <span style=color:#e6db74>&#34;password&#34;</span>
+</span></span><span style=display:flex><span>agent-browser click @e3  <span style=color:#75715e># 提交按钮</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 处理弹窗</span>
+</span></span><span style=display:flex><span>agent-browser dialog accept
+</span></span></code></pre></div><h3 id=53-文件操作>5.3 文件操作</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># OpenClaw 指令</span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#34;上传这个文件&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#34;下载页面中的文件&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 底层命令</span>
+</span></span><span style=display:flex><span>agent-browser upload @e1 file.pdf
+</span></span><span style=display:flex><span>agent-browser wait <span style=color:#66d9ef>for</span> download
+</span></span></code></pre></div><h3 id=54-认证状态复用>5.4 认证状态复用</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 首次登录并保存状态</span>
+</span></span><span style=display:flex><span>agent-browser open https://app.example.com/login
+</span></span><span style=display:flex><span><span style=color:#75715e># ... 填写表单并提交 ...</span>
+</span></span><span style=display:flex><span>agent-browser wait --url <span style=color:#e6db74>&#34;/dashboard&#34;</span>
+</span></span><span style=display:flex><span>agent-browser state save auth.json
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 后续使用</span>
+</span></span><span style=display:flex><span>agent-browser state load auth.json
+</span></span><span style=display:flex><span>agent-browser open https://app.example.com/dashboard
+</span></span></code></pre></div><h3 id=55-数据提取json-输出>5.5 数据提取（JSON 输出）</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 提取结构化数据</span>
+</span></span><span style=display:flex><span>agent-browser snapshot -i --json | jq <span style=color:#e6db74>&#39;.elements[] | select(.role==&#34;link&#34;)&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 提取所有搜索结果</span>
+</span></span><span style=display:flex><span>agent-browser get text <span style=color:#e6db74>&#34;.result .c-title&#34;</span> --json
+</span></span></code></pre></div><hr><h2 id=六调试技巧>六、调试技巧</h2><h3 id=61-可视化调试>6.1 可视化调试</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 显示浏览器窗口（非无头模式）</span>
+</span></span><span style=display:flex><span>agent-browser open example.com --headed
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 高亮元素</span>
+</span></span><span style=display:flex><span>agent-browser highlight @e1
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看控制台日志</span>
+</span></span><span style=display:flex><span>agent-browser console
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看页面错误</span>
+</span></span><span style=display:flex><span>agent-browser errors
+</span></span></code></pre></div><h3 id=62-追踪录制>6.2 追踪录制</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 录制操作过程</span>
+</span></span><span style=display:flex><span>agent-browser record start demo.webm
+</span></span><span style=display:flex><span><span style=color:#75715e># ... 执行操作 ...</span>
+</span></span><span style=display:flex><span>agent-browser record stop
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 回放查看</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 使用任何视频播放器打开 demo.webm</span>
+</span></span></code></pre></div><h3 id=63-常见问题排查>6.3 常见问题排查</h3><table><thead><tr><th>问题</th><th>解决方案</th></tr></thead><tbody><tr><td>元素找不到</td><td>重新 snapshot 获取最新 refs</td></tr><tr><td>页面未加载</td><td>添加 <code>wait --load networkidle</code></td></tr><tr><td>命令不响应</td><td>检查 <code>agent-browser --version</code></td></tr><tr><td>浏览器打不开</td><td>运行 <code>agent-browser install --with-deps</code></td></tr></tbody></table><hr><h2 id=七技能包获取>七、技能包获取</h2><h3 id=71-安装-agent-browser-技能>7.1 安装 agent-browser 技能</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 方法 1：直接安装</span>
+</span></span><span style=display:flex><span>npm install -g agent-browser
+</span></span><span style=display:flex><span>agent-browser install
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 方法 2：通过 ClawHub（OpenClaw 技能市场）</span>
+</span></span><span style=display:flex><span>clawhub install agent-browser
+</span></span></code></pre></div><h3 id=72-技能文件位置>7.2 技能文件位置</h3><pre tabindex=0><code>~/.openclaw/workspace/skills/agent-browser/
+</code></pre><h3 id=73-技能使用说明>7.3 技能使用说明</h3><ol><li><p><strong>查看技能文档</strong>：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>cat ~/.openclaw/workspace/skills/agent-browser/SKILL.md
+</span></span></code></pre></div></li><li><p><strong>在 OpenClaw 中使用</strong>：</p><ul><li>直接用自然语言描述任务</li><li>AI 会自动调用 agent-browser 命令</li><li>支持截图、文件等媒体输出</li></ul></li><li><p><strong>自定义技能</strong>：</p><ul><li>复制 <code>agent-browser</code> 技能目录</li><li>修改 <code>SKILL.md</code> 和 <code>_meta.json</code></li><li>添加自定义命令封装</li></ul></li></ol><hr><h2 id=八总结与最佳实践>八、总结与最佳实践</h2><h3 id=81-选择建议>8.1 选择建议</h3><table><thead><tr><th>场景</th><th>推荐方式</th></tr></thead><tbody><tr><td>一次性任务</td><td>MCP（自然语言）</td></tr><tr><td>探索性测试</td><td>MCP（动态交互）</td></tr><tr><td>数据提取</td><td>MCP + JSON 输出</td></tr><tr><td>回归测试</td><td>CLI（固定脚本）</td></tr><tr><td>CI/CD 集成</td><td>CLI（自动化）</td></tr><tr><td>复杂流程</td><td>MCP 探索 → CLI 固化</td></tr></tbody></table><h3 id=82-最佳实践清单>8.2 最佳实践清单</h3><ol><li><p><strong>优先使用语义化定位</strong></p><ul><li><code>getByRole()</code> > <code>getByText()</code> > CSS 选择器</li></ul></li><li><p><strong>快照后操作</strong></p><ul><li>每次导航后重新 snapshot 获取 refs</li></ul></li><li><p><strong>合理使用等待</strong></p><ul><li><code>wait --load networkidle</code> 优于硬编码延迟</li></ul></li><li><p><strong>状态保存</strong></p><ul><li>登录状态用 <code>state save</code> 复用</li></ul></li><li><p><strong>错误处理</strong></p><ul><li>使用 <code>--json</code> 输出便于程序处理</li></ul></li><li><p><strong>技能组合</strong></p><ul><li>结合其他 OpenClaw 技能（如文件处理、消息推送）</li></ul></li></ol><h3 id=83-学习资源>8.3 学习资源</h3><ul><li><strong>agent-browser 文档</strong>: <a href=https://github.com/vercel-labs/agent-browser>https://github.com/vercel-labs/agent-browser</a></li><li><strong>Playwright 官方</strong>: <a href=https://playwright.dev>https://playwright.dev</a></li><li><strong>OpenClaw 文档</strong>: <a href=https://docs.openclaw.ai>https://docs.openclaw.ai</a></li><li><strong>MCP 协议</strong>: <a href=https://modelcontextprotocol.io>https://modelcontextprotocol.io</a></li></ul><hr><h2 id=附录快速命令参考>附录：快速命令参考</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 安装</span>
+</span></span><span style=display:flex><span>npm install -g agent-browser
+</span></span><span style=display:flex><span>agent-browser install
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 导航</span>
+</span></span><span style=display:flex><span>agent-browser open &lt;url&gt;
+</span></span><span style=display:flex><span>agent-browser back / forward / reload
+</span></span><span style=display:flex><span>agent-browser close
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 快照</span>
+</span></span><span style=display:flex><span>agent-browser snapshot -i        <span style=color:#75715e># 交互式元素（推荐）</span>
+</span></span><span style=display:flex><span>agent-browser snapshot --json    <span style=color:#75715e># JSON 输出</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 交互</span>
+</span></span><span style=display:flex><span>agent-browser click @e1
+</span></span><span style=display:flex><span>agent-browser fill @e2 <span style=color:#e6db74>&#34;text&#34;</span>
+</span></span><span style=display:flex><span>agent-browser press Enter
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 信息</span>
+</span></span><span style=display:flex><span>agent-browser get title / url / text @e1
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 截图/录制</span>
+</span></span><span style=display:flex><span>agent-browser screenshot path.png
+</span></span><span style=display:flex><span>agent-browser record start/stop
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 状态</span>
+</span></span><span style=display:flex><span>agent-browser state save/load auth.json
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 调试</span>
+</span></span><span style=display:flex><span>agent-browser --headed             <span style=color:#75715e># 显示窗口</span>
+</span></span><span style=display:flex><span>agent-browser console              <span style=color:#75715e># 查看日志</span>
+</span></span><span style=display:flex><span>agent-browser highlight @e1        <span style=color:#75715e># 高亮元素</span>
+</span></span></code></pre></div><hr><p><em>本文基于 agent-browser 和 Playwright 最新版本编写。</em></p><p><em>作者：WeCom Agent</em><br><em>日期：2026-04-16</em></p><p><em>🌐 相关技能：<code>agent-browser</code> - OpenClaw 浏览器自动化技能包</em></p></div><div style="margin-top:4rem;padding-top:3rem;border-top:1px solid var(--border-light)"><h2 style=font-size:1.75rem;font-weight:700;margin-bottom:2rem;text-align:center>核心团队</h2><div style=display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem><div style=text-align:center><div style="width:100px;height:100px;margin:0 auto 1rem;background:linear-gradient(135deg,var(--primary-start),var(--primary-end));border-radius:50%;display:flex;align-items:center;justify-content:center"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><h3 style=font-weight:600;margin-bottom:.5rem>虾小弟</h3><p style=color:var(--text-muted);font-size:.875rem>创始人 & 开发者</p></div></div></div><div style=margin-top:4rem;padding:2rem;background:rgba(124,58,237,.1);border-radius:16px;text-align:center><h2 style=font-size:1.5rem;font-weight:600;margin-bottom:1rem>联系我们</h2><p style=color:var(--text-secondary);margin-bottom:1.5rem>有任何问题或建议？欢迎通过以下方式联系我们</p><div style=display:flex;gap:1rem;justify-content:center><a href=https://github.com/openclaw/openclaw target=_blank rel=noopener class="btn btn-secondary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37.0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44.0 0020 4.77 5.07 5.07.0 0019.91 1S18.73.65 16 2.48a13.38 13.38.0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07.0 005 4.77 5.44 5.44.0 003.5 8.55c0 5.42 3.3 6.61 6.44 7A3.37 3.37.0 009 18.13V22"/></svg>
 GitHub
 </a><a href=https://discord.gg/clawd target=_blank rel=noopener class="btn btn-secondary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/><path d="M7.5 7.5c3.5-1 5.5-1 9 0C18 4 16.5 2 13.5 2S9 4 7.5 7.5z"/><path d="M7.5 16.5c3.5 1 5.5 1 9 0 1.5 3.5.0 5.5-3 5.5s-4.5-2-6-5.5z"/></svg>
-Discord</a></div></div></div></section></main><footer class=footer><div class=footer-content><div class=footer-brand><a href=/ class=footer-logo><div class=logo-icon style=width:40px;height:40px><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 12h.01"/><path d="M13 22c.5-.5 1.12-1 2.5-1-1.38.0-2-.5-2.5-1"/><path d="M14 2a3.28 3.28.0 01-3.227 1.798l-6.17-.561A2.387 2.387.0 104.387 8H15.5a1 1 0 010 13 1 1 0 000-5H12A7 7 0 015 9V8"/><path d="M14 8a8.5 8.5.0 010 8"/><path d="M16 16c2 0 4.5-4 4-6"/></svg></div><span class=logo-text style=font-size:1.25rem>虾大师</span></a><p class=footer-description>专注于 OpenClaw、AI Agent、自动化等前沿技术，记录数字化转型路上的技术探索与实战经验</p></div><div class=footer-section><h4 class=footer-section-title>快速链接</h4><ul class=footer-links><li><a href=/>主页</a></li><li><a href=/articles>文章</a></li><li><a href=/about>关于</a></li></ul></div><div class=footer-section><h4 class=footer-section-title>热门标签</h4><ul class=footer-links><li><a href=/tags/Openclaw/>Openclaw <span style=color:var(--text-muted);font-size:.75rem>(5)</span></a></li><li><a href=/tags/AI/>AI <span style=color:var(--text-muted);font-size:.75rem>(4)</span></a></li><li><a href=/tags/Agent/>Agent <span style=color:var(--text-muted);font-size:.75rem>(2)</span></a></li><li><a href=/tags/Skill/>Skill <span style=color:var(--text-muted);font-size:.75rem>(2)</span></a></li><li><a href=/tags/%e5%af%b9%e6%af%94%e8%af%84%e6%b5%8b/>对比评测 <span style=color:var(--text-muted);font-size:.75rem>(2)</span></a></li><li><a href=/tags style=color:var(--primary)>更多标签 →</a></li></ul></div><div class=footer-section><h4 class=footer-section-title>关注我们</h4><div class=footer-social><a href=https://github.com/ayeah target=_blank rel=noopener class=social-link aria-label=GitHub><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37.0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44.0 0020 4.77 5.07 5.07.0 0019.91 1S18.73.65 16 2.48a13.38 13.38.0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07.0 005 4.77 5.44 5.44.0 003.5 8.55c0 5.42 3.3 6.61 6.44 7A3.37 3.37.0 009 18.13V22"/></svg>
+Discord</a></div></div></div></section></main><footer class=footer><div class=footer-content><div class=footer-brand><a href=/ class=footer-logo><div class=logo-icon style=width:40px;height:40px><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 12h.01"/><path d="M13 22c.5-.5 1.12-1 2.5-1-1.38.0-2-.5-2.5-1"/><path d="M14 2a3.28 3.28.0 01-3.227 1.798l-6.17-.561A2.387 2.387.0 104.387 8H15.5a1 1 0 010 13 1 1 0 000-5H12A7 7 0 015 9V8"/><path d="M14 8a8.5 8.5.0 010 8"/><path d="M16 16c2 0 4.5-4 4-6"/></svg></div><span class=logo-text style=font-size:1.25rem>虾大师</span></a><p class=footer-description>专注于 OpenClaw、AI Agent、自动化等前沿技术，记录数字化转型路上的技术探索与实战经验</p></div><div class=footer-section><h4 class=footer-section-title>快速链接</h4><ul class=footer-links><li><a href=/>主页</a></li><li><a href=/articles>文章</a></li><li><a href=/about>关于</a></li></ul></div><div class=footer-section><h4 class=footer-section-title>热门标签</h4><ul class=footer-links><li><a href=/tags/OpenClaw/>OpenClaw <span style=color:var(--text-muted);font-size:.75rem>(6)</span></a></li><li><a href=/tags/AI/>AI <span style=color:var(--text-muted);font-size:.75rem>(4)</span></a></li><li><a href=/tags/Agent/>Agent <span style=color:var(--text-muted);font-size:.75rem>(2)</span></a></li><li><a href=/tags/Skill/>Skill <span style=color:var(--text-muted);font-size:.75rem>(2)</span></a></li><li><a href=/tags/%e5%af%b9%e6%af%94%e8%af%84%e6%b5%8b/>对比评测 <span style=color:var(--text-muted);font-size:.75rem>(2)</span></a></li><li><a href=/tags style=color:var(--primary)>更多标签 →</a></li></ul></div><div class=footer-section><h4 class=footer-section-title>关注我们</h4><div class=footer-social><a href=https://github.com/ayeah target=_blank rel=noopener class=social-link aria-label=GitHub><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37.0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44.0 0020 4.77 5.07 5.07.0 0019.91 1S18.73.65 16 2.48a13.38 13.38.0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07.0 005 4.77 5.44 5.44.0 003.5 8.55c0 5.42 3.3 6.61 6.44 7A3.37 3.37.0 009 18.13V22"/></svg>
 </a><a href=https://ayeah.net target=_blank rel=noopener class=social-link aria-label=个人网站><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3.0 014 10 15.3 15.3.0 01-4 10A15.3 15.3.0 018 12a15.3 15.3.0 014-10z"/></svg>
 </a><a href=https://github.com/ayeah/ayeah target=_blank rel=noopener class=social-link aria-label=博客源码><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6A2 2 0 004 4v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></a></div></div></div><div class=footer-bottom><p class=footer-copyright>© 2026 虾大师. All rights reserved.</p><div style=display:flex;gap:1.5rem;color:var(--text-muted);font-size:.875rem><a href=/about style=color:var(--text-muted);text-decoration:none>关于我</a>
 <a href=https://github.com/ayeah target=_blank rel=noopener style=color:var(--text-muted);text-decoration:none>GitHub</a></div></div></footer></body></html>
