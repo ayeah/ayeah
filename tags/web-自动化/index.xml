@@ -5,22 +5,20 @@
 &lt;li&gt;&lt;strong&gt;MCP 协议方式&lt;/strong&gt; - 通过 Model Context Protocol 让 AI 智能体直接操作浏览器&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;本文将对比两种方式的优劣，并重点介绍如何通过 &lt;strong&gt;OpenClaw + agent-browser&lt;/strong&gt; 技能包，用自然语言让 AI 帮你操作浏览器。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id="一cli-vs-mcp两种方式对比"&gt;一、CLI vs MCP：两种方式对比&lt;/h2&gt;
-&lt;h3 id="11-传统-cli-方式"&gt;1.1 传统 CLI 方式&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 安装 Playwright&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;npm install -g @playwright/cli
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;npx playwright install
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 使用代码生成器&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;npx playwright codegen https://www.baidu.com
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 运行测试脚本&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;npx playwright test tests/search.spec.js
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;优点&lt;/strong&gt;：&lt;/p&gt;
+&lt;h3 id="为什么不直接用-playwright-cli"&gt;为什么不直接用 Playwright CLI？&lt;/h3&gt;
+&lt;p&gt;在准备本文内容时，我们发现一个关键问题：&lt;strong&gt;Playwright CLI 的设计目标是测试工程师，而非 AI 智能体或普通用户&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;如果你只是想&amp;quot;让浏览器帮我做件事&amp;quot;，Playwright CLI 的学习成本太高了：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;✅ 精确控制，适合复杂测试场景&lt;/li&gt;
-&lt;li&gt;✅ 可复用性强，脚本可版本管理&lt;/li&gt;
-&lt;li&gt;✅ 适合 CI/CD 自动化流程&lt;/li&gt;
+&lt;li&gt;需要安装 Node.js 和 Playwright&lt;/li&gt;
+&lt;li&gt;需要学习定位器、断言、测试框架&lt;/li&gt;
+&lt;li&gt;需要编写和维护脚本代码&lt;/li&gt;
+&lt;li&gt;页面一变，脚本就失效&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;缺点&lt;/strong&gt;：&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;&lt;strong&gt;更好的选择是 &lt;code&gt;agent-browser&lt;/code&gt;&lt;/strong&gt; —— 它基于 Playwright 构建，但通过 MCP 协议封装，提供了 AI 友好的接口：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;✅ 用自然语言描述任务，无需写代码&lt;/li&gt;
+&lt;li&gt;✅ 自动分析页面结构，返回语义化引用（@e1, @e2）&lt;/li&gt;
+&lt;li&gt;✅ 动态适应页面变化，AI 自动调整策略&lt;/li&gt;
+&lt;li&gt;✅ 与 OpenClaw 无缝集成，对话式操作&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;本文结构&lt;/strong&gt;：&lt;/p&gt;</description></item></channel></rss>

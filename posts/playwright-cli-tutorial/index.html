@@ -13,7 +13,16 @@
 <svg style="display:inline;width:12px;height:12px;margin-left:4px" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a></div></div></li></ul><button class=menu-toggle id=menuToggle aria-label=切换菜单>
 <span></span>
 <span></span>
-<span></span></button></nav></header><script>const header=document.getElementById("header");window.addEventListener("scroll",()=>{window.scrollY>50?header.classList.add("scrolled"):header.classList.remove("scrolled")});const menuToggle=document.getElementById("menuToggle"),navMenu=document.getElementById("navMenu");menuToggle.addEventListener("click",()=>{navMenu.classList.toggle("active")});const tagsItem=document.querySelector(".nav-item:last-child");if(tagsItem){const e=tagsItem.querySelector("div:last-child");tagsItem.addEventListener("mouseenter",()=>{e.style.opacity="1",e.style.visibility="visible"}),tagsItem.addEventListener("mouseleave",()=>{e.style.opacity="0",e.style.visibility="hidden"})}</script><main class=flex-1><section class=article-page style="padding-top:calc(var(--header-height) + 3rem)"><div class=container style=max-width:800px><header class=article-header><h1 class=article-title>Playwright CLI 完全指南：从入门到百度搜索实战</h1><p style=color:var(--text-secondary);font-size:1.125rem>全面介绍 Playwright CLI 和 MCP 协议的使用方法，重点讲解如何通过 OpenClaw 智能体操作浏览器，提供完整的技能包和实战案例</p></header><div class=article-body><h2 id=前言>前言</h2><p>Playwright 是 Microsoft 开发的浏览器自动化工具，支持 Chromium、Firefox 和 WebKit 三大主流浏览器引擎。它有两种主要使用方式：</p><ol><li><strong>传统 CLI 方式</strong> - 通过命令行和代码脚本控制浏览器</li><li><strong>MCP 协议方式</strong> - 通过 Model Context Protocol 让 AI 智能体直接操作浏览器</li></ol><p>本文将对比两种方式的优劣，并重点介绍如何通过 <strong>OpenClaw + agent-browser</strong> 技能包，用自然语言让 AI 帮你操作浏览器。</p><hr><h2 id=一cli-vs-mcp两种方式对比>一、CLI vs MCP：两种方式对比</h2><h3 id=11-传统-cli-方式>1.1 传统 CLI 方式</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 安装 Playwright</span>
+<span></span></button></nav></header><script>const header=document.getElementById("header");window.addEventListener("scroll",()=>{window.scrollY>50?header.classList.add("scrolled"):header.classList.remove("scrolled")});const menuToggle=document.getElementById("menuToggle"),navMenu=document.getElementById("navMenu");menuToggle.addEventListener("click",()=>{navMenu.classList.toggle("active")});const tagsItem=document.querySelector(".nav-item:last-child");if(tagsItem){const e=tagsItem.querySelector("div:last-child");tagsItem.addEventListener("mouseenter",()=>{e.style.opacity="1",e.style.visibility="visible"}),tagsItem.addEventListener("mouseleave",()=>{e.style.opacity="0",e.style.visibility="hidden"})}</script><main class=flex-1><section class=article-page style="padding-top:calc(var(--header-height) + 3rem)"><div class=container style=max-width:800px><header class=article-header><h1 class=article-title>Playwright CLI 完全指南：从入门到百度搜索实战</h1><p style=color:var(--text-secondary);font-size:1.125rem>全面介绍 Playwright CLI 和 MCP 协议的使用方法，重点讲解如何通过 OpenClaw 智能体操作浏览器，提供完整的技能包和实战案例</p></header><div class=article-body><h2 id=前言>前言</h2><p>Playwright 是 Microsoft 开发的浏览器自动化工具，支持 Chromium、Firefox 和 WebKit 三大主流浏览器引擎。它有两种主要使用方式：</p><ol><li><strong>传统 CLI 方式</strong> - 通过命令行和代码脚本控制浏览器</li><li><strong>MCP 协议方式</strong> - 通过 Model Context Protocol 让 AI 智能体直接操作浏览器</li></ol><p>本文将对比两种方式的优劣，并重点介绍如何通过 <strong>OpenClaw + agent-browser</strong> 技能包，用自然语言让 AI 帮你操作浏览器。</p><h3 id=为什么不直接用-playwright-cli>为什么不直接用 Playwright CLI？</h3><p>在准备本文内容时，我们发现一个关键问题：<strong>Playwright CLI 的设计目标是测试工程师，而非 AI 智能体或普通用户</strong>。</p><p>如果你只是想"让浏览器帮我做件事"，Playwright CLI 的学习成本太高了：</p><ul><li>需要安装 Node.js 和 Playwright</li><li>需要学习定位器、断言、测试框架</li><li>需要编写和维护脚本代码</li><li>页面一变，脚本就失效</li></ul><p><strong>更好的选择是 <code>agent-browser</code></strong> —— 它基于 Playwright 构建，但通过 MCP 协议封装，提供了 AI 友好的接口：</p><ul><li>✅ 用自然语言描述任务，无需写代码</li><li>✅ 自动分析页面结构，返回语义化引用（@e1, @e2）</li><li>✅ 动态适应页面变化，AI 自动调整策略</li><li>✅ 与 OpenClaw 无缝集成，对话式操作</li></ul><p><strong>本文结构</strong>：</p><ul><li>第一、二部分：快速了解 Playwright CLI 与 agent-browser 差异（基础认知）</li><li>第三部分起：重点掌握 agent-browser（实战推荐）</li></ul><hr><h2 id=一playwright-cli-vs-agent-browser核心差异>一、Playwright CLI vs agent-browser：核心差异</h2><p>在深入之前，先澄清一个关键点：<strong>agent-browser 不是 Playwright 的替代品，而是 AI 时代的封装层</strong>。</p><h3 id=11-技术关系>1.1 技术关系</h3><pre tabindex=0><code>┌─────────────────────────────────────┐
+│     用户/智能体 (自然语言)           │
+├─────────────────────────────────────┤
+│     agent-browser (MCP 封装层)       │  ← AI 友好接口
+├─────────────────────────────────────┤
+│     Playwright (底层引擎)            │  ← 浏览器控制
+├─────────────────────────────────────┤
+│     Chromium / Firefox / WebKit      │
+└─────────────────────────────────────┘
+</code></pre><h3 id=12-核心差异对比>1.2 核心差异对比</h3><table><thead><tr><th>维度</th><th>Playwright CLI</th><th>agent-browser</th></tr></thead><tbody><tr><td><strong>目标用户</strong></td><td>测试工程师、开发者</td><td>AI 智能体、普通用户</td></tr><tr><td><strong>交互方式</strong></td><td>命令行/代码</td><td>自然语言/MCP 协议</td></tr><tr><td><strong>学习曲线</strong></td><td>陡峭（需编程知识）</td><td>平缓（对话式）</td></tr><tr><td><strong>灵活性</strong></td><td>低（固定脚本）</td><td>高（动态响应）</td></tr><tr><td><strong>元素定位</strong></td><td>选择器/定位器</td><td>语义化引用（@e1, @e2）</td></tr><tr><td><strong>状态理解</strong></td><td>无（需手动检查）</td><td>有（快照自动分析）</td></tr><tr><td><strong>适合场景</strong></td><td>回归测试、CI/CD</td><td>探索任务、数据提取</td></tr></tbody></table><h3 id=13-使用场景对比>1.3 使用场景对比</h3><p><strong>选择 Playwright CLI，如果</strong>：</p><ul><li>✅ 需要编写可重复执行的测试脚本</li><li>✅ 集成到 CI/CD 流程中</li><li>✅ 团队有测试开发能力</li><li>✅ 页面结构稳定，变更频率低</li></ul><p><strong>选择 agent-browser，如果</strong>：</p><ul><li>✅ 想让 AI 帮你操作浏览器</li><li>✅ 任务多变，难以预先定义</li><li>✅ 需要动态适应页面变化</li><li>✅ 快速探索和数据提取</li><li>✅ 零代码自动化需求</li></ul><h3 id=14-一句话总结>1.4 一句话总结</h3><table><thead><tr><th>需求</th><th>推荐工具</th></tr></thead><tbody><tr><td>写测试脚本</td><td>Playwright CLI</td></tr><tr><td>让 AI 操作浏览器</td><td>agent-browser ⭐</td></tr></tbody></table><hr><h2 id=二cli-vs-mcp两种方式对比>二、CLI vs MCP：两种方式对比</h2><h3 id=21-传统-cli-方式>2.1 传统 CLI 方式</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 安装 Playwright</span>
 </span></span><span style=display:flex><span>npm install -g @playwright/cli
 </span></span><span style=display:flex><span>npx playwright install
 </span></span><span style=display:flex><span>
@@ -22,7 +31,7 @@
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># 运行测试脚本</span>
 </span></span><span style=display:flex><span>npx playwright test tests/search.spec.js
-</span></span></code></pre></div><p><strong>优点</strong>：</p><ul><li>✅ 精确控制，适合复杂测试场景</li><li>✅ 可复用性强，脚本可版本管理</li><li>✅ 适合 CI/CD 自动化流程</li></ul><p><strong>缺点</strong>：</p><ul><li>❌ 学习曲线陡峭，需要编程知识</li><li>❌ 维护成本高，页面变更需更新脚本</li><li>❌ 无法动态响应，缺乏灵活性</li></ul><h3 id=12-mcp-协议方式推荐>1.2 MCP 协议方式（推荐）</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 安装 agent-browser（基于 Playwright 的 MCP 封装）</span>
+</span></span></code></pre></div><p><strong>优点</strong>：</p><ul><li>✅ 精确控制，适合复杂测试场景</li><li>✅ 可复用性强，脚本可版本管理</li><li>✅ 适合 CI/CD 自动化流程</li></ul><p><strong>缺点</strong>：</p><ul><li>❌ 学习曲线陡峭，需要编程知识</li><li>❌ 维护成本高，页面变更需更新脚本</li><li>❌ 无法动态响应，缺乏灵活性</li></ul><h3 id=22-mcp-协议方式推荐>2.2 MCP 协议方式（推荐）</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 安装 agent-browser（基于 Playwright 的 MCP 封装）</span>
 </span></span><span style=display:flex><span>npm install -g agent-browser
 </span></span><span style=display:flex><span>agent-browser install
 </span></span><span style=display:flex><span>
@@ -30,7 +39,7 @@
 </span></span><span style=display:flex><span><span style=color:#e6db74>&#34;帮我打开百度，搜索 Playwright 教程&#34;</span>
 </span></span><span style=display:flex><span><span style=color:#e6db74>&#34;截图保存当前页面&#34;</span>
 </span></span><span style=display:flex><span><span style=color:#e6db74>&#34;提取所有搜索结果链接&#34;</span>
-</span></span></code></pre></div><p><strong>优点</strong>：</p><ul><li>✅ <strong>零代码</strong> - 用自然语言描述任务</li><li>✅ <strong>动态适应</strong> - AI 自动处理页面变化</li><li>✅ <strong>即时交互</strong> - 实时反馈和调整</li><li>✅ <strong>技能复用</strong> - 预置技能包开箱即用</li></ul><p><strong>缺点</strong>：</p><ul><li>❌ 复杂场景需要更多上下文</li><li>❌ 依赖 AI 模型的理解能力</li></ul><h3 id=13-对比总结>1.3 对比总结</h3><table><thead><tr><th>特性</th><th>CLI 方式</th><th>MCP 方式</th></tr></thead><tbody><tr><td>学习成本</td><td>高（需编程）</td><td>低（自然语言）</td></tr><tr><td>灵活性</td><td>低（固定脚本）</td><td>高（动态响应）</td></tr><tr><td>维护成本</td><td>高</td><td>低</td></tr><tr><td>适合场景</td><td>回归测试、CI/CD</td><td>探索性任务、数据提取</td></tr><tr><td>响应速度</td><td>快（预定义）</td><td>中等（实时计算）</td></tr></tbody></table><p><strong>推荐策略</strong>：</p><ul><li><strong>日常任务</strong> → 使用 MCP 方式（OpenClaw + agent-browser）</li><li><strong>固定流程</strong> → 使用 CLI 方式（Playwright 测试脚本）</li><li><strong>混合使用</strong> → MCP 探索 + CLI 固化</li></ul><hr><h2 id=二openclaw-浏览器操作入门>二、OpenClaw 浏览器操作入门</h2><h3 id=21-环境准备>2.1 环境准备</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 1. 安装 agent-browser</span>
+</span></span></code></pre></div><p><strong>优点</strong>：</p><ul><li>✅ <strong>零代码</strong> - 用自然语言描述任务</li><li>✅ <strong>动态适应</strong> - AI 自动处理页面变化</li><li>✅ <strong>即时交互</strong> - 实时反馈和调整</li><li>✅ <strong>技能复用</strong> - 预置技能包开箱即用</li></ul><p><strong>缺点</strong>：</p><ul><li>❌ 复杂场景需要更多上下文</li><li>❌ 依赖 AI 模型的理解能力</li></ul><h3 id=23-对比总结>2.3 对比总结</h3><table><thead><tr><th>特性</th><th>CLI 方式</th><th>MCP 方式</th></tr></thead><tbody><tr><td>学习成本</td><td>高（需编程）</td><td>低（自然语言）</td></tr><tr><td>灵活性</td><td>低（固定脚本）</td><td>高（动态响应）</td></tr><tr><td>维护成本</td><td>高</td><td>低</td></tr><tr><td>适合场景</td><td>回归测试、CI/CD</td><td>探索性任务、数据提取</td></tr><tr><td>响应速度</td><td>快（预定义）</td><td>中等（实时计算）</td></tr></tbody></table><p><strong>推荐策略</strong>：</p><ul><li><strong>日常任务</strong> → 使用 MCP 方式（OpenClaw + agent-browser）</li><li><strong>固定流程</strong> → 使用 CLI 方式（Playwright 测试脚本）</li><li><strong>混合使用</strong> → MCP 探索 + CLI 固化</li></ul><hr><h2 id=三openclaw-浏览器操作入门>三、OpenClaw 浏览器操作入门</h2><h3 id=31-环境准备>3.1 环境准备</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 1. 安装 agent-browser</span>
 </span></span><span style=display:flex><span>npm install -g agent-browser
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># 2. 安装浏览器依赖</span>
@@ -39,7 +48,7 @@
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># 3. 验证安装</span>
 </span></span><span style=display:flex><span>agent-browser --version
-</span></span></code></pre></div><h3 id=22-openclaw-技能配置>2.2 OpenClaw 技能配置</h3><p>在 OpenClaw 工作区中，浏览器操作技能已预置在：</p><pre tabindex=0><code>~/.openclaw/workspace/skills/agent-browser/
+</span></span></code></pre></div><h3 id=32-openclaw-技能配置>3.2 OpenClaw 技能配置</h3><p>在 OpenClaw 工作区中，浏览器操作技能已预置在：</p><pre tabindex=0><code>~/.openclaw/workspace/skills/agent-browser/
 ├── SKILL.md          # 技能说明文档
 ├── _meta.json        # 技能元数据
 └── CONTRIBUTING.md   # 贡献指南
@@ -50,7 +59,7 @@
 </span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;bins&#34;</span>: [<span style=color:#e6db74>&#34;node&#34;</span>, <span style=color:#e6db74>&#34;npm&#34;</span>]
 </span></span><span style=display:flex><span>  }
 </span></span><span style=display:flex><span>}
-</span></span></code></pre></div><h3 id=23-基本使用方式>2.3 基本使用方式</h3><p>在 OpenClaw 对话中，直接使用自然语言指令：</p><pre tabindex=0><code>用户：帮我打开百度首页
+</span></span></code></pre></div><h3 id=33-基本使用方式>3.3 基本使用方式</h3><p>在 OpenClaw 对话中，直接使用自然语言指令：</p><pre tabindex=0><code>用户：帮我打开百度首页
 AI:  好的，正在打开 https://www.baidu.com...
      ✅ 页面已加载，标题：&#34;百度一下，你就知道&#34;
      需要我做什么操作吗？
@@ -63,7 +72,7 @@ AI:  正在搜索...
 用户：截图保存
 AI:  📸 已截图保存
      MEDIA:/path/to/screenshot.png
-</code></pre><hr><h2 id=三核心操作技能>三、核心操作技能</h2><h3 id=31-页面导航>3.1 页面导航</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># OpenClaw 指令示例</span>
+</code></pre><hr><h2 id=四核心操作技能>四、核心操作技能</h2><h3 id=41-页面导航>4.1 页面导航</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># OpenClaw 指令示例</span>
 </span></span><span style=display:flex><span><span style=color:#e6db74>&#34;打开 https://example.com&#34;</span>
 </span></span><span style=display:flex><span><span style=color:#e6db74>&#34;返回首页&#34;</span>
 </span></span><span style=display:flex><span><span style=color:#e6db74>&#34;后退一页&#34;</span>
@@ -73,7 +82,7 @@ AI:  📸 已截图保存
 </span></span><span style=display:flex><span>agent-browser forward           <span style=color:#75715e># 前进</span>
 </span></span><span style=display:flex><span>agent-browser reload            <span style=color:#75715e># 刷新</span>
 </span></span><span style=display:flex><span>agent-browser close             <span style=color:#75715e># 关闭浏览器</span>
-</span></span></code></pre></div><h3 id=32-页面快照核心技能>3.2 页面快照（核心技能）</h3><p>快照是 AI 理解页面的关键，会返回可交互元素及其引用 ID：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># OpenClaw 指令</span>
+</span></span></code></pre></div><h3 id=42-页面快照核心技能>4.2 页面快照（核心技能）</h3><p>快照是 AI 理解页面的关键，会返回可交互元素及其引用 ID：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># OpenClaw 指令</span>
 </span></span><span style=display:flex><span><span style=color:#e6db74>&#34;分析当前页面有哪些可操作元素&#34;</span>
 </span></span><span style=display:flex><span><span style=color:#e6db74>&#34;获取页面快照&#34;</span>
 </span></span></code></pre></div><p><strong>底层命令</strong>：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>agent-browser snapshot -i       <span style=color:#75715e># 交互式元素（推荐）</span>
@@ -85,7 +94,7 @@ AI:  📸 已截图保存
   @e2: button &#34;百度一下&#34; [type=&#34;submit&#34;]
   @e3: link &#34;新闻&#34; [href=&#34;/news&#34;]
   @e4: link &#34;图片&#34; [href=&#34;/image&#34;]
-</code></pre><h3 id=33-元素交互>3.3 元素交互</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># OpenClaw 指令</span>
+</code></pre><h3 id=43-元素交互>4.3 元素交互</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># OpenClaw 指令</span>
 </span></span><span style=display:flex><span><span style=color:#e6db74>&#34;点击搜索按钮&#34;</span>
 </span></span><span style=display:flex><span><span style=color:#e6db74>&#34;在搜索框输入&#39;Playwright 教程&#39;&#34;</span>
 </span></span><span style=display:flex><span><span style=color:#e6db74>&#34;按下回车键&#34;</span>
@@ -95,7 +104,7 @@ AI:  📸 已截图保存
 </span></span><span style=display:flex><span>agent-browser press Enter       <span style=color:#75715e># 按键</span>
 </span></span><span style=display:flex><span>agent-browser hover @e1         <span style=color:#75715e># 悬停</span>
 </span></span><span style=display:flex><span>agent-browser check @e1         <span style=color:#75715e># 勾选复选框</span>
-</span></span></code></pre></div><h3 id=34-信息提取>3.4 信息提取</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># OpenClaw 指令</span>
+</span></span></code></pre></div><h3 id=44-信息提取>4.4 信息提取</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># OpenClaw 指令</span>
 </span></span><span style=display:flex><span><span style=color:#e6db74>&#34;获取页面标题&#34;</span>
 </span></span><span style=display:flex><span><span style=color:#e6db74>&#34;提取所有搜索结果链接&#34;</span>
 </span></span><span style=display:flex><span><span style=color:#e6db74>&#34;这个按钮的文字是什么&#34;</span>
@@ -104,7 +113,7 @@ AI:  📸 已截图保存
 </span></span><span style=display:flex><span>agent-browser get text @e1      <span style=color:#75715e># 元素文本</span>
 </span></span><span style=display:flex><span>agent-browser get html @e1      <span style=color:#75715e># 元素 HTML</span>
 </span></span><span style=display:flex><span>agent-browser get count <span style=color:#e6db74>&#34;.item&#34;</span> <span style=color:#75715e># 元素数量</span>
-</span></span></code></pre></div><h3 id=35-截图与录制>3.5 截图与录制</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># OpenClaw 指令</span>
+</span></span></code></pre></div><h3 id=45-截图与录制>4.5 截图与录制</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># OpenClaw 指令</span>
 </span></span><span style=display:flex><span><span style=color:#e6db74>&#34;截图保存&#34;</span>
 </span></span><span style=display:flex><span><span style=color:#e6db74>&#34;录制我的操作流程&#34;</span>
 </span></span><span style=display:flex><span><span style=color:#e6db74>&#34;生成 PDF 报告&#34;</span>
@@ -113,12 +122,12 @@ AI:  📸 已截图保存
 </span></span><span style=display:flex><span>agent-browser record start demo.webm        <span style=color:#75715e># 开始录制</span>
 </span></span><span style=display:flex><span>agent-browser record stop                   <span style=color:#75715e># 停止录制</span>
 </span></span><span style=display:flex><span>agent-browser pdf output.pdf                <span style=color:#75715e># 生成 PDF</span>
-</span></span></code></pre></div><h3 id=36-状态管理>3.6 状态管理</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># OpenClaw 指令</span>
+</span></span></code></pre></div><h3 id=46-状态管理>4.6 状态管理</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># OpenClaw 指令</span>
 </span></span><span style=display:flex><span><span style=color:#e6db74>&#34;保存登录状态&#34;</span>
 </span></span><span style=display:flex><span><span style=color:#e6db74>&#34;加载之前的会话&#34;</span>
 </span></span></code></pre></div><p><strong>底层命令</strong>：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>agent-browser state save auth.json    <span style=color:#75715e># 保存状态</span>
 </span></span><span style=display:flex><span>agent-browser state load auth.json    <span style=color:#75715e># 加载状态</span>
-</span></span></code></pre></div><hr><h2 id=四实战演练百度搜索自动化>四、实战演练：百度搜索自动化</h2><h3 id=41-场景描述>4.1 场景描述</h3><p>使用 OpenClaw + agent-browser 完成百度搜索任务：</p><ol><li>打开百度首页</li><li>搜索"Playwright 教程"</li><li>提取前 5 个搜索结果</li><li>截图保存</li></ol><h3 id=42-openclaw-对话流程>4.2 OpenClaw 对话流程</h3><pre tabindex=0><code>用户：帮我做个百度搜索测试
+</span></span></code></pre></div><hr><h2 id=五实战演练百度搜索自动化>五、实战演练：百度搜索自动化</h2><h3 id=51-场景描述>5.1 场景描述</h3><p>使用 OpenClaw + agent-browser 完成百度搜索任务：</p><ol><li>打开百度首页</li><li>搜索"Playwright 教程"</li><li>提取前 5 个搜索结果</li><li>截图保存</li></ol><h3 id=52-openclaw-对话流程>5.2 OpenClaw 对话流程</h3><pre tabindex=0><code>用户：帮我做个百度搜索测试
 
 AI: 好的，我来帮你完成百度搜索自动化测试。
 
@@ -145,7 +154,7 @@ AI: 好的，我来帮你完成百度搜索自动化测试。
    📸 截图已保存：screenshots/baidu-search.png
 
 ✅ 测试完成！需要我做其他操作吗？
-</code></pre><h3 id=43-底层命令流程>4.3 底层命令流程</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 1. 打开页面</span>
+</code></pre><h3 id=53-底层命令流程>5.3 底层命令流程</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 1. 打开页面</span>
 </span></span><span style=display:flex><span>agent-browser open https://www.baidu.com
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># 2. 获取快照</span>
@@ -167,7 +176,7 @@ AI: 好的，我来帮你完成百度搜索自动化测试。
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># 7. 截图</span>
 </span></span><span style=display:flex><span>agent-browser screenshot screenshots/baidu-search.png
-</span></span></code></pre></div><h3 id=44-完整脚本可选>4.4 完整脚本（可选）</h3><p>如需固化为可复用脚本：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e>#!/bin/bash
+</span></span></code></pre></div><h3 id=54-完整脚本可选>5.4 完整脚本（可选）</h3><p>如需固化为可复用脚本：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e>#!/bin/bash
 </span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#75715e># baidu-search.sh</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>URL<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;https://www.baidu.com&#34;</span>
@@ -199,7 +208,7 @@ AI: 好的，我来帮你完成百度搜索自动化测试。
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>echo <span style=color:#e6db74>&#34;✅ 完成！&#34;</span>
 </span></span><span style=display:flex><span>agent-browser close
-</span></span></code></pre></div><hr><h2 id=五进阶技能>五、进阶技能</h2><h3 id=51-多标签页操作>5.1 多标签页操作</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># OpenClaw 指令</span>
+</span></span></code></pre></div><hr><h2 id=六进阶技能>六、进阶技能</h2><h3 id=61-多标签页操作>6.1 多标签页操作</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># OpenClaw 指令</span>
 </span></span><span style=display:flex><span><span style=color:#e6db74>&#34;在新标签页打开这个链接&#34;</span>
 </span></span><span style=display:flex><span><span style=color:#e6db74>&#34;切换到第二个标签页&#34;</span>
 </span></span><span style=display:flex><span><span style=color:#e6db74>&#34;关闭当前标签页&#34;</span>
@@ -209,7 +218,7 @@ AI: 好的，我来帮你完成百度搜索自动化测试。
 </span></span><span style=display:flex><span>agent-browser tab <span style=color:#ae81ff>2</span>               <span style=color:#75715e># 切换到标签页 2</span>
 </span></span><span style=display:flex><span>agent-browser tab list            <span style=color:#75715e># 列出所有标签页</span>
 </span></span><span style=display:flex><span>agent-browser tab close           <span style=color:#75715e># 关闭当前标签页</span>
-</span></span></code></pre></div><h3 id=52-表单自动化>5.2 表单自动化</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># OpenClaw 指令</span>
+</span></span></code></pre></div><h3 id=62-表单自动化>6.2 表单自动化</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># OpenClaw 指令</span>
 </span></span><span style=display:flex><span><span style=color:#e6db74>&#34;填写登录表单&#34;</span>
 </span></span><span style=display:flex><span><span style=color:#e6db74>&#34;提交表单&#34;</span>
 </span></span><span style=display:flex><span><span style=color:#e6db74>&#34;处理弹窗&#34;</span>
@@ -221,14 +230,14 @@ AI: 好的，我来帮你完成百度搜索自动化测试。
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># 处理弹窗</span>
 </span></span><span style=display:flex><span>agent-browser dialog accept
-</span></span></code></pre></div><h3 id=53-文件操作>5.3 文件操作</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># OpenClaw 指令</span>
+</span></span></code></pre></div><h3 id=63-文件操作>6.3 文件操作</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># OpenClaw 指令</span>
 </span></span><span style=display:flex><span><span style=color:#e6db74>&#34;上传这个文件&#34;</span>
 </span></span><span style=display:flex><span><span style=color:#e6db74>&#34;下载页面中的文件&#34;</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># 底层命令</span>
 </span></span><span style=display:flex><span>agent-browser upload @e1 file.pdf
 </span></span><span style=display:flex><span>agent-browser wait <span style=color:#66d9ef>for</span> download
-</span></span></code></pre></div><h3 id=54-认证状态复用>5.4 认证状态复用</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 首次登录并保存状态</span>
+</span></span></code></pre></div><h3 id=64-认证状态复用>6.4 认证状态复用</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 首次登录并保存状态</span>
 </span></span><span style=display:flex><span>agent-browser open https://app.example.com/login
 </span></span><span style=display:flex><span><span style=color:#75715e># ... 填写表单并提交 ...</span>
 </span></span><span style=display:flex><span>agent-browser wait --url <span style=color:#e6db74>&#34;/dashboard&#34;</span>
@@ -237,12 +246,12 @@ AI: 好的，我来帮你完成百度搜索自动化测试。
 </span></span><span style=display:flex><span><span style=color:#75715e># 后续使用</span>
 </span></span><span style=display:flex><span>agent-browser state load auth.json
 </span></span><span style=display:flex><span>agent-browser open https://app.example.com/dashboard
-</span></span></code></pre></div><h3 id=55-数据提取json-输出>5.5 数据提取（JSON 输出）</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 提取结构化数据</span>
+</span></span></code></pre></div><h3 id=65-数据提取json-输出>6.5 数据提取（JSON 输出）</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 提取结构化数据</span>
 </span></span><span style=display:flex><span>agent-browser snapshot -i --json | jq <span style=color:#e6db74>&#39;.elements[] | select(.role==&#34;link&#34;)&#39;</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># 提取所有搜索结果</span>
 </span></span><span style=display:flex><span>agent-browser get text <span style=color:#e6db74>&#34;.result .c-title&#34;</span> --json
-</span></span></code></pre></div><hr><h2 id=六调试技巧>六、调试技巧</h2><h3 id=61-可视化调试>6.1 可视化调试</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 显示浏览器窗口（非无头模式）</span>
+</span></span></code></pre></div><hr><h2 id=七调试技巧>七、调试技巧</h2><h3 id=71-可视化调试>7.1 可视化调试</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 显示浏览器窗口（非无头模式）</span>
 </span></span><span style=display:flex><span>agent-browser open example.com --headed
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># 高亮元素</span>
@@ -253,22 +262,22 @@ AI: 好的，我来帮你完成百度搜索自动化测试。
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># 查看页面错误</span>
 </span></span><span style=display:flex><span>agent-browser errors
-</span></span></code></pre></div><h3 id=62-追踪录制>6.2 追踪录制</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 录制操作过程</span>
+</span></span></code></pre></div><h3 id=72-追踪录制>7.2 追踪录制</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 录制操作过程</span>
 </span></span><span style=display:flex><span>agent-browser record start demo.webm
 </span></span><span style=display:flex><span><span style=color:#75715e># ... 执行操作 ...</span>
 </span></span><span style=display:flex><span>agent-browser record stop
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># 回放查看</span>
 </span></span><span style=display:flex><span><span style=color:#75715e># 使用任何视频播放器打开 demo.webm</span>
-</span></span></code></pre></div><h3 id=63-常见问题排查>6.3 常见问题排查</h3><table><thead><tr><th>问题</th><th>解决方案</th></tr></thead><tbody><tr><td>元素找不到</td><td>重新 snapshot 获取最新 refs</td></tr><tr><td>页面未加载</td><td>添加 <code>wait --load networkidle</code></td></tr><tr><td>命令不响应</td><td>检查 <code>agent-browser --version</code></td></tr><tr><td>浏览器打不开</td><td>运行 <code>agent-browser install --with-deps</code></td></tr></tbody></table><hr><h2 id=七技能包获取>七、技能包获取</h2><h3 id=71-安装-agent-browser-技能>7.1 安装 agent-browser 技能</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 方法 1：直接安装</span>
+</span></span></code></pre></div><h3 id=73-常见问题排查>7.3 常见问题排查</h3><table><thead><tr><th>问题</th><th>解决方案</th></tr></thead><tbody><tr><td>元素找不到</td><td>重新 snapshot 获取最新 refs</td></tr><tr><td>页面未加载</td><td>添加 <code>wait --load networkidle</code></td></tr><tr><td>命令不响应</td><td>检查 <code>agent-browser --version</code></td></tr><tr><td>浏览器打不开</td><td>运行 <code>agent-browser install --with-deps</code></td></tr></tbody></table><hr><h2 id=八技能包获取>八、技能包获取</h2><h3 id=81-安装-agent-browser-技能>8.1 安装 agent-browser 技能</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 方法 1：直接安装</span>
 </span></span><span style=display:flex><span>npm install -g agent-browser
 </span></span><span style=display:flex><span>agent-browser install
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># 方法 2：通过 ClawHub（OpenClaw 技能市场）</span>
 </span></span><span style=display:flex><span>clawhub install agent-browser
-</span></span></code></pre></div><h3 id=72-技能文件位置>7.2 技能文件位置</h3><pre tabindex=0><code>~/.openclaw/workspace/skills/agent-browser/
-</code></pre><h3 id=73-技能使用说明>7.3 技能使用说明</h3><ol><li><p><strong>查看技能文档</strong>：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>cat ~/.openclaw/workspace/skills/agent-browser/SKILL.md
-</span></span></code></pre></div></li><li><p><strong>在 OpenClaw 中使用</strong>：</p><ul><li>直接用自然语言描述任务</li><li>AI 会自动调用 agent-browser 命令</li><li>支持截图、文件等媒体输出</li></ul></li><li><p><strong>自定义技能</strong>：</p><ul><li>复制 <code>agent-browser</code> 技能目录</li><li>修改 <code>SKILL.md</code> 和 <code>_meta.json</code></li><li>添加自定义命令封装</li></ul></li></ol><hr><h2 id=八总结与最佳实践>八、总结与最佳实践</h2><h3 id=81-选择建议>8.1 选择建议</h3><table><thead><tr><th>场景</th><th>推荐方式</th></tr></thead><tbody><tr><td>一次性任务</td><td>MCP（自然语言）</td></tr><tr><td>探索性测试</td><td>MCP（动态交互）</td></tr><tr><td>数据提取</td><td>MCP + JSON 输出</td></tr><tr><td>回归测试</td><td>CLI（固定脚本）</td></tr><tr><td>CI/CD 集成</td><td>CLI（自动化）</td></tr><tr><td>复杂流程</td><td>MCP 探索 → CLI 固化</td></tr></tbody></table><h3 id=82-最佳实践清单>8.2 最佳实践清单</h3><ol><li><p><strong>优先使用语义化定位</strong></p><ul><li><code>getByRole()</code> > <code>getByText()</code> > CSS 选择器</li></ul></li><li><p><strong>快照后操作</strong></p><ul><li>每次导航后重新 snapshot 获取 refs</li></ul></li><li><p><strong>合理使用等待</strong></p><ul><li><code>wait --load networkidle</code> 优于硬编码延迟</li></ul></li><li><p><strong>状态保存</strong></p><ul><li>登录状态用 <code>state save</code> 复用</li></ul></li><li><p><strong>错误处理</strong></p><ul><li>使用 <code>--json</code> 输出便于程序处理</li></ul></li><li><p><strong>技能组合</strong></p><ul><li>结合其他 OpenClaw 技能（如文件处理、消息推送）</li></ul></li></ol><h3 id=83-学习资源>8.3 学习资源</h3><ul><li><strong>agent-browser 文档</strong>: <a href=https://github.com/vercel-labs/agent-browser>https://github.com/vercel-labs/agent-browser</a></li><li><strong>Playwright 官方</strong>: <a href=https://playwright.dev>https://playwright.dev</a></li><li><strong>OpenClaw 文档</strong>: <a href=https://docs.openclaw.ai>https://docs.openclaw.ai</a></li><li><strong>MCP 协议</strong>: <a href=https://modelcontextprotocol.io>https://modelcontextprotocol.io</a></li></ul><hr><h2 id=附录快速命令参考>附录：快速命令参考</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 安装</span>
+</span></span></code></pre></div><h3 id=82-技能文件位置>8.2 技能文件位置</h3><pre tabindex=0><code>~/.openclaw/workspace/skills/agent-browser/
+</code></pre><h3 id=83-技能使用说明>8.3 技能使用说明</h3><ol><li><p><strong>查看技能文档</strong>：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>cat ~/.openclaw/workspace/skills/agent-browser/SKILL.md
+</span></span></code></pre></div></li><li><p><strong>在 OpenClaw 中使用</strong>：</p><ul><li>直接用自然语言描述任务</li><li>AI 会自动调用 agent-browser 命令</li><li>支持截图、文件等媒体输出</li></ul></li><li><p><strong>自定义技能</strong>：</p><ul><li>复制 <code>agent-browser</code> 技能目录</li><li>修改 <code>SKILL.md</code> 和 <code>_meta.json</code></li><li>添加自定义命令封装</li></ul></li></ol><hr><h2 id=九总结与最佳实践>九、总结与最佳实践</h2><h3 id=91-选择建议>9.1 选择建议</h3><table><thead><tr><th>场景</th><th>推荐方式</th></tr></thead><tbody><tr><td>一次性任务</td><td>MCP（自然语言）</td></tr><tr><td>探索性测试</td><td>MCP（动态交互）</td></tr><tr><td>数据提取</td><td>MCP + JSON 输出</td></tr><tr><td>回归测试</td><td>CLI（固定脚本）</td></tr><tr><td>CI/CD 集成</td><td>CLI（自动化）</td></tr><tr><td>复杂流程</td><td>MCP 探索 → CLI 固化</td></tr></tbody></table><h3 id=92-最佳实践清单>9.2 最佳实践清单</h3><ol><li><p><strong>优先使用语义化定位</strong></p><ul><li><code>getByRole()</code> > <code>getByText()</code> > CSS 选择器</li></ul></li><li><p><strong>快照后操作</strong></p><ul><li>每次导航后重新 snapshot 获取 refs</li></ul></li><li><p><strong>合理使用等待</strong></p><ul><li><code>wait --load networkidle</code> 优于硬编码延迟</li></ul></li><li><p><strong>状态保存</strong></p><ul><li>登录状态用 <code>state save</code> 复用</li></ul></li><li><p><strong>错误处理</strong></p><ul><li>使用 <code>--json</code> 输出便于程序处理</li></ul></li><li><p><strong>技能组合</strong></p><ul><li>结合其他 OpenClaw 技能（如文件处理、消息推送）</li></ul></li></ol><h3 id=93-学习资源>9.3 学习资源</h3><ul><li><strong>agent-browser 文档</strong>: <a href=https://github.com/vercel-labs/agent-browser>https://github.com/vercel-labs/agent-browser</a></li><li><strong>Playwright 官方</strong>: <a href=https://playwright.dev>https://playwright.dev</a></li><li><strong>OpenClaw 文档</strong>: <a href=https://docs.openclaw.ai>https://docs.openclaw.ai</a></li><li><strong>MCP 协议</strong>: <a href=https://modelcontextprotocol.io>https://modelcontextprotocol.io</a></li></ul><hr><h2 id=附录快速命令参考>附录：快速命令参考</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 安装</span>
 </span></span><span style=display:flex><span>npm install -g agent-browser
 </span></span><span style=display:flex><span>agent-browser install
 </span></span><span style=display:flex><span>
