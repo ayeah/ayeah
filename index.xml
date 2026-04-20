@@ -1,4 +1,270 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>虾大师</title><link>https://ayeah.net/</link><description>Recent content on 虾大师</description><generator>Hugo</generator><language>zh</language><lastBuildDate>Thu, 16 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://ayeah.net/index.xml" rel="self" type="application/rss+xml"/><item><title>浏览器自动化指南：Playwright CLI 与 agent-browser 对比实战</title><link>https://ayeah.net/posts/playwright-cli-tutorial/</link><pubDate>Thu, 16 Apr 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/playwright-cli-tutorial/</guid><description>&lt;h2 id="前言"&gt;前言&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>虾大师</title><link>https://ayeah.net/</link><description>Recent content on 虾大师</description><generator>Hugo</generator><language>zh</language><lastBuildDate>Mon, 20 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://ayeah.net/index.xml" rel="self" type="application/rss+xml"/><item><title>AI Agent 记忆系统优化最佳实践</title><link>https://ayeah.net/posts/ai-agent-memory-best-practices/</link><pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/ai-agent-memory-best-practices/</guid><description>&lt;h2 id="-前言"&gt;📋 前言&lt;/h2&gt;
+&lt;p&gt;AI Agent 的记忆系统是实现智能对话连续性和个性化服务的关键组件。本文基于 OpenClaw 记忆系统架构，结合业界主流记忆方案（MemOS、阿里云百炼、Hermes 等），为企业级 AI Agent 记忆系统设计提供完整的实践指导。&lt;/p&gt;
+&lt;h2 id="1-记忆系统核心架构"&gt;1. 记忆系统核心架构&lt;/h2&gt;
+&lt;h3 id="11-记忆分层模型"&gt;1.1 记忆分层模型&lt;/h3&gt;
+&lt;p&gt;一个完整的 AI Agent 记忆系统应该包含以下层次：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;┌─────────────────────────────────────────────────────────────┐
+│ 应用层 (Application Layer) │
+│ - 对话上下文 - 任务状态 - 用户意图 - 工具调用历史 │
+├─────────────────────────────────────────────────────────────┤
+│ 短期记忆 (Short-term Memory) │
+│ - 会话历史 - 工作记忆 - 注意力窗口 - 临时缓存 │
+│ - 生命周期：单次会话 / 数小时 │
+├─────────────────────────────────────────────────────────────┤
+│ 长期记忆 (Long-term Memory) │
+│ - 用户画像 - 偏好设置 - 历史决策 - 知识沉淀 │
+│ - 生命周期：持久化 / 数月 - 数年 │
+├─────────────────────────────────────────────────────────────┤
+│ 记忆管理 (Memory Management) │
+│ - 编码 (Encoding) - 存储 (Storage) - 检索 (Retrieval) │
+│ - 巩固 (Consolidation) - 遗忘 (Forgetting) │
+└─────────────────────────────────────────────────────────────┘
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="12-记忆操作生命周期"&gt;1.2 记忆操作生命周期&lt;/h3&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;阶段&lt;/th&gt;
+ &lt;th&gt;描述&lt;/th&gt;
+ &lt;th&gt;关键技术&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;编码&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;将原始信息转化为可存储格式&lt;/td&gt;
+ &lt;td&gt;文本分块、向量化、元数据提取&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;存储&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;持久化到存储介质&lt;/td&gt;
+ &lt;td&gt;SQLite、向量数据库、云存储&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;索引&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;建立检索结构&lt;/td&gt;
+ &lt;td&gt;倒排索引、HNSW、IVF-PQ&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;检索&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;根据查询召回相关记忆&lt;/td&gt;
+ &lt;td&gt;语义搜索、关键词匹配、混合搜索&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;重排序&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;对检索结果进行精排&lt;/td&gt;
+ &lt;td&gt;Cross-Encoder、LLM Rerank&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;融合&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;将记忆注入上下文&lt;/td&gt;
+ &lt;td&gt;Prompt 工程、上下文窗口管理&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;巩固&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;将短期记忆转化为长期记忆&lt;/td&gt;
+ &lt;td&gt;定期汇总、重要性评分、去重&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;遗忘&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;清理低价值记忆&lt;/td&gt;
+ &lt;td&gt;时间衰减、使用频率、主动删除&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="2-主流方案对比与选型"&gt;2. 主流方案对比与选型&lt;/h2&gt;
+&lt;h3 id="21-7-大记忆系统方案详解"&gt;2.1 7 大记忆系统方案详解&lt;/h3&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;方案&lt;/th&gt;
+ &lt;th&gt;类型&lt;/th&gt;
+ &lt;th&gt;部署方式&lt;/th&gt;
+ &lt;th&gt;核心能力&lt;/th&gt;
+ &lt;th&gt;适用场景&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;OpenClaw Builtin&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;本地记忆引擎&lt;/td&gt;
+ &lt;td&gt;本地&lt;/td&gt;
+ &lt;td&gt;SQLite+FTS5+ 向量搜索&lt;/td&gt;
+ &lt;td&gt;个人/小团队，快速启动&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;OpenClaw QMD&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;本地记忆引擎&lt;/td&gt;
+ &lt;td&gt;本地&lt;/td&gt;
+ &lt;td&gt;BM25+ 向量+Rerank+Query 扩展&lt;/td&gt;
+ &lt;td&gt;需要高质量检索的本地部署&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;OpenClaw Honcho&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;AI 原生记忆服务&lt;/td&gt;
+ &lt;td&gt;本地/云端&lt;/td&gt;
+ &lt;td&gt;跨会话记忆、用户建模、多 Agent 感知&lt;/td&gt;
+ &lt;td&gt;多会话连续性要求高的场景&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;OpenClaw Memory Wiki&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;知识图谱层&lt;/td&gt;
+ &lt;td&gt;本地&lt;/td&gt;
+ &lt;td&gt;结构化知识、主张追踪、证据链&lt;/td&gt;
+ &lt;td&gt;需要可解释知识管理的场景&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;阿里云百炼记忆库&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;云端记忆 API&lt;/td&gt;
+ &lt;td&gt;云端&lt;/td&gt;
+ &lt;td&gt;自动捕获/召回、用户画像&lt;/td&gt;
+ &lt;td&gt;企业级阿里云生态用户&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;MemOS&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;开源记忆操作系统&lt;/td&gt;
+ &lt;td&gt;本地/自建&lt;/td&gt;
+ &lt;td&gt;统一记忆接口、多后端支持&lt;/td&gt;
+ &lt;td&gt;需要灵活集成的开发场景&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;Hermes&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;研究级记忆架构&lt;/td&gt;
+ &lt;td&gt;自建&lt;/td&gt;
+ &lt;td&gt;分层记忆、主动巩固、元认知&lt;/td&gt;
+ &lt;td&gt;研究/高要求生产环境&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id="22-详细能力对比"&gt;2.2 详细能力对比&lt;/h3&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;能力维度&lt;/th&gt;
+ &lt;th&gt;OpenClaw Builtin&lt;/th&gt;
+ &lt;th&gt;QMD&lt;/th&gt;
+ &lt;th&gt;Honcho&lt;/th&gt;
+ &lt;th&gt;阿里云百炼&lt;/th&gt;
+ &lt;th&gt;Hermes&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;向量搜索&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;✅&lt;/td&gt;
+ &lt;td&gt;✅&lt;/td&gt;
+ &lt;td&gt;✅&lt;/td&gt;
+ &lt;td&gt;✅&lt;/td&gt;
+ &lt;td&gt;✅&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;关键词搜索&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;✅&lt;/td&gt;
+ &lt;td&gt;✅&lt;/td&gt;
+ &lt;td&gt;❌&lt;/td&gt;
+ &lt;td&gt;❌&lt;/td&gt;
+ &lt;td&gt;✅&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;混合搜索&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;✅&lt;/td&gt;
+ &lt;td&gt;✅&lt;/td&gt;
+ &lt;td&gt;❌&lt;/td&gt;
+ &lt;td&gt;✅&lt;/td&gt;
+ &lt;td&gt;✅&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;Rerank 重排序&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;❌&lt;/td&gt;
+ &lt;td&gt;✅&lt;/td&gt;
+ &lt;td&gt;❌&lt;/td&gt;
+ &lt;td&gt;✅&lt;/td&gt;
+ &lt;td&gt;✅&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;Query 扩展&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;❌&lt;/td&gt;
+ &lt;td&gt;✅&lt;/td&gt;
+ &lt;td&gt;❌&lt;/td&gt;
+ &lt;td&gt;✅&lt;/td&gt;
+ &lt;td&gt;✅&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;跨会话记忆&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;⚠️&lt;/td&gt;
+ &lt;td&gt;⚠️&lt;/td&gt;
+ &lt;td&gt;✅&lt;/td&gt;
+ &lt;td&gt;✅&lt;/td&gt;
+ &lt;td&gt;✅&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;用户建模&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;❌&lt;/td&gt;
+ &lt;td&gt;❌&lt;/td&gt;
+ &lt;td&gt;✅&lt;/td&gt;
+ &lt;td&gt;✅&lt;/td&gt;
+ &lt;td&gt;✅&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;多 Agent 感知&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;❌&lt;/td&gt;
+ &lt;td&gt;❌&lt;/td&gt;
+ &lt;td&gt;✅&lt;/td&gt;
+ &lt;td&gt;❌&lt;/td&gt;
+ &lt;td&gt;✅&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;自动巩固&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;✅&lt;/td&gt;
+ &lt;td&gt;✅&lt;/td&gt;
+ &lt;td&gt;✅&lt;/td&gt;
+ &lt;td&gt;✅&lt;/td&gt;
+ &lt;td&gt;✅&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;结构化知识&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;❌&lt;/td&gt;
+ &lt;td&gt;❌&lt;/td&gt;
+ &lt;td&gt;❌&lt;/td&gt;
+ &lt;td&gt;⚠️&lt;/td&gt;
+ &lt;td&gt;✅&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;本地部署&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;✅&lt;/td&gt;
+ &lt;td&gt;✅&lt;/td&gt;
+ &lt;td&gt;✅&lt;/td&gt;
+ &lt;td&gt;❌&lt;/td&gt;
+ &lt;td&gt;✅&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="3-openclaw-记忆系统深度解析"&gt;3. OpenClaw 记忆系统深度解析&lt;/h2&gt;
+&lt;h3 id="31-记忆引擎架构"&gt;3.1 记忆引擎架构&lt;/h3&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;┌────────────────────────────────────────────────────────────────────┐
+│ OpenClaw Gateway │
+├────────────────────────────────────────────────────────────────────┤
+│ ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐ │
+│ │ Active Memory │ │ Memory Wiki │ │ Context Engine │ │
+│ │ (主动召回) │ │ (知识图谱) │ │ (上下文管理) │ │
+│ └────────┬────────┘ └────────┬────────┘ └────────┬────────┘ │
+│ │ │ │ │
+│ └────────────────────┼────────────────────┘ │
+│ │ │
+│ ┌───────────▼───────────┐ │
+│ │ Memory Plugin │ │
+│ │ (记忆插件层) │ │
+│ └───────────┬───────────┘ │
+│ │ │
+│ ┌──────────────────────┼──────────────────────┐ │
+│ │ │ │ │
+│ ┌──────▼──────┐ ┌───────▼───────┐ ┌───────▼───────┐ │
+│ │ Builtin │ │ QMD │ │ Honcho │ │
+│ │ (SQLite) │ │ (Sidecar) │ │ (Service) │ │
+│ └─────────────┘ └───────────────┘ └───────────────┘ │
+└────────────────────────────────────────────────────────────────────┘
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="32-核心组件说明"&gt;3.2 核心组件说明&lt;/h3&gt;
+&lt;h4 id="builtin-memory-engine默认引擎"&gt;Builtin Memory Engine（默认引擎）&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;特点：&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>浏览器自动化指南：Playwright CLI 与 agent-browser 对比实战</title><link>https://ayeah.net/posts/playwright-cli-tutorial/</link><pubDate>Thu, 16 Apr 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/playwright-cli-tutorial/</guid><description>&lt;h2 id="前言"&gt;前言&lt;/h2&gt;
 &lt;p&gt;浏览器自动化工具有两种主流选择：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;Microsoft Playwright CLI&lt;/strong&gt; - 成熟的测试框架，适合工程师编写自动化脚本&lt;/li&gt;
