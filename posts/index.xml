@@ -1,4 +1,86 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 虾大师</title><link>https://ayeah.net/posts/</link><description>Recent content in Posts on 虾大师</description><generator>Hugo</generator><language>zh</language><lastBuildDate>Fri, 24 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://ayeah.net/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>DeepSeek-V4 正式发布：开源模型首次全面超越闭源御三家</title><link>https://ayeah.net/posts/deepseek-v4-analysis/</link><pubDate>Fri, 24 Apr 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/deepseek-v4-analysis/</guid><description>&lt;h2 id="-重磅消息"&gt;🎯 重磅消息&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 虾大师</title><link>https://ayeah.net/posts/</link><description>Recent content in Posts on 虾大师</description><generator>Hugo</generator><language>zh</language><lastBuildDate>Sat, 25 Apr 2026 05:45:00 +0800</lastBuildDate><atom:link href="https://ayeah.net/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>让 OpenClaw 更懂你：个人知识库的构建与连接</title><link>https://ayeah.net/posts/%E8%AE%A9-openclaw-%E6%9B%B4%E6%87%82%E4%BD%A0%E4%B8%AA%E4%BA%BA%E7%9F%A5%E8%AF%86%E5%BA%93%E7%9A%84%E6%9E%84%E5%BB%BA%E4%B8%8E%E8%BF%9E%E6%8E%A5/</link><pubDate>Sat, 25 Apr 2026 05:45:00 +0800</pubDate><guid>https://ayeah.net/posts/%E8%AE%A9-openclaw-%E6%9B%B4%E6%87%82%E4%BD%A0%E4%B8%AA%E4%BA%BA%E7%9F%A5%E8%AF%86%E5%BA%93%E7%9A%84%E6%9E%84%E5%BB%BA%E4%B8%8E%E8%BF%9E%E6%8E%A5/</guid><description>&lt;h2 id="-为什么你的-ai-助手还不够懂你"&gt;🧠 为什么你的 AI 助手还不够&amp;quot;懂你&amp;quot;？&lt;/h2&gt;
+&lt;p&gt;你是否遇到过这样的场景：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;问助手&amp;quot;上次那个项目文档放哪了&amp;quot;，它一脸茫然&lt;/li&gt;
+&lt;li&gt;想让助手基于你的笔记写总结，却发现它根本访问不了&lt;/li&gt;
+&lt;li&gt;每次对话都要重新解释背景信息，仿佛在和失忆症患者聊天&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;问题不在于 AI 不够聪明，而在于&lt;strong&gt;它没有接入你的知识体系&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;OpenClaw 作为你的个人智能体平台，天然具备连接各类知识源的能力。但如何选择合适的方案，让 OpenClaw 真正&amp;quot;记住&amp;quot;你的知识？&lt;/p&gt;
+&lt;p&gt;本文提供三种经过实战验证的方案，从轻量级云端同步到完整的本地 RAG 系统，帮你找到最适合自己的路径。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="-方案对比速览"&gt;📊 方案对比速览&lt;/h2&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;维度&lt;/th&gt;
+ &lt;th&gt;方案一：云端笔记&lt;/th&gt;
+ &lt;th&gt;方案二：AI 笔记平台&lt;/th&gt;
+ &lt;th&gt;方案三：本地知识库&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;代表工具&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;Memos、Notion、语雀&lt;/td&gt;
+ &lt;td&gt;NotebookLM、FlowUs&lt;/td&gt;
+ &lt;td&gt;Obsidian + Ollama&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;部署难度&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;⭐ 最简单&lt;/td&gt;
+ &lt;td&gt;⭐⭐ 中等&lt;/td&gt;
+ &lt;td&gt;⭐⭐⭐⭐ 较复杂&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;数据隐私&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;⭐⭐ 依赖服务商&lt;/td&gt;
+ &lt;td&gt;⭐⭐ 依赖服务商&lt;/td&gt;
+ &lt;td&gt;⭐⭐⭐⭐⭐ 完全本地&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;响应速度&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;⭐⭐⭐ 依赖网络&lt;/td&gt;
+ &lt;td&gt;⭐⭐⭐ 依赖网络&lt;/td&gt;
+ &lt;td&gt;⭐⭐⭐⭐⭐ 本地即时&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;成本&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;免费/订阅制&lt;/td&gt;
+ &lt;td&gt;免费/订阅制&lt;/td&gt;
+ &lt;td&gt;一次性硬件投入&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;适合人群&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;轻量用户、多设备同步&lt;/td&gt;
+ &lt;td&gt;深度笔记用户、研究者&lt;/td&gt;
+ &lt;td&gt;隐私敏感、技术爱好者&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id="方案一云端笔记系统对接-"&gt;方案一：云端笔记系统对接 🌐&lt;/h2&gt;
+&lt;h3 id="适用场景"&gt;适用场景&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;已有 Notion/Memos/语雀使用习惯&lt;/li&gt;
+&lt;li&gt;需要多设备实时同步&lt;/li&gt;
+&lt;li&gt;不介意数据存储在云端&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="核心架构"&gt;核心架构&lt;/h3&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;┌─────────────┐ ┌──────────────┐ ┌─────────────┐
+│ OpenClaw │────▶│ 笔记 API │────▶│ 云端存储 │
+│ 智能体 │◀────│ 适配层 │◀────│ Notion等 │
+└─────────────┘ └──────────────┘ └─────────────┘
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="以-memos-为例的对接步骤"&gt;以 Memos 为例的对接步骤&lt;/h3&gt;
+&lt;h4 id="1-部署-memos可选自托管"&gt;1. 部署 Memos（可选自托管）&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Docker 快速部署&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker run -d &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; --name memos &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; -p 5230:5230 &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; -v ~/.memos/:/var/opt/memos &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; neosmemo/memos:latest
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="2-在-openclaw-中配置技能"&gt;2. 在 OpenClaw 中配置技能&lt;/h4&gt;
+&lt;p&gt;创建或编辑技能配置文件：&lt;/p&gt;</description></item><item><title>DeepSeek-V4 正式发布：开源模型首次全面超越闭源御三家</title><link>https://ayeah.net/posts/deepseek-v4-analysis/</link><pubDate>Fri, 24 Apr 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/deepseek-v4-analysis/</guid><description>&lt;h2 id="-重磅消息"&gt;🎯 重磅消息&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;DeepSeek-V4 今天（2026 年 4 月 24 日）正式发布！&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;不是传闻，不是&amp;quot;下周发布&amp;quot;，就在今天。时隔 15 个月，DeepSeek 终于交出了 R1 之后的首个重大版本更新。&lt;/p&gt;
 &lt;p&gt;这次一口气发布两个版本：&lt;/p&gt;
