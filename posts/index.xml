@@ -855,16 +855,16 @@ Level 3: 捆绑资源 → 按需加载（无限制）
 &lt;h3 id="agent智能体"&gt;Agent（智能体）&lt;/h3&gt;
 &lt;p&gt;智能体是 OpenClaw 的核心，它是一个具有特定能力和行为的 AI 助手。&lt;/p&gt;</description></item><item><title/><link>https://ayeah.net/posts/enterprise-ai-agent-architecture/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/enterprise-ai-agent-architecture/</guid><description>&lt;h1 id="企业应用-ai-agent-的架构设计"&gt;企业应用 AI Agent 的架构设计&lt;/h1&gt;
 &lt;blockquote&gt;
-&lt;p&gt;从个人效率工具到企业数字员工：OpenClaw 企业级架构实践&lt;/p&gt;
+&lt;p&gt;从个人效率工具到企业数字员工：OpenClaw 企业级实践&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;hr&gt;
-&lt;h2 id="-引言当小龙虾走进写字楼"&gt;📌 引言：当小龙虾走进写字楼&lt;/h2&gt;
+&lt;h2 id="-你的小龙虾准备好上班了吗"&gt;🎣 你的小龙虾，准备好上班了吗？&lt;/h2&gt;
 &lt;p&gt;你的小龙虾学会做梦了吗？——这是很多个人用户接触 OpenClaw 时的第一个问题。&lt;/p&gt;
-&lt;p&gt;但当企业想把这只&amp;quot;小龙虾&amp;quot;请进办公室时，问题就变成了：&lt;strong&gt;如何让成百上千只小龙虾有序协作，而不是把办公室变成混乱的 aquarium？&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;本文基于 OpenClaw 开源架构，结合企业级应用需求，对比个人使用与企业部署的核心差异，给出以&amp;quot;数字员工&amp;quot;为智能体工作方式的完整技术解决方案。&lt;/p&gt;
+&lt;p&gt;但当企业想把这只&amp;quot;小龙虾&amp;quot;请进办公室时，问题就变成了：&lt;strong&gt;如何让成百上千只小龙虾有序协作，而不是把办公室变成混乱的水族馆？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;本文基于 OpenClaw 开源架构，结合企业级应用需求，聊聊从个人使用到企业部署的核心差异，以及如何把 AI Agent 变成企业里可管理、可信任的&amp;quot;数字员工&amp;quot;。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id="-一个人使用-vs-企业应用五大核心差异"&gt;🎯 一、个人使用 vs 企业应用：五大核心差异&lt;/h2&gt;
-&lt;h3 id="差异对比表"&gt;差异对比表&lt;/h3&gt;
+&lt;p&gt;先来看个简单的对比：&lt;/p&gt;
 &lt;table&gt;
  &lt;thead&gt;
  &lt;tr&gt;
@@ -876,54 +876,58 @@ Level 3: 捆绑资源 → 按需加载（无限制）
  &lt;tbody&gt;
  &lt;tr&gt;
  &lt;td&gt;&lt;strong&gt;用户身份&lt;/strong&gt;&lt;/td&gt;
- &lt;td&gt;单一用户&lt;/td&gt;
+ &lt;td&gt;一个人说了算&lt;/td&gt;
  &lt;td&gt;多部门、多角色、多层级&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr&gt;
  &lt;td&gt;&lt;strong&gt;权限模型&lt;/strong&gt;&lt;/td&gt;
  &lt;td&gt;全权访问&lt;/td&gt;
- &lt;td&gt;细粒度 RBAC + 数据隔离&lt;/td&gt;
+ &lt;td&gt;细粒度隔离，最小权限原则&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr&gt;
  &lt;td&gt;&lt;strong&gt;API 密钥&lt;/strong&gt;&lt;/td&gt;
  &lt;td&gt;个人 Key 随意用&lt;/td&gt;
- &lt;td&gt;统一网关 + 配额管理&lt;/td&gt;
+ &lt;td&gt;统一网关，配额管理&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr&gt;
  &lt;td&gt;&lt;strong&gt;知识沉淀&lt;/strong&gt;&lt;/td&gt;
  &lt;td&gt;本地记忆&lt;/td&gt;
- &lt;td&gt;组织知识库 + 版本管理&lt;/td&gt;
+ &lt;td&gt;组织知识库，版本管理&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr&gt;
  &lt;td&gt;&lt;strong&gt;审计追溯&lt;/strong&gt;&lt;/td&gt;
  &lt;td&gt;无需审计&lt;/td&gt;
- &lt;td&gt;完整日志 + 合规要求&lt;/td&gt;
+ &lt;td&gt;完整日志，合规要求&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr&gt;
  &lt;td&gt;&lt;strong&gt;工作交接&lt;/strong&gt;&lt;/td&gt;
  &lt;td&gt;无需交接&lt;/td&gt;
- &lt;td&gt;离职/转岗知识移交&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;&lt;strong&gt;部署方式&lt;/strong&gt;&lt;/td&gt;
- &lt;td&gt;单机运行&lt;/td&gt;
- &lt;td&gt;容器化 + 高可用&lt;/td&gt;
+ &lt;td&gt;离职转岗知识移交&lt;/td&gt;
  &lt;/tr&gt;
  &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;核心区别就一句话&lt;/strong&gt;：个人使用追求的是&amp;quot;好用&amp;quot;，企业应用追求的是&amp;quot;可控&amp;quot;。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id="-二权限边界从一人说了算到最小权限原则"&gt;🔐 二、权限边界：从&amp;quot;一人说了算&amp;quot;到&amp;quot;最小权限原则&amp;quot;&lt;/h2&gt;
-&lt;h3 id="21-个人模式信任边界模糊"&gt;2.1 个人模式：信任边界模糊&lt;/h3&gt;
-&lt;pre tabindex="0"&gt;&lt;code&gt;┌─────────────────────────────┐
-│ 个人用户 (ZC3609) │
-│ ┌───────────────────────┐ │
-│ │ OpenClaw Agent │ │
-│ │ ┌─────────────────┐ │ │
-│ │ │ 全部权限访问 │ │ │
-│ │ │ - 所有记忆 │ │ │
-│ │ │ - 所有技能 │ │ │
-│ │ │ - 所有 API Key │ │ │
-│ │ └─────────────────┘ │ │
-│ └───────────────────────┘ │
-└─────────────────────────────┘
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;特点：&lt;/strong&gt;&lt;/p&gt;</description></item></channel></rss>
+&lt;h3 id="个人模式信任边界模糊"&gt;个人模式：信任边界模糊&lt;/h3&gt;
+&lt;p&gt;想象一下这个场景：&lt;/p&gt;
+&lt;p&gt;你在家里用 OpenClaw，它可以看到你所有的记忆、技能、API 密钥。这没问题，因为这是你的私人助手。&lt;/p&gt;
+&lt;p&gt;但到了企业里，问题就来了：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;销售部门的 Agent，能不能看财务部门的客户数据？&lt;/p&gt;
+&lt;p&gt;新入职的员工，能不能访问前任留下的所有记忆？&lt;/p&gt;
+&lt;p&gt;外包人员使用的 Agent，权限应该限制到什么程度？&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;企业模式的答案是：不能，不能，严格限制。&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id="多层权限隔离"&gt;多层权限隔离&lt;/h3&gt;
+&lt;p&gt;企业级权限模型应该是这样的：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;企业组织
+├── 部门 A
+│ ├── 团队 A1
+│ │ └── Agent (仅访问团队 A1 资源)
+│ └── 团队 A2
+│ └── Agent (仅访问团队 A2 资源)
+└── 部门 B
+ └── 团队 B1
+ └── Agent (仅访问团队 B1 资源)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;核心原则&lt;/strong&gt;：&lt;/p&gt;</description></item></channel></rss>
