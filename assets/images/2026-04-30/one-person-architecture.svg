@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="700" height="370" viewBox="0 0 700 370" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .box { fill: #e8f5e9; stroke: #1aad19; stroke-width: 2px; rx: 8px; }
+      .box-yellow { fill: #fff3cd; stroke: #ffc107; stroke-width: 2px; rx: 8px; }
+      .box-blue { fill: #e3f2fd; stroke: #2196f3; stroke-width: 2px; rx: 8px; }
+      .box-purple { fill: #f3e5f5; stroke: #9c27b0; stroke-width: 2px; rx: 8px; }
+      .text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-size: 14px; fill: #333; }
+      .text-bold { font-weight: 600; }
+      .text-small { font-size: 12px; fill: #666; }
+      .arrow { stroke: #666; stroke-width: 2px; fill: none; marker-end: url(#arrowhead); }
+      .arrow-dashed { stroke: #999; stroke-width: 2px; fill: none; stroke-dasharray: 5,5; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666" />
+    </marker>
+  </defs>
+  
+  <!-- 你 -->
+  <rect x="275" y="20" width="150" height="50" class="box-yellow"/>
+  <text x="350" y="45" text-anchor="middle" class="text text-bold">👤 核心决策者</text>
+  <text x="350" y="62" text-anchor="middle" class="text text-small">完全访问权限</text>
+  
+  <!-- 箭头 -->
+  <line x1="350" y1="70" x2="350" y2="95" class="arrow"/>
+  
+  <!-- 个人 Agent -->
+  <rect x="275" y="95" width="150" height="40" class="box"/>
+  <text x="350" y="120" text-anchor="middle" class="text text-bold">🤖 个人 Agent</text>
+  
+  <!-- 箭头分叉 -->
+  <line x1="350" y1="135" x2="350" y2="160" class="arrow"/>
+  <line x1="350" y1="160" x2="200" y2="160" class="arrow"/>
+  <line x1="350" y1="160" x2="500" y2="160" class="arrow"/>
+  
+  <!-- 项目工作区 -->
+  <rect x="80" y="170" width="180" height="80" class="box-blue"/>
+  <text x="170" y="195" text-anchor="middle" class="text text-bold">📁 项目工作区</text>
+  <text x="170" y="215" text-anchor="middle" class="text text-small">项目 A / 项目 B</text>
+  <text x="170" y="230" text-anchor="middle" class="text text-small">客户数据/内容/财务</text>
+  
+  <!-- 共享资源池 -->
+  <rect x="440" y="170" width="180" height="80" class="box"/>
+  <text x="530" y="195" text-anchor="middle" class="text text-bold">📚 共享资源池</text>
+  <text x="530" y="215" text-anchor="middle" class="text text-small">知识库/API Key/法务</text>
+  
+  <!-- 箭头从项目区到外包 -->
+  <line x1="170" y1="250" x2="170" y2="285" class="arrow"/>
+  
+  <!-- 外包协作 -->
+  <rect x="80" y="285" width="180" height="60" class="box" style="fill:#ffebee;stroke:#f44336;"/>
+  <text x="170" y="310" text-anchor="middle" class="text text-bold">🤝 外包协作</text>
+  <text x="170" y="330" text-anchor="middle" class="text text-small">设计师/会计 (受限访问)</text>
+
+</svg>

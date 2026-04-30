@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="600" height="290" viewBox="0 0 600 290" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .box { fill: #e8f5e9; stroke: #1aad19; stroke-width: 2px; rx: 8px; }
+      .box-yellow { fill: #fff3cd; stroke: #ffc107; stroke-width: 2px; rx: 8px; }
+      .box-blue { fill: #e3f2fd; stroke: #2196f3; stroke-width: 2px; rx: 8px; }
+      .box-purple { fill: #f3e5f5; stroke: #9c27b0; stroke-width: 2px; rx: 8px; }
+      .text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 14px; fill: #333; }
+      .text-bold { font-weight: 600; }
+      .text-small { font-size: 12px; fill: #666; }
+      .arrow { stroke: #666; stroke-width: 2px; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666" />
+    </marker>
+  </defs>
+  
+  <!-- OpenClaw -->
+  <rect x="150" y="30" width="300" height="100" class="box"/>
+  <text x="300" y="60" text-anchor="middle" class="text text-bold" font-size="16">🦐 OpenClaw (开源核心)</text>
+  <text x="300" y="85" text-anchor="middle" class="text text-small">Gateway 框架 | 技能系统 | 记忆系统 | 通道集成</text>
+  
+  <!-- 箭头 -->
+  <line x1="300" y1="130" x2="300" y2="155" class="arrow"/>
+  <text x="320" y="145" class="text text-small">扩展/封装</text>
+  
+  <!-- HiClaw -->
+  <rect x="150" y="165" width="300" height="100" class="box-blue"/>
+  <text x="300" y="195" text-anchor="middle" class="text text-bold" font-size="16">🏢 HiClaw (企业级增强版)</text>
+  <text x="300" y="220" text-anchor="middle" class="text text-small">多租户隔离 | 权限管理 | API 网关 | 知识共享 | 审计日志</text>
+
+</svg>

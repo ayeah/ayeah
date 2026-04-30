@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="700" height="380" viewBox="0 0 700 380" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- ditaa 风格斜线阴影 -->
+    <pattern id="hatch" patternUnits="userSpaceOnUse" width="8" height="8" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="8" stroke="#cccccc" stroke-width="2"/>
+    </pattern>
+    
+    <!-- 阴影滤镜 -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="3" dy="3" stdDeviation="2" flood-color="#666666" flood-opacity="0.5"/>
+    </filter>
+    
+    <!-- ditaa 风格字体 -->
+    <style>
+      .box { fill: #ffffff; stroke: #000000; stroke-width: 2px; filter: url(#shadow); }
+      .box-yellow { fill: #ffff99; stroke: #000000; stroke-width: 2px; filter: url(#shadow); }
+      .box-green { fill: #99ff99; stroke: #000000; stroke-width: 2px; filter: url(#shadow); }
+      .box-blue { fill: #55aaff; stroke: #000000; stroke-width: 2px; filter: url(#shadow); opacity: 0.3; }
+      .box-purple { fill: #e9afaf; stroke: #000000; stroke-width: 2px; filter: url(#shadow); }
+      .text { font-family: "Lucida Console", Monaco, monospace; font-size: 14px; fill: #000000; }
+      .text-bold { font-weight: bold; }
+      .text-small { font-size: 12px; }
+      .arrow { stroke: #000000; stroke-width: 2px; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    
+    <!-- 箭头 -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#000000"/>
+    </marker>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  
+  
+  <!-- 顶层：你 (CEO) -->
+  <rect x="250" y="20" width="200" height="60" rx="8" class="box-yellow"/>
+  <text x="350" y="45" text-anchor="middle" class="text text-bold">你 (CEO + 决策者)</text>
+  <text x="350" y="65" text-anchor="middle" class="text text-small">+-----------------+</text>
+  <text x="350" y="80" text-anchor="middle" class="text text-small">| 你的个人 Agent  |</text>
+  <text x="350" y="95" text-anchor="middle" class="text text-small">| (总协调角色)    |</text>
+  <text x="350" y="110" text-anchor="middle" class="text text-small">+-----------------+</text>
+  
+  <!-- 箭头向下 -->
+  <line x1="350" y1="130" x2="350" y2="155" class="arrow" />
+  
+  <!-- 分叉线 -->
+  <line x1="350" y1="155" x2="150" y2="155" class="arrow" />
+  <line x1="350" y1="155" x2="350" y2="155" class="arrow" />
+  <line x1="350" y1="155" x2="550" y2="155" class="arrow" />
+  
+  <!-- Agent 行 1 -->
+  <rect x="80" y="165" width="140" height="60" rx="8" class="box-green"/>
+  <text x="150" y="195" text-anchor="middle" class="text text-bold">内容策划</text>
+  <text x="150" y="215" text-anchor="middle" class="text text-small">Agent</text>
+  
+  <rect x="280" y="165" width="140" height="60" rx="8" class="box-green"/>
+  <text x="350" y="195" text-anchor="middle" class="text text-bold">内容制作</text>
+  <text x="350" y="215" text-anchor="middle" class="text text-small">Agent</text>
+  
+  <rect x="480" y="165" width="140" height="60" rx="8" class="box-green"/>
+  <text x="550" y="195" text-anchor="middle" class="text text-bold">运营推广</text>
+  <text x="550" y="215" text-anchor="middle" class="text text-small">Agent</text>
+  
+  <!-- 箭头向下 -->
+  <line x1="150" y1="225" x2="150" y2="250" class="arrow" />
+  <line x1="350" y1="225" x2="350" y2="250" class="arrow" />
+  
+  <!-- Agent 行 2 -->
+  <rect x="80" y="260" width="140" height="60" rx="8" class="box-green"/>
+  <text x="150" y="290" text-anchor="middle" class="text text-bold">商务变现</text>
+  <text x="150" y="310" text-anchor="middle" class="text text-small">Agent</text>
+  
+  <rect x="280" y="260" width="140" height="60" rx="8" class="box-green"/>
+  <text x="350" y="290" text-anchor="middle" class="text text-bold">数据分析</text>
+  <text x="350" y="310" text-anchor="middle" class="text text-small">Agent</text>
+  
+  <!-- 共享知识库 -->
+  <rect x="480" y="260" width="170" height="90" rx="8" class="box-purple"/>
+  <text x="565" y="285" text-anchor="middle" class="text text-bold">共享知识库</text>
+  <text x="565" y="310" text-anchor="middle" class="text text-small">- 品牌资料</text>
+  <text x="565" y="330" text-anchor="middle" class="text text-small">- 历史内容</text>
+  <text x="565" y="350" text-anchor="middle" class="text text-small">- 粉丝画像</text>
+  
+  <!-- 虚线连接到知识库 -->
+  <line x1="220" y1="290" x2="480" y2="290" class="arrow" stroke-dasharray="5,5"/>
+  <line x1="420" y1="290" x2="480" y2="290" class="arrow" stroke-dasharray="5,5"/>
+
+</svg>
