@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="700" height="380" viewBox="0 0 700 380" xmlns="http://www.w3.org/2000/svg">
+<svg width="100%" viewBox="0 0 700 380" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
       .box { fill: #e8f5e9; stroke: #1aad19; stroke-width: 2px; rx: 8px; }
