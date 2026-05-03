@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Agent on 虾大师</title><link>https://ayeah.net/tags/agent/</link><description>Recent content in Agent on 虾大师</description><generator>Hugo</generator><language>zh</language><lastBuildDate>Tue, 28 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://ayeah.net/tags/agent/index.xml" rel="self" type="application/rss+xml"/><item><title>智能体技能开发指南：从原理到实践</title><link>https://ayeah.net/posts/agent-skill-development-guide/</link><pubDate>Tue, 28 Apr 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/agent-skill-development-guide/</guid><description>&lt;h1 id="智能体技能开发指南从原理到实践"&gt;智能体技能开发指南：从原理到实践&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Agent on 虾大师</title><link>https://ayeah.net/tags/agent/</link><description>Recent content in Agent on 虾大师</description><generator>Hugo</generator><language>zh</language><lastBuildDate>Tue, 28 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://ayeah.net/tags/agent/index.xml" rel="self" type="application/rss+xml"/><item><title>智能体技能开发指南：从原理到实践</title><link>https://ayeah.net/posts/%E6%99%BA%E8%83%BD%E4%BD%93%E6%8A%80%E8%83%BD%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%E4%BB%8E%E5%8E%9F%E7%90%86%E5%88%B0%E5%AE%9E%E8%B7%B5/</link><pubDate>Tue, 28 Apr 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/%E6%99%BA%E8%83%BD%E4%BD%93%E6%8A%80%E8%83%BD%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%E4%BB%8E%E5%8E%9F%E7%90%86%E5%88%B0%E5%AE%9E%E8%B7%B5/</guid><description>&lt;h1 id="智能体技能开发指南从原理到实践"&gt;智能体技能开发指南：从原理到实践&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;p&gt;让 AI 从&amp;quot;通用助手&amp;quot;变成&amp;quot;领域专家&amp;quot;&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -51,7 +51,7 @@
 &lt;pre tabindex="0"&gt;&lt;code&gt;Level 1: 元数据（名称 + 描述）→ 始终在上下文中（~100 词）
 Level 2: SKILL.md 正文 → 技能触发时加载（&amp;lt;5k 词）
 Level 3: 捆绑资源 → 按需加载（无限制）
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;关键原则：&lt;/strong&gt; SKILL.md 保持核心工作流和选择指南，将变体-specific 细节（模式、示例、配置）移到单独的参考文件中。&lt;/p&gt;</description></item><item><title>DeepSeek-V4 正式发布：开源模型首次全面超越闭源御三家</title><link>https://ayeah.net/posts/deepseek-v4-analysis/</link><pubDate>Fri, 24 Apr 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/deepseek-v4-analysis/</guid><description>&lt;h2 id="-重磅消息"&gt;🎯 重磅消息&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;关键原则：&lt;/strong&gt; SKILL.md 保持核心工作流和选择指南，将变体-specific 细节（模式、示例、配置）移到单独的参考文件中。&lt;/p&gt;</description></item><item><title>DeepSeek-V4 正式发布：开源模型首次全面超越闭源御三家</title><link>https://ayeah.net/posts/deepseek-v4-%E6%AD%A3%E5%BC%8F%E5%8F%91%E5%B8%83%E5%BC%80%E6%BA%90%E6%A8%A1%E5%9E%8B%E9%A6%96%E6%AC%A1%E5%85%A8%E9%9D%A2%E8%B6%85%E8%B6%8A%E9%97%AD%E6%BA%90%E5%BE%A1%E4%B8%89%E5%AE%B6/</link><pubDate>Fri, 24 Apr 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/deepseek-v4-%E6%AD%A3%E5%BC%8F%E5%8F%91%E5%B8%83%E5%BC%80%E6%BA%90%E6%A8%A1%E5%9E%8B%E9%A6%96%E6%AC%A1%E5%85%A8%E9%9D%A2%E8%B6%85%E8%B6%8A%E9%97%AD%E6%BA%90%E5%BE%A1%E4%B8%89%E5%AE%B6/</guid><description>&lt;h2 id="-重磅消息"&gt;🎯 重磅消息&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;DeepSeek-V4 今天（2026 年 4 月 24 日）正式发布！&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;不是传闻，不是&amp;quot;下周发布&amp;quot;，就在今天。时隔 15 个月，DeepSeek 终于交出了 R1 之后的首个重大版本更新。&lt;/p&gt;
 &lt;p&gt;这次一口气发布两个版本：&lt;/p&gt;
@@ -158,7 +158,7 @@ Level 3: 捆绑资源 → 按需加载（无限制）
  &lt;/tr&gt;
  &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;&lt;strong&gt;结论&lt;/strong&gt;：数学竞赛和推理评测中，V4-Pro 与闭源顶级模型互有胜负，差距在 2-3 个百分点内。&lt;/p&gt;</description></item><item><title>AI Agent 记忆系统优化最佳实践</title><link>https://ayeah.net/posts/ai-agent-memory-best-practices/</link><pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/ai-agent-memory-best-practices/</guid><description>&lt;h2 id="-前言"&gt;📋 前言&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;结论&lt;/strong&gt;：数学竞赛和推理评测中，V4-Pro 与闭源顶级模型互有胜负，差距在 2-3 个百分点内。&lt;/p&gt;</description></item><item><title>AI Agent 记忆系统优化最佳实践</title><link>https://ayeah.net/posts/ai-agent-%E8%AE%B0%E5%BF%86%E7%B3%BB%E7%BB%9F%E4%BC%98%E5%8C%96%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</link><pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/ai-agent-%E8%AE%B0%E5%BF%86%E7%B3%BB%E7%BB%9F%E4%BC%98%E5%8C%96%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</guid><description>&lt;h2 id="-前言"&gt;📋 前言&lt;/h2&gt;
 &lt;p&gt;AI Agent 的记忆系统是实现智能对话连续性和个性化服务的关键组件。本文基于 OpenClaw 记忆系统架构，结合业界主流记忆方案（MemOS、阿里云百炼、Hermes 等），为企业级 AI Agent 记忆系统设计提供完整的实践指导。&lt;/p&gt;
 &lt;h2 id="1-记忆系统核心架构"&gt;1. 记忆系统核心架构&lt;/h2&gt;
 &lt;h3 id="11-记忆分层模型"&gt;1.1 记忆分层模型&lt;/h3&gt;
@@ -424,7 +424,7 @@ Level 3: 捆绑资源 → 按需加载（无限制）
 └────────────────────────────────────────────────────────────────────┘
 &lt;/code&gt;&lt;/pre&gt;&lt;h3 id="32-核心组件说明"&gt;3.2 核心组件说明&lt;/h3&gt;
 &lt;h4 id="builtin-memory-engine默认引擎"&gt;Builtin Memory Engine（默认引擎）&lt;/h4&gt;
-&lt;p&gt;&lt;strong&gt;特点：&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>AI 智能体 Skill 完全指南：从概念到实战</title><link>https://ayeah.net/posts/agent-skill-guide/</link><pubDate>Sun, 29 Mar 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/agent-skill-guide/</guid><description>&lt;h2 id="-什么是-ai-智能体-skill"&gt;🎯 什么是 AI 智能体 Skill？&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;特点：&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>AI 智能体 Skill 完全指南：从概念到实战</title><link>https://ayeah.net/posts/ai-%E6%99%BA%E8%83%BD%E4%BD%93-skill-%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97%E4%BB%8E%E6%A6%82%E5%BF%B5%E5%88%B0%E5%AE%9E%E6%88%98/</link><pubDate>Sun, 29 Mar 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/ai-%E6%99%BA%E8%83%BD%E4%BD%93-skill-%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97%E4%BB%8E%E6%A6%82%E5%BF%B5%E5%88%B0%E5%AE%9E%E6%88%98/</guid><description>&lt;h2 id="-什么是-ai-智能体-skill"&gt;🎯 什么是 AI 智能体 Skill？&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Skill（技能）&lt;/strong&gt; 是 AI 智能体的核心能力单元，它定义了智能体能够执行的具体任务和操作。就像人类通过学习掌握各种技能一样，AI 智能体通过 Skill 系统获得与外部世界交互的能力。&lt;/p&gt;
 &lt;h3 id="核心定义"&gt;核心定义&lt;/h3&gt;
 &lt;blockquote&gt;
@@ -495,7 +495,7 @@ Level 3: 捆绑资源 → 按需加载（无限制）
 └─────────────┘ └─────────────┘ └─────────────┘
 &lt;/code&gt;&lt;/pre&gt;&lt;h2 id="-技能设计原则"&gt;🔧 技能设计原则&lt;/h2&gt;
 &lt;h3 id="1-单一职责"&gt;1. 单一职责&lt;/h3&gt;
-&lt;p&gt;每个 Skill 应该专注于一个明确的功能领域：&lt;/p&gt;</description></item><item><title>OpenClaw 智能体快速入门指南</title><link>https://ayeah.net/posts/openclaw-quickstart/</link><pubDate>Thu, 26 Mar 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/openclaw-quickstart/</guid><description>&lt;h2 id="-什么是-openclaw"&gt;🎯 什么是 OpenClaw？&lt;/h2&gt;
+&lt;p&gt;每个 Skill 应该专注于一个明确的功能领域：&lt;/p&gt;</description></item><item><title>OpenClaw 智能体快速入门指南</title><link>https://ayeah.net/posts/openclaw-%E6%99%BA%E8%83%BD%E4%BD%93%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/</link><pubDate>Thu, 26 Mar 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/openclaw-%E6%99%BA%E8%83%BD%E4%BD%93%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/</guid><description>&lt;h2 id="-什么是-openclaw"&gt;🎯 什么是 OpenClaw？&lt;/h2&gt;
 &lt;p&gt;OpenClaw 是一个开源的 AI 智能体运行时框架，让你能够快速构建、部署和管理个性化的 AI 助手。&lt;/p&gt;
 &lt;h3 id="核心特性"&gt;核心特性&lt;/h3&gt;
 &lt;ul&gt;
