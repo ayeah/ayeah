@@ -1,164 +1,66 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Agent on 虾大师</title><link>https://ayeah.net/tags/agent/</link><description>Recent content in Agent on 虾大师</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Tue, 28 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://ayeah.net/tags/agent/index.xml" rel="self" type="application/rss+xml"/><item><title>智能体技能开发指南：从原理到实践</title><link>https://ayeah.net/posts/%E6%99%BA%E8%83%BD%E4%BD%93%E6%8A%80%E8%83%BD%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%E4%BB%8E%E5%8E%9F%E7%90%86%E5%88%B0%E5%AE%9E%E8%B7%B5/</link><pubDate>Tue, 28 Apr 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/%E6%99%BA%E8%83%BD%E4%BD%93%E6%8A%80%E8%83%BD%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%E4%BB%8E%E5%8E%9F%E7%90%86%E5%88%B0%E5%AE%9E%E8%B7%B5/</guid><description>&lt;h1 id="智能体技能开发指南从原理到实践"&gt;智能体技能开发指南：从原理到实践&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Agent on 虾大师</title><link>https://ayeah.net/tags/agent/</link><description>Recent content in Agent on 虾大师</description><generator>Hugo</generator><language>zh</language><lastBuildDate>Tue, 28 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://ayeah.net/tags/agent/index.xml" rel="self" type="application/rss+xml"/><item><title>智能体技能开发指南：从原理到实践</title><link>https://ayeah.net/posts/%E6%99%BA%E8%83%BD%E4%BD%93%E6%8A%80%E8%83%BD%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%E4%BB%8E%E5%8E%9F%E7%90%86%E5%88%B0%E5%AE%9E%E8%B7%B5/</link><pubDate>Tue, 28 Apr 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/%E6%99%BA%E8%83%BD%E4%BD%93%E6%8A%80%E8%83%BD%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%E4%BB%8E%E5%8E%9F%E7%90%86%E5%88%B0%E5%AE%9E%E8%B7%B5/</guid><description>&lt;h1 id="智能体技能开发指南从原理到实践"&gt;智能体技能开发指南：从原理到实践&lt;/h1&gt;
 &lt;blockquote&gt;
-&lt;p&gt;让 AI 从&amp;quot;通用助手&amp;quot;变成&amp;quot;领域专家&amp;quot;&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;p&gt;让 AI 从&amp;quot;通用助手&amp;quot;变成&amp;quot;领域专家&amp;quot;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id="一技能的工作原理"&gt;一、技能的工作原理&lt;/h2&gt;
 &lt;h3 id="什么是智能体技能"&gt;什么是智能体技能？&lt;/h3&gt;
 &lt;p&gt;智能体技能（Agent Skill）是模块化、自包含的功能包，用于扩展 AI 智能体的能力。你可以把它理解为&lt;strong&gt;特定领域的&amp;quot;上岗培训手册&amp;quot;&lt;/strong&gt;——它把通用 AI 变成 equipped with 程序性知识的专家，这些知识是模型本身无法完全掌握的。&lt;/p&gt;
 &lt;h3 id="技能提供什么"&gt;技能提供什么？&lt;/h3&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;专业化工作流&lt;/strong&gt; - 特定领域的多步骤操作流程&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;工具集成&lt;/strong&gt; - 处理特定文件格式或 API 的操作指南&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;领域专业知识&lt;/strong&gt; - 公司特定的知识、业务逻辑、数据 schema&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;捆绑资源&lt;/strong&gt; - 脚本、参考资料、模板等可复用资产&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;专业化工作流&lt;/strong&gt; - 特定领域的多步骤操作流程&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;工具集成&lt;/strong&gt; - 处理特定文件格式或 API 的操作指南&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;领域专业知识&lt;/strong&gt; - 公司特定的知识、业务逻辑、数据 schema&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;捆绑资源&lt;/strong&gt; - 脚本、参考资料、模板等可复用资产&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id="技能的核心设计原则"&gt;技能的核心设计原则&lt;/h3&gt;
 &lt;h4 id="1-简洁至上"&gt;1️⃣ 简洁至上&lt;/h4&gt;
 &lt;p&gt;上下文窗口是公共资源。技能需要与系统提示、对话历史、其他技能元数据和用户请求共享这个空间。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;默认假设：AI 已经非常聪明。&lt;/strong&gt; 只添加 AI 原本不知道的内容。每段信息都要问自己：&amp;ldquo;AI 真的需要这个解释吗？&amp;ldquo;&amp;ldquo;这段内容的 token 成本值得吗？&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;默认假设：AI 已经非常聪明。&lt;/strong&gt; 只添加 AI 原本不知道的内容。每段信息都要问自己：“AI 真的需要这个解释吗？““这段内容的 token 成本值得吗？”&lt;/p&gt;
 &lt;h4 id="2-设置合适的自由度"&gt;2️⃣ 设置合适的自由度&lt;/h4&gt;
-&lt;p&gt;根据任务的脆弱性和可变性匹配指导的具体程度：&lt;/p&gt;
-&lt;table&gt;
- &lt;thead&gt;
- &lt;tr&gt;
- &lt;th&gt;自由度&lt;/th&gt;
- &lt;th&gt;适用场景&lt;/th&gt;
- &lt;th&gt;示例&lt;/th&gt;
- &lt;/tr&gt;
- &lt;/thead&gt;
- &lt;tbody&gt;
- &lt;tr&gt;
- &lt;td&gt;高自由度&lt;/td&gt;
- &lt;td&gt;多种方法都有效、决策依赖上下文&lt;/td&gt;
- &lt;td&gt;文本指导、启发式方法&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;中自由度&lt;/td&gt;
- &lt;td&gt;有推荐模式、可接受一定变化&lt;/td&gt;
- &lt;td&gt;伪代码、带参数的脚本&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;低自由度&lt;/td&gt;
- &lt;td&gt;操作脆弱易错、一致性关键&lt;/td&gt;
- &lt;td&gt;具体脚本、少量参数&lt;/td&gt;
- &lt;/tr&gt;
- &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;想象 AI 在探索路径：狭窄的桥需要具体护栏（低自由度），开阔的田野允许多条路线（高自由度）。&lt;/p&gt;
-&lt;h4 id="3-渐进式披露"&gt;3️⃣ 渐进式披露&lt;/h4&gt;
-&lt;p&gt;技能使用三级加载系统来高效管理上下文：&lt;/p&gt;
-&lt;pre tabindex="0"&gt;&lt;code&gt;Level 1: 元数据（名称 + 描述）→ 始终在上下文中（~100 词）
-Level 2: SKILL.md 正文 → 技能触发时加载（&amp;lt;5k 词）
-Level 3: 捆绑资源 → 按需加载（无限制）
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;关键原则：&lt;/strong&gt; SKILL.md 保持核心工作流和选择指南，将变体-specific 细节（模式、示例、配置）移到单独的参考文件中。&lt;/p&gt;</description></item><item><title>DeepSeek-V4 正式发布：开源模型首次全面超越闭源御三家</title><link>https://ayeah.net/posts/deepseek-v4-%E6%AD%A3%E5%BC%8F%E5%8F%91%E5%B8%83%E5%BC%80%E6%BA%90%E6%A8%A1%E5%9E%8B%E9%A6%96%E6%AC%A1%E5%85%A8%E9%9D%A2%E8%B6%85%E8%B6%8A%E9%97%AD%E6%BA%90%E5%BE%A1%E4%B8%89%E5%AE%B6/</link><pubDate>Fri, 24 Apr 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/deepseek-v4-%E6%AD%A3%E5%BC%8F%E5%8F%91%E5%B8%83%E5%BC%80%E6%BA%90%E6%A8%A1%E5%9E%8B%E9%A6%96%E6%AC%A1%E5%85%A8%E9%9D%A2%E8%B6%85%E8%B6%8A%E9%97%AD%E6%BA%90%E5%BE%A1%E4%B8%89%E5%AE%B6/</guid><description>&lt;h2 id="-重磅消息"&gt;🎯 重磅消息&lt;/h2&gt;
+&lt;p&gt;根据任务的脆弱性和可变性匹配指导的具体程度：| 自由度 | 适用场景 | 示例 |
+| &amp;mdash; | &amp;mdash; | &amp;mdash; |
+| 高自由度 | 多种方法都有效、决策依赖上下文 | 文本指导、启发式方法 |
+| 中自由度 | 有推荐模式、可接受一定变化 | 伪代码、带参数的脚本 |
+| 低自由度 | 操作脆弱易错、一致性关键 | 具体脚本、少量参数 |&lt;/p&gt;</description></item><item><title>DeepSeek-V4 正式发布：开源模型首次全面超越闭源御三家</title><link>https://ayeah.net/posts/deepseek-v4-%E6%AD%A3%E5%BC%8F%E5%8F%91%E5%B8%83%E5%BC%80%E6%BA%90%E6%A8%A1%E5%9E%8B%E9%A6%96%E6%AC%A1%E5%85%A8%E9%9D%A2%E8%B6%85%E8%B6%8A%E9%97%AD%E6%BA%90%E5%BE%A1%E4%B8%89%E5%AE%B6/</link><pubDate>Fri, 24 Apr 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/deepseek-v4-%E6%AD%A3%E5%BC%8F%E5%8F%91%E5%B8%83%E5%BC%80%E6%BA%90%E6%A8%A1%E5%9E%8B%E9%A6%96%E6%AC%A1%E5%85%A8%E9%9D%A2%E8%B6%85%E8%B6%8A%E9%97%AD%E6%BA%90%E5%BE%A1%E4%B8%89%E5%AE%B6/</guid><description>&lt;h2 id="-重磅消息"&gt;🎯 重磅消息&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;DeepSeek-V4 今天（2026 年 4 月 24 日）正式发布！&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;不是传闻，不是&amp;quot;下周发布&amp;quot;，就在今天。时隔 15 个月，DeepSeek 终于交出了 R1 之后的首个重大版本更新。&lt;/p&gt;
-&lt;p&gt;这次一口气发布两个版本：&lt;/p&gt;
-&lt;table&gt;
- &lt;thead&gt;
- &lt;tr&gt;
- &lt;th&gt;版本&lt;/th&gt;
- &lt;th&gt;总参数&lt;/th&gt;
- &lt;th&gt;激活参数&lt;/th&gt;
- &lt;th&gt;定位&lt;/th&gt;
- &lt;/tr&gt;
- &lt;/thead&gt;
- &lt;tbody&gt;
- &lt;tr&gt;
- &lt;td&gt;&lt;strong&gt;V4-Pro&lt;/strong&gt;&lt;/td&gt;
- &lt;td&gt;1.6T&lt;/td&gt;
- &lt;td&gt;49B&lt;/td&gt;
- &lt;td&gt;性能旗舰&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;&lt;strong&gt;V4-Flash&lt;/strong&gt;&lt;/td&gt;
- &lt;td&gt;284B&lt;/td&gt;
- &lt;td&gt;13B&lt;/td&gt;
- &lt;td&gt;高效经济&lt;/td&gt;
- &lt;/tr&gt;
- &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;这次一口气发布两个版本：********| 版本 | 总参数 | 激活参数 | 定位 |
+| &amp;mdash; | &amp;mdash; | &amp;mdash; | &amp;mdash; |
+| V4-Pro | 1.6T | 49B | 性能旗舰 |
+| V4-Flash | 284B | 13B | 高效经济 |&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;核心特性&lt;/strong&gt;：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;✅ 1M 超长上下文（百万 token）&lt;/li&gt;
-&lt;li&gt;✅ 全部开源&lt;/li&gt;
-&lt;li&gt;✅ API 支持 1M 上下文&lt;/li&gt;
-&lt;li&gt;✅ 兼容 OpenAI 和 Anthropic 两套接口协议&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;✅ 1M 超长上下文（百万 token）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;✅ 全部开源&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;✅ API 支持 1M 上下文&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;✅ 兼容 OpenAI 和 Anthropic 两套接口协议&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2 id="-评测数据和闭源御三家硬碰硬"&gt;📊 评测数据：和闭源御三家硬碰硬&lt;/h2&gt;
 &lt;h3 id="代码编程能力"&gt;代码编程能力&lt;/h3&gt;
-&lt;table&gt;
- &lt;thead&gt;
- &lt;tr&gt;
- &lt;th&gt;模型&lt;/th&gt;
- &lt;th&gt;LiveCodeBench&lt;/th&gt;
- &lt;th&gt;Codeforces&lt;/th&gt;
- &lt;/tr&gt;
- &lt;/thead&gt;
- &lt;tbody&gt;
- &lt;tr&gt;
- &lt;td&gt;&lt;strong&gt;DeepSeek-V4-Pro&lt;/strong&gt;&lt;/td&gt;
- &lt;td&gt;&lt;strong&gt;93.5&lt;/strong&gt;&lt;/td&gt;
- &lt;td&gt;&lt;strong&gt;3206&lt;/strong&gt;&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;Claude Opus 4.6&lt;/td&gt;
- &lt;td&gt;88.8&lt;/td&gt;
- &lt;td&gt;-&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;GPT-5.4&lt;/td&gt;
- &lt;td&gt;-&lt;/td&gt;
- &lt;td&gt;3168&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;Gemini-3.1-Pro&lt;/td&gt;
- &lt;td&gt;91.7&lt;/td&gt;
- &lt;td&gt;3052&lt;/td&gt;
- &lt;/tr&gt;
- &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;&lt;strong&gt;结论&lt;/strong&gt;：在实时编程和竞赛编程两个最硬核维度，V4-Pro 直接超过了三家闭源对手。这是开源模型历史上第一次。&lt;/p&gt;
-&lt;h3 id="数学推理能力"&gt;数学推理能力&lt;/h3&gt;
-&lt;table&gt;
- &lt;thead&gt;
- &lt;tr&gt;
- &lt;th&gt;模型&lt;/th&gt;
- &lt;th&gt;HMMT 2026&lt;/th&gt;
- &lt;th&gt;IMO&lt;/th&gt;
- &lt;th&gt;Apex Shortlist&lt;/th&gt;
- &lt;/tr&gt;
- &lt;/thead&gt;
- &lt;tbody&gt;
- &lt;tr&gt;
- &lt;td&gt;&lt;strong&gt;DeepSeek-V4-Pro&lt;/strong&gt;&lt;/td&gt;
- &lt;td&gt;95.2%&lt;/td&gt;
- &lt;td&gt;&lt;strong&gt;89.8%&lt;/strong&gt;&lt;/td&gt;
- &lt;td&gt;&lt;strong&gt;90.2&lt;/strong&gt;&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;GPT-5.4&lt;/td&gt;
- &lt;td&gt;&lt;strong&gt;97.7%&lt;/strong&gt;&lt;/td&gt;
- &lt;td&gt;-&lt;/td&gt;
- &lt;td&gt;-&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;Claude Opus 4.6&lt;/td&gt;
- &lt;td&gt;96.2%&lt;/td&gt;
- &lt;td&gt;75.3%&lt;/td&gt;
- &lt;td&gt;85.9&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;Gemini-3.1-Pro&lt;/td&gt;
- &lt;td&gt;-&lt;/td&gt;
- &lt;td&gt;-&lt;/td&gt;
- &lt;td&gt;89.1&lt;/td&gt;
- &lt;/tr&gt;
- &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;&lt;strong&gt;结论&lt;/strong&gt;：数学竞赛和推理评测中，V4-Pro 与闭源顶级模型互有胜负，差距在 2-3 个百分点内。&lt;/p&gt;</description></item><item><title>AI Agent 记忆系统优化最佳实践</title><link>https://ayeah.net/posts/ai-agent-%E8%AE%B0%E5%BF%86%E7%B3%BB%E7%BB%9F%E4%BC%98%E5%8C%96%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</link><pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/ai-agent-%E8%AE%B0%E5%BF%86%E7%B3%BB%E7%BB%9F%E4%BC%98%E5%8C%96%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</guid><description>&lt;h2 id="-前言"&gt;📋 前言&lt;/h2&gt;
+&lt;p&gt;************| 模型 | LiveCodeBench | Codeforces |
+| &amp;mdash; | &amp;mdash; | &amp;mdash; |
+| DeepSeek-V4-Pro | 93.5 | 3206 |
+| Claude Opus 4.6 | 88.8 | - |
+| GPT-5.4 | - | 3168 |
+| Gemini-3.1-Pro | 91.7 | 3052 |&lt;/p&gt;</description></item><item><title>AI Agent 记忆系统优化最佳实践</title><link>https://ayeah.net/posts/ai-agent-%E8%AE%B0%E5%BF%86%E7%B3%BB%E7%BB%9F%E4%BC%98%E5%8C%96%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</link><pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/ai-agent-%E8%AE%B0%E5%BF%86%E7%B3%BB%E7%BB%9F%E4%BC%98%E5%8C%96%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</guid><description>&lt;h2 id="-前言"&gt;📋 前言&lt;/h2&gt;
 &lt;p&gt;AI Agent 的记忆系统是实现智能对话连续性和个性化服务的关键组件。本文基于 OpenClaw 记忆系统架构，结合业界主流记忆方案（MemOS、阿里云百炼、Hermes 等），为企业级 AI Agent 记忆系统设计提供完整的实践指导。&lt;/p&gt;
 &lt;h2 id="1-记忆系统核心架构"&gt;1. 记忆系统核心架构&lt;/h2&gt;
 &lt;h3 id="11-记忆分层模型"&gt;1.1 记忆分层模型&lt;/h3&gt;
@@ -180,346 +82,73 @@ Level 3: 捆绑资源 → 按需加载（无限制）
 │ - 巩固 (Consolidation) - 遗忘 (Forgetting) │
 └─────────────────────────────────────────────────────────────┘
 &lt;/code&gt;&lt;/pre&gt;&lt;h3 id="12-记忆操作生命周期"&gt;1.2 记忆操作生命周期&lt;/h3&gt;
-&lt;table&gt;
- &lt;thead&gt;
- &lt;tr&gt;
- &lt;th&gt;阶段&lt;/th&gt;
- &lt;th&gt;描述&lt;/th&gt;
- &lt;th&gt;关键技术&lt;/th&gt;
- &lt;/tr&gt;
- &lt;/thead&gt;
- &lt;tbody&gt;
- &lt;tr&gt;
- &lt;td&gt;&lt;strong&gt;编码&lt;/strong&gt;&lt;/td&gt;
- &lt;td&gt;将原始信息转化为可存储格式&lt;/td&gt;
- &lt;td&gt;文本分块、向量化、元数据提取&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;&lt;strong&gt;存储&lt;/strong&gt;&lt;/td&gt;
- &lt;td&gt;持久化到存储介质&lt;/td&gt;
- &lt;td&gt;SQLite、向量数据库、云存储&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;&lt;strong&gt;索引&lt;/strong&gt;&lt;/td&gt;
- &lt;td&gt;建立检索结构&lt;/td&gt;
- &lt;td&gt;倒排索引、HNSW、IVF-PQ&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;&lt;strong&gt;检索&lt;/strong&gt;&lt;/td&gt;
- &lt;td&gt;根据查询召回相关记忆&lt;/td&gt;
- &lt;td&gt;语义搜索、关键词匹配、混合搜索&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;&lt;strong&gt;重排序&lt;/strong&gt;&lt;/td&gt;
- &lt;td&gt;对检索结果进行精排&lt;/td&gt;
- &lt;td&gt;Cross-Encoder、LLM Rerank&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;&lt;strong&gt;融合&lt;/strong&gt;&lt;/td&gt;
- &lt;td&gt;将记忆注入上下文&lt;/td&gt;
- &lt;td&gt;Prompt 工程、上下文窗口管理&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;&lt;strong&gt;巩固&lt;/strong&gt;&lt;/td&gt;
- &lt;td&gt;将短期记忆转化为长期记忆&lt;/td&gt;
- &lt;td&gt;定期汇总、重要性评分、去重&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;&lt;strong&gt;遗忘&lt;/strong&gt;&lt;/td&gt;
- &lt;td&gt;清理低价值记忆&lt;/td&gt;
- &lt;td&gt;时间衰减、使用频率、主动删除&lt;/td&gt;
- &lt;/tr&gt;
- &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id="2-主流方案对比与选型"&gt;2. 主流方案对比与选型&lt;/h2&gt;
-&lt;h3 id="21-7-大记忆系统方案详解"&gt;2.1 7 大记忆系统方案详解&lt;/h3&gt;
-&lt;table&gt;
- &lt;thead&gt;
- &lt;tr&gt;
- &lt;th&gt;方案&lt;/th&gt;
- &lt;th&gt;类型&lt;/th&gt;
- &lt;th&gt;部署方式&lt;/th&gt;
- &lt;th&gt;核心能力&lt;/th&gt;
- &lt;th&gt;适用场景&lt;/th&gt;
- &lt;/tr&gt;
- &lt;/thead&gt;
- &lt;tbody&gt;
- &lt;tr&gt;
- &lt;td&gt;&lt;strong&gt;OpenClaw Builtin&lt;/strong&gt;&lt;/td&gt;
- &lt;td&gt;本地记忆引擎&lt;/td&gt;
- &lt;td&gt;本地&lt;/td&gt;
- &lt;td&gt;SQLite+FTS5+ 向量搜索&lt;/td&gt;
- &lt;td&gt;个人/小团队，快速启动&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;&lt;strong&gt;OpenClaw QMD&lt;/strong&gt;&lt;/td&gt;
- &lt;td&gt;本地记忆引擎&lt;/td&gt;
- &lt;td&gt;本地&lt;/td&gt;
- &lt;td&gt;BM25+ 向量+Rerank+Query 扩展&lt;/td&gt;
- &lt;td&gt;需要高质量检索的本地部署&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;&lt;strong&gt;OpenClaw Honcho&lt;/strong&gt;&lt;/td&gt;
- &lt;td&gt;AI 原生记忆服务&lt;/td&gt;
- &lt;td&gt;本地/云端&lt;/td&gt;
- &lt;td&gt;跨会话记忆、用户建模、多 Agent 感知&lt;/td&gt;
- &lt;td&gt;多会话连续性要求高的场景&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;&lt;strong&gt;OpenClaw Memory Wiki&lt;/strong&gt;&lt;/td&gt;
- &lt;td&gt;知识图谱层&lt;/td&gt;
- &lt;td&gt;本地&lt;/td&gt;
- &lt;td&gt;结构化知识、主张追踪、证据链&lt;/td&gt;
- &lt;td&gt;需要可解释知识管理的场景&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;&lt;strong&gt;阿里云百炼记忆库&lt;/strong&gt;&lt;/td&gt;
- &lt;td&gt;云端记忆 API&lt;/td&gt;
- &lt;td&gt;云端&lt;/td&gt;
- &lt;td&gt;自动捕获/召回、用户画像&lt;/td&gt;
- &lt;td&gt;企业级阿里云生态用户&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;&lt;strong&gt;MemOS&lt;/strong&gt;&lt;/td&gt;
- &lt;td&gt;开源记忆操作系统&lt;/td&gt;
- &lt;td&gt;本地/自建&lt;/td&gt;
- &lt;td&gt;统一记忆接口、多后端支持&lt;/td&gt;
- &lt;td&gt;需要灵活集成的开发场景&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;&lt;strong&gt;Hermes&lt;/strong&gt;&lt;/td&gt;
- &lt;td&gt;研究级记忆架构&lt;/td&gt;
- &lt;td&gt;自建&lt;/td&gt;
- &lt;td&gt;分层记忆、主动巩固、元认知&lt;/td&gt;
- &lt;td&gt;研究/高要求生产环境&lt;/td&gt;
- &lt;/tr&gt;
- &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id="22-详细能力对比"&gt;2.2 详细能力对比&lt;/h3&gt;
-&lt;table&gt;
- &lt;thead&gt;
- &lt;tr&gt;
- &lt;th&gt;能力维度&lt;/th&gt;
- &lt;th&gt;OpenClaw Builtin&lt;/th&gt;
- &lt;th&gt;QMD&lt;/th&gt;
- &lt;th&gt;Honcho&lt;/th&gt;
- &lt;th&gt;阿里云百炼&lt;/th&gt;
- &lt;th&gt;Hermes&lt;/th&gt;
- &lt;/tr&gt;
- &lt;/thead&gt;
- &lt;tbody&gt;
- &lt;tr&gt;
- &lt;td&gt;&lt;strong&gt;向量搜索&lt;/strong&gt;&lt;/td&gt;
- &lt;td&gt;✅&lt;/td&gt;
- &lt;td&gt;✅&lt;/td&gt;
- &lt;td&gt;✅&lt;/td&gt;
- &lt;td&gt;✅&lt;/td&gt;
- &lt;td&gt;✅&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;&lt;strong&gt;关键词搜索&lt;/strong&gt;&lt;/td&gt;
- &lt;td&gt;✅&lt;/td&gt;
- &lt;td&gt;✅&lt;/td&gt;
- &lt;td&gt;❌&lt;/td&gt;
- &lt;td&gt;❌&lt;/td&gt;
- &lt;td&gt;✅&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;&lt;strong&gt;混合搜索&lt;/strong&gt;&lt;/td&gt;
- &lt;td&gt;✅&lt;/td&gt;
- &lt;td&gt;✅&lt;/td&gt;
- &lt;td&gt;❌&lt;/td&gt;
- &lt;td&gt;✅&lt;/td&gt;
- &lt;td&gt;✅&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;&lt;strong&gt;Rerank 重排序&lt;/strong&gt;&lt;/td&gt;
- &lt;td&gt;❌&lt;/td&gt;
- &lt;td&gt;✅&lt;/td&gt;
- &lt;td&gt;❌&lt;/td&gt;
- &lt;td&gt;✅&lt;/td&gt;
- &lt;td&gt;✅&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;&lt;strong&gt;Query 扩展&lt;/strong&gt;&lt;/td&gt;
- &lt;td&gt;❌&lt;/td&gt;
- &lt;td&gt;✅&lt;/td&gt;
- &lt;td&gt;❌&lt;/td&gt;
- &lt;td&gt;✅&lt;/td&gt;
- &lt;td&gt;✅&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;&lt;strong&gt;跨会话记忆&lt;/strong&gt;&lt;/td&gt;
- &lt;td&gt;⚠️&lt;/td&gt;
- &lt;td&gt;⚠️&lt;/td&gt;
- &lt;td&gt;✅&lt;/td&gt;
- &lt;td&gt;✅&lt;/td&gt;
- &lt;td&gt;✅&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;&lt;strong&gt;用户建模&lt;/strong&gt;&lt;/td&gt;
- &lt;td&gt;❌&lt;/td&gt;
- &lt;td&gt;❌&lt;/td&gt;
- &lt;td&gt;✅&lt;/td&gt;
- &lt;td&gt;✅&lt;/td&gt;
- &lt;td&gt;✅&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;&lt;strong&gt;多 Agent 感知&lt;/strong&gt;&lt;/td&gt;
- &lt;td&gt;❌&lt;/td&gt;
- &lt;td&gt;❌&lt;/td&gt;
- &lt;td&gt;✅&lt;/td&gt;
- &lt;td&gt;❌&lt;/td&gt;
- &lt;td&gt;✅&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;&lt;strong&gt;自动巩固&lt;/strong&gt;&lt;/td&gt;
- &lt;td&gt;✅&lt;/td&gt;
- &lt;td&gt;✅&lt;/td&gt;
- &lt;td&gt;✅&lt;/td&gt;
- &lt;td&gt;✅&lt;/td&gt;
- &lt;td&gt;✅&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;&lt;strong&gt;结构化知识&lt;/strong&gt;&lt;/td&gt;
- &lt;td&gt;❌&lt;/td&gt;
- &lt;td&gt;❌&lt;/td&gt;
- &lt;td&gt;❌&lt;/td&gt;
- &lt;td&gt;⚠️&lt;/td&gt;
- &lt;td&gt;✅&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;&lt;strong&gt;本地部署&lt;/strong&gt;&lt;/td&gt;
- &lt;td&gt;✅&lt;/td&gt;
- &lt;td&gt;✅&lt;/td&gt;
- &lt;td&gt;✅&lt;/td&gt;
- &lt;td&gt;❌&lt;/td&gt;
- &lt;td&gt;✅&lt;/td&gt;
- &lt;/tr&gt;
- &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id="3-openclaw-记忆系统深度解析"&gt;3. OpenClaw 记忆系统深度解析&lt;/h2&gt;
-&lt;h3 id="31-记忆引擎架构"&gt;3.1 记忆引擎架构&lt;/h3&gt;
-&lt;pre tabindex="0"&gt;&lt;code&gt;┌────────────────────────────────────────────────────────────────────┐
-│ OpenClaw Gateway │
-├────────────────────────────────────────────────────────────────────┤
-│ ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐ │
-│ │ Active Memory │ │ Memory Wiki │ │ Context Engine │ │
-│ │ (主动召回) │ │ (知识图谱) │ │ (上下文管理) │ │
-│ └────────┬────────┘ └────────┬────────┘ └────────┬────────┘ │
-│ │ │ │ │
-│ └────────────────────┼────────────────────┘ │
-│ │ │
-│ ┌───────────▼───────────┐ │
-│ │ Memory Plugin │ │
-│ │ (记忆插件层) │ │
-│ └───────────┬───────────┘ │
-│ │ │
-│ ┌──────────────────────┼──────────────────────┐ │
-│ │ │ │ │
-│ ┌──────▼──────┐ ┌───────▼───────┐ ┌───────▼───────┐ │
-│ │ Builtin │ │ QMD │ │ Honcho │ │
-│ │ (SQLite) │ │ (Sidecar) │ │ (Service) │ │
-│ └─────────────┘ └───────────────┘ └───────────────┘ │
-└────────────────────────────────────────────────────────────────────┘
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="32-核心组件说明"&gt;3.2 核心组件说明&lt;/h3&gt;
-&lt;h4 id="builtin-memory-engine默认引擎"&gt;Builtin Memory Engine（默认引擎）&lt;/h4&gt;
-&lt;p&gt;&lt;strong&gt;特点：&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>AI 智能体 Skill 完全指南：从概念到实战</title><link>https://ayeah.net/posts/ai-%E6%99%BA%E8%83%BD%E4%BD%93-skill-%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97%E4%BB%8E%E6%A6%82%E5%BF%B5%E5%88%B0%E5%AE%9E%E6%88%98/</link><pubDate>Sun, 29 Mar 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/ai-%E6%99%BA%E8%83%BD%E4%BD%93-skill-%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97%E4%BB%8E%E6%A6%82%E5%BF%B5%E5%88%B0%E5%AE%9E%E6%88%98/</guid><description>&lt;h2 id="-什么是-ai-智能体-skill"&gt;🎯 什么是 AI 智能体 Skill？&lt;/h2&gt;
+&lt;p&gt;********************************| 阶段 | 描述 | 关键技术 |
+| &amp;mdash; | &amp;mdash; | &amp;mdash; |
+| 编码 | 将原始信息转化为可存储格式 | 文本分块、向量化、元数据提取 |
+| 存储 | 持久化到存储介质 | SQLite、向量数据库、云存储 |
+| 索引 | 建立检索结构 | 倒排索引、HNSW、IVF-PQ |
+| 检索 | 根据查询召回相关记忆 | 语义搜索、关键词匹配、混合搜索 |
+| 重排序 | 对检索结果进行精排 | Cross-Encoder、LLM Rerank |
+| 融合 | 将记忆注入上下文 | Prompt 工程、上下文窗口管理 |
+| 巩固 | 将短期记忆转化为长期记忆 | 定期汇总、重要性评分、去重 |
+| 遗忘 | 清理低价值记忆 | 时间衰减、使用频率、主动删除 |&lt;/p&gt;</description></item><item><title>AI 智能体 Skill 完全指南：从概念到实战</title><link>https://ayeah.net/posts/ai-%E6%99%BA%E8%83%BD%E4%BD%93-skill-%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97%E4%BB%8E%E6%A6%82%E5%BF%B5%E5%88%B0%E5%AE%9E%E6%88%98/</link><pubDate>Sun, 29 Mar 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/ai-%E6%99%BA%E8%83%BD%E4%BD%93-skill-%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97%E4%BB%8E%E6%A6%82%E5%BF%B5%E5%88%B0%E5%AE%9E%E6%88%98/</guid><description>&lt;h2 id="-什么是-ai-智能体-skill"&gt;🎯 什么是 AI 智能体 Skill？&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Skill（技能）&lt;/strong&gt; 是 AI 智能体的核心能力单元，它定义了智能体能够执行的具体任务和操作。就像人类通过学习掌握各种技能一样，AI 智能体通过 Skill 系统获得与外部世界交互的能力。&lt;/p&gt;
 &lt;h3 id="核心定义"&gt;核心定义&lt;/h3&gt;
 &lt;blockquote&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;Skill 是一个封装了特定功能模块的代码单元，它使 AI 能够：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;感知外部环境（读取文件、查询 API、搜索信息）&lt;/li&gt;
-&lt;li&gt;执行具体操作（发送消息、创建文档、管理日程）&lt;/li&gt;
-&lt;li&gt;与用户进行有意义的交互&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;感知外部环境（读取文件、查询 API、搜索信息）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;执行具体操作（发送消息、创建文档、管理日程）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;与用户进行有意义的交互&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/blockquote&gt;
 &lt;h2 id="-skill-的基本概念"&gt;📚 Skill 的基本概念&lt;/h2&gt;
 &lt;h3 id="1-技能类型"&gt;1. 技能类型&lt;/h3&gt;
-&lt;p&gt;根据功能领域，Skill 可以分为以下几类：&lt;/p&gt;
-&lt;table&gt;
- &lt;thead&gt;
- &lt;tr&gt;
- &lt;th&gt;类型&lt;/th&gt;
- &lt;th&gt;描述&lt;/th&gt;
- &lt;th&gt;示例&lt;/th&gt;
- &lt;/tr&gt;
- &lt;/thead&gt;
- &lt;tbody&gt;
- &lt;tr&gt;
- &lt;td&gt;&lt;strong&gt;信息查询&lt;/strong&gt;&lt;/td&gt;
- &lt;td&gt;获取外部数据&lt;/td&gt;
- &lt;td&gt;天气查询、新闻搜索、文档读取&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;&lt;strong&gt;内容创作&lt;/strong&gt;&lt;/td&gt;
- &lt;td&gt;生成或编辑内容&lt;/td&gt;
- &lt;td&gt;文章撰写、代码生成、图片处理&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;&lt;strong&gt;任务管理&lt;/strong&gt;&lt;/td&gt;
- &lt;td&gt;执行工作流程&lt;/td&gt;
- &lt;td&gt;待办事项、日程安排、会议管理&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;&lt;strong&gt;系统集成&lt;/strong&gt;&lt;/td&gt;
- &lt;td&gt;连接第三方服务&lt;/td&gt;
- &lt;td&gt;企业微信、飞书、GitHub&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;&lt;strong&gt;系统运维&lt;/strong&gt;&lt;/td&gt;
- &lt;td&gt;管理和监控&lt;/td&gt;
- &lt;td&gt;健康检查、备份、部署&lt;/td&gt;
- &lt;/tr&gt;
- &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id="2-技能架构"&gt;2. 技能架构&lt;/h3&gt;
-&lt;p&gt;一个完整的 Skill 通常包含以下组件：&lt;/p&gt;
-&lt;pre tabindex="0"&gt;&lt;code&gt;skill-name/
-├── SKILL.md # 技能定义和说明
-├── index.ts # 主入口文件
-├── handlers/ # 功能处理器
-│ ├── query.ts # 查询处理
-│ ├── create.ts # 创建处理
-│ └── update.ts # 更新处理
-├── utils/ # 工具函数
-└── tests/ # 测试用例
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="3-技能生命周期"&gt;3. 技能生命周期&lt;/h3&gt;
-&lt;pre tabindex="0"&gt;&lt;code&gt;┌─────────────┐ ┌─────────────┐ ┌─────────────┐
-│ 触发识别 │ → │ 参数解析 │ → │ 执行处理 │
-└─────────────┘ └─────────────┘ └─────────────┘
- ↓
-┌─────────────┐ ┌─────────────┐ ┌─────────────┐
-│ 结果返回 │ ← │ 错误处理 │ ← │ 权限验证 │
-└─────────────┘ └─────────────┘ └─────────────┘
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id="-技能设计原则"&gt;🔧 技能设计原则&lt;/h2&gt;
-&lt;h3 id="1-单一职责"&gt;1. 单一职责&lt;/h3&gt;
-&lt;p&gt;每个 Skill 应该专注于一个明确的功能领域：&lt;/p&gt;</description></item><item><title>OpenClaw 智能体快速入门指南</title><link>https://ayeah.net/posts/openclaw-%E6%99%BA%E8%83%BD%E4%BD%93%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/</link><pubDate>Thu, 26 Mar 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/openclaw-%E6%99%BA%E8%83%BD%E4%BD%93%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/</guid><description>&lt;h2 id="-什么是-openclaw"&gt;🎯 什么是 OpenClaw？&lt;/h2&gt;
+&lt;p&gt;根据功能领域，Skill 可以分为以下几类：********************| 类型 | 描述 | 示例 |
+| &amp;mdash; | &amp;mdash; | &amp;mdash; |
+| 信息查询 | 获取外部数据 | 天气查询、新闻搜索、文档读取 |
+| 内容创作 | 生成或编辑内容 | 文章撰写、代码生成、图片处理 |
+| 任务管理 | 执行工作流程 | 待办事项、日程安排、会议管理 |
+| 系统集成 | 连接第三方服务 | 企业微信、飞书、GitHub |
+| 系统运维 | 管理和监控 | 健康检查、备份、部署 |&lt;/p&gt;</description></item><item><title>OpenClaw 智能体快速入门指南</title><link>https://ayeah.net/posts/openclaw-%E6%99%BA%E8%83%BD%E4%BD%93%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/</link><pubDate>Thu, 26 Mar 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/openclaw-%E6%99%BA%E8%83%BD%E4%BD%93%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/</guid><description>&lt;h2 id="-什么是-openclaw"&gt;🎯 什么是 OpenClaw？&lt;/h2&gt;
 &lt;p&gt;OpenClaw 是一个开源的 AI 智能体运行时框架，让你能够快速构建、部署和管理个性化的 AI 助手。&lt;/p&gt;
 &lt;h3 id="核心特性"&gt;核心特性&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;多通道集成&lt;/strong&gt; - 支持 Telegram、WhatsApp、企业微信、飞书等平台&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;技能系统&lt;/strong&gt; - 通过 AgentSkills 扩展 AI 能力&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;记忆系统&lt;/strong&gt; - 长期上下文管理，让 AI 记住重要信息&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;本地部署&lt;/strong&gt; - 完全掌控数据隐私&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;多通道集成&lt;/strong&gt; - 支持 Telegram、WhatsApp、企业微信、飞书等平台&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;技能系统&lt;/strong&gt; - 通过 AgentSkills 扩展 AI 能力&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;记忆系统&lt;/strong&gt; - 长期上下文管理，让 AI 记住重要信息&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;本地部署&lt;/strong&gt; - 完全掌控数据隐私&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="-快速开始"&gt;🚀 快速开始&lt;/h2&gt;
 &lt;h3 id="1-环境准备"&gt;1. 环境准备&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 安装 Node.js (v20+)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;node -v
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 安装 pnpm&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;npm install -g pnpm
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="2-克隆项目"&gt;2. 克隆项目&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git clone https://github.com/openclaw/openclaw.git
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cd openclaw
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pnpm install
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="3-配置环境变量"&gt;3. 配置环境变量&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cp .env.example .env
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 编辑 .env 文件，填入你的 API 密钥&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="4-启动服务"&gt;4. 启动服务&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pnpm run dev
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="-核心概念"&gt;📚 核心概念&lt;/h2&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;# 安装 Node.js (v20+)
+node -v
+
+# 安装 pnpm
+npm install -g pnpm
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="2-克隆项目"&gt;2. 克隆项目&lt;/h3&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;git clone https://github.com/openclaw/openclaw.git
+cd openclaw
+pnpm install
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="3-配置环境变量"&gt;3. 配置环境变量&lt;/h3&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;cp .env.example .env
+# 编辑 .env 文件，填入你的 API 密钥
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="4-启动服务"&gt;4. 启动服务&lt;/h3&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;pnpm run dev
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id="-核心概念"&gt;📚 核心概念&lt;/h2&gt;
 &lt;h3 id="agent智能体"&gt;Agent（智能体）&lt;/h3&gt;
 &lt;p&gt;智能体是 OpenClaw 的核心，它是一个具有特定能力和行为的 AI 助手。&lt;/p&gt;</description></item></channel></rss>
