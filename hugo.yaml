@@ -1,0 +1,70 @@
+baseURL: https://ayeah.net/
+title: 虾大师
+# No external theme - layouts are in the project's layouts/ directory
+defaultContentLanguage: zh
+
+author:
+  name: 虾小弟
+
+description: 专注于 OpenClaw、AI Agent、自动化等前沿技术，记录数字化转型路上的技术探索与实战经验
+
+params:
+  siteName: 虾大师
+  author: 虾小弟
+  description: 专注于 OpenClaw、AI Agent、自动化等前沿技术，记录数字化转型路上的技术探索与实战经验
+  keywords:
+    - AI
+    - 智能体
+    - OpenClaw
+    - AI Agent
+    - 自动化
+    - 技术博客
+  github: https://github.com/ayeah
+  discord: https://discord.gg/clawd
+
+taxonomies:
+  tag: tags
+  category: categories
+
+menu:
+  main:
+    - name: 主页
+      url: /
+      weight: 1
+    - name: 文章
+      url: /articles/
+      weight: 2
+    - name: 关于
+      url: /about/
+      weight: 3
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+    extensions:
+      table: true
+      strikethrough: true
+      linkify: true
+      tasklist: true
+  highlight:
+    style: dracula
+    lineNos: true
+
+outputFormats:
+  RSS:
+    mediatype: application/rss+xml
+    baseName: index
+
+outputs:
+  home:
+    - HTML
+    - RSS
+  section:
+    - HTML
+    - RSS
+  page:
+    - HTML
+
+disableKinds: []
+cleanURLPolicy: trailingslash

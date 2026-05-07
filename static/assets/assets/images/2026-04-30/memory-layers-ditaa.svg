@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100%" viewBox="0 0 700 380" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- ditaa 风格斜线阴影 -->
+    <pattern id="hatch" patternUnits="userSpaceOnUse" width="8" height="8" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="8" stroke="#cccccc" stroke-width="2"/>
+    </pattern>
+    
+    <!-- 阴影滤镜 -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="3" dy="3" stdDeviation="2" flood-color="#666666" flood-opacity="0.5"/>
+    </filter>
+    
+    <style>
+      .box { fill: #ffffff; stroke: #000000; stroke-width: 2px; filter: url(#shadow); }
+      .box-yellow { fill: #ffff99; stroke: #000000; stroke-width: 2px; filter: url(#shadow); }
+      .box-green { fill: #99ff99; stroke: #000000; stroke-width: 2px; filter: url(#shadow); }
+      .box-blue { fill: #55aaff; stroke: #000000; stroke-width: 2px; filter: url(#shadow); opacity: 0.3; }
+      .box-purple { fill: #e9afaf; stroke: #000000; stroke-width: 2px; filter: url(#shadow); }
+      .text { font-family: "Lucida Console", Monaco, monospace; font-size: 14px; fill: #000000; }
+      .text-bold { font-weight: bold; }
+      .text-small { font-size: 12px; }
+      .arrow { stroke: #000000; stroke-width: 2px; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#000000"/>
+    </marker>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  
+  
+  <!-- 组织层 -->
+  <rect x="150" y="30" width="400" height="70" class="box-blue"/>
+  <text x="350" y="60" text-anchor="middle" class="text text-bold">组织层记忆 (共享)</text>
+  <text x="350" y="85" text-anchor="middle" class="text text-small">品牌定位、视觉规范、报价体系</text>
+  <text x="350" y="105" text-anchor="middle" class="text text-small">所有 Agent 可读，你一人可写</text>
+  
+  <!-- 箭头 -->
+  <line x1="350" y1="100" x2="350" y2="130" class="arrow"/>
+  
+  <!-- 项目层 -->
+  <rect x="150" y="140" width="400" height="90" class="box-green"/>
+  <text x="350" y="170" text-anchor="middle" class="text text-bold">项目层记忆 (按平台)</text>
+  <text x="350" y="195" text-anchor="middle" class="text text-small">公众号：粉丝画像、历史选题</text>
+  <text x="350" y="215" text-anchor="middle" class="text text-small">小红书：爆款模板、封面风格</text>
+  <text x="350" y="235" text-anchor="middle" class="text text-small">抖音：脚本结构、音乐库</text>
+  
+  <!-- 箭头 -->
+  <line x1="350" y1="230" x2="350" y2="260" class="arrow"/>
+  
+  <!-- 个人层 -->
+  <rect x="150" y="270" width="400" height="70" class="box-purple"/>
+  <text x="350" y="300" text-anchor="middle" class="text text-bold">个人层记忆 (私有)</text>
+  <text x="350" y="325" text-anchor="middle" class="text text-small">你的偏好、待办事项、私人笔记</text>
+  <text x="350" y="345" text-anchor="middle" class="text text-small">仅你的个人 Agent 可访问</text>
+
+</svg>

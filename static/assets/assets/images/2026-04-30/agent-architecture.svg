@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100%" viewBox="0 0 700 380" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .box { fill: #e8f5e9; stroke: #1aad19; stroke-width: 2px; rx: 8px; }
+      .box-yellow { fill: #fff3cd; stroke: #ffc107; stroke-width: 2px; rx: 8px; }
+      .box-blue { fill: #e3f2fd; stroke: #2196f3; stroke-width: 2px; rx: 8px; }
+      .box-purple { fill: #f3e5f5; stroke: #9c27b0; stroke-width: 2px; rx: 8px; }
+      .text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-size: 14px; fill: #333; }
+      .text-bold { font-weight: 600; }
+      .text-small { font-size: 12px; fill: #666; }
+      .arrow { stroke: #666; stroke-width: 2px; fill: none; marker-end: url(#arrowhead); }
+      .arrow-dashed { stroke: #999; stroke-width: 2px; fill: none; stroke-dasharray: 5,5; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666" />
+    </marker>
+  </defs>
+  
+  <!-- 你 (CEO) -->
+  <rect x="275" y="20" width="150" height="50" class="box-yellow"/>
+  <text x="350" y="45" text-anchor="middle" class="text text-bold">👤 你 (CEO)</text>
+  <text x="350" y="62" text-anchor="middle" class="text text-small">决策者</text>
+  
+  <!-- 箭头向下 -->
+  <line x1="350" y1="70" x2="350" y2="95" class="arrow"/>
+  
+  <!-- 个人 Agent -->
+  <rect x="275" y="95" width="150" height="50" class="box"/>
+  <text x="350" y="120" text-anchor="middle" class="text text-bold">🤖 个人 Agent</text>
+  <text x="350" y="137" text-anchor="middle" class="text text-small">总协调</text>
+  
+  <!-- 箭头向下分叉 -->
+  <line x1="350" y1="145" x2="350" y2="170" class="arrow"/>
+  <line x1="350" y1="170" x2="150" y2="170" class="arrow"/>
+  <line x1="350" y1="170" x2="550" y2="170" class="arrow"/>
+  
+  <!-- Agent 行 1 -->
+  <rect x="50" y="180" width="120" height="50" class="box"/>
+  <text x="110" y="205" text-anchor="middle" class="text text-bold">📝 内容策划</text>
+  
+  <rect x="290" y="180" width="120" height="50" class="box"/>
+  <text x="350" y="205" text-anchor="middle" class="text text-bold">🎬 内容制作</text>
+  
+  <rect x="530" y="180" width="120" height="50" class="box"/>
+  <text x="590" y="205" text-anchor="middle" class="text text-bold">📢 运营推广</text>
+  
+  <!-- 箭头向下 -->
+  <line x1="110" y1="230" x2="110" y2="255" class="arrow"/>
+  <line x1="350" y1="230" x2="350" y2="255" class="arrow"/>
+  
+  <!-- Agent 行 2 -->
+  <rect x="50" y="265" width="120" height="50" class="box"/>
+  <text x="110" y="290" text-anchor="middle" class="text text-bold">💰 商务变现</text>
+  
+  <rect x="290" y="265" width="120" height="50" class="box"/>
+  <text x="350" y="290" text-anchor="middle" class="text text-bold">📊 数据分析</text>
+  
+  <!-- 共享知识库 -->
+  <rect x="480" y="265" width="170" height="80" class="box-purple"/>
+  <text x="565" y="290" text-anchor="middle" class="text text-bold">📚 共享知识库</text>
+  <text x="565" y="310" text-anchor="middle" class="text text-small">• 品牌资料</text>
+  <text x="565" y="325" text-anchor="middle" class="text text-small">• 历史内容</text>
+  <text x="565" y="340" text-anchor="middle" class="text text-small">• 粉丝画像</text>
+  
+  <!-- 虚线连接到知识库 -->
+  <line x1="170" y1="300" x2="480" y2="305" class="arrow-dashed"/>
+  <line x1="410" y1="300" x2="480" y2="305" class="arrow-dashed"/>
+
+</svg>

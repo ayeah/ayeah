@@ -1,0 +1,22 @@
+{{ define "main" }}
+<section class=article-page style="padding-top:calc(var(--header-height) + 3rem)">
+<div class=container style=max-width:800px>
+<header class=article-header>
+<h1 class=article-title>{{ .Title }}</h1>
+{{ with .Description }}
+<p style=color:var(--text-secondary);font-size:1.125rem>{{ . }}</p>
+{{ end }}
+</header>
+<div class=article-body>
+{{ .Content }}
+</div>
+{{ if .Params.tags }}
+<div style=margin-top:2rem;display:flex;gap:.5rem;flex-wrap:wrap>
+{{ range .Params.tags }}
+<a href=/tags/{{ . | urlize }}/ class=tag-link>{{ . }}</a>
+{{ end }}
+</div>
+{{ end }}
+</div>
+</section>
+{{ end }}

@@ -1,0 +1,36 @@
+<footer class=site-footer>
+<div class=footer-content>
+<div class=footer-brand>
+<a href=/ class=footer-logo>
+<div class=logo-icon style=width:40px;height:40px>
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M11 12h.01"/><path d="M13 22c.5-.5 1.12-1 2.5-1-1.38.0-2-.5-2.5-1"/>
+<path d="M14 2a3.28 3.28.0 01-3.227 1.798l-6.17-.561A2.387 2.387.0 104.387 8H15.5a1 1 0 010 13 1 1 0 000-5H12A7 7 0 015 9V8"/>
+<path d="M14 8a8.5 8.5.0 010 8"/><path d="M16 16c2 0 4.5-4 4-6"/>
+</svg>
+</div>
+<span class=logo-text style=font-size:1.25rem>{{ .Site.Title }}</span>
+</a>
+<p class=footer-description>{{ .Site.Params.description }}</p>
+</div>
+<div class=footer-section>
+<h4 class=footer-section-title>快速链接</h4>
+<ul class=footer-links>
+{{ range .Site.Menus.main }}
+<li><a href={{ .URL }}>{{ .Name }}</a></li>
+{{ end }}
+<li><a href=/tags/>标签</a></li>
+</ul>
+</div>
+<div class=footer-section>
+<h4 class=footer-section-title>关注我们</h4>
+<div style=display:flex;gap:1.5rem;color:var(--text-muted);font-size:.875rem>
+<a href={{ .Site.Params.github }} style=color:var(--text-muted);text-decoration:none>关于我</a>
+<a href={{ .Site.Params.github }} target=_blank rel=noopener style=color:var(--text-muted);text-decoration:none>GitHub</a>
+</div>
+</div>
+</div>
+<div class=footer-bottom>
+<p>&copy; {{ now.Year }} {{ .Site.Title }}. All rights reserved.</p>
+</div>
+</footer>
