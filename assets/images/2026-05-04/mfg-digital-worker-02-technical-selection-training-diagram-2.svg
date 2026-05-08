@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300">
+  <defs>
+    <style>
+      .box { rx:8; ry:8; }
+      .step-light { font-family:sans-serif; font-size:13px; fill:#333; }
+      .step-dark { font-family:sans-serif; font-size:13px; fill:#fff; }
+      .sub-title { font-family:sans-serif; font-size:15px; font-weight:bold; }
+    </style>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#2dd4bf"/>
+    </marker>
+    <marker id="arr-dark" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#64748b"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="300" fill="#0f172a" rx="12"/>
+  
+  <!-- Left: Traditional -->
+  <rect x="30" y="30" width="370" height="240" fill="#f6f8fa" rx="8" stroke="#ddd" stroke-width="1"/>
+  <text x="215" y="58" class="sub-title" fill="#333" text-anchor="middle">传统员工入职</text>
+  
+  <rect x="60" y="75" width="300" height="40" fill="#e5e7eb" rx="6"/>
+  <text x="210" y="100" class="step-light" text-anchor="middle">1. 领取岗位说明书</text>
+  <line x1="210" y1="115" x2="210" y2="128" stroke="#999" stroke-width="1.5" marker-end="url(#arr-dark)"/>
+  
+  <rect x="60" y="130" width="300" height="40" fill="#e5e7eb" rx="6"/>
+  <text x="210" y="155" class="step-light" text-anchor="middle">2. 学习操作流程</text>
+  <line x1="210" y1="170" x2="210" y2="183" stroke="#999" stroke-width="1.5" marker-end="url(#arr-dark)"/>
+  
+  <rect x="60" y="185" width="300" height="40" fill="#e5e7eb" rx="6"/>
+  <text x="210" y="210" class="step-light" text-anchor="middle">3. 熟悉系统界面</text>
+  <line x1="210" y1="225" x2="210" y2="238" stroke="#999" stroke-width="1.5" marker-end="url(#arr-dark)"/>
+  
+  <rect x="60" y="240" width="300" height="30" fill="#e5e7eb" rx="6"/>
+  <text x="210" y="260" class="step-light" text-anchor="middle">4. 老员工带教</text>
+  
+  <!-- Right: Digital -->
+  <rect x="400" y="30" width="370" height="240" fill="#1a2a3a" rx="8" stroke="#2dd4bf" stroke-width="2"/>
+  <text x="585" y="58" class="sub-title" fill="#fff" text-anchor="middle">数字员工入职</text>
+  
+  <rect x="435" y="75" width="300" height="40" fill="#1e3a4a" rx="6" stroke="#2dd4bf" stroke-width="1"/>
+  <text x="585" y="100" class="step-dark" text-anchor="middle">1. 加载技能包</text>
+  <line x1="585" y1="115" x2="585" y2="128" stroke="#2dd4bf" stroke-width="1.5" marker-end="url(#arr)"/>
+  
+  <rect x="435" y="130" width="300" height="40" fill="#1e3a4a" rx="6" stroke="#2dd4bf" stroke-width="1"/>
+  <text x="585" y="155" class="step-dark" text-anchor="middle">2. 配置 API 权限</text>
+  <line x1="585" y1="170" x2="585" y2="183" stroke="#2dd4bf" stroke-width="1.5" marker-end="url(#arr)"/>
+  
+  <rect x="435" y="185" width="300" height="40" fill="#1e3a4a" rx="6" stroke="#2dd4bf" stroke-width="1"/>
+  <text x="585" y="210" class="step-dark" text-anchor="middle">3. 测试接口调用</text>
+  <line x1="585" y1="225" x2="585" y2="238" stroke="#2dd4bf" stroke-width="1.5" marker-end="url(#arr)"/>
+  
+  <rect x="435" y="240" width="300" height="30" fill="#1e3a4a" rx="6" stroke="#2dd4bf" stroke-width="1"/>
+  <text x="585" y="260" class="step-dark" text-anchor="middle">4. 训练样本学习</text>
+</svg>
