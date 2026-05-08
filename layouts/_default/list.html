@@ -32,7 +32,6 @@
 </a>
 {{ end }}
 </div>
-<!-- 分页导航 -->
 <nav class=pagination id=pagination></nav>
 {{ else }}
 <div class=articles-grid>
@@ -67,77 +66,53 @@
 {{ if eq .Section "articles" }}
 <script>
 (function() {
-  const grid = document.getElementById('articlesGrid');
-  const pagination = document.getElementById('pagination');
-  const cards = Array.from(grid.querySelectorAll('.article-card'));
-  const PER_PAGE = 15;
-  const total = cards.length;
-  const totalPages = Math.ceil(total / PER_PAGE);
-  let currentPage = 1;
-
-  // 从 URL hash 读取页码
-  const hashPage = parseInt(location.hash.replace('#page-', '')) || 1;
+  var grid = document.getElementById('articlesGrid');
+  var pagination = document.getElementById('pagination');
+  var cards = Array.from(grid.querySelectorAll('.article-card'));
+  var PER_PAGE = 15;
+  var total = cards.length;
+  var totalPages = Math.ceil(total / PER_PAGE);
+  var currentPage = 1;
+  var hashPage = parseInt(location.hash.replace('#page-', '')) || 1;
   if (hashPage >= 1 && hashPage <= totalPages) currentPage = hashPage;
 
   function showPage(page) {
     currentPage = page;
-    const start = (page - 1) * PER_PAGE;
-    const end = start + PER_PAGE;
-    cards.forEach((card, i) => {
+    var start = (page - 1) * PER_PAGE;
+    var end = start + PER_PAGE;
+    cards.forEach(function(card, i) {
       card.style.display = (i >= start && i < end) ? '' : 'none';
     });
     renderPagination();
     location.hash = 'page-' + page;
-    // 滚动到页面顶部
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   function renderPagination() {
-    if (totalPages <= 1) {
-      pagination.innerHTML = '';
-      return;
-    }
-
-    let html = '<div class="pagination-inner">';
-
-    // 上一页
-    if (currentPage > 1) {
-      html += `<button class="pagination-btn pagination-prev" onclick=" ArticlesPager.showPage(${currentPage - 1})">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-        上一页</button>`;
-    } else {
-      html += `<button class="pagination-btn pagination-prev pagination-disabled">上一页</button>`;
-    }
-
-    // 页码
-    for (let p = 1; p <= totalPages; p++) {
+    if (totalPages <= 1) { pagination.innerHTML = ''; return; }
+    var html = '<div class="pagination-inner">';
+    html += currentPage > 1
+      ? '<button class="pagination-btn pagination-prev" data-page="' + (currentPage - 1) + '"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>上一页</button>'
+      : '<button class="pagination-btn pagination-prev pagination-disabled">上一页</button>';
+    for (var p = 1; p <= totalPages; p++) {
       if (p === currentPage) {
-        html += `<button class="pagination-btn pagination-active">${p}</button>`;
+        html += '<button class="pagination-btn pagination-active">' + p + '</button>';
       } else if (Math.abs(p - currentPage) <= 2 || p === 1 || p === totalPages) {
-        html += `<button class="pagination-btn" onclick="ArticlesPager.showPage(${p})">${p}</button>`;
+        html += '<button class="pagination-btn" data-page="' + p + '">' + p + '</button>';
       } else if (Math.abs(p - currentPage) === 3) {
-        html += `<span class="pagination-ellipsis">…</span>`;
+        html += '<span class="pagination-ellipsis">…</span>';
       }
     }
-
-    // 下一页
-    if (currentPage < totalPages) {
-      html += `<button class="pagination-btn pagination-next" onclick="ArticlesPager.showPage(${currentPage + 1})">
-        下一页
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-      </button>`;
-    } else {
-      html += `<button class="pagination-btn pagination-next pagination-disabled">下一页</button>`;
-    }
-
+    html += currentPage < totalPages
+      ? '<button class="pagination-btn pagination-next" data-page="' + (currentPage + 1) + '">下一页<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></button>'
+      : '<button class="pagination-btn pagination-next pagination-disabled">下一页</button>';
     html += '</div>';
     pagination.innerHTML = html;
+    pagination.querySelectorAll('[data-page]').forEach(function(btn) {
+      btn.addEventListener('click', function() { showPage(parseInt(this.dataset.page)); });
+    });
   }
 
-  // 暴露给 onclick
-  window.ArticlesPager = { showPage };
-
-  // 初始化
   showPage(currentPage);
 })();
 </script>

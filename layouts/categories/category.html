@@ -1,11 +1,11 @@
 {{ define "main" }}
-<section style="padding-top:calc(var(--header-height) + 3rem)">
+<section style="padding-top:calc(var(--header-height) + 3rem);padding-bottom:6rem">
 <div class=container>
 <div class=section-header>
 <span class=section-label>分类</span>
 <h2 class=section-title>{{ .Title }}</h2>
 </div>
-<div class=articles-grid>
+<div class=articles-grid id=articlesGrid>
 {{ range .Pages.ByDate.Reverse }}
 <a href={{ .Permalink }} class=article-card>
 {{ if .Params.cover }}
@@ -23,9 +23,66 @@
 <h3 class=article-card-title>{{ .Title }}</h3>
 <p class=article-card-excerpt>{{ .Description }}</p>
 </div>
+<div class=article-card-footer>
+<span>阅读更多</span>
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+</div>
 </a>
 {{ end }}
 </div>
+<nav class=pagination id=pagination></nav>
 </div>
 </section>
+<script>
+(function() {
+  var grid = document.getElementById('articlesGrid');
+  var pagination = document.getElementById('pagination');
+  var cards = Array.from(grid.querySelectorAll('.article-card'));
+  var PER_PAGE = 15;
+  var total = cards.length;
+  var totalPages = Math.ceil(total / PER_PAGE);
+  var currentPage = 1;
+  var hashPage = parseInt(location.hash.replace('#page-', '')) || 1;
+  if (hashPage >= 1 && hashPage <= totalPages) currentPage = hashPage;
+
+  function showPage(page) {
+    currentPage = page;
+    var start = (page - 1) * PER_PAGE;
+    var end = start + PER_PAGE;
+    cards.forEach(function(card, i) {
+      card.style.display = (i >= start && i < end) ? '' : 'none';
+    });
+    renderPagination();
+    location.hash = 'page-' + page;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function renderPagination() {
+    if (totalPages <= 1) { pagination.innerHTML = ''; return; }
+    var html = '<div class="pagination-inner">';
+    html += currentPage > 1
+      ? '<button class="pagination-btn pagination-prev" data-page="' + (currentPage - 1) + '"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>上一页</button>'
+      : '<button class="pagination-btn pagination-prev pagination-disabled">上一页</button>';
+    for (var p = 1; p <= totalPages; p++) {
+      if (p === currentPage) {
+        html += '<button class="pagination-btn pagination-active">' + p + '</button>';
+      } else if (Math.abs(p - currentPage) <= 2 || p === 1 || p === totalPages) {
+        html += '<button class="pagination-btn" data-page="' + p + '">' + p + '</button>';
+      } else if (Math.abs(p - currentPage) === 3) {
+        html += '<span class="pagination-ellipsis">…</span>';
+      }
+    }
+    html += currentPage < totalPages
+      ? '<button class="pagination-btn pagination-next" data-page="' + (currentPage + 1) + '">下一页<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></button>'
+      : '<button class="pagination-btn pagination-next pagination-disabled">下一页</button>';
+    html += '</div>';
+    pagination.innerHTML = html;
+    pagination.querySelectorAll('[data-page]').forEach(function(btn) {
+      btn.addEventListener('click', function() { showPage(parseInt(this.dataset.page)); });
+    });
+  }
+
+  showPage(currentPage);
+})();
+</script>
 {{ end }}
