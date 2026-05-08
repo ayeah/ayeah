@@ -7,6 +7,31 @@
 <p class=section-description>{{ .Description }}</p>
 </div>
 <div class=articles-grid>
+{{ if eq .Section "articles" }}
+{{ range (where site.RegularPages "Type" "posts").ByDate.Reverse }}
+<a href={{ .Permalink }} class=article-card>
+{{ if .Params.cover }}
+<div class=article-card-image><img src={{ .Params.cover }} alt={{ .Title }}></div>
+{{ else }}
+<div class=article-card-image>
+<svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+</div>
+{{ end }}
+<div class=article-card-content>
+<div class=article-card-meta>
+{{ with .Params.tags }}{{ range first 1 . }}<span class=article-card-tag>{{ . }}</span>{{ end }}{{ end }}
+<span style=color:var(--text-muted)>{{ .Date.Format "2006-01-02" }}</span>
+</div>
+<h3 class=article-card-title>{{ .Title }}</h3>
+<p class=article-card-excerpt>{{ .Description }}</p>
+</div>
+<div class=article-card-footer>
+<span>阅读更多</span>
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+</div>
+</a>
+{{ end }}
+{{ else }}
 {{ range .Pages.ByDate.Reverse }}
 <a href={{ .Permalink }} class=article-card>
 {{ if .Params.cover }}
@@ -29,6 +54,7 @@
 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
 </div>
 </a>
+{{ end }}
 {{ end }}
 </div>
 </div>
