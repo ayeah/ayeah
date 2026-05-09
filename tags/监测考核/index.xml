@@ -50,9 +50,6 @@
 &lt;h2 id="一数字员工的工作日志从哪来"&gt;一、数字员工的工作日志：从哪来？&lt;/h2&gt;
 &lt;p&gt;每个数字员工的每一次操作，本质上是一次 API 调用。不管是查询 ERP 订单、提交 OA 审批、还是调用 LLM 理解自然语言指令——&lt;strong&gt;只要是跨系统的动作，都会有痕迹。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;这张图展示了数字员工典型的技术架构：&lt;/p&gt;
-&lt;pre tabindex="0"&gt;&lt;code&gt;用户（企业微信）→ Kong API Gateway → Agent 容器 → 技能调用 → ERP/OA/LLM API
- ↕
- KPI 考核员 Agent
- ↕
- KPI 数据库 / 仪表盘
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在 &lt;a href="https://ayeah.net/posts/mfg-digital-worker-02-technical-selection-training/"&gt;第二篇&lt;/a&gt; 中我们选择了 &lt;strong&gt;Kong/APISIX&lt;/strong&gt; 作为 API 网关，每个数字员工的请求都经过网关。这就意味着——&lt;strong&gt;网关天然成为了日志收集的最佳位置。&lt;/strong&gt;&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;&lt;img src="https://ayeah.net/assets/images/2026-05-09/mfg-digital-worker-03-tech-arch.png" alt="数字员工技术架构"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;技术架构：企业微信 → Kong Gateway → Agent 容器 → 后端服务，KPI 考核员从日志系统采集数据&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;在 &lt;a href="https://ayeah.net/posts/mfg-digital-worker-02-technical-selection-training/"&gt;第二篇&lt;/a&gt; 中我们选择了 &lt;strong&gt;Kong/APISIX&lt;/strong&gt; 作为 API 网关，每个数字员工的请求都经过网关。这就意味着——&lt;strong&gt;网关天然成为了日志收集的最佳位置。&lt;/strong&gt;&lt;/p&gt;</description></item></channel></rss>

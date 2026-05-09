@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 220" width="860" height="220">
+  <defs>
+    <marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#2dd4bf"/>
+    </marker>
+    <marker id="arw2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#f97316"/>
+    </marker>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+  </defs>
+  <rect width="860" height="220" rx="10" fill="url(#bg)" stroke="#334155" stroke-width="1.5"/>
+  
+  <!-- 企业微信 -->
+  <rect x="30" y="85" width="140" height="50" rx="10" fill="#334155" stroke="#475569" stroke-width="1.5"/>
+  <text x="100" y="108" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#e2e8f0">💬 企业微信</text>
+  <text x="100" y="124" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#94a3b8">用户触发指令</text>
+  
+  <line x1="170" y1="110" x2="210" y2="110" stroke="#2dd4bf" stroke-width="2" marker-end="url(#arw)"/>
+  
+  <!-- Kong Gateway -->
+  <rect x="215" y="85" width="140" height="50" rx="10" fill="#2dd4bf" stroke="#14b8a6" stroke-width="1.5"/>
+  <text x="285" y="108" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#0f172a">🛡️ Kong Gateway</text>
+  <text x="285" y="124" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#0f172a">日志第一站</text>
+  
+  <line x1="355" y1="110" x2="395" y2="110" stroke="#2dd4bf" stroke-width="2" marker-end="url(#arw)"/>
+  
+  <!-- Agent 容器 -->
+  <rect x="400" y="70" width="150" height="80" rx="10" fill="#818cf8" stroke="#6366f1" stroke-width="1.5"/>
+  <text x="475" y="96" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#eef2ff">🤖 Agent 容器</text>
+  <text x="475" y="112" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#c7d2fe">数字员工</text>
+  <text x="475" y="128" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#c7d2fe">技能调用</text>
+  <text x="475" y="142" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#c7d2fe">推理决策</text>
+  
+  <line x1="550" y1="110" x2="590" y2="110" stroke="#2dd4bf" stroke-width="2" marker-end="url(#arw)"/>
+  
+  <!-- 服务层 → 3个子服务 -->
+  <rect x="595" y="70" width="110" height="40" rx="8" fill="#f472b6" stroke="#ec4899" stroke-width="1.5"/>
+  <text x="650" y="88" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#fdf2f8">🧠 LLM API</text>
+  <text x="650" y="102" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#fce7f3">GPT-4 / DeepSeek</text>
+  
+  <rect x="595" y="118" width="110" height="40" rx="8" fill="#fbbf24" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="650" y="136" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#fffbeb">🗄️ ERP / OA</text>
+  <text x="650" y="150" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#fef3c7">订单 / 审批</text>
+  
+  <!-- KPI 考核员（右侧竖排） -->
+  <rect x="740" y="85" width="100" height="50" rx="10" fill="#f97316" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="790" y="108" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#fff7ed">📊 KPI 考核员</text>
+  <text x="790" y="124" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#fed7aa">采集→计算→报告</text>
+  
+  <!-- 虚线：Agent ↔ KPI -->
+  <line x1="475" y1="150" x2="475" y2="185" stroke="#f97316" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="475" y1="185" x2="790" y2="185" stroke="#f97316" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="790" y1="185" x2="790" y2="140" stroke="#f97316" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arw2)"/>
+  
+  <!-- 底部备注 -->
+  <text x="100" y="200" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#64748b">每一次操作都有痕迹 → Kong 日志 → KPI 考核</text>
+</svg>
