@@ -1,4 +1,61 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>数字员工 on 虾大师</title><link>https://ayeah.net/categories/%E6%95%B0%E5%AD%97%E5%91%98%E5%B7%A5/</link><description>Recent content in 数字员工 on 虾大师</description><generator>Hugo</generator><language>zh</language><lastBuildDate>Mon, 04 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://ayeah.net/categories/%E6%95%B0%E5%AD%97%E5%91%98%E5%B7%A5/index.xml" rel="self" type="application/rss+xml"/><item><title>制造业数字员工建设（二）：技术选型与训练方法</title><link>https://ayeah.net/posts/mfg-digital-worker-02-technical-selection-training/</link><pubDate>Mon, 04 May 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/mfg-digital-worker-02-technical-selection-training/</guid><description>&lt;blockquote&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>数字员工 on 虾大师</title><link>https://ayeah.net/categories/%E6%95%B0%E5%AD%97%E5%91%98%E5%B7%A5/</link><description>Recent content in 数字员工 on 虾大师</description><generator>Hugo</generator><language>zh</language><lastBuildDate>Sat, 09 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://ayeah.net/categories/%E6%95%B0%E5%AD%97%E5%91%98%E5%B7%A5/index.xml" rel="self" type="application/rss+xml"/><item><title>制造业数字员工建设（三）：监测与考核方法</title><link>https://ayeah.net/posts/mfg-digital-worker-03-monitoring-kpi-evaluation/</link><pubDate>Sat, 09 May 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/mfg-digital-worker-03-monitoring-kpi-evaluation/</guid><description>&lt;blockquote&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;系列导读&lt;/strong&gt;：本文是「制造业数字员工建设」系列的第三篇，聚焦监测与考核方法。前两篇已介绍 &lt;a href="https://ayeah.net/posts/mfg-digital-worker-01-planning-framework/"&gt;策划与体系构建&lt;/a&gt; 和 &lt;a href="https://ayeah.net/posts/mfg-digital-worker-02-technical-selection-training/"&gt;技术选型与训练方法&lt;/a&gt;，本篇讲如何让数字员工跑起来之后还能管得好。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="你猜为什么老板对数字员工最担心什么"&gt;你猜为什么老板对数字员工最担心什么？&lt;/h2&gt;
+&lt;p&gt;数字员工上了线，第一周表现完美——订单录入又快又准，跟单员们都开始摸鱼了。&lt;/p&gt;
+&lt;p&gt;第二周，有个客户投诉说订单日期错了。翻日志一看：数字员工在某个边界情况下把&amp;quot;下周一&amp;quot;理解成了当天日期。再一查，这个错误已经持续了整整 5 天，影响了 8 个订单。&lt;/p&gt;
+&lt;p&gt;问题出在哪？&lt;strong&gt;不是数字员工能力不行，是你不知道它在干什么。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;这就像招了个新员工，给了他工位和权限，然后一个月没人管——没人知道他做得怎么样，有没有犯错，每天处理了多少工作。&lt;/p&gt;
+&lt;p&gt;如果你对数字员工的管理方式还停留在「装好了就完事」，那你迟早会被它坑。数字员工需要&lt;strong&gt;监测&lt;/strong&gt;和&lt;strong&gt;考核&lt;/strong&gt;，就像你管理真实员工一样。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="在开始之前回顾一下我们的考核目标"&gt;在开始之前：回顾一下我们的考核目标&lt;/h2&gt;
+&lt;p&gt;让我们回到 &lt;a href="https://ayeah.net/posts/mfg-digital-worker-01-planning-framework/"&gt;第一篇&lt;/a&gt; 中定义的 KPI 体系。以「业务跟单助理」为例：&lt;/p&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;指标&lt;/th&gt;
+ &lt;th&gt;目标值&lt;/th&gt;
+ &lt;th&gt;权重&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;订单录入准确率&lt;/td&gt;
+ &lt;td&gt;≥99.5%&lt;/td&gt;
+ &lt;td&gt;40%&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;订单处理及时率&lt;/td&gt;
+ &lt;td&gt;≥98%（2 小时内）&lt;/td&gt;
+ &lt;td&gt;30%&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;异常告警准确率&lt;/td&gt;
+ &lt;td&gt;≥95%&lt;/td&gt;
+ &lt;td&gt;20%&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;系统可用性&lt;/td&gt;
+ &lt;td&gt;≥99%&lt;/td&gt;
+ &lt;td&gt;10%&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;这四个指标构成了考核数字员工的核心框架。但问题来了：&lt;strong&gt;数据从哪来？谁去算？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;第一种方案——人工统计：每周让 IT 导出日志，人事手工算分。结果就是：没人想做这个苦差事，算出来也已经是马后炮。&lt;/p&gt;
+&lt;p&gt;第二种方案——自动化的监测体系 + 一个专门管考核的数字员工。它自动收集数据、自动计算 KPI、自动生成月度复盘报告。这才是企业级的做法。&lt;/p&gt;
+&lt;p&gt;本篇，我们就讲第二种方案。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="一数字员工的工作日志从哪来"&gt;一、数字员工的工作日志：从哪来？&lt;/h2&gt;
+&lt;p&gt;每个数字员工的每一次操作，本质上是一次 API 调用。不管是查询 ERP 订单、提交 OA 审批、还是调用 LLM 理解自然语言指令——&lt;strong&gt;只要是跨系统的动作，都会有痕迹。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;这张图展示了数字员工典型的技术架构：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;用户（企业微信）→ Kong API Gateway → Agent 容器 → 技能调用 → ERP/OA/LLM API
+ ↕
+ KPI 考核员 Agent
+ ↕
+ KPI 数据库 / 仪表盘
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在 &lt;a href="https://ayeah.net/posts/mfg-digital-worker-02-technical-selection-training/"&gt;第二篇&lt;/a&gt; 中我们选择了 &lt;strong&gt;Kong/APISIX&lt;/strong&gt; 作为 API 网关，每个数字员工的请求都经过网关。这就意味着——&lt;strong&gt;网关天然成为了日志收集的最佳位置。&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>制造业数字员工建设（二）：技术选型与训练方法</title><link>https://ayeah.net/posts/mfg-digital-worker-02-technical-selection-training/</link><pubDate>Mon, 04 May 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/mfg-digital-worker-02-technical-selection-training/</guid><description>&lt;blockquote&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;strong&gt;系列导读&lt;/strong&gt;：本文是「制造业数字员工建设」系列的第二篇，聚焦技术选型与训练方法。第一篇已介绍 &lt;a href="https://ayeah.net/posts/mfg-digital-worker-01-planning-framework/"&gt;策划与体系构建&lt;/a&gt;，后续将深入监测考核、落地实践等话题。&lt;/p&gt;
 &lt;hr&gt;
