@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 620" width="520" height="620">
+  <defs>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+    <linearGradient id="header-grad" x1="0" y1="0" x2="100%" y2="0">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Window background -->
+  <rect x="10" y="10" width="500" height="600" rx="12" fill="#1e293b" filter="url(#shadow)"/>
+  
+  <!-- Title bar -->
+  <rect x="10" y="10" width="500" height="40" rx="12" fill="url(#header-grad)"/>
+  <rect x="10" y="30" width="500" height="20" fill="url(#header-grad)"/>
+  <rect x="10" y="10" width="500" height="40" rx="12" fill="none" stroke="#334155" stroke-width="1"/>
+
+  <!-- Window buttons -->
+  <circle cx="38" cy="30" r="6" fill="#ef4444"/>
+  <circle cx="58" cy="30" r="6" fill="#eab308"/>
+  <circle cx="78" cy="30" r="6" fill="#22c55e"/>
+
+  <text x="260" y="35" text-anchor="middle" fill="#e2e8f0" font-size="13" font-weight="600">CC-Switch  v3.x</text>
+
+  <!-- ══════════ Section 1: Current Tool ══════════ -->
+  <rect x="30" y="65" width="460" height="80" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <text x="45" y="85" fill="#94a3b8" font-size="11" font-weight="600">当前工具</text>
+
+  <!-- Tool selector pills -->
+  <rect x="45" y="95" width="120" height="32" rx="16" fill="rgba(8, 51, 68, 0.6)" stroke="#22d3ee" stroke-width="1.5"/>
+  <text x="105" y="115" text-anchor="middle" fill="#22d3ee" font-size="12" font-weight="600">● Claude Desktop</text>
+
+  <rect x="175" y="95" width="80" height="32" rx="16" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+  <text x="215" y="115" text-anchor="middle" fill="#64748b" font-size="11">Codex</text>
+
+  <rect x="265" y="95" width="80" height="32" rx="16" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+  <text x="305" y="115" text-anchor="middle" fill="#64748b" font-size="11">Gemini</text>
+
+  <rect x="355" y="95" width="90" height="32" rx="16" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+  <text x="400" y="115" text-anchor="middle" fill="#64748b" font-size="11">OpenClaw</text>
+
+  <!-- ══════════ Section 2: API Provider ══════════ -->
+  <rect x="30" y="160" width="460" height="220" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <text x="45" y="180" fill="#94a3b8" font-size="11" font-weight="600">API 提供商</text>
+
+  <!-- Provider list items -->
+  <!-- Item 1: Active -->
+  <rect x="45" y="192" width="430" height="36" rx="6" fill="rgba(6, 78, 59, 0.3)" stroke="#34d399" stroke-width="1.5"/>
+  <circle cx="62" cy="210" r="5" fill="#34d399"/>
+  <text x="78" y="215" fill="#e2e8f0" font-size="12" font-weight="500">墨者API</text>
+  <text x="350" y="215" fill="#34d399" font-size="10">当前使用 ✓</text>
+  <text x="420" y="215" fill="#64748b" font-size="10">余额 ¥32.5</text>
+
+  <!-- Item 2 -->
+  <rect x="45" y="236" width="430" height="36" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <circle cx="62" cy="254" r="5" fill="#475569"/>
+  <text x="78" y="259" fill="#94a3b8" font-size="12">SiliconFlow（硅基流动）</text>
+  <text x="420" y="259" fill="#64748b" font-size="10">¥16.0</text>
+
+  <!-- Item 3 -->
+  <rect x="45" y="280" width="430" height="36" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <circle cx="62" cy="298" r="5" fill="#475569"/>
+  <text x="78" y="303" fill="#94a3b8" font-size="12">PackyCode</text>
+
+  <!-- Add custom button -->
+  <rect x="45" y="324" width="430" height="36" rx="6" fill="none" stroke="#475569" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="260" y="347" text-anchor="middle" fill="#64748b" font-size="12">+ 添加自定义提供商</text>
+
+  <!-- Model mapping note -->
+  <rect x="45" y="370" width="430" height="2" rx="0" fill="#334155"/>
+  <text x="260" y="390" text-anchor="middle" fill="#fbbf24" font-size="10">模型映射：DeepSeek-V4-Flash → claude-opus-4-6</text>
+  <text x="260" y="405" text-anchor="middle" fill="#64748b" font-size="9">即可用 DeepSeek 的价格使用 Claude 的能力</text>
+
+  <!-- ══════════ Section 3: System Tray ══════════ -->
+  <rect x="30" y="420" width="460" height="80" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <text x="45" y="440" fill="#94a3b8" font-size="11" font-weight="600">系统托盘快速切换</text>
+
+  <!-- Tray icon mockup -->
+  <rect x="50" y="452" width="60" height="36" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+  <rect x="56" y="458" width="20" height="24" rx="3" fill="#22d3ee"/>
+  <rect x="82" y="462" width="22" height="16" rx="2" fill="#475569"/>
+  
+  <!-- Context menu -->
+  <rect x="120" y="448" width="200" height="44" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+  <rect x="130" y="456" width="182" height="12" rx="2" fill="rgba(6, 78, 59, 0.3)"/>
+  <text x="140" y="465" fill="#34d399" font-size="9">● 墨者API</text>
+  <rect x="130" y="472" width="182" height="12" rx="2" fill="#0f172a"/>
+  <text x="140" y="481" fill="#94a3b8" font-size="9">SiliconFlow</text>
+
+  <text x="340" y="472" fill="#94a3b8" font-size="10">右键托盘图标 → 切换提供商</text>
+  <text x="340" y="488" fill="#64748b" font-size="9">切换仅需 1 秒，无需重启</text>
+
+  <!-- ══════════ Bottom status bar ══════════ -->
+  <rect x="10" y="570" width="500" height="40" rx="0" fill="#0f172a"/>
+  <rect x="10" y="570" width="500" height="40" rx="0" fill="none" stroke="#334155" stroke-width="1"/>
+  <rect x="10" y="592" width="500" height="18" rx="0" fill="#0f172a"/>
+
+  <ellipse cx="45" cy="590" rx="5" ry="5" fill="#22c55e"/>
+  <text x="58" y="594" fill="#22c55e" font-size="11">已连接</text>
+  <text x="250" y="594" text-anchor="middle" fill="#64748b" font-size="10">今日用量：12.3K token | ¥0.62</text>
+  <text x="460" y="594" text-anchor="end" fill="#64748b" font-size="10">v3.14.2</text>
+</svg>
