@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="800" height="420">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#2dd4bf"/>
+    </marker>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="box1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="agent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#818cf8"/>
+      <stop offset="100%" stop-color="#6366f1"/>
+    </linearGradient>
+    <linearGradient id="action1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f472b6"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+    <linearGradient id="action2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <linearGradient id="action3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+    <linearGradient id="action4" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#ea580c"/>
+    </linearGradient>
+    <linearGradient id="output" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#14b8a6"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="420" rx="10" fill="url(#bg)"/>
+  <rect x="0" y="0" width="800" height="420" rx="10" fill="none" stroke="#334155" stroke-width="1.5"/>
+
+  <!-- Title -->
+  <text x="400.0" y="30" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="bold" fill="#e2e8f0">OpenClaw / Hermes Agent：Agent 是「活的」</text>
+
+  <!-- User input -->
+  <rect x="300" y="55" width="200" height="44" rx="10" fill="url(#box1)" stroke="#475569" stroke-width="1.5"/>
+  <text x="400" y="76" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#e2e8f0">💬 用户输入</text>
+  <text x="400" y="91" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#94a3b8">提出问题或任务</text>
+
+  <!-- Arrow to Agent -->
+  <line x1="400" y1="99" x2="400" y2="130" stroke="#2dd4bf" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Agent node -->
+  <rect x="275" y="135" width="250" height="50" rx="12" fill="url(#agent)" stroke="#6366f1" stroke-width="2"/>
+  <text x="400" y="158" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#eef2ff">🤖 Agent 自主思考</text>
+  <text x="400" y="175" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#c7d2fe">接收任务 → 分析 → 自主决策 → 执行</text>
+
+  <!-- Arrow branches from Agent -->
+  <line x1="400" y1="185" x2="400" y2="215" stroke="#2dd4bf" stroke-width="2"/>
+  <!-- horizontal line -->
+  <line x1="100" y1="215" x2="700" y2="215" stroke="#2dd4bf" stroke-width="2"/>
+  <!-- vertical drops -->
+  <line x1="100" y1="215" x2="100" y2="245" stroke="#2dd4bf" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="300" y1="215" x2="300" y2="245" stroke="#2dd4bf" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="500" y1="215" x2="500" y2="245" stroke="#2dd4bf" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="700" y1="215" x2="700" y2="245" stroke="#2dd4bf" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Action 1: Write code/script -->
+  <rect x="25" y="250" width="150" height="44" rx="8" fill="url(#action1)" stroke="#ec4899" stroke-width="1.5"/>
+  <text x="100" y="271" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#fdf2f8">✍️ 写代码/脚本</text>
+  <text x="100" y="286" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#fce7f3">Python · Shell · 任意语言</text>
+
+  <!-- Action 2: Search web -->
+  <rect x="225" y="250" width="150" height="44" rx="8" fill="url(#action2)" stroke="#10b981" stroke-width="1.5"/>
+  <text x="300" y="271" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#ecfdf5">🌐 上网查资料</text>
+  <text x="300" y="286" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#d1fae5">浏览器 · API · 搜索</text>
+
+  <!-- Action 3: Operate files -->
+  <rect x="425" y="250" width="150" height="44" rx="8" fill="url(#action3)" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="500" y="271" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#fffbeb">📁 操作文件系统</text>
+  <text x="500" y="286" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#fef3c7">读写 · 创建 · 删除</text>
+
+  <!-- Action 4: Run shell -->
+  <rect x="625" y="250" width="150" height="44" rx="8" fill="url(#action4)" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="700" y="271" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#fff7ed">⚡ 执行命令</text>
+  <text x="700" y="286" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#fed7aa">Git · Build · 部署</text>
+
+  <!-- Arrows from actions to output (converging) -->
+  <line x1="100" y1="294" x2="100" y2="325" stroke="#475569" stroke-width="1.5"/>
+  <line x1="300" y1="294" x2="300" y2="325" stroke="#475569" stroke-width="1.5"/>
+  <line x1="500" y1="294" x2="500" y2="325" stroke="#475569" stroke-width="1.5"/>
+  <line x1="700" y1="294" x2="700" y2="325" stroke="#475569" stroke-width="1.5"/>
+  <line x1="100" y1="325" x2="700" y2="325" stroke="#475569" stroke-width="1.5"/>
+  <line x1="400" y1="325" x2="400" y2="340" stroke="#2dd4bf" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Output -->
+  <rect x="275" y="345" width="250" height="44" rx="10" fill="url(#output)" stroke="#14b8a6" stroke-width="1.5"/>
+  <text x="400" y="366" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#0f172a">✅ 返回结果给用户</text>
+  <text x="400" y="381" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#0f172a">不受预设节点限制，有完整的自主决策权</text>
+</svg>
