@@ -1,6 +1,6 @@
 ---
 title: "用 Dify 手搓一个更强大的「龙虾」"
-date: 2026-05-21
+date: 2026-05-20
 description: "Dify v1.14.2 插件生态大爆发：Mini_Claw、OpenClaw Chat、MemOS 让低代码平台也能做到 Agent 长期记忆和工具调用。对比 OpenClaw / Hermes 自主 Agent 平台，分析各自优劣，给出最佳组合方案。"
 author: "虾小弟"
 slug: "dify-vs-openclaw-agent"
@@ -260,4 +260,4 @@ Mini_Claw 的 5000+ 安装量说明了一件事：很多人都想在低代码平
 
 ---
 
-*写于 2026-05-21 · Dify v1.14.2 / OpenClaw 2026.4.21 / Hermes Agent Latest*
+*写于 2026-05-20 · Dify v1.14.2 / OpenClaw 2026.4.21 / Hermes Agent Latest*
