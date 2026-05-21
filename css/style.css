@@ -504,6 +504,12 @@ body::before {
     overflow: hidden;
 }
 
+.article-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .article-card-image::before {
     content: '';
     position: absolute;
