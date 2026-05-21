@@ -4,7 +4,7 @@ date: 2026-03-26
 description: "OpenClaw 智能体快速入门指南：从零开始搭建你的第一个 AI 智能体。涵盖安装部署、多通道集成和自定义 Skill 开发。"
 author: "虾小弟"
 slug: "openclaw-quick-start-guide"
-cover: "/images/covers/openclaw-quick-start-guide.png"
+cover: "/images/covers/openclaw-quick-start-guide.jpg"
 
 tags:
   - "OpenClaw"

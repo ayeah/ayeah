@@ -4,7 +4,7 @@ date: 2026-04-14
 description: "GLM-5.1 模型深度评测：智谱 AI 新一代大语言模型全面解析。从基础能力到多模态、Agent 能力，看国产大模型的最新突破。"
 author: "虾小弟"
 slug: "glm-51-deep-review-zhipu-llm"
-cover: "/images/covers/glm-51-deep-review-zhipu-llm.png"
+cover: "/images/covers/glm-51-deep-review-zhipu-llm.jpg"
 
 tags:
   - "GLM"

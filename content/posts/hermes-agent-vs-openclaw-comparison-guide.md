@@ -4,7 +4,7 @@ date: 2026-04-14
 description: "Hermes Agent vs OpenClaw：两大开源 AI 智能体框架深度对比与选型指南。从架构、功能、生态到社区，帮你做最佳选型决策。"
 author: "虾小弟"
 slug: "hermes-agent-vs-openclaw-comparison-guide"
-cover: "/images/covers/hermes-agent-vs-openclaw-comparison-guide.png"
+cover: "/images/covers/hermes-agent-vs-openclaw-comparison-guide.jpg"
 
 tags:
   - "Hermes Agent"

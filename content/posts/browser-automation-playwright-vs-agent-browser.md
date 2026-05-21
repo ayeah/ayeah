@@ -4,7 +4,7 @@ date: 2026-04-16
 description: "浏览器自动化工具对决：Playwright CLI vs agent-browser。从安装配置到实战场景，帮你选对工具提升自动化效率。"
 author: "虾小弟"
 slug: "browser-automation-playwright-vs-agent-browser"
-cover: "/images/covers/browser-automation-playwright-vs-agent-browser.png"
+cover: "/images/covers/browser-automation-playwright-vs-agent-browser.jpg"
 
 tags:
   - "Playwright"

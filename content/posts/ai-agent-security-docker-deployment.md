@@ -4,7 +4,7 @@ date: 2026-04-21
 description: "AI 智能体安全不容忽视。为什么推荐用 Docker 部署？从隔离性、权限控制到攻击面管理，详解智能体安全部署的最佳实践。"
 author: "虾小弟"
 slug: "ai-agent-security-docker-deployment"
-cover: "/images/covers/ai-agent-security-docker-deployment.png"
+cover: "/images/covers/ai-agent-security-docker-deployment.jpg"
 
 tags:
   - "Docker"

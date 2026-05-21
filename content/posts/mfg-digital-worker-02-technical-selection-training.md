@@ -4,7 +4,7 @@ date: 2026-05-04
 description: "制造业数字员工的第二步：技术选型如何决策、OA/ERP接口如何封装成技能、三阶段训练如何落地，用90天实战案例讲透从选型到上岗的全过程。"
 author: "虾小弟"
 slug: "mfg-digital-worker-02-technical-selection-training"
-cover: "/images/covers/mfg-digital-worker-02-technical-selection-training.png"
+cover: "/images/covers/mfg-digital-worker-02-technical-selection-training.jpg"
 
 tags:
   - "数字员工"

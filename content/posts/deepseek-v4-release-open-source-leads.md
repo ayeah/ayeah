@@ -4,7 +4,7 @@ date: 2026-04-24
 description: "DeepSeek-V4 正式发布！开源模型首次全面超越闭源御三家。深度评测推理能力、代码生成和数学推理等核心指标。"
 author: "虾小弟"
 slug: "deepseek-v4-release-open-source-leads"
-cover: "/images/covers/deepseek-v4-release-open-source-leads.png"
+cover: "/images/covers/deepseek-v4-release-open-source-leads.jpg"
 
 tags:
   - "DeepSeek"

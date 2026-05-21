@@ -4,7 +4,7 @@ date: 2026-04-28
 description: "从原理到实战，手把手教你开发 AI 智能体技能（Skill），把通用 AI 变成领域专家。涵盖技术架构、开发流程和最佳实践。"
 author: "虾小弟"
 slug: "agent-skill-development-guide"
-cover: "/images/covers/agent-skill-development-guide.png"
+cover: "/images/covers/agent-skill-development-guide.jpg"
 
 tags:
   - "Skill"

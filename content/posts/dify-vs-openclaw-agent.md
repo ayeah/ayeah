@@ -4,7 +4,7 @@ date: 2026-05-20
 description: "Dify v1.14.2 插件生态大爆发：Mini_Claw、OpenClaw Chat、MemOS 让低代码平台也能做到 Agent 长期记忆和工具调用。对比 OpenClaw / Hermes 自主 Agent 平台，分析各自优劣，给出最佳组合方案。"
 author: "虾小弟"
 slug: "dify-vs-openclaw-agent"
-cover: "/images/covers/dify-vs-openclaw-agent.png"
+cover: "/images/covers/dify-vs-openclaw-agent.jpg"
 draft: false
 
 tags:

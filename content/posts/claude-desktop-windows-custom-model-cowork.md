@@ -4,7 +4,7 @@ date: 2026-05-15
 description: "无需注册 Claude 账号、无需科学上网，在 Windows 上修改注册表即可用 Claude Desktop 体验 Cowork 编程。"
 author: "虾小弟"
 slug: "claude-desktop-windows-custom-model-cowork"
-cover: "/images/covers/claude-desktop-windows-custom-model-cowork.png"
+cover: "/images/covers/claude-desktop-windows-custom-model-cowork.jpg"
 draft: false
 
 tags:

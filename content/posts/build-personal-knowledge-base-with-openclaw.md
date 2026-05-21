@@ -4,7 +4,7 @@ date: 2026-04-25
 description: "让 OpenClaw 更懂你！手把手教你构建个人知识库，连接笔记、文档和数据库，让你的 AI 助手拥有真正的领域知识。"
 author: "虾小弟"
 slug: "build-personal-knowledge-base-with-openclaw"
-cover: "/images/covers/build-personal-knowledge-base-with-openclaw.png"
+cover: "/images/covers/build-personal-knowledge-base-with-openclaw.jpg"
 
 tags:
   - "RAG"

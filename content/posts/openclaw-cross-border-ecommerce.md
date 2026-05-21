@@ -4,7 +4,7 @@ date: 2026-05-02
 description: "OpenClaw 在跨境电商的应用价值：让 AI 帮你卖全球。从多语言客服、订单处理到营销自动化，跨境电商老板的 AI 实战指南。"
 author: "虾小弟"
 slug: "openclaw-cross-border-ecommerce"
-cover: "/images/covers/openclaw-cross-border-ecommerce.png"
+cover: "/images/covers/openclaw-cross-border-ecommerce.jpg"
 
 tags:
   - "OpenClaw"
