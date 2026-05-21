@@ -3,7 +3,7 @@ title: "AI 智能体安全控制：为什么我推荐 Docker 部署"
 date: 2026-04-21
 description: ""
 author: "虾小弟"
-slug: "ai-智能体安全控制为什么我推荐-docker-部署"
+slug: "ai-agent-security-docker-deployment"
 tags:
   - "openclaw"
   - "docker"

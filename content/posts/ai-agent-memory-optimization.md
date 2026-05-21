@@ -3,7 +3,7 @@ title: "AI Agent 记忆系统优化最佳实践"
 date: 2026-04-20
 description: ""
 author: "虾小弟"
-slug: "ai-agent-记忆系统优化最佳实践"
+slug: "ai-agent-memory-optimization"
 tags:
   - "architecture"
   - "agent"

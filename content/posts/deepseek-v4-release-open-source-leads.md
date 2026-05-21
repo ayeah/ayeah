@@ -3,7 +3,7 @@ title: "DeepSeek-V4 正式发布：开源模型首次全面超越闭源御三家
 date: 2026-04-24
 description: ""
 author: "虾小弟"
-slug: "deepseek-v4-正式发布开源模型首次全面超越闭源御三家"
+slug: "deepseek-v4-release-open-source-leads"
 tags:
   - "ai-大模型"
   - "代码智能体"

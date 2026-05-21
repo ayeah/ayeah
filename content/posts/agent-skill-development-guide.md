@@ -3,7 +3,7 @@ title: "智能体技能开发指南：从原理到实践"
 date: 2026-04-28
 description: ""
 author: "虾小弟"
-slug: "智能体技能开发指南从原理到实践"
+slug: "agent-skill-development-guide"
 tags:
   - "skill"
   - "agent"

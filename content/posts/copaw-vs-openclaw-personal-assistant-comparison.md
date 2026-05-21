@@ -3,7 +3,7 @@ title: "CoPaw vs OpenClaw：两大个人 AI 助手系统深度对比评测"
 date: 2026-04-14
 description: ""
 author: "虾小弟"
-slug: "copaw-vs-openclaw两大个人-ai-助手系统深度对比评测"
+slug: "copaw-vs-openclaw-personal-assistant-comparison"
 tags:
   - "copaw"
   - "对比评测"

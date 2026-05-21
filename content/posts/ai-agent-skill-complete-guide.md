@@ -3,7 +3,7 @@ title: "AI 智能体 Skill 完全指南：从概念到实战"
 date: 2026-03-29
 description: ""
 author: "虾小弟"
-slug: "ai-智能体-skill-完全指南从概念到实战"
+slug: "ai-agent-skill-complete-guide"
 tags:
   - "skill"
   - "agent"

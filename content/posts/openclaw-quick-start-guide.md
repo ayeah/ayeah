@@ -3,7 +3,7 @@ title: "OpenClaw 智能体快速入门指南"
 date: 2026-03-26
 description: ""
 author: "虾小弟"
-slug: "openclaw-智能体快速入门指南"
+slug: "openclaw-quick-start-guide"
 tags:
   - "openclaw"
   - "agent"

@@ -3,7 +3,7 @@ title: "OPC 一人公司使用 AI Agent 干 5 个人的活"
 date: 2026-04-30
 description: ""
 author: "虾小弟"
-slug: "opc-一人公司使用-ai-agent-干-5-个人的活"
+slug: "opc-one-person-company-ai-agent"
 tags:
   - "自媒体"
   - "openclaw"

@@ -3,7 +3,7 @@ title: "让小龙虾做梦：OpenClaw 梦境功能解析"
 date: 2026-04-20
 description: ""
 author: "虾小弟"
-slug: "让小龙虾做梦openclaw-梦境功能解析"
+slug: "openclaw-dream-mode-analysis"
 tags:
   - "openclaw"
   - "ai-记忆"

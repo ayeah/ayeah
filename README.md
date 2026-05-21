@@ -31,18 +31,18 @@
 
 ### 🤖 AI 智能体 & Agent
 
-- [Hermes Agent vs OpenClaw — 两大开源 AI 智能体框架深度对比](/posts/hermes-agent-vs-openclaw两大开源-ai-智能体框架深度对比与选型指南/)
+- [Hermes Agent vs OpenClaw — 两大开源 AI 智能体框架深度对比](/posts/hermes-agent-vs-openclaw-comparison-guide/)
 - [用 Dify 手搓一个更强大的「龙虾」](/posts/dify-vs-openclaw-agent/)
-- [OpenClaw 智能体快速入门指南](/posts/openclaw-智能体快速入门指南/)
-- [AI Agent 记忆系统优化最佳实践](/posts/ai-agent-记忆系统优化最佳实践/)
-- [一人公司使用 AI Agent 干 5 个人的活](/posts/opc-一人公司使用-ai-agent-干-5-个人的活/)
-- [智能体技能开发指南从原理到实践](/posts/智能体技能开发指南从原理到实践/)
+- [OpenClaw 智能体快速入门指南](/posts/openclaw-quick-start-guide/)
+- [AI Agent 记忆系统优化最佳实践](/posts/ai-agent-memory-optimization/)
+- [一人公司使用 AI Agent 干 5 个人的活](/posts/opc-one-person-company-ai-agent/)
+- [智能体技能开发指南从原理到实践](/posts/agent-skill-development-guide/)
 
 ### 🌐 跨境电商 & 自动化
 
 - [OpenClaw 跨境电商智能体实战](/posts/openclaw-cross-border-ecommerce/)
-- [让小龙虾做梦：OpenClaw 梦境功能解析](/posts/让小龙虾做梦openclaw-梦境功能解析/)
-- [浏览器自动化指南：Playwright CLI 与 Agent Browser 对比实战](/posts/浏览器自动化指南playwright-cli-与-agent-browser-对比实战/)
+- [让小龙虾做梦：OpenClaw 梦境功能解析](/posts/openclaw-dream-mode-analysis/)
+- [浏览器自动化指南：Playwright CLI 与 Agent Browser 对比实战](/posts/browser-automation-playwright-vs-agent-browser/)
 - [AI Agent 浏览器自动化最佳实践](/posts/ai-agent-browser-automation-best-practices/)
 
 ### 🏭 制造业数字员工
@@ -53,15 +53,15 @@
 
 ### 🛠️ 模型评测 & 技术解析
 
-- [GLM-5.1 模型深度评测](/posts/glm-5.1-模型深度评测智谱-ai-新一代大语言模型全面解析/)
-- [DeepSeek V4 正式发布](/posts/deepseek-v4-正式发布开源模型首次全面超越闭源御三家/)
-- [企业微信 AI 新功能深度解析](/posts/企业微信-ai-新功能深度解析openclaw-智能体如何操作云文档与智能表格/)
-- [AI 智能体安全控制——为什么我推荐 Docker 部署](/posts/ai-智能体安全控制为什么我推荐-docker-部署/)
-- [CoPaw vs OpenClaw — 两大个人 AI 助手系统深度对比](/posts/copaw-vs-openclaw两大个人-ai-助手系统深度对比评测/)
+- [GLM-5.1 模型深度评测](/posts/glm-51-deep-review-zhipu-llm/)
+- [DeepSeek V4 正式发布](/posts/deepseek-v4-release-open-source-leads/)
+- [企业微信 AI 新功能深度解析](/posts/wecom-ai-new-features-openclaw/)
+- [AI 智能体安全控制——为什么我推荐 Docker 部署](/posts/ai-agent-security-docker-deployment/)
+- [CoPaw vs OpenClaw — 两大个人 AI 助手系统深度对比](/posts/copaw-vs-openclaw-personal-assistant-comparison/)
 - [用 OpenClaw 搭建个人知识库](/posts/build-personal-knowledge-base-with-openclaw/)
 - [[教程] Claude Desktop Windows 自定义模型协作](/posts/claude-desktop-windows-custom-model-cowork/)
-- [[教程] AI 智能体 Skill 完全指南](/posts/ai-智能体-skill-完全指南从概念到实战/)
-- [OpenClaw v2026.3.28 发布](/posts/openclaw-v2026.3.28-发布插件审批xai-搜索集成与多通道文件上传/)
+- [[教程] AI 智能体 Skill 完全指南](/posts/ai-agent-skill-complete-guide/)
+- [OpenClaw v2026.3.28 发布](/posts/openclaw-v2026328-release/)
 
 ## 🏗️ 技术架构
 

@@ -3,7 +3,7 @@ title: "GLM-5.1 模型深度评测：智谱 AI 新一代大语言模型全面解
 date: 2026-04-14
 description: ""
 author: "虾小弟"
-slug: "glm-5.1-模型深度评测智谱-ai-新一代大语言模型全面解析"
+slug: "glm-51-deep-review-zhipu-llm"
 tags:
   - "glm"
   - "评测"

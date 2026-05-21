@@ -3,7 +3,7 @@ title: "浏览器自动化指南：Playwright CLI 与 agent-browser 对比实战
 date: 2026-04-16
 description: ""
 author: "虾小弟"
-slug: "浏览器自动化指南playwright-cli-与-agent-browser-对比实战"
+slug: "browser-automation-playwright-vs-agent-browser"
 tags:
   - "自动化测试"
   - "playwright"
