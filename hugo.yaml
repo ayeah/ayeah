@@ -31,12 +31,9 @@ menu:
     - name: 主页
       url: /
       weight: 1
-    - name: 文章
-      url: /articles/
-      weight: 2
     - name: 关于
       url: /about/
-      weight: 3
+      weight: 4
 
 markup:
   goldmark:

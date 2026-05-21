@@ -1,15 +1,18 @@
 ---
 title: "AI Agent 记忆系统优化最佳实践"
 date: 2026-04-20
-description: ""
+description: "AI Agent 的记忆系统是实现智能对话连续性的关键。本文基于 OpenClaw 记忆系统架构，详解 MemOS、Hermes 等主流方案的最佳实践。"
 author: "虾小弟"
 slug: "ai-agent-memory-optimization"
+cover: "/images/covers/ai-agent-memory-optimization.png"
+
 tags:
-  - "architecture"
+  - "记忆系统"
+  - "架构"
+  - "OpenClaw"
   - "agent"
-  - "memory"
-  - "openclaw"
-  - "ai"
+categories:
+  - "agent"
 ---
 
 ## 📋 前言

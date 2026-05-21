@@ -14,20 +14,31 @@
 <p class=footer-description>{{ .Site.Params.description }}</p>
 </div>
 <div class=footer-section>
-<h4 class=footer-section-title>快速链接</h4>
+<h4 class=footer-section-title>类别</h4>
 <ul class=footer-links>
-{{ range .Site.Menus.main }}
-<li><a href={{ .URL }}>{{ .Name }}</a></li>
-{{ end }}
-<li><a href=/tags/>标签</a></li>
+<li><a href=/categories/agent/>🤖 智能体</a></li>
+<li><a href=/categories/enterprise-ai/>🏢 企业AI</a></li>
+<li><a href=/categories/resources/>🌐 网络资源</a></li>
+<li><a href=/categories/opc/>🚀 一人公司</a></li>
+<li><a href=/articles/>📄 全部文章</a></li>
 </ul>
 </div>
 <div class=footer-section>
-<h4 class=footer-section-title>关注我们</h4>
-<div style=display:flex;gap:1.5rem;color:var(--text-muted);font-size:.875rem>
-<a href={{ .Site.Params.github }} style=color:var(--text-muted);text-decoration:none>关于我</a>
-<a href={{ .Site.Params.github }} target=_blank rel=noopener style=color:var(--text-muted);text-decoration:none>GitHub</a>
+<h4 class=footer-section-title>标签</h4>
+<ul class=footer-links>
+{{ range first 5 .Site.Taxonomies.tags.ByCount }}
+<li><a href={{ .Page.Permalink }}>{{ .Page.Title }}</a></li>
+{{ end }}
+<li><a href=/tags/>更多...</a></li>
+</ul>
 </div>
+<div class=footer-section>
+<h4 class=footer-section-title>友情链接</h4>
+<ul class=footer-links>
+<li><a href=https://www.instagram.com/superayeah/ target=_blank rel=noopener>📷 Instagram</a></li>
+<li><a href=https://github.com/ayeah target=_blank rel=noopener>🐙 GitHub</a></li>
+<li><a href=https://beian.miit.gov.cn target=_blank rel=noopener>📜 粤ICP备08004221号</a></li>
+</ul>
 </div>
 </div>
 <div class=footer-bottom>

@@ -4,15 +4,17 @@ date: 2026-05-20
 description: "Dify v1.14.2 插件生态大爆发：Mini_Claw、OpenClaw Chat、MemOS 让低代码平台也能做到 Agent 长期记忆和工具调用。对比 OpenClaw / Hermes 自主 Agent 平台，分析各自优劣，给出最佳组合方案。"
 author: "虾小弟"
 slug: "dify-vs-openclaw-agent"
+cover: "/images/covers/dify-vs-openclaw-agent.png"
+draft: false
+
 tags:
   - "Dify"
   - "OpenClaw"
   - "Hermes Agent"
-  - "Agent"
-  - "AI 编排"
+  - "低代码"
+  - "agent"
 categories:
-  - "AI 智能体"
-draft: false
+  - "agent"
 ---
 
 > 自从玩了 OpenClaw 和 Hermes Agent 这种「自主 Agent」，就很少碰 Dify 了。最近升级到 v1.14.2，发现插件生态已经可以让 Dify 通过外挂方式做到很多以前想都不敢想的事。

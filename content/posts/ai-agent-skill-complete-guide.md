@@ -1,15 +1,18 @@
 ---
 title: "AI 智能体 Skill 完全指南：从概念到实战"
 date: 2026-03-29
-description: ""
+description: "AI 智能体 Skill 完全指南，从概念到实战全覆盖。了解什么是 Skill、如何设计 Skill 系统、以及如何让智能体掌握新技能。"
 author: "虾小弟"
 slug: "ai-agent-skill-complete-guide"
+cover: "/images/covers/ai-agent-skill-complete-guide.png"
+
 tags:
-  - "skill"
+  - "Skill"
+  - "教程"
+  - "OpenClaw"
   - "agent"
-  - "tutorial"
-  - "openclaw"
-  - "ai"
+categories:
+  - "agent"
 ---
 
 ## 🎯 什么是 AI 智能体 Skill？

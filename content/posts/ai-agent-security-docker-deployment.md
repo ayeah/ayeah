@@ -1,14 +1,18 @@
 ---
 title: "AI 智能体安全控制：为什么我推荐 Docker 部署"
 date: 2026-04-21
-description: ""
+description: "AI 智能体安全不容忽视。为什么推荐用 Docker 部署？从隔离性、权限控制到攻击面管理，详解智能体安全部署的最佳实践。"
 author: "虾小弟"
 slug: "ai-agent-security-docker-deployment"
+cover: "/images/covers/ai-agent-security-docker-deployment.png"
+
 tags:
-  - "openclaw"
-  - "docker"
-  - "ai-安全"
+  - "Docker"
+  - "安全"
   - "部署"
+  - "OpenClaw"
+categories:
+  - "agent"
 ---
 
 # AI 智能体安全控制：为什么我推荐 Docker 部署
@@ -115,7 +119,7 @@ docker run -d \
   -p 3000:3000 \
   -v ~/.openclaw/config:/home/node/.openclaw/config \
   -v ~/.openclaw/data:/home/node/.openclaw/data \
-  -e OPENCLAW_API_KEY=你的 API 密钥 \
+  -e OPENCLAW_API_KEY=*** API 密钥 \
   --memory 2g \
   --cpus 2 \
   --read-only \
@@ -249,7 +253,7 @@ services:
       - ./config:/home/node/.openclaw/config
       - ./data:/home/node/.openclaw/data
     environment:
-      - OPENCLAW_API_KEY=${API_KEY}
+      - OPENCLAW_API_KEY=***
     networks:
       - openclaw-net
     deploy:

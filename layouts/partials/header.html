@@ -17,6 +17,22 @@
 <li class=nav-item><a href={{ .URL }} class="nav-link{{ if $.IsMenuCurrent "main" . }} active{{ end }}">{{ .Name }}</a></li>
 {{ end }}
 <li class=nav-item>
+<div class=nav-link style=cursor:pointer>类别
+<svg style="display:inline;width:14px;height:14px;margin-left:4px" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+</div>
+<div style="position:absolute;top:100%;right:0;margin-top:.5rem;min-width:180px;background:var(--bg-secondary);border:1px solid var(--border-light);border-radius:12px;box-shadow:0 20px 40px rgba(0,0,0,.4);opacity:0;visibility:hidden;transition:all .3s ease;z-index:100">
+<div style=padding:.5rem>
+<a href=/categories/agent/ style="display:block;padding:.5rem 1rem;color:var(--text-secondary);text-decoration:none;border-radius:8px;font-size:.875rem;transition:all .3s ease">🤖 智能体</a>
+<a href=/categories/enterprise-ai/ style="display:block;padding:.5rem 1rem;color:var(--text-secondary);text-decoration:none;border-radius:8px;font-size:.875rem;transition:all .3s ease">🏢 企业AI</a>
+<a href=/categories/resources/ style="display:block;padding:.5rem 1rem;color:var(--text-secondary);text-decoration:none;border-radius:8px;font-size:.875rem;transition:all .3s ease">🌐 网络资源</a>
+<a href=/categories/opc/ style="display:block;padding:.5rem 1rem;color:var(--text-secondary);text-decoration:none;border-radius:8px;font-size:.875rem;transition:all .3s ease">🚀 一人公司</a>
+<a href=/articles/ style="display:block;padding:.5rem 1rem;color:var(--primary);text-decoration:none;border-radius:8px;font-size:.875rem;transition:all .3s ease;border-top:1px solid var(--border-light);margin-top:.5rem;padding-top:.75rem">全部文章
+<svg style="display:inline;width:12px;height:12px;margin-left:4px" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+</a>
+</div>
+</div>
+</li>
+<li class=nav-item>
 <div class=nav-link style=cursor:pointer>标签
 <svg style="display:inline;width:14px;height:14px;margin-left:4px" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
 </div>
@@ -44,8 +60,6 @@ const header=document.getElementById("header");
 window.addEventListener("scroll",()=>{window.scrollY>50?header.classList.add("scrolled"):header.classList.remove("scrolled")});
 const menuToggle=document.getElementById("menuToggle"),navMenu=document.getElementById("navMenu");
 menuToggle.addEventListener("click",()=>{navMenu.classList.toggle("active")});
-const tagsItem=document.querySelector(".nav-item:last-child");
-if(tagsItem){const e=tagsItem.querySelector("div:last-child");
-tagsItem.addEventListener("mouseenter",()=>{e.style.opacity="1",e.style.visibility="visible"});
-tagsItem.addEventListener("mouseleave",()=>{e.style.opacity="0",e.style.visibility="hidden"})}
+// dropdown hover for all nav items with nested divs
+document.querySelectorAll(".nav-item").forEach(item=>{const dd=item.querySelector("div:last-child");if(dd){item.addEventListener("mouseenter",()=>{dd.style.opacity="1",dd.style.visibility="visible"});item.addEventListener("mouseleave",()=>{dd.style.opacity="0",dd.style.visibility="hidden"})}});
 </script>

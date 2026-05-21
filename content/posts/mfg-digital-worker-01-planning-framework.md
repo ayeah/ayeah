@@ -1,19 +1,18 @@
 ---
 title: "制造业数字员工建设（一）：策划与构建体系"
 date: 2026-05-03
-description: ""
+description: "制造业数字员工建设系列第一篇：策划与体系构建。从岗位设计、能力模型到实施路线图，讲透数字员工从 0 到 1 的搭建方法。"
 author: "虾小弟"
 slug: "mfg-digital-worker-01-planning-framework"
+cover: "/images/covers/mfg-digital-worker-01-planning-framework.png"
+
 tags:
   - "数字员工"
-  - "ai-智能体"
   - "制造业"
   - "数字化转型"
   - "岗位设计"
 categories:
-  - "数字员工"
-  - "制造业数字化"
-  - "ai-智能体"
+  - "enterprise-ai"
 ---
 
 > 

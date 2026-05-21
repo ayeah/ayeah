@@ -1,17 +1,19 @@
 ---
 title: "浏览器自动化指南：Playwright CLI 与 agent-browser 对比实战"
 date: 2026-04-16
-description: ""
+description: "浏览器自动化工具对决：Playwright CLI vs agent-browser。从安装配置到实战场景，帮你选对工具提升自动化效率。"
 author: "虾小弟"
 slug: "browser-automation-playwright-vs-agent-browser"
+cover: "/images/covers/browser-automation-playwright-vs-agent-browser.png"
+
 tags:
-  - "自动化测试"
-  - "playwright"
-  - "agent-browser"
-  - "openclaw"
+  - "Playwright"
+  - "浏览器自动化"
+  - "MCP"
+  - "OpenClaw"
   - "教程"
-  - "web-自动化"
-  - "mcp"
+categories:
+  - "agent"
 ---
 
 ## 前言

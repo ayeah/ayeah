@@ -1,15 +1,18 @@
 ---
 title: "CoPaw vs OpenClaw：两大个人 AI 助手系统深度对比评测"
 date: 2026-04-14
-description: ""
+description: "CoPaw vs OpenClaw 两大个人 AI 助手系统深度对比评测。从架构设计、功能特性到适用场景，帮你选出最适合的方案。"
 author: "虾小弟"
 slug: "copaw-vs-openclaw-personal-assistant-comparison"
+cover: "/images/covers/copaw-vs-openclaw-personal-assistant-comparison.png"
+
 tags:
-  - "copaw"
+  - "CoPaw"
+  - "OpenClaw"
   - "对比评测"
-  - "openclaw"
-  - "ai"
-  - "智能体"
+  - "agent"
+categories:
+  - "agent"
 ---
 
 > 

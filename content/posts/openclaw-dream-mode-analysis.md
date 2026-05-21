@@ -1,14 +1,17 @@
 ---
 title: "让小龙虾做梦：OpenClaw 梦境功能解析"
 date: 2026-04-20
-description: ""
+description: "让小龙虾学会做梦！OpenClaw 梦境功能解析——AI 智能体像人类一样在后台自动整理记忆，把重要的事记牢，把无关的过滤掉。"
 author: "虾小弟"
 slug: "openclaw-dream-mode-analysis"
+cover: "/images/covers/openclaw-dream-mode-analysis.png"
+
 tags:
-  - "openclaw"
-  - "ai-记忆"
-  - "梦境功能"
-  - "智能体"
+  - "OpenClaw"
+  - "记忆系统"
+  - "agent"
+categories:
+  - "agent"
 ---
 
 # 让小龙虾做梦：OpenClaw 梦境功能解析

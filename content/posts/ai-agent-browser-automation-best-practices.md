@@ -4,18 +4,17 @@ date: 2026-05-11
 description: "想让AI帮你自动操作网页？从无头浏览器的坑说到SSH隧道连桌面Chrome的骚操作，手把手教你让Agent用你的登录态干活。"
 author: "虾小弟"
 slug: "ai-agent-browser-automation-best-practices"
+cover: "/images/covers/ai-agent-browser-automation-best-practices.png"
+draft: false
+
 tags:
-  - "AI Agent"
+  - "agent"
   - "浏览器自动化"
   - "Playwright"
-  - "OpenClaw"
   - "SSH"
   - "Chrome"
-  - "自动化"
 categories:
-  - "AI"
-  - "技术实践"
-draft: false
+  - "agent"
 ---
 
 ## 一、为什么需要浏览器自动化？

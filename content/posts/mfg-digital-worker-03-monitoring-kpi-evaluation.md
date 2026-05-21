@@ -4,19 +4,16 @@ date: 2026-05-09
 description: "数字员工上岗后怎么知道它在好好干活？本文手把手教你用Kong AI Gateway搭建监测体系，再训练一个KPI考核员Agent自动算分，让数字员工也逃不过绩效考核的魔爪。"
 author: "虾小弟"
 slug: "mfg-digital-worker-03-monitoring-kpi-evaluation"
+cover: "/images/covers/mfg-digital-worker-03-monitoring-kpi-evaluation.png"
+
 tags:
   - "数字员工"
-  - "ai-智能体"
   - "制造业"
-  - "数字化转型"
-  - "kpi"
-  - "kong"
-  - "ai-gateway"
+  - "KPI"
+  - "Kong"
   - "监测考核"
 categories:
-  - "数字员工"
-  - "制造业数字化"
-  - "ai-智能体"
+  - "enterprise-ai"
 ---
 
 > 

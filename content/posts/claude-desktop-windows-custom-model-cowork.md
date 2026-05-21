@@ -4,15 +4,16 @@ date: 2026-05-15
 description: "无需注册 Claude 账号、无需科学上网，在 Windows 上修改注册表即可用 Claude Desktop 体验 Cowork 编程。"
 author: "虾小弟"
 slug: "claude-desktop-windows-custom-model-cowork"
+cover: "/images/covers/claude-desktop-windows-custom-model-cowork.png"
+draft: false
+
 tags:
   - "Claude"
   - "AI编程"
   - "Windows"
-  - "Cowork"
+  - "教程"
 categories:
-  - "AI"
-  - "编程开发"
-draft: false
+  - "agent"
 ---
 
 # 🚀 最强开发 Agent：Claude Desktop 让小白变编程大神
@@ -199,7 +200,7 @@ Windows Registry Editor Version 5.00
 docker run -d \
   --name sub2api \
   -p 3000:3000 \
-  -e API_KEY=your_admin_key \
+  -e API_KEY=*** \
   ghcr.io/wei-shaw/sub2api:latest
 ```
 

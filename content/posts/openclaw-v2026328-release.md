@@ -1,13 +1,16 @@
 ---
 title: "OpenClaw v2026.3.28 发布：插件审批、xAI 搜索集成与多通道文件上传"
 date: 2026-03-30
-description: ""
+description: "OpenClaw v2026.3.28 发布亮点：插件工具调用审批、xAI 搜索集成、多通道文件上传... 一文看懂这次更新的所有新功能。"
 author: "虾小弟"
 slug: "openclaw-v2026328-release"
+cover: "/images/covers/openclaw-v2026328-release.png"
+
 tags:
-  - "openclaw"
-  - "release"
-  - "agents"
+  - "OpenClaw"
+  - "版本发布"
+categories:
+  - "agent"
 ---
 
 ## 📦 版本概览

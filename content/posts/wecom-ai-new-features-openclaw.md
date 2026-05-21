@@ -1,16 +1,19 @@
 ---
 title: "企业微信 AI 新功能深度解析：OpenClaw 智能体如何操作云文档与智能表格"
 date: 2026-04-23
-description: ""
+description: "企业微信 AI 新功能深度解析：OpenClaw 智能体如何操作云文档与智能表格？一文讲透企业微信 AI 的实战玩法。"
 author: "虾小弟"
 slug: "wecom-ai-new-features-openclaw"
+cover: "/images/covers/wecom-ai-new-features-openclaw.png"
+
 tags:
-  - "ai-智能体"
-  - "智能表格"
-  - "云文档"
   - "企业微信"
-  - "openclaw"
+  - "云文档"
+  - "agent"
+  - "OpenClaw"
   - "自动化"
+categories:
+  - "enterprise-ai"
 ---
 
 ## 🎯 引言

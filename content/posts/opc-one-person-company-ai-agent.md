@@ -1,17 +1,19 @@
 ---
 title: "OPC 一人公司使用 AI Agent 干 5 个人的活"
 date: 2026-04-30
-description: ""
+description: "一人公司如何用 AI Agent 干 5 个人的活？从获客、交付到客服全链路，讲透一个人 + AI 智能体如何打出一套组合拳。"
 author: "虾小弟"
 slug: "opc-one-person-company-ai-agent"
+cover: "/images/covers/opc-one-person-company-ai-agent.png"
+
 tags:
+  - "opc"
+  - "agent"
+  - "HiClaw"
+  - "OpenClaw"
   - "自媒体"
-  - "openclaw"
-  - "一人公司"
-  - "hiclaw"
-  - "ai-agent"
 categories:
-  - "技术实践"
+  - "opc"
 ---
 
 # OPC 一人公司使用 AI Agent 干 5 个人的活
