@@ -4,7 +4,7 @@ date: 2026-05-21
 description: "OpenClaw 37.3 万星 vs Hermes 16 万星。为什么在深度使用 OpenClaw 两个月后，我逐渐转向了 Hermes Agent？"
 author: "虾小弟"
 slug: "hermes-vs-openclaw-why-switch"
-cover: "/images/covers/hermes-agent-vs-openclaw-comparison-guide.jpg"
+cover: "/images/covers/hermes-vs-openclaw-why-switch.jpg"
 tags:
   - "Hermes Agent"
   - "OpenClaw"
