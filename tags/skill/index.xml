@@ -55,39 +55,4 @@
 | 内容创作 | 生成或编辑内容 | 文章撰写、代码生成、图片处理 |
 | 任务管理 | 执行工作流程 | 待办事项、日程安排、会议管理 |
 | 系统集成 | 连接第三方服务 | 企业微信、飞书、GitHub |
-| 系统运维 | 管理和监控 | 健康检查、备份、部署 |&lt;/p&gt;</description></item><item><title>OpenClaw 智能体快速入门指南</title><link>https://ayeah.net/posts/openclaw-quick-start-guide/</link><pubDate>Thu, 26 Mar 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/openclaw-quick-start-guide/</guid><description>&lt;h2 id="-什么是-openclaw"&gt;🎯 什么是 OpenClaw？&lt;/h2&gt;
-&lt;p&gt;OpenClaw 是一个开源的 AI 智能体运行时框架，让你能够快速构建、部署和管理个性化的 AI 助手。&lt;/p&gt;
-&lt;h3 id="核心特性"&gt;核心特性&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;多通道集成&lt;/strong&gt; - 支持 Telegram、WhatsApp、企业微信、飞书等平台&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;技能系统&lt;/strong&gt; - 通过 AgentSkills 扩展 AI 能力&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;记忆系统&lt;/strong&gt; - 长期上下文管理，让 AI 记住重要信息&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;本地部署&lt;/strong&gt; - 完全掌控数据隐私&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="-快速开始"&gt;🚀 快速开始&lt;/h2&gt;
-&lt;h3 id="1-环境准备"&gt;1. 环境准备&lt;/h3&gt;
-&lt;pre tabindex="0"&gt;&lt;code&gt;# 安装 Node.js (v20+)
-node -v
-
-# 安装 pnpm
-npm install -g pnpm
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="2-克隆项目"&gt;2. 克隆项目&lt;/h3&gt;
-&lt;pre tabindex="0"&gt;&lt;code&gt;git clone https://github.com/openclaw/openclaw.git
-cd openclaw
-pnpm install
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="3-配置环境变量"&gt;3. 配置环境变量&lt;/h3&gt;
-&lt;pre tabindex="0"&gt;&lt;code&gt;cp .env.example .env
-# 编辑 .env 文件，填入你的 API 密钥
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="4-启动服务"&gt;4. 启动服务&lt;/h3&gt;
-&lt;pre tabindex="0"&gt;&lt;code&gt;pnpm run dev
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id="-核心概念"&gt;📚 核心概念&lt;/h2&gt;
-&lt;h3 id="agent智能体"&gt;Agent（智能体）&lt;/h3&gt;
-&lt;p&gt;智能体是 OpenClaw 的核心，它是一个具有特定能力和行为的 AI 助手。&lt;/p&gt;</description></item></channel></rss>
+| 系统运维 | 管理和监控 | 健康检查、备份、部署 |&lt;/p&gt;</description></item></channel></rss>

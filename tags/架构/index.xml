@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>架构 on 虾大师</title><link>https://ayeah.net/tags/%E6%9E%B6%E6%9E%84/</link><description>Recent content in 架构 on 虾大师</description><generator>Hugo</generator><language>zh</language><lastBuildDate>Mon, 20 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://ayeah.net/tags/%E6%9E%B6%E6%9E%84/index.xml" rel="self" type="application/rss+xml"/><item><title>AI Agent 记忆系统优化最佳实践</title><link>https://ayeah.net/posts/ai-agent-memory-optimization/</link><pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/ai-agent-memory-optimization/</guid><description>&lt;h2 id="-前言"&gt;📋 前言&lt;/h2&gt;
+&lt;p&gt;AI Agent 的记忆系统是实现智能对话连续性和个性化服务的关键组件。本文基于 OpenClaw 记忆系统架构，结合业界主流记忆方案（MemOS、阿里云百炼、Hermes 等），为企业级 AI Agent 记忆系统设计提供完整的实践指导。&lt;/p&gt;
+&lt;h2 id="1-记忆系统核心架构"&gt;1. 记忆系统核心架构&lt;/h2&gt;
+&lt;h3 id="11-记忆分层模型"&gt;1.1 记忆分层模型&lt;/h3&gt;
+&lt;p&gt;一个完整的 AI Agent 记忆系统应该包含以下层次：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;┌─────────────────────────────────────────────────────────────┐
+│ 应用层 (Application Layer) │
+│ - 对话上下文 - 任务状态 - 用户意图 - 工具调用历史 │
+├─────────────────────────────────────────────────────────────┤
+│ 短期记忆 (Short-term Memory) │
+│ - 会话历史 - 工作记忆 - 注意力窗口 - 临时缓存 │
+│ - 生命周期：单次会话 / 数小时 │
+├─────────────────────────────────────────────────────────────┤
+│ 长期记忆 (Long-term Memory) │
+│ - 用户画像 - 偏好设置 - 历史决策 - 知识沉淀 │
+│ - 生命周期：持久化 / 数月 - 数年 │
+├─────────────────────────────────────────────────────────────┤
+│ 记忆管理 (Memory Management) │
+│ - 编码 (Encoding) - 存储 (Storage) - 检索 (Retrieval) │
+│ - 巩固 (Consolidation) - 遗忘 (Forgetting) │
+└─────────────────────────────────────────────────────────────┘
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="12-记忆操作生命周期"&gt;1.2 记忆操作生命周期&lt;/h3&gt;
+&lt;p&gt;********************************| 阶段 | 描述 | 关键技术 |
+| &amp;mdash; | &amp;mdash; | &amp;mdash; |
+| 编码 | 将原始信息转化为可存储格式 | 文本分块、向量化、元数据提取 |
+| 存储 | 持久化到存储介质 | SQLite、向量数据库、云存储 |
+| 索引 | 建立检索结构 | 倒排索引、HNSW、IVF-PQ |
+| 检索 | 根据查询召回相关记忆 | 语义搜索、关键词匹配、混合搜索 |
+| 重排序 | 对检索结果进行精排 | Cross-Encoder、LLM Rerank |
+| 融合 | 将记忆注入上下文 | Prompt 工程、上下文窗口管理 |
+| 巩固 | 将短期记忆转化为长期记忆 | 定期汇总、重要性评分、去重 |
+| 遗忘 | 清理低价值记忆 | 时间衰减、使用频率、主动删除 |&lt;/p&gt;</description></item></channel></rss>

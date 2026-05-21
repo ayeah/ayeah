@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Resources on 虾大师</title><link>https://ayeah.net/categories/resources/</link><description>Recent content in Resources on 虾大师</description><generator>Hugo</generator><language>zh</language><lastBuildDate>Fri, 24 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://ayeah.net/categories/resources/index.xml" rel="self" type="application/rss+xml"/><item><title>DeepSeek-V4 正式发布：开源模型首次全面超越闭源御三家</title><link>https://ayeah.net/posts/deepseek-v4-release-open-source-leads/</link><pubDate>Fri, 24 Apr 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/deepseek-v4-release-open-source-leads/</guid><description>&lt;h2 id="-重磅消息"&gt;🎯 重磅消息&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;DeepSeek-V4 今天（2026 年 4 月 24 日）正式发布！&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;不是传闻，不是&amp;quot;下周发布&amp;quot;，就在今天。时隔 15 个月，DeepSeek 终于交出了 R1 之后的首个重大版本更新。&lt;/p&gt;
+&lt;p&gt;这次一口气发布两个版本：********| 版本 | 总参数 | 激活参数 | 定位 |
+| &amp;mdash; | &amp;mdash; | &amp;mdash; | &amp;mdash; |
+| V4-Pro | 1.6T | 49B | 性能旗舰 |
+| V4-Flash | 284B | 13B | 高效经济 |&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;核心特性&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;✅ 1M 超长上下文（百万 token）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;✅ 全部开源&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;✅ API 支持 1M 上下文&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;✅ 兼容 OpenAI 和 Anthropic 两套接口协议&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id="-评测数据和闭源御三家硬碰硬"&gt;📊 评测数据：和闭源御三家硬碰硬&lt;/h2&gt;
+&lt;h3 id="代码编程能力"&gt;代码编程能力&lt;/h3&gt;
+&lt;p&gt;************| 模型 | LiveCodeBench | Codeforces |
+| &amp;mdash; | &amp;mdash; | &amp;mdash; |
+| DeepSeek-V4-Pro | 93.5 | 3206 |
+| Claude Opus 4.6 | 88.8 | - |
+| GPT-5.4 | - | 3168 |
+| Gemini-3.1-Pro | 91.7 | 3052 |&lt;/p&gt;</description></item><item><title>GLM-5.1 模型深度评测：智谱 AI 新一代大语言模型全面解析</title><link>https://ayeah.net/posts/glm-51-deep-review-zhipu-llm/</link><pubDate>Tue, 14 Apr 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/glm-51-deep-review-zhipu-llm/</guid><description>&lt;blockquote&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;阅读时间&lt;/strong&gt;：约 8 分钟&lt;/p&gt;
+&lt;h2 id="前言"&gt;前言&lt;/h2&gt;
+&lt;p&gt;在大语言模型竞争日益激烈的今天，智谱 AI（Zhipu AI）推出的 GLM 系列模型一直备受关注。作为清华大学知识工程实验室（KEG）孵化的人工智能企业，智谱 AI 凭借其深厚的学术背景和扎实的技术实力，在国内大模型领域占据重要地位。&lt;/p&gt;
+&lt;h2 id="本文综合多方评测信息对-glm-51-模型进行全方位解析帮助开发者和企业用户了解这款模型的核心能力与适用场景"&gt;本文综合多方评测信息，对 GLM-5.1 模型进行全方位解析，帮助开发者和企业用户了解这款模型的核心能力与适用场景。&lt;/h2&gt;
+&lt;h2 id="一glm-系列模型演进历程"&gt;一、GLM 系列模型演进历程&lt;/h2&gt;
+&lt;h3 id="11-从-glm-到-glm-51"&gt;1.1 从 GLM 到 GLM-5.1&lt;/h3&gt;
+&lt;p&gt;GLM（Generalized Language Model）是智谱 AI 自主研发的预训练模型架构，其核心创新在于采用&lt;strong&gt;双向注意力机制&lt;/strong&gt;与&lt;strong&gt;自回归填充&lt;/strong&gt;相结合的方式，在保持语言理解能力的同时，兼顾了生成任务的需求。&lt;/p&gt;
+&lt;p&gt;主要版本演进：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;GLM-130B&lt;/strong&gt;（2022）：开源的千亿参数模型，奠定了 GLM 架构的基础&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;ChatGLM&lt;/strong&gt; 系列：针对对话场景优化的轻量化版本&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;GLM-4&lt;/strong&gt;（2024）：全面升级的多模态大模型&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;GLM-5.1&lt;/strong&gt;（2025-2026）：最新一代模型，在推理能力、代码生成和长上下文处理上实现显著突破&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="12-glm-51-的定位"&gt;1.2 GLM-5.1 的定位&lt;/h3&gt;
+&lt;h2 id="glm-51-定位于企业级通用大模型在保持高性价比的同时提供接近顶尖模型的综合能力其主要竞争对手包括-gpt-4-系列claude-35qwen25-等"&gt;GLM-5.1 定位于&lt;strong&gt;企业级通用大模型&lt;/strong&gt;，在保持高性价比的同时，提供接近顶尖模型的综合能力。其主要竞争对手包括 GPT-4 系列、Claude 3.5、Qwen2.5 等。&lt;/h2&gt;
+&lt;h2 id="二核心技术特性"&gt;二、核心技术特性&lt;/h2&gt;
+&lt;h3 id="21-架构创新"&gt;2.1 架构创新&lt;/h3&gt;
+&lt;p&gt;GLM-5.1 延续了 GLM 系列的混合注意力架构，并进行了多项优化：****************| 特性 | 说明 |
+| &amp;mdash; | &amp;mdash; |
+| 混合注意力机制 | 结合双向编码与自回归解码，平衡理解与生成能力 |
+| 稀疏 MoE 结构 | 采用混合专家模型，提升推理效率 |
+| 长上下文支持 | 原生支持 128K+ token 上下文窗口 |
+| 多模态融合 | 支持文本、图像、表格等多种输入形式 |&lt;/p&gt;</description></item></channel></rss>

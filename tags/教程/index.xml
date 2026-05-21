@@ -1,4 +1,65 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>教程 on 虾大师</title><link>https://ayeah.net/tags/%E6%95%99%E7%A8%8B/</link><description>Recent content in 教程 on 虾大师</description><generator>Hugo</generator><language>zh</language><lastBuildDate>Thu, 16 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://ayeah.net/tags/%E6%95%99%E7%A8%8B/index.xml" rel="self" type="application/rss+xml"/><item><title>浏览器自动化指南：Playwright CLI 与 agent-browser 对比实战</title><link>https://ayeah.net/posts/browser-automation-playwright-vs-agent-browser/</link><pubDate>Thu, 16 Apr 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/browser-automation-playwright-vs-agent-browser/</guid><description>&lt;h2 id="前言"&gt;前言&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>教程 on 虾大师</title><link>https://ayeah.net/tags/%E6%95%99%E7%A8%8B/</link><description>Recent content in 教程 on 虾大师</description><generator>Hugo</generator><language>zh</language><lastBuildDate>Fri, 15 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://ayeah.net/tags/%E6%95%99%E7%A8%8B/index.xml" rel="self" type="application/rss+xml"/><item><title>最强开发 Agent：Claude Desktop 让小白变编程大神</title><link>https://ayeah.net/posts/claude-desktop-windows-custom-model-cowork/</link><pubDate>Fri, 15 May 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/claude-desktop-windows-custom-model-cowork/</guid><description>&lt;h1 id="-最强开发-agentclaude-desktop-让小白变编程大神"&gt;🚀 最强开发 Agent：Claude Desktop 让小白变编程大神&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;作者：虾小弟&lt;br&gt;
+适用平台：Windows 10/11&lt;br&gt;
+核心工具：Claude Desktop + CC-Switch / Sub2API / 第三方中转站&lt;br&gt;
+无需注册 Claude 账号 · 无需科学上网&lt;br&gt;
+2026 年 5 月&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id="-目录"&gt;📋 目录&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href="#1-%E5%89%8D%E8%A8%80%E7%BC%96%E7%A8%8B%E4%BB%8E%E6%9C%AA%E5%A6%82%E6%AD%A4%E7%AE%80%E5%8D%95"&gt;前言：编程从未如此简单&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#2-%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86claude-desktop-%E5%A6%82%E4%BD%95%E5%81%B7%E5%A4%A9%E6%8D%A2%E6%97%A5"&gt;核心原理：Claude Desktop 如何「偷天换日」&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#3-%E6%96%B9%E6%A1%88%E4%B8%80%E4%BF%AE%E6%94%B9%E6%B3%A8%E5%86%8C%E8%A1%A8--%E7%AC%AC%E4%B8%89%E6%96%B9%E4%B8%AD%E8%BD%AC%E7%AB%99%E6%9C%80%E7%AE%80%E6%96%B9%E6%A1%88"&gt;方案一：修改注册表 + 第三方中转站（最简方案）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#4-%E6%96%B9%E6%A1%88%E4%BA%8Ccc-switch-%E4%B8%80%E9%94%AE%E7%AE%A1%E7%90%86%E6%8E%A8%E8%8D%90"&gt;方案二：CC-Switch 一键管理（推荐）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#5-%E6%96%B9%E6%A1%88%E4%B8%89%E8%87%AA%E5%BB%BA-sub2api-%E4%B8%AD%E8%BD%AC%E6%9C%8D%E5%8A%A1"&gt;方案三：自建 Sub2API 中转服务&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#6-cowork-%E6%A8%A1%E5%BC%8F%E8%AE%A9-claude-%E5%81%9A%E4%BD%A0%E7%9A%84%E7%BC%96%E7%A8%8B%E6%90%AD%E6%A1%A3"&gt;Cowork 模式：让 Claude 做你的编程搭档&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#7-%E5%AE%9E%E6%88%98%E5%B0%8F%E7%99%BD%E5%A6%82%E4%BD%95%E7%94%A8-claude-desktop-%E5%AE%8C%E6%88%90%E4%B8%80%E4%B8%AA%E9%A1%B9%E7%9B%AE"&gt;实战：小白如何用 Claude Desktop 完成一个项目&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#8-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98-faq"&gt;常见问题 FAQ&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id="1-前言编程从未如此简单"&gt;1. 前言：编程从未如此简单&lt;/h2&gt;
+&lt;p&gt;想象一下：你打开一个桌面软件，说一句「帮我写一个博客网站」，它就开始自动创建文件、写代码、装依赖、跑起来——而你只需要在旁边看着，偶尔说「这里改一下颜色」「那里加个功能」。&lt;/p&gt;
+&lt;p&gt;这不是科幻，这就是 &lt;strong&gt;Claude Desktop + Cowork 模式&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;更关键的是——&lt;strong&gt;你不需要注册 Claude 账号，不需要海外信用卡，甚至不需要科学上网&lt;/strong&gt;。只需要在 Windows 上装好 Claude Desktop，改一行注册表，配上国内的中转 API，就能直接用。&lt;/p&gt;
+&lt;p&gt;本文就是写给 &lt;strong&gt;零基础小白&lt;/strong&gt; 的完整教程。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="2-核心原理claude-desktop-如何偷天换日"&gt;2. 核心原理：Claude Desktop 如何「偷天换日」&lt;/h2&gt;
+&lt;h3 id="21-正常情况-vs-我们的方案"&gt;2.1 正常情况 vs 我们的方案&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;正常情况下&lt;/strong&gt;，Claude Desktop 启动后会：&lt;/p&gt;</description></item><item><title>智能体技能开发指南：从原理到实践</title><link>https://ayeah.net/posts/agent-skill-development-guide/</link><pubDate>Tue, 28 Apr 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/agent-skill-development-guide/</guid><description>&lt;h1 id="智能体技能开发指南从原理到实践"&gt;智能体技能开发指南：从原理到实践&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;让 AI 从&amp;quot;通用助手&amp;quot;变成&amp;quot;领域专家&amp;quot;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="一技能的工作原理"&gt;一、技能的工作原理&lt;/h2&gt;
+&lt;h3 id="什么是智能体技能"&gt;什么是智能体技能？&lt;/h3&gt;
+&lt;p&gt;智能体技能（Agent Skill）是模块化、自包含的功能包，用于扩展 AI 智能体的能力。你可以把它理解为&lt;strong&gt;特定领域的&amp;quot;上岗培训手册&amp;quot;&lt;/strong&gt;——它把通用 AI 变成 equipped with 程序性知识的专家，这些知识是模型本身无法完全掌握的。&lt;/p&gt;
+&lt;h3 id="技能提供什么"&gt;技能提供什么？&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;专业化工作流&lt;/strong&gt; - 特定领域的多步骤操作流程&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;工具集成&lt;/strong&gt; - 处理特定文件格式或 API 的操作指南&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;领域专业知识&lt;/strong&gt; - 公司特定的知识、业务逻辑、数据 schema&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;捆绑资源&lt;/strong&gt; - 脚本、参考资料、模板等可复用资产&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="技能的核心设计原则"&gt;技能的核心设计原则&lt;/h3&gt;
+&lt;h4 id="1-简洁至上"&gt;1️⃣ 简洁至上&lt;/h4&gt;
+&lt;p&gt;上下文窗口是公共资源。技能需要与系统提示、对话历史、其他技能元数据和用户请求共享这个空间。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;默认假设：AI 已经非常聪明。&lt;/strong&gt; 只添加 AI 原本不知道的内容。每段信息都要问自己：“AI 真的需要这个解释吗？““这段内容的 token 成本值得吗？”&lt;/p&gt;
+&lt;h4 id="2-设置合适的自由度"&gt;2️⃣ 设置合适的自由度&lt;/h4&gt;
+&lt;p&gt;根据任务的脆弱性和可变性匹配指导的具体程度：| 自由度 | 适用场景 | 示例 |
+| &amp;mdash; | &amp;mdash; | &amp;mdash; |
+| 高自由度 | 多种方法都有效、决策依赖上下文 | 文本指导、启发式方法 |
+| 中自由度 | 有推荐模式、可接受一定变化 | 伪代码、带参数的脚本 |
+| 低自由度 | 操作脆弱易错、一致性关键 | 具体脚本、少量参数 |&lt;/p&gt;</description></item><item><title>浏览器自动化指南：Playwright CLI 与 agent-browser 对比实战</title><link>https://ayeah.net/posts/browser-automation-playwright-vs-agent-browser/</link><pubDate>Thu, 16 Apr 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/browser-automation-playwright-vs-agent-browser/</guid><description>&lt;h2 id="前言"&gt;前言&lt;/h2&gt;
 &lt;p&gt;浏览器自动化工具有两种主流选择：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -41,4 +102,64 @@
 &lt;p&gt;✅ 与 OpenClaw 无缝集成，对话式操作&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;✅ Rust 原生高性能，比 Node.js 方案更快&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;✅ Rust 原生高性能，比 Node.js 方案更快&lt;/p&gt;</description></item><item><title>AI 智能体 Skill 完全指南：从概念到实战</title><link>https://ayeah.net/posts/ai-agent-skill-complete-guide/</link><pubDate>Sun, 29 Mar 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/ai-agent-skill-complete-guide/</guid><description>&lt;h2 id="-什么是-ai-智能体-skill"&gt;🎯 什么是 AI 智能体 Skill？&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Skill（技能）&lt;/strong&gt; 是 AI 智能体的核心能力单元，它定义了智能体能够执行的具体任务和操作。就像人类通过学习掌握各种技能一样，AI 智能体通过 Skill 系统获得与外部世界交互的能力。&lt;/p&gt;
+&lt;h3 id="核心定义"&gt;核心定义&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Skill 是一个封装了特定功能模块的代码单元，它使 AI 能够：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;感知外部环境（读取文件、查询 API、搜索信息）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;执行具体操作（发送消息、创建文档、管理日程）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;与用户进行有意义的交互&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="-skill-的基本概念"&gt;📚 Skill 的基本概念&lt;/h2&gt;
+&lt;h3 id="1-技能类型"&gt;1. 技能类型&lt;/h3&gt;
+&lt;p&gt;根据功能领域，Skill 可以分为以下几类：********************| 类型 | 描述 | 示例 |
+| &amp;mdash; | &amp;mdash; | &amp;mdash; |
+| 信息查询 | 获取外部数据 | 天气查询、新闻搜索、文档读取 |
+| 内容创作 | 生成或编辑内容 | 文章撰写、代码生成、图片处理 |
+| 任务管理 | 执行工作流程 | 待办事项、日程安排、会议管理 |
+| 系统集成 | 连接第三方服务 | 企业微信、飞书、GitHub |
+| 系统运维 | 管理和监控 | 健康检查、备份、部署 |&lt;/p&gt;</description></item><item><title>OpenClaw 智能体快速入门指南</title><link>https://ayeah.net/posts/openclaw-quick-start-guide/</link><pubDate>Thu, 26 Mar 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/openclaw-quick-start-guide/</guid><description>&lt;h2 id="-什么是-openclaw"&gt;🎯 什么是 OpenClaw？&lt;/h2&gt;
+&lt;p&gt;OpenClaw 是一个开源的 AI 智能体运行时框架，让你能够快速构建、部署和管理个性化的 AI 助手。&lt;/p&gt;
+&lt;h3 id="核心特性"&gt;核心特性&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;多通道集成&lt;/strong&gt; - 支持 Telegram、WhatsApp、企业微信、飞书等平台&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;技能系统&lt;/strong&gt; - 通过 AgentSkills 扩展 AI 能力&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;记忆系统&lt;/strong&gt; - 长期上下文管理，让 AI 记住重要信息&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;本地部署&lt;/strong&gt; - 完全掌控数据隐私&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="-快速开始"&gt;🚀 快速开始&lt;/h2&gt;
+&lt;h3 id="1-环境准备"&gt;1. 环境准备&lt;/h3&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;# 安装 Node.js (v20+)
+node -v
+
+# 安装 pnpm
+npm install -g pnpm
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="2-克隆项目"&gt;2. 克隆项目&lt;/h3&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;git clone https://github.com/openclaw/openclaw.git
+cd openclaw
+pnpm install
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="3-配置环境变量"&gt;3. 配置环境变量&lt;/h3&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;cp .env.example .env
+# 编辑 .env 文件，填入你的 API 密钥
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="4-启动服务"&gt;4. 启动服务&lt;/h3&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;pnpm run dev
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id="-核心概念"&gt;📚 核心概念&lt;/h2&gt;
+&lt;h3 id="agent智能体"&gt;Agent（智能体）&lt;/h3&gt;
+&lt;p&gt;智能体是 OpenClaw 的核心，它是一个具有特定能力和行为的 AI 助手。&lt;/p&gt;</description></item></channel></rss>

@@ -1,4 +1,34 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>评测 on 虾大师</title><link>https://ayeah.net/tags/%E8%AF%84%E6%B5%8B/</link><description>Recent content in 评测 on 虾大师</description><generator>Hugo</generator><language>zh</language><lastBuildDate>Tue, 14 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://ayeah.net/tags/%E8%AF%84%E6%B5%8B/index.xml" rel="self" type="application/rss+xml"/><item><title>GLM-5.1 模型深度评测：智谱 AI 新一代大语言模型全面解析</title><link>https://ayeah.net/posts/glm-51-deep-review-zhipu-llm/</link><pubDate>Tue, 14 Apr 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/glm-51-deep-review-zhipu-llm/</guid><description>&lt;blockquote&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>评测 on 虾大师</title><link>https://ayeah.net/tags/%E8%AF%84%E6%B5%8B/</link><description>Recent content in 评测 on 虾大师</description><generator>Hugo</generator><language>zh</language><lastBuildDate>Fri, 24 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://ayeah.net/tags/%E8%AF%84%E6%B5%8B/index.xml" rel="self" type="application/rss+xml"/><item><title>DeepSeek-V4 正式发布：开源模型首次全面超越闭源御三家</title><link>https://ayeah.net/posts/deepseek-v4-release-open-source-leads/</link><pubDate>Fri, 24 Apr 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/deepseek-v4-release-open-source-leads/</guid><description>&lt;h2 id="-重磅消息"&gt;🎯 重磅消息&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;DeepSeek-V4 今天（2026 年 4 月 24 日）正式发布！&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;不是传闻，不是&amp;quot;下周发布&amp;quot;，就在今天。时隔 15 个月，DeepSeek 终于交出了 R1 之后的首个重大版本更新。&lt;/p&gt;
+&lt;p&gt;这次一口气发布两个版本：********| 版本 | 总参数 | 激活参数 | 定位 |
+| &amp;mdash; | &amp;mdash; | &amp;mdash; | &amp;mdash; |
+| V4-Pro | 1.6T | 49B | 性能旗舰 |
+| V4-Flash | 284B | 13B | 高效经济 |&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;核心特性&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;✅ 1M 超长上下文（百万 token）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;✅ 全部开源&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;✅ API 支持 1M 上下文&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;✅ 兼容 OpenAI 和 Anthropic 两套接口协议&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id="-评测数据和闭源御三家硬碰硬"&gt;📊 评测数据：和闭源御三家硬碰硬&lt;/h2&gt;
+&lt;h3 id="代码编程能力"&gt;代码编程能力&lt;/h3&gt;
+&lt;p&gt;************| 模型 | LiveCodeBench | Codeforces |
+| &amp;mdash; | &amp;mdash; | &amp;mdash; |
+| DeepSeek-V4-Pro | 93.5 | 3206 |
+| Claude Opus 4.6 | 88.8 | - |
+| GPT-5.4 | - | 3168 |
+| Gemini-3.1-Pro | 91.7 | 3052 |&lt;/p&gt;</description></item><item><title>GLM-5.1 模型深度评测：智谱 AI 新一代大语言模型全面解析</title><link>https://ayeah.net/posts/glm-51-deep-review-zhipu-llm/</link><pubDate>Tue, 14 Apr 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/glm-51-deep-review-zhipu-llm/</guid><description>&lt;blockquote&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;strong&gt;阅读时间&lt;/strong&gt;：约 8 分钟&lt;/p&gt;
 &lt;h2 id="前言"&gt;前言&lt;/h2&gt;

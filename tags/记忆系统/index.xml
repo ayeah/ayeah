@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>记忆系统 on 虾大师</title><link>https://ayeah.net/tags/%E8%AE%B0%E5%BF%86%E7%B3%BB%E7%BB%9F/</link><description>Recent content in 记忆系统 on 虾大师</description><generator>Hugo</generator><language>zh</language><lastBuildDate>Mon, 20 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://ayeah.net/tags/%E8%AE%B0%E5%BF%86%E7%B3%BB%E7%BB%9F/index.xml" rel="self" type="application/rss+xml"/><item><title>AI Agent 记忆系统优化最佳实践</title><link>https://ayeah.net/posts/ai-agent-memory-optimization/</link><pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/ai-agent-memory-optimization/</guid><description>&lt;h2 id="-前言"&gt;📋 前言&lt;/h2&gt;
+&lt;p&gt;AI Agent 的记忆系统是实现智能对话连续性和个性化服务的关键组件。本文基于 OpenClaw 记忆系统架构，结合业界主流记忆方案（MemOS、阿里云百炼、Hermes 等），为企业级 AI Agent 记忆系统设计提供完整的实践指导。&lt;/p&gt;
+&lt;h2 id="1-记忆系统核心架构"&gt;1. 记忆系统核心架构&lt;/h2&gt;
+&lt;h3 id="11-记忆分层模型"&gt;1.1 记忆分层模型&lt;/h3&gt;
+&lt;p&gt;一个完整的 AI Agent 记忆系统应该包含以下层次：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;┌─────────────────────────────────────────────────────────────┐
+│ 应用层 (Application Layer) │
+│ - 对话上下文 - 任务状态 - 用户意图 - 工具调用历史 │
+├─────────────────────────────────────────────────────────────┤
+│ 短期记忆 (Short-term Memory) │
+│ - 会话历史 - 工作记忆 - 注意力窗口 - 临时缓存 │
+│ - 生命周期：单次会话 / 数小时 │
+├─────────────────────────────────────────────────────────────┤
+│ 长期记忆 (Long-term Memory) │
+│ - 用户画像 - 偏好设置 - 历史决策 - 知识沉淀 │
+│ - 生命周期：持久化 / 数月 - 数年 │
+├─────────────────────────────────────────────────────────────┤
+│ 记忆管理 (Memory Management) │
+│ - 编码 (Encoding) - 存储 (Storage) - 检索 (Retrieval) │
+│ - 巩固 (Consolidation) - 遗忘 (Forgetting) │
+└─────────────────────────────────────────────────────────────┘
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="12-记忆操作生命周期"&gt;1.2 记忆操作生命周期&lt;/h3&gt;
+&lt;p&gt;********************************| 阶段 | 描述 | 关键技术 |
+| &amp;mdash; | &amp;mdash; | &amp;mdash; |
+| 编码 | 将原始信息转化为可存储格式 | 文本分块、向量化、元数据提取 |
+| 存储 | 持久化到存储介质 | SQLite、向量数据库、云存储 |
+| 索引 | 建立检索结构 | 倒排索引、HNSW、IVF-PQ |
+| 检索 | 根据查询召回相关记忆 | 语义搜索、关键词匹配、混合搜索 |
+| 重排序 | 对检索结果进行精排 | Cross-Encoder、LLM Rerank |
+| 融合 | 将记忆注入上下文 | Prompt 工程、上下文窗口管理 |
+| 巩固 | 将短期记忆转化为长期记忆 | 定期汇总、重要性评分、去重 |
+| 遗忘 | 清理低价值记忆 | 时间衰减、使用频率、主动删除 |&lt;/p&gt;</description></item><item><title>让小龙虾做梦：OpenClaw 梦境功能解析</title><link>https://ayeah.net/posts/openclaw-dream-mode-analysis/</link><pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/openclaw-dream-mode-analysis/</guid><description>&lt;h1 id="让小龙虾做梦openclaw-梦境功能解析"&gt;让小龙虾做梦：OpenClaw 梦境功能解析&lt;/h1&gt;
+&lt;p&gt;你的小龙虾学会做梦了吗？&lt;/p&gt;
+&lt;p&gt;你的 OpenClaw 是不是经常健忘？&lt;/p&gt;
+&lt;p&gt;昨天明明告诉它：“我养了一只叫布丁的猫，对猫毛过敏，喜欢喝拿铁。”
+今天它又问：“你养宠物吗？对什么过敏吗？喜欢喝什么？”&lt;/p&gt;
+&lt;p&gt;是不是有种对牛弹琴的感觉？&lt;/p&gt;
+&lt;p&gt;别急，这不是你的问题，是它还没学会&lt;strong&gt;做梦&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;没错，就是你想的那个&amp;quot;做梦&amp;quot;。OpenClaw 最新版的「梦境」(Dreaming) 功能，能让 AI 智能体像人类一样，在后台自动整理记忆，把重要的事记牢，把无关紧要的事过滤掉。&lt;/p&gt;
+&lt;p&gt;今天我们就来聊聊：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;梦境功能到底是怎么工作的？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;为什么需要三个睡眠阶段？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;怎么配置才能让 AI 记住你的重要信息？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;有哪些坑我帮你踩过了？&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="准备好了吗咱们开始"&gt;准备好了吗？咱们开始。&lt;/h2&gt;
+&lt;h2 id="-梦境功能是啥为啥需要它"&gt;🧠 梦境功能是啥？为啥需要它？&lt;/h2&gt;
+&lt;p&gt;先说个扎心的事实：&lt;strong&gt;OpenClaw 默认是不记长性记忆的&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;你每次和它聊天，它都会把重要信息存到短期记忆里。但短期记忆有个毛病——就像你没保存文档就关了电脑，会话一结束，大部分内容就没了。&lt;/p&gt;
+&lt;p&gt;这时候「梦境」功能就登场了。&lt;/p&gt;
+&lt;h3 id="梦境做了什么"&gt;梦境做了什么？&lt;/h3&gt;
+&lt;p&gt;简单来说，梦境是一个&lt;strong&gt;后台记忆巩固系统&lt;/strong&gt;。它会在你睡觉的时候（默认凌晨 3 点）自动运行，做三件事：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;整理&lt;/strong&gt;：把白天的短期记忆翻出来看看&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;筛选&lt;/strong&gt;：判断哪些值得长期保存&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;存档&lt;/strong&gt;：把重要的写进 &lt;code&gt;MEMORY.md&lt;/code&gt;（长期记忆库）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="是不是很像一个负责任的秘书白天你忙的时候它不打扰晚上你睡了它开始整理文件"&gt;是不是很像一个负责任的秘书？白天你忙的时候它不打扰，晚上你睡了它开始整理文件。&lt;/h2&gt;
+&lt;h2 id="-三个睡眠阶段浅层深层rem"&gt;😴 三个睡眠阶段：浅层、深层、REM&lt;/h2&gt;
+&lt;p&gt;梦境系统最有趣的地方是它模拟了人类的睡眠周期，分三个阶段：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;Light (浅层) → REM (快速眼动) → Deep (深层)
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="1-light-阶段浅层睡眠"&gt;1️⃣ Light 阶段：浅层睡眠&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;任务&lt;/strong&gt;：整理和暂存近期材料&lt;/p&gt;
+&lt;p&gt;这个阶段就像你刚入睡时的大脑，开始回放白天的经历：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;读取最近的对话记录&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;读取日常记忆文件&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;去重、暂存候选条目&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;记录&amp;quot;这个信息被提到过&amp;quot;的信号&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;关键点&lt;/strong&gt;：Light 阶段&lt;strong&gt;不写入&lt;/strong&gt;长期记忆，只是 staging（暂存）。&lt;/p&gt;
+&lt;h3 id="2-rem-阶段快速眼动"&gt;2️⃣ REM 阶段：快速眼动&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;任务&lt;/strong&gt;：反思主题和模式&lt;/p&gt;
+&lt;p&gt;这个阶段最有意思，它开始&amp;quot;做梦&amp;quot;了：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;从短期记忆中提取主题&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;发现重复出现的想法&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;生成反思摘要&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;写进梦境日记（&lt;code&gt;DREAMS.md&lt;/code&gt;）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;关键点&lt;/strong&gt;：REM 阶段也&lt;strong&gt;不写入&lt;/strong&gt;长期记忆，但会生成人类可读的&amp;quot;梦境日记&amp;quot;。&lt;/p&gt;</description></item></channel></rss>
