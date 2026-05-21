@@ -33,7 +33,7 @@
 &lt;li&gt;桥接到外部 Agent 引擎（OpenClaw Chat / Hermes Agent Chat）&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="2-agent-设计器--工作流深度融合"&gt;2. Agent 设计器 + 工作流深度融合&lt;/h3&gt;
-&lt;p&gt;Dify 的 Agent 不再是「一个对话窗口」那么简单了：&lt;/p&gt;</description></item><item><title>智能体技能开发指南：从原理到实践</title><link>https://ayeah.net/posts/%E6%99%BA%E8%83%BD%E4%BD%93%E6%8A%80%E8%83%BD%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%E4%BB%8E%E5%8E%9F%E7%90%86%E5%88%B0%E5%AE%9E%E8%B7%B5/</link><pubDate>Tue, 28 Apr 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/%E6%99%BA%E8%83%BD%E4%BD%93%E6%8A%80%E8%83%BD%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97%E4%BB%8E%E5%8E%9F%E7%90%86%E5%88%B0%E5%AE%9E%E8%B7%B5/</guid><description>&lt;h1 id="智能体技能开发指南从原理到实践"&gt;智能体技能开发指南：从原理到实践&lt;/h1&gt;
+&lt;p&gt;Dify 的 Agent 不再是「一个对话窗口」那么简单了：&lt;/p&gt;</description></item><item><title>智能体技能开发指南：从原理到实践</title><link>https://ayeah.net/posts/agent-skill-development-guide/</link><pubDate>Tue, 28 Apr 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/agent-skill-development-guide/</guid><description>&lt;h1 id="智能体技能开发指南从原理到实践"&gt;智能体技能开发指南：从原理到实践&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;让 AI 从&amp;quot;通用助手&amp;quot;变成&amp;quot;领域专家&amp;quot;&lt;/p&gt;
@@ -65,7 +65,7 @@
 | &amp;mdash; | &amp;mdash; | &amp;mdash; |
 | 高自由度 | 多种方法都有效、决策依赖上下文 | 文本指导、启发式方法 |
 | 中自由度 | 有推荐模式、可接受一定变化 | 伪代码、带参数的脚本 |
-| 低自由度 | 操作脆弱易错、一致性关键 | 具体脚本、少量参数 |&lt;/p&gt;</description></item><item><title>DeepSeek-V4 正式发布：开源模型首次全面超越闭源御三家</title><link>https://ayeah.net/posts/deepseek-v4-%E6%AD%A3%E5%BC%8F%E5%8F%91%E5%B8%83%E5%BC%80%E6%BA%90%E6%A8%A1%E5%9E%8B%E9%A6%96%E6%AC%A1%E5%85%A8%E9%9D%A2%E8%B6%85%E8%B6%8A%E9%97%AD%E6%BA%90%E5%BE%A1%E4%B8%89%E5%AE%B6/</link><pubDate>Fri, 24 Apr 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/deepseek-v4-%E6%AD%A3%E5%BC%8F%E5%8F%91%E5%B8%83%E5%BC%80%E6%BA%90%E6%A8%A1%E5%9E%8B%E9%A6%96%E6%AC%A1%E5%85%A8%E9%9D%A2%E8%B6%85%E8%B6%8A%E9%97%AD%E6%BA%90%E5%BE%A1%E4%B8%89%E5%AE%B6/</guid><description>&lt;h2 id="-重磅消息"&gt;🎯 重磅消息&lt;/h2&gt;
+| 低自由度 | 操作脆弱易错、一致性关键 | 具体脚本、少量参数 |&lt;/p&gt;</description></item><item><title>DeepSeek-V4 正式发布：开源模型首次全面超越闭源御三家</title><link>https://ayeah.net/posts/deepseek-v4-release-open-source-leads/</link><pubDate>Fri, 24 Apr 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/deepseek-v4-release-open-source-leads/</guid><description>&lt;h2 id="-重磅消息"&gt;🎯 重磅消息&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;DeepSeek-V4 今天（2026 年 4 月 24 日）正式发布！&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;不是传闻，不是&amp;quot;下周发布&amp;quot;，就在今天。时隔 15 个月，DeepSeek 终于交出了 R1 之后的首个重大版本更新。&lt;/p&gt;
 &lt;p&gt;这次一口气发布两个版本：********| 版本 | 总参数 | 激活参数 | 定位 |
@@ -95,7 +95,7 @@
 | DeepSeek-V4-Pro | 93.5 | 3206 |
 | Claude Opus 4.6 | 88.8 | - |
 | GPT-5.4 | - | 3168 |
-| Gemini-3.1-Pro | 91.7 | 3052 |&lt;/p&gt;</description></item><item><title>AI Agent 记忆系统优化最佳实践</title><link>https://ayeah.net/posts/ai-agent-%E8%AE%B0%E5%BF%86%E7%B3%BB%E7%BB%9F%E4%BC%98%E5%8C%96%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</link><pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/ai-agent-%E8%AE%B0%E5%BF%86%E7%B3%BB%E7%BB%9F%E4%BC%98%E5%8C%96%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</guid><description>&lt;h2 id="-前言"&gt;📋 前言&lt;/h2&gt;
+| Gemini-3.1-Pro | 91.7 | 3052 |&lt;/p&gt;</description></item><item><title>AI Agent 记忆系统优化最佳实践</title><link>https://ayeah.net/posts/ai-agent-memory-optimization/</link><pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/ai-agent-memory-optimization/</guid><description>&lt;h2 id="-前言"&gt;📋 前言&lt;/h2&gt;
 &lt;p&gt;AI Agent 的记忆系统是实现智能对话连续性和个性化服务的关键组件。本文基于 OpenClaw 记忆系统架构，结合业界主流记忆方案（MemOS、阿里云百炼、Hermes 等），为企业级 AI Agent 记忆系统设计提供完整的实践指导。&lt;/p&gt;
 &lt;h2 id="1-记忆系统核心架构"&gt;1. 记忆系统核心架构&lt;/h2&gt;
 &lt;h3 id="11-记忆分层模型"&gt;1.1 记忆分层模型&lt;/h3&gt;
@@ -126,7 +126,7 @@
 | 重排序 | 对检索结果进行精排 | Cross-Encoder、LLM Rerank |
 | 融合 | 将记忆注入上下文 | Prompt 工程、上下文窗口管理 |
 | 巩固 | 将短期记忆转化为长期记忆 | 定期汇总、重要性评分、去重 |
-| 遗忘 | 清理低价值记忆 | 时间衰减、使用频率、主动删除 |&lt;/p&gt;</description></item><item><title>AI 智能体 Skill 完全指南：从概念到实战</title><link>https://ayeah.net/posts/ai-%E6%99%BA%E8%83%BD%E4%BD%93-skill-%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97%E4%BB%8E%E6%A6%82%E5%BF%B5%E5%88%B0%E5%AE%9E%E6%88%98/</link><pubDate>Sun, 29 Mar 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/ai-%E6%99%BA%E8%83%BD%E4%BD%93-skill-%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97%E4%BB%8E%E6%A6%82%E5%BF%B5%E5%88%B0%E5%AE%9E%E6%88%98/</guid><description>&lt;h2 id="-什么是-ai-智能体-skill"&gt;🎯 什么是 AI 智能体 Skill？&lt;/h2&gt;
+| 遗忘 | 清理低价值记忆 | 时间衰减、使用频率、主动删除 |&lt;/p&gt;</description></item><item><title>AI 智能体 Skill 完全指南：从概念到实战</title><link>https://ayeah.net/posts/ai-agent-skill-complete-guide/</link><pubDate>Sun, 29 Mar 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/ai-agent-skill-complete-guide/</guid><description>&lt;h2 id="-什么是-ai-智能体-skill"&gt;🎯 什么是 AI 智能体 Skill？&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Skill（技能）&lt;/strong&gt; 是 AI 智能体的核心能力单元，它定义了智能体能够执行的具体任务和操作。就像人类通过学习掌握各种技能一样，AI 智能体通过 Skill 系统获得与外部世界交互的能力。&lt;/p&gt;
 &lt;h3 id="核心定义"&gt;核心定义&lt;/h3&gt;
 &lt;blockquote&gt;
@@ -151,7 +151,7 @@
 | 内容创作 | 生成或编辑内容 | 文章撰写、代码生成、图片处理 |
 | 任务管理 | 执行工作流程 | 待办事项、日程安排、会议管理 |
 | 系统集成 | 连接第三方服务 | 企业微信、飞书、GitHub |
-| 系统运维 | 管理和监控 | 健康检查、备份、部署 |&lt;/p&gt;</description></item><item><title>OpenClaw 智能体快速入门指南</title><link>https://ayeah.net/posts/openclaw-%E6%99%BA%E8%83%BD%E4%BD%93%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/</link><pubDate>Thu, 26 Mar 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/openclaw-%E6%99%BA%E8%83%BD%E4%BD%93%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/</guid><description>&lt;h2 id="-什么是-openclaw"&gt;🎯 什么是 OpenClaw？&lt;/h2&gt;
+| 系统运维 | 管理和监控 | 健康检查、备份、部署 |&lt;/p&gt;</description></item><item><title>OpenClaw 智能体快速入门指南</title><link>https://ayeah.net/posts/openclaw-quick-start-guide/</link><pubDate>Thu, 26 Mar 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/openclaw-quick-start-guide/</guid><description>&lt;h2 id="-什么是-openclaw"&gt;🎯 什么是 OpenClaw？&lt;/h2&gt;
 &lt;p&gt;OpenClaw 是一个开源的 AI 智能体运行时框架，让你能够快速构建、部署和管理个性化的 AI 助手。&lt;/p&gt;
 &lt;h3 id="核心特性"&gt;核心特性&lt;/h3&gt;
 &lt;ul&gt;

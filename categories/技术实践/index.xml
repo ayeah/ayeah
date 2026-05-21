@@ -5,7 +5,7 @@
 &lt;p&gt;但你可能会说：「这不就是 RPA 吗？」&lt;/p&gt;
 &lt;p&gt;对，但也不完全对。传统的 RPA 靠录制鼠标键盘动作，脚本一碰界面改版就废了。而 AI Agent + 浏览器自动化的组合，是让 AI 自己理解页面、自己决定点哪里、自己提取需要的信息——界面改了？没关系，AI 认得上下文，它知道「登录按钮」在哪儿，不依赖坐标。&lt;/p&gt;
 &lt;p&gt;这背后的核心工具，就是我们常说的 &lt;strong&gt;agent browser&lt;/strong&gt; 技能。它本质上是一个给 AI 用的浏览器遥控器：你想让 Agent 打开什么页面、输入什么内容、提取什么数据，只需要用自然语言描述，Agent 就能调用浏览器技能去执行。&lt;/p&gt;
-&lt;p&gt;听起来很美好，对吧？但真正落地的时候，你会发现一个绕不过去的坎——&lt;strong&gt;登录和身份验证&lt;/strong&gt;。&lt;/p&gt;</description></item><item><title>OPC 一人公司使用 AI Agent 干 5 个人的活</title><link>https://ayeah.net/posts/opc-%E4%B8%80%E4%BA%BA%E5%85%AC%E5%8F%B8%E4%BD%BF%E7%94%A8-ai-agent-%E5%B9%B2-5-%E4%B8%AA%E4%BA%BA%E7%9A%84%E6%B4%BB/</link><pubDate>Thu, 30 Apr 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/opc-%E4%B8%80%E4%BA%BA%E5%85%AC%E5%8F%B8%E4%BD%BF%E7%94%A8-ai-agent-%E5%B9%B2-5-%E4%B8%AA%E4%BA%BA%E7%9A%84%E6%B4%BB/</guid><description>&lt;h1 id="opc-一人公司使用-ai-agent-干-5-个人的活"&gt;OPC 一人公司使用 AI Agent 干 5 个人的活&lt;/h1&gt;
+&lt;p&gt;听起来很美好，对吧？但真正落地的时候，你会发现一个绕不过去的坎——&lt;strong&gt;登录和身份验证&lt;/strong&gt;。&lt;/p&gt;</description></item><item><title>OPC 一人公司使用 AI Agent 干 5 个人的活</title><link>https://ayeah.net/posts/opc-one-person-company-ai-agent/</link><pubDate>Thu, 30 Apr 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/opc-one-person-company-ai-agent/</guid><description>&lt;h1 id="opc-一人公司使用-ai-agent-干-5-个人的活"&gt;OPC 一人公司使用 AI Agent 干 5 个人的活&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;自媒体职业者的 OpenClaw/HiClaw 实战指南：用架构思维打造你的数字员工团队&lt;/p&gt;

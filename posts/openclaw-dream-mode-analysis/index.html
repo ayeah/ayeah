@@ -1,0 +1,79 @@
+<!doctype html><html lang=zh class="h-full antialiased"><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>让小龙虾做梦：OpenClaw 梦境功能解析 - 虾大师</title><meta name=description content="专注于 OpenClaw、AI Agent、自动化等前沿技术，记录数字化转型路上的技术探索与实战经验"><meta name=author content="虾小弟"><meta name=keywords content="AI,智能体,OpenClaw,AI Agent,自动化,技术博客"><meta property="og:title" content="让小龙虾做梦：OpenClaw 梦境功能解析"><meta property="og:description" content="专注于 OpenClaw、AI Agent、自动化等前沿技术，记录数字化转型路上的技术探索与实战经验"><meta property="og:url" content="https://ayeah.net/posts/openclaw-dream-mode-analysis/"><meta property="og:site_name" content="虾大师"><meta property="og:locale" content="zh_CN"><meta property="og:type" content="article"><meta name=twitter:card content="summary"><meta name=twitter:title content="让小龙虾做梦：OpenClaw 梦境功能解析"><meta name=twitter:description content="专注于 OpenClaw、AI Agent、自动化等前沿技术，记录数字化转型路上的技术探索与实战经验"><link rel=icon href=/favicon.ico sizes=256x256 type=image/x-icon><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel=stylesheet><link rel=stylesheet href=/css/style.css></head><body class="min-h-full flex flex-col"><header class=header id=header><nav class=nav><a href=/ class=logo><div class=logo-icon><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 12h.01"/><path d="M13 22c.5-.5 1.12-1 2.5-1-1.38.0-2-.5-2.5-1"/><path d="M14 2a3.28 3.28.0 01-3.227 1.798l-6.17-.561A2.387 2.387.0 104.387 8H15.5a1 1 0 010 13 1 1 0 000-5H12A7 7 0 015 9V8"/><path d="M14 8a8.5 8.5.0 010 8"/><path d="M16 16c2 0 4.5-4 4-6"/></svg></div><span class=logo-text>虾大师</span></a><ul class=nav-menu id=navMenu><li class=nav-item><a href=/ class=nav-link>主页</a></li><li class=nav-item><a href=/articles/ class=nav-link>文章</a></li><li class=nav-item><a href=/about/ class=nav-link>关于</a></li><li class=nav-item><div class=nav-link style=cursor:pointer>标签
+<svg style="display:inline;width:14px;height:14px;margin-left:4px" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></div><div style="position:absolute;top:100%;right:0;margin-top:.5rem;min-width:180px;background:var(--bg-secondary);border:1px solid var(--border-light);border-radius:12px;box-shadow:0 20px 40px rgba(0,0,0,.4);opacity:0;visibility:hidden;transition:all .3s ease;z-index:100"><div style=padding:.5rem><a href=https://ayeah.net/tags/openclaw/ style="display:block;padding:.5rem 1rem;color:var(--text-secondary);text-decoration:none;border-radius:8px;font-size:.875rem;transition:all .3s ease">Openclaw
+<span style=float:right;color:var(--text-muted);font-size:.75rem>16</span>
+</a><a href=https://ayeah.net/tags/agent/ style="display:block;padding:.5rem 1rem;color:var(--text-secondary);text-decoration:none;border-radius:8px;font-size:.875rem;transition:all .3s ease">Agent
+<span style=float:right;color:var(--text-muted);font-size:.75rem>6</span>
+</a><a href=https://ayeah.net/tags/ai/ style="display:block;padding:.5rem 1rem;color:var(--text-secondary);text-decoration:none;border-radius:8px;font-size:.875rem;transition:all .3s ease">Ai
+<span style=float:right;color:var(--text-muted);font-size:.75rem>5</span>
+</a><a href=https://ayeah.net/tags/ai-%E6%99%BA%E8%83%BD%E4%BD%93/ style="display:block;padding:.5rem 1rem;color:var(--text-secondary);text-decoration:none;border-radius:8px;font-size:.875rem;transition:all .3s ease">Ai-智能体
+<span style=float:right;color:var(--text-muted);font-size:.75rem>4</span>
+</a><a href=https://ayeah.net/tags/ai-agent/ style="display:block;padding:.5rem 1rem;color:var(--text-secondary);text-decoration:none;border-radius:8px;font-size:.875rem;transition:all .3s ease">AI Agent
+<span style=float:right;color:var(--text-muted);font-size:.75rem>3</span>
+</a><a href=/tags/ style="display:block;padding:.5rem 1rem;color:var(--primary);text-decoration:none;border-radius:8px;font-size:.875rem;transition:all .3s ease;border-top:1px solid var(--border-light);margin-top:.5rem;padding-top:.75rem">更多...
+<svg style="display:inline;width:12px;height:12px;margin-left:4px" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a></div></div></li></ul><button class=menu-toggle id=menuToggle aria-label=切换菜单>
+<span></span><span></span><span></span></button></nav></header><script>const header=document.getElementById("header");window.addEventListener("scroll",()=>{window.scrollY>50?header.classList.add("scrolled"):header.classList.remove("scrolled")});const menuToggle=document.getElementById("menuToggle"),navMenu=document.getElementById("navMenu");menuToggle.addEventListener("click",()=>{navMenu.classList.toggle("active")});const tagsItem=document.querySelector(".nav-item:last-child");if(tagsItem){const e=tagsItem.querySelector("div:last-child");tagsItem.addEventListener("mouseenter",()=>{e.style.opacity="1",e.style.visibility="visible"}),tagsItem.addEventListener("mouseleave",()=>{e.style.opacity="0",e.style.visibility="hidden"})}</script><main class=flex-1><section class=article-page style="padding-top:calc(var(--header-height) + 3rem)"><div class=container style=max-width:800px><header class=article-header><h1 class=article-title>让小龙虾做梦：OpenClaw 梦境功能解析</h1></header><div class=article-body><h1 id=让小龙虾做梦openclaw-梦境功能解析>让小龙虾做梦：OpenClaw 梦境功能解析</h1><p>你的小龙虾学会做梦了吗？</p><p>你的 OpenClaw 是不是经常健忘？</p><p>昨天明明告诉它：“我养了一只叫布丁的猫，对猫毛过敏，喜欢喝拿铁。”
+今天它又问：“你养宠物吗？对什么过敏吗？喜欢喝什么？”</p><p>是不是有种对牛弹琴的感觉？</p><p>别急，这不是你的问题，是它还没学会<strong>做梦</strong>。</p><p>没错，就是你想的那个"做梦"。OpenClaw 最新版的「梦境」(Dreaming) 功能，能让 AI 智能体像人类一样，在后台自动整理记忆，把重要的事记牢，把无关紧要的事过滤掉。</p><p>今天我们就来聊聊：</p><ul><li><p>梦境功能到底是怎么工作的？</p></li><li><p>为什么需要三个睡眠阶段？</p></li><li><p>怎么配置才能让 AI 记住你的重要信息？</p></li><li><p>有哪些坑我帮你踩过了？</p></li></ul><h2 id=准备好了吗咱们开始>准备好了吗？咱们开始。</h2><h2 id=-梦境功能是啥为啥需要它>🧠 梦境功能是啥？为啥需要它？</h2><p>先说个扎心的事实：<strong>OpenClaw 默认是不记长性记忆的</strong>。</p><p>你每次和它聊天，它都会把重要信息存到短期记忆里。但短期记忆有个毛病——就像你没保存文档就关了电脑，会话一结束，大部分内容就没了。</p><p>这时候「梦境」功能就登场了。</p><h3 id=梦境做了什么>梦境做了什么？</h3><p>简单来说，梦境是一个<strong>后台记忆巩固系统</strong>。它会在你睡觉的时候（默认凌晨 3 点）自动运行，做三件事：</p><ol><li><p><strong>整理</strong>：把白天的短期记忆翻出来看看</p></li><li><p><strong>筛选</strong>：判断哪些值得长期保存</p></li><li><p><strong>存档</strong>：把重要的写进 <code>MEMORY.md</code>（长期记忆库）</p></li></ol><h2 id=是不是很像一个负责任的秘书白天你忙的时候它不打扰晚上你睡了它开始整理文件>是不是很像一个负责任的秘书？白天你忙的时候它不打扰，晚上你睡了它开始整理文件。</h2><h2 id=-三个睡眠阶段浅层深层rem>😴 三个睡眠阶段：浅层、深层、REM</h2><p>梦境系统最有趣的地方是它模拟了人类的睡眠周期，分三个阶段：</p><pre tabindex=0><code>Light (浅层) → REM (快速眼动) → Deep (深层)
+</code></pre><h3 id=1-light-阶段浅层睡眠>1️⃣ Light 阶段：浅层睡眠</h3><p><strong>任务</strong>：整理和暂存近期材料</p><p>这个阶段就像你刚入睡时的大脑，开始回放白天的经历：</p><ul><li><p>读取最近的对话记录</p></li><li><p>读取日常记忆文件</p></li><li><p>去重、暂存候选条目</p></li><li><p>记录"这个信息被提到过"的信号</p></li></ul><p><strong>关键点</strong>：Light 阶段<strong>不写入</strong>长期记忆，只是 staging（暂存）。</p><h3 id=2-rem-阶段快速眼动>2️⃣ REM 阶段：快速眼动</h3><p><strong>任务</strong>：反思主题和模式</p><p>这个阶段最有意思，它开始"做梦"了：</p><ul><li><p>从短期记忆中提取主题</p></li><li><p>发现重复出现的想法</p></li><li><p>生成反思摘要</p></li><li><p>写进梦境日记（<code>DREAMS.md</code>）</p></li></ul><p><strong>关键点</strong>：REM 阶段也<strong>不写入</strong>长期记忆，但会生成人类可读的"梦境日记"。</p><h3 id=3-deep-阶段深层睡眠>3️⃣ Deep 阶段：深层睡眠</h3><p><strong>任务</strong>：评分并提升到长期记忆</p><p>这才是重头戏：</p><ul><li><p>对候选条目打分（用 6 个维度）</p></li><li><p>超过阈值的写进 <code>MEMORY.md</code></p></li><li><p>生成 Deep 阶段报告</p></li></ul><h2 id=关键点只有-deep-阶段会真正写入长期记忆><strong>关键点</strong>：只有 Deep 阶段会<strong>真正写入</strong>长期记忆。</h2><h2 id=-深度排名ai-怎么判断什么值得记>📊 深度排名：AI 怎么判断什么值得记？</h2><p>你可能会问：那 AI 怎么知道什么该记、什么不该记？</p><p>好问题。Deep 阶段用了一个<strong>六维评分系统</strong>：************************| 维度 | 权重 | 说明 | 人话翻译 |
+| &mdash; | &mdash; | &mdash; | &mdash; |
+| 相关性 | 30% | 平均检索质量 | “这信息有用吗？” |
+| 频率 | 24% | 被提到的次数 | “这信息重要吗？” |
+| 查询多样性 | 15% | 不同查询都提到它 | “这信息通用吗？” |
+| 近因性 | 15% | 时间衰减新鲜度 | “这信息新鲜吗？” |
+| 巩固度 | 10% | 多日重复强度 | “这信息持久吗？” |
+| 概念丰富度 | 6% | 概念标签密度 | “这信息有深度吗？” |</p><p>看到没，<strong>相关性</strong>和<strong>频率</strong>占了 54% 的权重。</p><p>换句话说：</p><ul><li><p>你反复提到的事 → 更可能被记住</p></li><li><p>检索时经常用到的信息 → 更可能被记住</p></li><li><p>最近几天反复出现的话题 → 更可能被记住</p></li></ul><h2 id=是不是很合理>是不是很合理？</h2><h2 id=-怎么启用梦境功能>⚙️ 怎么启用梦境功能？</h2><p>好了，理论讲够了，来点实际的。</p><h3 id=方法一配置文件启用>方法一：配置文件启用</h3><p>找到你的 OpenClaw 配置文件（通常是 <code>config.json</code> 或 <code>plugins.json</code>），添加以下内容：</p><pre tabindex=0><code>{
+  &#34;plugins&#34;: {
+    &#34;entries&#34;: {
+      &#34;memory-core&#34;: {
+        &#34;config&#34;: {
+          &#34;dreaming&#34;: {
+            &#34;enabled&#34;: true
+          }
+        }
+      }
+    }
+  }
+}
+</code></pre><p>保存，重启 Gateway，搞定。</p><h3 id=方法二自定义执行频率>方法二：自定义执行频率</h3><p>默认情况下，梦境每天凌晨 3 点运行。如果你是夜猫子，或者想让 AI 更频繁地整理记忆，可以改频率：</p><pre tabindex=0><code>{
+  &#34;plugins&#34;: {
+    &#34;entries&#34;: {
+      &#34;memory-core&#34;: {
+        &#34;config&#34;: {
+          &#34;dreaming&#34;: {
+            &#34;enabled&#34;: true,
+            &#34;timezone&#34;: &#34;Asia/Shanghai&#34;,
+            &#34;frequency&#34;: &#34;0 */6 * * *&#34;
+          }
+        }
+      }
+    }
+  }
+}
+</code></pre><p>上面这个配置是<strong>每 6 小时运行一次</strong>。</p><p><strong>频率参考</strong>：</p><ul><li><p><code>0 3 * * *</code> → 每天凌晨 3 点（默认）</p></li><li><p><code>0 */6 * * *</code> → 每 6 小时一次</p></li><li><p><code>0 3,15 * * *</code> → 每天凌晨 3 点和下午 3 点</p></li></ul><h3 id=方法三slash-命令如果你在用-web-ui>方法三：Slash 命令（如果你在用 Web UI）</h3><pre tabindex=0><code>/dreaming on      # 启用
+/dreaming off     # 关闭
+/dreaming status  # 查看状态
+</code></pre><hr><h2 id=-实战用-cli-管理梦境>🛠️ 实战：用 CLI 管理梦境</h2><p>OpenClaw 提供了一套完整的 CLI 命令来管理梦境功能。</p><h3 id=查看梦境状态>查看梦境状态</h3><pre tabindex=0><code>openclaw memory status --deep
+</code></pre><p>会显示：</p><ul><li><p>梦境是否启用</p></li><li><p>下次运行时间</p></li><li><p>各阶段的候选数量</p></li><li><p>今日已提升的记忆条目</p></li></ul><h3 id=预览待提升的记忆不实际写入>预览待提升的记忆（不实际写入）</h3><pre tabindex=0><code>openclaw memory promote
+</code></pre><p>这个命令会列出<strong>可能</strong>被提升到长期记忆的候选条目，但<strong>不会实际写入</strong>。</p><p>建议第一次启用时先用这个命令看看 AI 想记什么，确认符合预期再继续。</p><h3 id=应用提升真正写入>应用提升（真正写入）</h3><pre tabindex=0><code>openclaw memory promote --apply
+</code></pre><p>这个才会真正把候选条目写进 <code>MEMORY.md</code>。</p><h3 id=限制提升数量>限制提升数量</h3><pre tabindex=0><code>openclaw memory promote --limit 5
+</code></pre><p>只提升前 5 个候选，适合想慢慢来的情况。</p><h3 id=解释为什么某条被选中被排除>解释为什么某条被选中/被排除</h3><pre tabindex=0><code>openclaw memory promote-explain &#34;router vlan&#34;
+</code></pre><p>这个命令超级有用！它会告诉你：</p><ul><li><p>为什么"router vlan"这个主题被选中（或没被选中）</p></li><li><p>各维度的得分是多少</p></li><li><p>阈值是多少</p></li></ul><p>调试神器。</p><h3 id=预览-rem-阶段的梦境日记>预览 REM 阶段的"梦境日记"</h3><pre tabindex=0><code>openclaw memory rem-harness
+openclaw memory rem-harness --json
+</code></pre><h2 id=看看-ai梦到了什么挺有意思的>看看 AI"梦"到了什么，挺有意思的。</h2><h2 id=-输出文件梦境都写在哪>📁 输出文件：梦境都写在哪？</h2><p>启用梦境后，你会看到这些新文件：````````| 文件/目录 | 用途 | 人类可读？ |
+| &mdash; | &mdash; | &mdash; |
+| memory/.dreams/ | 机器状态（检索存储、阶段信号、检查点） | ❌ |
+| DREAMS.md | 梦境日记 | ✅ |
+| memory/dreaming/<phase>/YYYY-MM-DD.md | 各阶段报告 | ✅ |
+| MEMORY.md | 长期记忆（仅 Deep 阶段写入） | ✅ |</p><h2 id=重点dreamsmd-是给你看的梦境日记记录了-ai-的反思和主题发现没事翻翻挺有意思的><strong>重点</strong>：<code>DREAMS.md</code> 是给你看的"梦境日记"，记录了 AI 的反思和主题发现。没事翻翻，挺有意思的。</h2><h2 id=-踩坑提醒我帮你试过错了>⚠️ 踩坑提醒：我帮你试过错了</h2><h3 id=坑-1启用了但没看到效果>坑 1：启用了但没看到效果</h3><p><strong>症状</strong>：配置改了，Gateway 也重启了，但 <code>MEMORY.md</code> 还是空的。</p><p><strong>原因</strong>：梦境需要<strong>足够的短期记忆素材</strong>才能工作。如果你刚启用，或者最近没什么对话，它没东西可整理。</p><p><strong>解决</strong>：</p><ol><li><p>正常使用几天，积累一些对话</p></li><li><p>用 <code>openclaw memory status --deep</code> 查看候选数量</p></li><li><p>有候选后再手动运行 <code>openclaw memory promote --apply</code></p></li></ol><h3 id=坑-2频率设得太高>坑 2：频率设得太高</h3><p><strong>症状</strong>：设成每分钟运行一次，结果日志爆炸。</p><p><strong>原因</strong>：梦境是重量级操作，每次运行都要读取大量文件、运行子代理。</p><p><strong>建议</strong>：最低设成每 6 小时一次，别太频繁。</p><h3 id=坑-3时区没设对>坑 3：时区没设对</h3><p><strong>症状</strong>：以为凌晨 3 点运行，结果发现是下午 3 点跑的。</p><p><strong>原因</strong>：没设 <code>timezone</code>，用了系统默认时区。</p><p><strong>解决</strong>：</p><pre tabindex=0><code>{
+  &#34;dreaming&#34;: {
+    &#34;enabled&#34;: true,
+    &#34;timezone&#34;: &#34;Asia/Shanghai&#34;,
+    &#34;frequency&#34;: &#34;0 3 * * *&#34;
+  }
+}
+</code></pre><h3 id=坑-4期待-ai-记住所有事>坑 4：期待 AI 记住所有事</h3><p><strong>症状</strong>：为什么 AI 没记住我昨天说的 XXX？</p><p><strong>原因</strong>：梦境是<strong>筛选机制</strong>，不是全量备份。只有达到阈值的信息才会被提升。</p><p><strong>心态调整</strong>：梦境的设计初衷就是"记重要的，忘次要的"。如果你希望某件事一定被记住，可以：</p><ol><li><p>多次提到它（增加频率分）</p></li><li><p>在不同查询中用到它（增加多样性分）</p></li><li><p>或者…直接写进 <code>MEMORY.md</code>（手动挡）</p></li></ol><hr><h2 id=-dreams-ui可视化界面>🎯 Dreams UI：可视化界面</h2><p>如果你用 OpenClaw 的 Web Control UI，启用梦境后会多一个 <strong>Dreams</strong> 标签页。</p><p>里面可以看到：</p><ul><li><p>✅ 梦境启用状态</p></li><li><p>📊 各阶段状态和调度任务</p></li><li><p>🔢 短期/基础/信号/今日提升的数量</p></li><li><p>⏰ 下次运行时间</p></li><li><p>📜 可展开的梦境日记阅读器</p></li></ul><h2 id=比-cli-更直观推荐试试>比 CLI 更直观，推荐试试。</h2><h2 id=-总结带走这三点就够了>🎁 总结：带走这三点就够了</h2><p>好了，说了这么多，记住这三点就够了：</p><h3 id=1-梦境是什么>1️⃣ 梦境是什么？</h3><p>后台记忆巩固系统，在睡眠时整理短期记忆，把重要的写进长期记忆。</p><h3 id=2-怎么启用>2️⃣ 怎么启用？</h3><p>配置文件加一段 JSON，或者用 <code>/dreaming on</code> 命令。</p><h3 id=3-有什么要注意的>3️⃣ 有什么要注意的？</h3><ul><li><p>需要积累足够的对话素材才有效果</p></li><li><p>频率别设太高（最低 6 小时）</p></li><li><p>用 <code>promote-explain</code> 调试为什么某条没被记住</p></li></ul><hr><h2 id=-延伸阅读>🔗 延伸阅读</h2><ul><li><p><a href=https://docs.openclaw.ai/concepts/memory>OpenClaw 记忆系统概览</a></p></li><li><p><a href=https://docs.openclaw.ai/cli/memory>memory CLI 参考</a></p></li><li><p><a href=https://docs.openclaw.ai/reference/memory-config#dreaming>记忆配置参考</a></p></li></ul><hr><h2 id=关于虾大师-专注于-ai-智能体技术分享与实践的博客社区有问题评论区见><strong>关于虾大师</strong>: 专注于 AI 智能体技术分享与实践的博客社区。有问题？评论区见。</h2><p><strong>最后更新</strong>: 2026-04-20 (Asia/Shanghai)</p><h2 id=核心团队>核心团队</h2><h3 id=虾小弟>虾小弟</h3><p>创始人 & 开发者</p><h2 id=联系我们>联系我们</h2><p>有任何问题或建议？欢迎通过以下方式联系我们<a href=https://github.com/openclaw/openclaw>
+GitHub
+</a><a href=https://discord.gg/clawd>Discord</a></p></div><div style=margin-top:2rem;display:flex;gap:.5rem;flex-wrap:wrap><a href=/tags/openclaw/ class=tag-link>openclaw</a>
+<a href=/tags/ai-%E8%AE%B0%E5%BF%86/ class=tag-link>ai-记忆</a>
+<a href=/tags/%E6%A2%A6%E5%A2%83%E5%8A%9F%E8%83%BD/ class=tag-link>梦境功能</a>
+<a href=/tags/%E6%99%BA%E8%83%BD%E4%BD%93/ class=tag-link>智能体</a></div></div></section></main><footer class=site-footer><div class=footer-content><div class=footer-brand><a href=/ class=footer-logo><div class=logo-icon style=width:40px;height:40px><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 12h.01"/><path d="M13 22c.5-.5 1.12-1 2.5-1-1.38.0-2-.5-2.5-1"/><path d="M14 2a3.28 3.28.0 01-3.227 1.798l-6.17-.561A2.387 2.387.0 104.387 8H15.5a1 1 0 010 13 1 1 0 000-5H12A7 7 0 015 9V8"/><path d="M14 8a8.5 8.5.0 010 8"/><path d="M16 16c2 0 4.5-4 4-6"/></svg></div><span class=logo-text style=font-size:1.25rem>虾大师</span></a><p class=footer-description>专注于 OpenClaw、AI Agent、自动化等前沿技术，记录数字化转型路上的技术探索与实战经验</p></div><div class=footer-section><h4 class=footer-section-title>快速链接</h4><ul class=footer-links><li><a href=/>主页</a></li><li><a href=/articles/>文章</a></li><li><a href=/about/>关于</a></li><li><a href=/tags/>标签</a></li></ul></div><div class=footer-section><h4 class=footer-section-title>关注我们</h4><div style=display:flex;gap:1.5rem;color:var(--text-muted);font-size:.875rem><a href=https://github.com/ayeah style=color:var(--text-muted);text-decoration:none>关于我</a>
+<a href=https://github.com/ayeah target=_blank rel=noopener style=color:var(--text-muted);text-decoration:none>GitHub</a></div></div></div><div class=footer-bottom><p>&copy; 2026 虾大师. All rights reserved.</p></div></footer></body></html>

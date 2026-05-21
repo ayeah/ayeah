@@ -1,0 +1,471 @@
+<!doctype html><html lang=zh class="h-full antialiased"><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>CoPaw vs OpenClaw：两大个人 AI 助手系统深度对比评测 - 虾大师</title><meta name=description content="专注于 OpenClaw、AI Agent、自动化等前沿技术，记录数字化转型路上的技术探索与实战经验"><meta name=author content="虾小弟"><meta name=keywords content="AI,智能体,OpenClaw,AI Agent,自动化,技术博客"><meta property="og:title" content="CoPaw vs OpenClaw：两大个人 AI 助手系统深度对比评测"><meta property="og:description" content="专注于 OpenClaw、AI Agent、自动化等前沿技术，记录数字化转型路上的技术探索与实战经验"><meta property="og:url" content="https://ayeah.net/posts/copaw-vs-openclaw-personal-assistant-comparison/"><meta property="og:site_name" content="虾大师"><meta property="og:locale" content="zh_CN"><meta property="og:type" content="article"><meta name=twitter:card content="summary"><meta name=twitter:title content="CoPaw vs OpenClaw：两大个人 AI 助手系统深度对比评测"><meta name=twitter:description content="专注于 OpenClaw、AI Agent、自动化等前沿技术，记录数字化转型路上的技术探索与实战经验"><link rel=icon href=/favicon.ico sizes=256x256 type=image/x-icon><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel=stylesheet><link rel=stylesheet href=/css/style.css></head><body class="min-h-full flex flex-col"><header class=header id=header><nav class=nav><a href=/ class=logo><div class=logo-icon><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 12h.01"/><path d="M13 22c.5-.5 1.12-1 2.5-1-1.38.0-2-.5-2.5-1"/><path d="M14 2a3.28 3.28.0 01-3.227 1.798l-6.17-.561A2.387 2.387.0 104.387 8H15.5a1 1 0 010 13 1 1 0 000-5H12A7 7 0 015 9V8"/><path d="M14 8a8.5 8.5.0 010 8"/><path d="M16 16c2 0 4.5-4 4-6"/></svg></div><span class=logo-text>虾大师</span></a><ul class=nav-menu id=navMenu><li class=nav-item><a href=/ class=nav-link>主页</a></li><li class=nav-item><a href=/articles/ class=nav-link>文章</a></li><li class=nav-item><a href=/about/ class=nav-link>关于</a></li><li class=nav-item><div class=nav-link style=cursor:pointer>标签
+<svg style="display:inline;width:14px;height:14px;margin-left:4px" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></div><div style="position:absolute;top:100%;right:0;margin-top:.5rem;min-width:180px;background:var(--bg-secondary);border:1px solid var(--border-light);border-radius:12px;box-shadow:0 20px 40px rgba(0,0,0,.4);opacity:0;visibility:hidden;transition:all .3s ease;z-index:100"><div style=padding:.5rem><a href=https://ayeah.net/tags/openclaw/ style="display:block;padding:.5rem 1rem;color:var(--text-secondary);text-decoration:none;border-radius:8px;font-size:.875rem;transition:all .3s ease">Openclaw
+<span style=float:right;color:var(--text-muted);font-size:.75rem>16</span>
+</a><a href=https://ayeah.net/tags/agent/ style="display:block;padding:.5rem 1rem;color:var(--text-secondary);text-decoration:none;border-radius:8px;font-size:.875rem;transition:all .3s ease">Agent
+<span style=float:right;color:var(--text-muted);font-size:.75rem>6</span>
+</a><a href=https://ayeah.net/tags/ai/ style="display:block;padding:.5rem 1rem;color:var(--text-secondary);text-decoration:none;border-radius:8px;font-size:.875rem;transition:all .3s ease">Ai
+<span style=float:right;color:var(--text-muted);font-size:.75rem>5</span>
+</a><a href=https://ayeah.net/tags/ai-%E6%99%BA%E8%83%BD%E4%BD%93/ style="display:block;padding:.5rem 1rem;color:var(--text-secondary);text-decoration:none;border-radius:8px;font-size:.875rem;transition:all .3s ease">Ai-智能体
+<span style=float:right;color:var(--text-muted);font-size:.75rem>4</span>
+</a><a href=https://ayeah.net/tags/ai-agent/ style="display:block;padding:.5rem 1rem;color:var(--text-secondary);text-decoration:none;border-radius:8px;font-size:.875rem;transition:all .3s ease">AI Agent
+<span style=float:right;color:var(--text-muted);font-size:.75rem>3</span>
+</a><a href=/tags/ style="display:block;padding:.5rem 1rem;color:var(--primary);text-decoration:none;border-radius:8px;font-size:.875rem;transition:all .3s ease;border-top:1px solid var(--border-light);margin-top:.5rem;padding-top:.75rem">更多...
+<svg style="display:inline;width:12px;height:12px;margin-left:4px" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a></div></div></li></ul><button class=menu-toggle id=menuToggle aria-label=切换菜单>
+<span></span><span></span><span></span></button></nav></header><script>const header=document.getElementById("header");window.addEventListener("scroll",()=>{window.scrollY>50?header.classList.add("scrolled"):header.classList.remove("scrolled")});const menuToggle=document.getElementById("menuToggle"),navMenu=document.getElementById("navMenu");menuToggle.addEventListener("click",()=>{navMenu.classList.toggle("active")});const tagsItem=document.querySelector(".nav-item:last-child");if(tagsItem){const e=tagsItem.querySelector("div:last-child");tagsItem.addEventListener("mouseenter",()=>{e.style.opacity="1",e.style.visibility="visible"}),tagsItem.addEventListener("mouseleave",()=>{e.style.opacity="0",e.style.visibility="hidden"})}</script><main class=flex-1><section class=article-page style="padding-top:calc(var(--header-height) + 3rem)"><div class=container style=max-width:800px><header class=article-header><h1 class=article-title>CoPaw vs OpenClaw：两大个人 AI 助手系统深度对比评测</h1></header><div class=article-body><blockquote></blockquote><p><strong>阅读时间</strong>：约 12 分钟
+<strong>最后更新</strong>：2026 年 4 月 14 日</p><hr><h2 id=前言>前言</h2><p>个人 AI 助手赛道正迎来爆发式增长。在众多开源项目中，<strong>CoPaw（现更名为 QwenPaw）</strong> 和 <strong>OpenClaw</strong> 凭借各自的优势脱颖而出，成为开发者关注的焦点。</p><ul><li><p><strong>CoPaw/QwenPaw</strong>：基于阿里 AgentScope 构建，主打轻量化和快速部署</p></li><li><p><strong>OpenClaw</strong>：社区驱动的开源项目，以强大的渠道集成和主动式任务执行著称</p></li></ul><h2 id=本文将从架构设计功能特性部署难度生态扩展等多个维度进行深度对比帮助你选择最适合的个人-ai-助手系统>本文将从架构设计、功能特性、部署难度、生态扩展等多个维度进行深度对比，帮助你选择最适合的个人 AI 助手系统。</h2><h2 id=一项目背景与定位>一、项目背景与定位</h2><h3 id=11-copawqwenpaw>1.1 CoPaw（QwenPaw）</h3><p><strong>基本信息</strong>：</p><ul><li><p><strong>官方名称</strong>：QwenPaw（原名 CoPaw，Co Personal Agent Workstation）</p></li><li><p><strong>开发团队</strong>：AgentScope 社区（阿里达摩院背景）</p></li><li><p><strong>技术栈</strong>：Python + AgentScope 框架</p></li><li><p><strong>定位</strong>：轻量级个人 AI 助手工作站</p></li><li><p><strong>仓库</strong>：https://github.com/agentscope-ai/QwenPaw</p></li></ul><p><strong>核心理念</strong>：</p><blockquote></blockquote><p>“部署在你自己的环境中，支持多种聊天平台接入，具备强大的扩展能力”</p><h3 id=12-openclaw>1.2 OpenClaw</h3><p><strong>基本信息</strong>：</p><ul><li><p><strong>官方名称</strong>：OpenClaw — Personal AI Assistant</p></li><li><p><strong>开发团队</strong>：社区驱动（核心贡献者 @steipete 等）</p></li><li><p><strong>技术栈</strong>：Node.js/TypeScript + 原生网关架构</p></li><li><p><strong>定位</strong>：全功能个人 AI 助手运行时平台</p></li><li><p><strong>仓库</strong>：https://github.com/openclaw/openclaw</p></li><li><p><strong>官网</strong>：https://openclaw.ai</p></li></ul><p><strong>核心理念</strong>：</p><blockquote></blockquote><p>“The AI that actually does things.” —— 一个真正能做事的 AI 助手</p><h3 id=13-定位对比>1.3 定位对比</h3><p>****************| 维度 | CoPaw (QwenPaw) | OpenClaw |
+| &mdash; | &mdash; | &mdash; |
+| 目标用户 | 开发者、技术爱好者 | 开发者、企业用户、高级个人用户 |
+| 使用场景 | 个人实验、轻量级自动化 | 全场景个人/团队助手 |
+| 学习曲线 | 较低，适合入门 | 中等，功能丰富需要时间掌握 |
+| 社区活跃度 | 中等（阿里生态支持） | 高（快速增长的开源社区） |</p><hr><h2 id=二架构设计对比>二、架构设计对比</h2><h3 id=21-copaw-架构>2.1 CoPaw 架构</h3><pre tabindex=0><code>┌─────────────────────────────────────┐
+│         Web UI (8088 端口)           │
+├─────────────────────────────────────┤
+│         QwenPaw Core (Python)        │
+│  ┌─────────────┐  ┌───────────────┐ │
+│  │ Agent Engine│  │ Memory System │ │
+│  └─────────────┘  └───────────────┘ │
+│  ┌─────────────┐  ┌───────────────┐ │
+│  │  Channels   │  │    Skills     │ │
+│  └─────────────┘  └───────────────┘ │
+├─────────────────────────────────────┤
+│         Docker Container             │
+│    数据卷：copaw-data:/data/qwenpaw  │
+└─────────────────────────────────────┘
+</code></pre><p><strong>架构特点</strong>：</p><ul><li><p><strong>单体架构</strong>：核心服务打包在单一容器中</p></li><li><p><strong>Web 优先</strong>：提供完整的 Web 管理界面</p></li><li><p><strong>数据持久化</strong>：使用 Docker 卷存储配置和记忆</p></li><li><p><strong>多工作区</strong>：v0.1.0+ 支持多代理工作区</p></li></ul><h3 id=22-openclaw-架构>2.2 OpenClaw 架构</h3><pre tabindex=0><code>┌──────────────────────────────────────────────────────┐
+│              Gateway (控制平面)                        │
+│  ┌──────────┐ ┌──────────┐ ┌──────────────────────┐ │
+│  │ Sessions │ │ Channels │ │ Tools &amp; Skills       │ │
+│  └──────────┘ └──────────┘ └──────────────────────┘ │
+├──────────────────────────────────────────────────────┤
+│              Agent Runtime (执行平面)                  │
+│  ┌──────────┐ ┌──────────┐ ┌──────────────────────┐ │
+│  │ Workspaces│ │ Memory  │ │ Cron &amp; Background    │ │
+│  └──────────┘ └──────────┘ └──────────────────────┘ │
+├──────────────────────────────────────────────────────┤
+│              Nodes (终端设备)                          │
+│  ┌──────────┐ ┌──────────┐ ┌──────────────────────┐ │
+│  │  macOS   │ │   iOS    │ │      Android         │ │
+│  └──────────┘ └──────────┘ └──────────────────────┘ │
+└──────────────────────────────────────────────────────┘
+</code></pre><p><strong>架构特点</strong>：</p><ul><li><p><strong>分离式架构</strong>：Gateway（控制平面）+ Agent（执行平面）+ Nodes（终端）</p></li><li><p><strong>多通道集成</strong>：原生支持 20+ 聊天平台</p></li><li><p><strong>本地优先</strong>：数据和技能存储在用户控制的环境中</p></li><li><p><strong>主动式任务</strong>：支持定时任务、心跳检查、后台执行</p></li></ul><h3 id=23-架构对比总结>2.3 架构对比总结</h3><p>********************| 特性 | CoPaw | OpenClaw |
+| &mdash; | &mdash; | &mdash; |
+| 架构复杂度 | ⭐⭐⭐（简单） | ⭐⭐⭐⭐⭐（复杂但强大） |
+| 部署方式 | Docker 一键部署 | npm/pnpm 安装 + 守护进程 |
+| Web 界面 | ✅ 完整管理界面 | ✅ 控制 UI（可选） |
+| 移动端支持 | ❌ 依赖第三方 | ✅ 原生 iOS/Android 节点 |
+| 桌面端支持 | ❌ | ✅ macOS 菜单应用 + Canvas |</p><hr><h2 id=三功能特性对比>三、功能特性对比</h2><h3 id=31-聊天渠道支持>3.1 聊天渠道支持</h3><p><strong>CoPaw 支持的渠道</strong>：| 渠道 | 支持状态 |
+| &mdash; | &mdash; |
+| 钉钉 | ✅ |
+| 飞书 | ✅ |
+| 企业微信 | ✅ |
+| Discord | ✅ |
+| Telegram | ✅ |
+| Mattermost | ✅ |
+| Matrix | ✅ |
+| OneBot v11/NapCat | ✅ (v1.0.1+) |
+| QQ | ✅ (部分功能施工中) |
+| 微信 iLink | 🚧 施工中 |</p><p><strong>OpenClaw 支持的渠道</strong>：| 渠道 | 支持状态 |
+| &mdash; | &mdash; |
+| WhatsApp | ✅ (Baileys) |
+| Telegram | ✅ (grammY) |
+| Slack | ✅ (Bolt) |
+| Discord | ✅ (discord.js) |
+| Google Chat | ✅ |
+| Signal | ✅ (signal-cli) |
+| iMessage | ✅ (BlueBubbles/原生) |
+| Microsoft Teams | ✅ |
+| Matrix | ✅ |
+| 飞书 | ✅ |
+| LINE | ✅ |
+| Mattermost | ✅ |
+| WeChat | ✅ (@tencent-weixin/openclaw-weixin) |
+| WebChat | ✅ |
+| … | 总计 20+ 渠道 |</p><p><strong>对比结论</strong>：</p><ul><li><p><strong>CoPaw</strong>：侧重国内企业IM（钉钉、飞书、企业微信）</p></li><li><p><strong>OpenClaw</strong>：全球渠道覆盖更全面，尤其擅长个人IM（WhatsApp、Telegram、Signal）</p></li></ul><h3 id=32-核心功能对比>3.2 核心功能对比</h3><p>************************************************| 功能 | CoPaw | OpenClaw | 说明 |
+| &mdash; | &mdash; | &mdash; | &mdash; |
+| 多轮对话 | ✅ | ✅ | 基础能力 |
+| 长期记忆 | ✅ | ✅ | CoPaw 使用文件存储，OpenClaw 有 MEMORY.md |
+| 定时任务 | ✅ (Cron) | ✅ (Cron + Heartbeat) | OpenClaw 支持主动心跳 |
+| 技能系统 | ✅ | ✅ | OpenClaw 有 ClawHub 技能市场 |
+| 多代理路由 | ✅ (v0.1.0+) | ✅ | OpenClaw 更成熟 |
+| 语音交互 | ❌ | ✅ | OpenClaw 支持 Voice Wake + Talk Mode |
+| 视觉工作区 | ❌ | ✅ | OpenClaw Canvas (A2UI) |
+| 文件处理 | ✅ | ✅ | 图片/音频/视频 |
+| 代码执行 | ✅ | ✅ | OpenClaw 集成 ACP/Codex |
+| 移动端 App | ❌ | ✅ | OpenClaw 有 iOS/Android 节点 |
+| 桌面端 App | ❌ | ✅ | OpenClaw macOS 菜单应用 |
+| Web 认证 | ✅ (v0.1.0+) | ✅ | 安全配置 |</p><h3 id=33-特色功能>3.3 特色功能</h3><p><strong>CoPaw 特色</strong>：</p><ul><li><p>🎯 <strong>轻量化部署</strong>：Docker 一键启动</p></li><li><p>📊 <strong>Web 管理界面</strong>：可视化配置模型、渠道、技能</p></li><li><p>🔌 <strong>MCP 客户端</strong>：支持 Model Context Protocol</p></li><li><p>📝 <strong>全文检索</strong>：BM25 + Embedding 混合检索</p></li></ul><p><strong>OpenClaw 特色</strong>：</p><ul><li><p>🎙️ <strong>Voice Wake</strong>：语音唤醒（macOS/iOS）</p></li><li><p>🖼️ <strong>Live Canvas</strong>：AI 驱动的视觉工作区</p></li><li><p>🤖 <strong>ACP 集成</strong>：无缝对接 Claude Code、Codex CLI</p></li><li><p>📱 <strong>多设备节点</strong>：iOS/Android 原生应用</p></li><li><p>⏰ <strong>主动式任务</strong>：心跳检查、后台 cron、Webhook</p></li><li><p>🔧 <strong>技能市场</strong>：ClawHub 提供可安装技能</p></li></ul><hr><h2 id=四部署与配置>四、部署与配置</h2><h3 id=41-copaw-部署>4.1 CoPaw 部署</h3><p><strong>推荐方式</strong>：Docker Compose</p><pre tabindex=0><code># 1. 克隆项目
+git clone https://github.com/log-z/copaw-docker.git
+cd copaw-docker
+
+# 2. 配置环境变量
+cp .env.example .env
+# 编辑 .env 填入 API Keys
+
+# 3. 启动服务
+docker compose up -d
+
+# 4. 访问控制台
+# http://localhost:8088
+</code></pre><p><strong>部署时间</strong>：5-10 分钟
+<strong>难度</strong>：⭐⭐（需要 Docker 基础）</p><h3 id=42-openclaw-部署>4.2 OpenClaw 部署</h3><p><strong>推荐方式</strong>：npm + 守护进程</p><pre tabindex=0><code># 1. 安装 OpenClaw
+npm install -g openclaw@latest
+
+# 2. 运行引导（推荐）
+openclaw onboard --install-daemon
+
+# 3. 启动网关
+openclaw gateway --port 18789 --verbose
+
+# 4. 发送消息测试
+openclaw agent --message &#34;Hello from OpenClaw&#34;
+</code></pre><p><strong>部署时间</strong>：10-20 分钟
+<strong>难度</strong>：⭐⭐⭐（需要 Node.js 基础）</p><h3 id=43-配置对比>4.3 配置对比</h3><p>************************| 配置项 | CoPaw | OpenClaw |
+| &mdash; | &mdash; | &mdash; |
+| 运行时 | Docker 容器 | Node.js (v24 推荐) |
+| 配置文件 | Web UI 可视化 | 命令行 + 配置文件 |
+| 模型配置 | 支持多家提供商 | 支持多家提供商 + OAuth |
+| 渠道配置 | Web UI 配置 | CLI + 配置文件 |
+| 技能管理 | Web UI + CLI | CLI + ClawHub |
+| 数据备份 | Docker 卷备份 | 文件系统备份 |</p><hr><h2 id=五模型支持>五、模型支持</h2><h3 id=51-copaw-支持的模型提供商>5.1 CoPaw 支持的模型提供商</h3><pre tabindex=0><code class=language-| data-lang=|>| --- | --- | --- |
+| ModelScope（魔搭） | MODELSCOPE_API_KEY | 全版本 |
+| DashScope（灵积） | DASHSCOPE_API_KEY | 全版本 |
+| OpenAI 兼容 | OPENAI_API_KEY | 全版本 |
+| Anthropic | ANTHROPIC_API_KEY | v0.0.5+ |
+| Gemini | GEMINI_API_KEY | v0.0.6+ |
+| DeepSeek | DEEPSEEK_API_KEY | v0.1.0+ |
+| MiniMax | MINIMAX_API_KEY | v0.1.0+ |
+| Kimi | KIMI_API_KEY | v0.1.0+ |
+| 智谱 AI | ZHIPU_API_KEY | v1.0.1+ |
+| SiliconFlow | SILICONFLOW_API_KEY | v1.0.2+ |
+| 本地模型 | llama.cpp/MLX/Ollama | 需额外依赖 |
+
+
+### 5.2 OpenClaw 支持的模型提供商
+| 提供商 | 配置方式 | 说明 |
+| --- | --- | --- |
+| OpenAI | API Key / OAuth | GPT-4/4o/4.5 |
+| Anthropic | API Key / OAuth | Claude 3.5/3.7 |
+| Google | API Key | Gemini 系列 |
+| 智谱 AI | API Key | GLM-4/5.1 |
+| 通义千问 | API Key | Qwen 系列 |
+| DeepSeek | API Key | DeepSeek-V2/V3 |
+| 自定义 | OpenAI 兼容接口 | 本地部署模型 |
+
+
+### 5.3 模型配置对比
+********************| 特性 | CoPaw | OpenClaw |
+| --- | --- | --- |
+| 提供商数量 | 10+ | 10+ |
+| OAuth 支持 | ❌ | ✅（OpenAI/Anthropic） |
+| 模型故障转移 | ❌ | ✅（自动 fallback） |
+| 本地模型 | ✅（需配置） | ✅（Ollama/本地） |
+| 配置方式 | Web UI | CLI + 配置文件 |
+
+
+---
+
+
+## 六、生态系统
+
+### 6.1 CoPaw 生态
+
+
+**官方资源**：
+- GitHub 仓库：https://github.com/agentscope-ai/QwenPaw
+
+- Docker 镜像：`ghcr.io/log-z/qwenpaw:latest`
+
+- 文档：仓库内 README + 社区贡献
+
+
+**社区扩展**：
+- 自定义渠道模块
+
+- MCP 客户端集成
+
+- 记忆引擎扩展（如 unified-memory-engine）
+
+- 飞书/钉钉桥接工具
+
+
+**技能市场**：
+- 无官方市场
+
+- 技能以自定义模块形式存在
+
+- 需要手动安装
+
+
+### 6.2 OpenClaw 生态
+
+
+**官方资源**：
+- GitHub 仓库：https://github.com/openclaw/openclaw
+
+- 官网：https://openclaw.ai
+
+- 文档：https://docs.openclaw.ai
+
+- Discord 社区：https://discord.gg/clawd
+
+
+**社区扩展**：
+- **ClawHub**：官方技能市场（https://clawhub.ai）
+
+- **技能数量**：100+ 可用技能
+
+- **社区贡献**：活跃的技能开发者社区
+
+
+**热门技能**：
+- 天气查询
+
+- 企业微信集成
+
+- 待办事项管理
+
+- 会议安排
+
+- 文档管理
+
+- 代码执行（ACP 集成）
+
+- 视频生成
+
+- 健康数据同步（WHOOP/Apple Health）
+
+
+### 6.3 生态对比
+********************| 维度 | CoPaw | OpenClaw |
+| --- | --- | --- |
+| 官方文档 | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| 社区规模 | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| 技能市场 | ❌ | ✅ ClawHub |
+| 第三方工具 | ⭐⭐⭐ | ⭐⭐⭐⭐ |
+| 更新频率 | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+
+
+---
+
+
+## 七、安全性
+
+### 7.1 CoPaw 安全特性
+
+- **Web 认证**：v0.1.0+ 支持登录验证
+
+- **数据加密**：敏感配置存储在 `.runtime/` 目录
+
+- **网络隔离**：默认绑定 127.0.0.1
+
+- **权限控制**：Docker 容器隔离
+
+
+**安全建议**：
+&gt; 
+
+⚠️ v0.1.0 之前版本或未启用认证时，切勿将端口暴露到公网！
+
+### 7.2 OpenClaw 安全特性
+
+- **DM 配对策略**：未知发送者需要配对码
+
+- **本地存储**：数据存储在用户控制的环境中
+
+- **通道白名单**：可配置允许的消息来源
+
+- **权限审计**：`openclaw doctor` 检查风险配置
+
+- **OAuth 支持**：避免 API Key 泄露
+
+
+**安全建议**：
+&gt; 
+
+将入站 DM 视为**不受信任的输入**，默认启用配对策略
+
+### 7.3 安全对比
+****************``****| 特性 | CoPaw | OpenClaw |
+| --- | --- | --- |
+| Web 认证 | ✅ (v0.1.0+) | ✅ (可选) |
+| 数据加密 | ✅ | ❌（依赖文件系统） |
+| 访问控制 | ✅ | ✅ |
+| 安全审计 | ❌ | ✅ (doctor命令) |
+| 网络隔离 | ✅ (Docker) | ⚠️（需手动配置） |
+
+
+---
+
+
+## 八、性能与资源占用
+
+### 8.1 CoPaw 资源占用
+
+```
+Docker 容器：
+- CPU：空闲时 &lt;5%，活跃时 20-50%
+- 内存：500MB - 1.5GB
+- 磁盘：基础镜像 ~800MB，数据卷视使用情况
+- 启动时间：10-30 秒
+
+```
+
+### 8.2 OpenClaw 资源占用
+
+```
+Gateway 守护进程：
+- CPU：空闲时 &lt;3%，活跃时 15-40%
+- 内存：300MB - 1GB
+- 磁盘：基础安装 ~200MB，工作区视使用情况
+- 启动时间：5-15 秒
+
+macOS 应用（可选）：
+- 内存：100-200MB
+- CPU：空闲时 &lt;1%
+
+```
+
+### 8.3 性能对比
+********************| 指标 | CoPaw | OpenClaw |
+| --- | --- | --- |
+| 内存占用 | 中等 | 较低 |
+| CPU 占用 | 中等 | 较低 |
+| 启动速度 | 中等 | 快 |
+| 响应延迟 | 中等 | 低 |
+| 并发能力 | 中等 | 高 |
+
+
+---
+
+
+## 九、适用场景推荐
+
+### 9.1 选择 CoPaw 的理由
+
+
+✅ **适合以下场景**：
+1. **快速入门**：想快速体验个人 AI 助手
+
+2. **Docker 用户**：习惯容器化部署
+
+3. **国内企业 IM**：主要使用钉钉、飞书、企业微信
+
+4. **Web 界面偏好**：喜欢可视化管理
+
+5. **轻量级需求**：不需要复杂功能
+
+
+### 9.2 选择 OpenClaw 的理由
+
+
+✅ **适合以下场景**：
+1. **全渠道需求**：需要接入 WhatsApp、Telegram、Signal 等
+
+2. **高级用户**：需要主动式任务、定时执行
+
+3. **移动端集成**：需要 iOS/Android 原生应用
+
+4. **技能扩展**：希望使用丰富的技能市场
+
+5. **团队协作**：多代理路由和权限管理
+
+6. **开发者**：需要深度定制和二次开发
+
+
+---
+
+
+## 十、总结与建议
+
+### 10.1 核心差异总结
+********************************| 维度 | CoPaw | OpenClaw |
+| --- | --- | --- |
+| 定位 | 轻量级个人助手 | 全功能个人 OS |
+| 架构 | 单体 Docker | 分离式网关 + 节点 |
+| 渠道 | 侧重国内企业 IM | 全球个人 IM 全覆盖 |
+| 部署 | 简单（Docker） | 中等（npm + CLI） |
+| 生态 | 中等（阿里系） | 活跃（开源社区） |
+| 移动端 | ❌ | ✅ |
+| 技能市场 | ❌ | ✅ |
+| 学习成本 | 低 | 中等 |
+
+
+### 10.2 最终建议
+
+
+**如果你是**：
+- 🎯 **新手用户**，想快速体验 → 选择 **CoPaw**
+
+- 🏢 **企业用户**，主要用钉钉/飞书 → 选择 **CoPaw**
+
+- 🌍 **全球用户**，需要 WhatsApp/Telegram → 选择 **OpenClaw**
+
+- 🔧 **高级用户**，需要深度定制 → 选择 **OpenClaw**
+
+- 📱 **移动优先**，需要手机 App → 选择 **OpenClaw**
+
+- 💼 **团队协作**，需要多代理 → 选择 **OpenClaw**
+
+
+### 10.3 未来展望
+
+
+**CoPaw**：
+- 继续优化 Web 界面体验
+
+- 扩展国内企业 IM 集成
+
+- 增强 MCP 生态支持
+
+
+**OpenClaw**：
+- 持续扩展渠道支持
+
+- 完善移动端应用
+
+- 壮大 ClawHub 技能市场
+
+- 增强企业级功能
+
+
+---
+
+
+## 参考资料
+
+1. CoPaw (QwenPaw) 官方仓库：https://github.com/agentscope-ai/QwenPaw
+
+2. CoPaw Docker 部署方案：https://github.com/log-z/copaw-docker
+
+3. OpenClaw 官方仓库：https://github.com/openclaw/openclaw
+
+4. OpenClaw 官网：https://openclaw.ai
+
+5. OpenClaw 文档：https://docs.openclaw.ai
+
+6. ClawHub 技能市场：https://clawhub.ai
+
+
+---
+
+
+*本文基于 2026 年 4 月的公开信息整理，具体功能可能随版本更新有所变化。建议读者参考官方文档获取最新信息。*
+## 核心团队
+
+### 虾小弟
+
+
+创始人 &amp; 开发者
+## 联系我们
+
+
+有任何问题或建议？欢迎通过以下方式联系我们[
+GitHub
+](https://github.com/openclaw/openclaw)[
+Discord](https://discord.gg/clawd)
+</code></pre></div><div style=margin-top:2rem;display:flex;gap:.5rem;flex-wrap:wrap><a href=/tags/copaw/ class=tag-link>copaw</a>
+<a href=/tags/%E5%AF%B9%E6%AF%94%E8%AF%84%E6%B5%8B/ class=tag-link>对比评测</a>
+<a href=/tags/openclaw/ class=tag-link>openclaw</a>
+<a href=/tags/ai/ class=tag-link>ai</a>
+<a href=/tags/%E6%99%BA%E8%83%BD%E4%BD%93/ class=tag-link>智能体</a></div></div></section></main><footer class=site-footer><div class=footer-content><div class=footer-brand><a href=/ class=footer-logo><div class=logo-icon style=width:40px;height:40px><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 12h.01"/><path d="M13 22c.5-.5 1.12-1 2.5-1-1.38.0-2-.5-2.5-1"/><path d="M14 2a3.28 3.28.0 01-3.227 1.798l-6.17-.561A2.387 2.387.0 104.387 8H15.5a1 1 0 010 13 1 1 0 000-5H12A7 7 0 015 9V8"/><path d="M14 8a8.5 8.5.0 010 8"/><path d="M16 16c2 0 4.5-4 4-6"/></svg></div><span class=logo-text style=font-size:1.25rem>虾大师</span></a><p class=footer-description>专注于 OpenClaw、AI Agent、自动化等前沿技术，记录数字化转型路上的技术探索与实战经验</p></div><div class=footer-section><h4 class=footer-section-title>快速链接</h4><ul class=footer-links><li><a href=/>主页</a></li><li><a href=/articles/>文章</a></li><li><a href=/about/>关于</a></li><li><a href=/tags/>标签</a></li></ul></div><div class=footer-section><h4 class=footer-section-title>关注我们</h4><div style=display:flex;gap:1.5rem;color:var(--text-muted);font-size:.875rem><a href=https://github.com/ayeah style=color:var(--text-muted);text-decoration:none>关于我</a>
+<a href=https://github.com/ayeah target=_blank rel=noopener style=color:var(--text-muted);text-decoration:none>GitHub</a></div></div></div><div class=footer-bottom><p>&copy; 2026 虾大师. All rights reserved.</p></div></footer></body></html>

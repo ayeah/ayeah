@@ -1,0 +1,473 @@
+<!doctype html><html lang=zh class="h-full antialiased"><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>浏览器自动化指南：Playwright CLI 与 agent-browser 对比实战 - 虾大师</title><meta name=description content="专注于 OpenClaw、AI Agent、自动化等前沿技术，记录数字化转型路上的技术探索与实战经验"><meta name=author content="虾小弟"><meta name=keywords content="AI,智能体,OpenClaw,AI Agent,自动化,技术博客"><meta property="og:title" content="浏览器自动化指南：Playwright CLI 与 agent-browser 对比实战"><meta property="og:description" content="专注于 OpenClaw、AI Agent、自动化等前沿技术，记录数字化转型路上的技术探索与实战经验"><meta property="og:url" content="https://ayeah.net/posts/browser-automation-playwright-vs-agent-browser/"><meta property="og:site_name" content="虾大师"><meta property="og:locale" content="zh_CN"><meta property="og:type" content="article"><meta name=twitter:card content="summary"><meta name=twitter:title content="浏览器自动化指南：Playwright CLI 与 agent-browser 对比实战"><meta name=twitter:description content="专注于 OpenClaw、AI Agent、自动化等前沿技术，记录数字化转型路上的技术探索与实战经验"><link rel=icon href=/favicon.ico sizes=256x256 type=image/x-icon><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel=stylesheet><link rel=stylesheet href=/css/style.css></head><body class="min-h-full flex flex-col"><header class=header id=header><nav class=nav><a href=/ class=logo><div class=logo-icon><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 12h.01"/><path d="M13 22c.5-.5 1.12-1 2.5-1-1.38.0-2-.5-2.5-1"/><path d="M14 2a3.28 3.28.0 01-3.227 1.798l-6.17-.561A2.387 2.387.0 104.387 8H15.5a1 1 0 010 13 1 1 0 000-5H12A7 7 0 015 9V8"/><path d="M14 8a8.5 8.5.0 010 8"/><path d="M16 16c2 0 4.5-4 4-6"/></svg></div><span class=logo-text>虾大师</span></a><ul class=nav-menu id=navMenu><li class=nav-item><a href=/ class=nav-link>主页</a></li><li class=nav-item><a href=/articles/ class=nav-link>文章</a></li><li class=nav-item><a href=/about/ class=nav-link>关于</a></li><li class=nav-item><div class=nav-link style=cursor:pointer>标签
+<svg style="display:inline;width:14px;height:14px;margin-left:4px" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></div><div style="position:absolute;top:100%;right:0;margin-top:.5rem;min-width:180px;background:var(--bg-secondary);border:1px solid var(--border-light);border-radius:12px;box-shadow:0 20px 40px rgba(0,0,0,.4);opacity:0;visibility:hidden;transition:all .3s ease;z-index:100"><div style=padding:.5rem><a href=https://ayeah.net/tags/openclaw/ style="display:block;padding:.5rem 1rem;color:var(--text-secondary);text-decoration:none;border-radius:8px;font-size:.875rem;transition:all .3s ease">Openclaw
+<span style=float:right;color:var(--text-muted);font-size:.75rem>16</span>
+</a><a href=https://ayeah.net/tags/agent/ style="display:block;padding:.5rem 1rem;color:var(--text-secondary);text-decoration:none;border-radius:8px;font-size:.875rem;transition:all .3s ease">Agent
+<span style=float:right;color:var(--text-muted);font-size:.75rem>6</span>
+</a><a href=https://ayeah.net/tags/ai/ style="display:block;padding:.5rem 1rem;color:var(--text-secondary);text-decoration:none;border-radius:8px;font-size:.875rem;transition:all .3s ease">Ai
+<span style=float:right;color:var(--text-muted);font-size:.75rem>5</span>
+</a><a href=https://ayeah.net/tags/ai-%E6%99%BA%E8%83%BD%E4%BD%93/ style="display:block;padding:.5rem 1rem;color:var(--text-secondary);text-decoration:none;border-radius:8px;font-size:.875rem;transition:all .3s ease">Ai-智能体
+<span style=float:right;color:var(--text-muted);font-size:.75rem>4</span>
+</a><a href=https://ayeah.net/tags/ai-agent/ style="display:block;padding:.5rem 1rem;color:var(--text-secondary);text-decoration:none;border-radius:8px;font-size:.875rem;transition:all .3s ease">AI Agent
+<span style=float:right;color:var(--text-muted);font-size:.75rem>3</span>
+</a><a href=/tags/ style="display:block;padding:.5rem 1rem;color:var(--primary);text-decoration:none;border-radius:8px;font-size:.875rem;transition:all .3s ease;border-top:1px solid var(--border-light);margin-top:.5rem;padding-top:.75rem">更多...
+<svg style="display:inline;width:12px;height:12px;margin-left:4px" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a></div></div></li></ul><button class=menu-toggle id=menuToggle aria-label=切换菜单>
+<span></span><span></span><span></span></button></nav></header><script>const header=document.getElementById("header");window.addEventListener("scroll",()=>{window.scrollY>50?header.classList.add("scrolled"):header.classList.remove("scrolled")});const menuToggle=document.getElementById("menuToggle"),navMenu=document.getElementById("navMenu");menuToggle.addEventListener("click",()=>{navMenu.classList.toggle("active")});const tagsItem=document.querySelector(".nav-item:last-child");if(tagsItem){const e=tagsItem.querySelector("div:last-child");tagsItem.addEventListener("mouseenter",()=>{e.style.opacity="1",e.style.visibility="visible"}),tagsItem.addEventListener("mouseleave",()=>{e.style.opacity="0",e.style.visibility="hidden"})}</script><main class=flex-1><section class=article-page style="padding-top:calc(var(--header-height) + 3rem)"><div class=container style=max-width:800px><header class=article-header><h1 class=article-title>浏览器自动化指南：Playwright CLI 与 agent-browser 对比实战</h1></header><div class=article-body><h2 id=前言>前言</h2><p>浏览器自动化工具有两种主流选择：</p><ol><li><p><strong>Microsoft Playwright CLI</strong> - 成熟的测试框架，适合工程师编写自动化脚本</p></li><li><p><strong>Vercel Labs agent-browser</strong> - Rust 原生浏览器 CLI，专为 AI 智能体设计</p></li></ol><p>本文将对比两者的差异，并重点介绍如何通过 <strong>OpenClaw + agent-browser</strong> 技能包，用自然语言让 AI 帮你操作浏览器。</p><h3 id=为什么不直接用-playwright-cli>为什么不直接用 Playwright CLI？</h3><p>在准备本文内容时，我们发现一个关键问题：<strong>Playwright CLI 的设计目标是测试工程师，而非 AI 智能体或普通用户</strong>。</p><p>如果你只是想"让浏览器帮我做件事"，Playwright CLI 的学习成本太高了：</p><ul><li><p>需要安装 Node.js 和 Playwright</p></li><li><p>需要学习定位器、断言、测试框架</p></li><li><p>需要编写和维护脚本代码</p></li><li><p>页面一变，脚本就失效</p></li></ul><p><strong>更好的选择是 <code>agent-browser</code></strong> —— 它是 Vercel Labs 自研的 Rust 原生浏览器自动化 CLI，专为 AI 智能体设计：</p><ul><li><p>✅ 用自然语言描述任务，无需写代码</p></li><li><p>✅ 自动分析页面结构，返回语义化引用（@e1, @e2）</p></li><li><p>✅ 动态适应页面变化，AI 自动调整策略</p></li><li><p>✅ 与 OpenClaw 无缝集成，对话式操作</p></li><li><p>✅ Rust 原生高性能，比 Node.js 方案更快</p></li></ul><p><strong>本文结构</strong>：</p><ul><li><p>第一、二部分：快速了解 Playwright CLI 与 agent-browser 差异（基础认知）</p></li><li><p>第三部分起：重点掌握 agent-browser（实战推荐）</p></li></ul><hr><h2 id=一playwright-cli-vs-agent-browser核心差异>一、Playwright CLI vs agent-browser：核心差异</h2><p>在深入之前，先澄清一个关键点：<strong>agent-browser 不是 Playwright 的封装或替代品，而是 Vercel Labs 自研的 Rust 原生浏览器自动化工具</strong>。</p><h3 id=11-技术关系>1.1 技术关系</h3><pre tabindex=0><code>┌─────────────────────────────────────┐
+│     用户/智能体 (自然语言)           │
+├─────────────────────────────────────┤
+│     agent-browser (Rust 原生 CLI)    │  ← Vercel Labs 自研
+├─────────────────────────────────────┤
+│     Chromium / Firefox / WebKit      │
+└─────────────────────────────────────┘
+</code></pre><blockquote></blockquote><p><strong>关键区别</strong>：agent-browser 是 Vercel Labs 独立开发的 Rust 原生浏览器自动化 CLI，与 Microsoft Playwright 无任何关系。它专为 AI 智能体场景设计，提供了更简洁的 MCP 协议接口。</p><h3 id=12-核心差异对比>1.2 核心差异对比</h3><p>****************************| 维度 | Playwright CLI | agent-browser |
+| &mdash; | &mdash; | &mdash; |
+| 目标用户 | 测试工程师、开发者 | AI 智能体、普通用户 |
+| 交互方式 | 命令行/代码 | 自然语言/MCP 协议 |
+| 学习曲线 | 陡峭（需编程知识） | 平缓（对话式） |
+| 灵活性 | 低（固定脚本） | 高（动态响应） |
+| 元素定位 | 选择器/定位器 | 语义化引用（@e1, @e2） |
+| 状态理解 | 无（需手动检查） | 有（快照自动分析） |
+| 适合场景 | 回归测试、CI/CD | 探索任务、数据提取 |</p><h3 id=13-使用场景对比>1.3 使用场景对比</h3><p><strong>选择 Playwright CLI，如果</strong>：</p><ul><li><p>✅ 需要编写可重复执行的测试脚本</p></li><li><p>✅ 集成到 CI/CD 流程中</p></li><li><p>✅ 团队有测试开发能力</p></li><li><p>✅ 页面结构稳定，变更频率低</p></li></ul><p><strong>选择 agent-browser，如果</strong>：</p><ul><li><p>✅ 想让 AI 帮你操作浏览器</p></li><li><p>✅ 任务多变，难以预先定义</p></li><li><p>✅ 需要动态适应页面变化</p></li><li><p>✅ 快速探索和数据提取</p></li><li><p>✅ 零代码自动化需求</p></li></ul><h3 id=14-一句话总结>1.4 一句话总结</h3><table><thead><tr><th>需求</th><th>推荐工具</th></tr></thead><tbody><tr><td>写测试脚本</td><td>Playwright CLI</td></tr><tr><td>让 AI 操作浏览器</td><td>agent-browser ⭐</td></tr></tbody></table><hr><h2 id=二cli-vs-mcp两种方式对比>二、CLI vs MCP：两种方式对比</h2><h3 id=21-传统-cli-方式>2.1 传统 CLI 方式</h3><pre tabindex=0><code># 安装 Playwright
+npm install -g @playwright/cli
+npx playwright install
+
+# 使用代码生成器
+npx playwright codegen https://www.baidu.com
+
+# 运行测试脚本
+npx playwright test tests/search.spec.js
+</code></pre><p><strong>优点</strong>：</p><ul><li><p>✅ 精确控制，适合复杂测试场景</p></li><li><p>✅ 可复用性强，脚本可版本管理</p></li><li><p>✅ 适合 CI/CD 自动化流程</p></li></ul><p><strong>缺点</strong>：</p><ul><li><p>❌ 学习曲线陡峭，需要编程知识</p></li><li><p>❌ 维护成本高，页面变更需更新脚本</p></li><li><p>❌ 无法动态响应，缺乏灵活性</p></li></ul><h3 id=22-agent-browser-方式推荐>2.2 agent-browser 方式（推荐）</h3><pre tabindex=0><code># 安装 agent-browser（Vercel Labs 自研的 Rust 原生浏览器 CLI）
+npm install -g agent-browser
+agent-browser install
+
+# 通过 OpenClaw 智能体操作（自然语言）
+&#34;帮我打开百度，搜索 Playwright 教程&#34;
+&#34;截图保存当前页面&#34;
+&#34;提取所有搜索结果链接&#34;
+</code></pre><p><strong>优点</strong>：</p><ul><li><p>✅ <strong>零代码</strong> - 用自然语言描述任务</p></li><li><p>✅ <strong>动态适应</strong> - AI 自动处理页面变化</p></li><li><p>✅ <strong>即时交互</strong> - 实时反馈和调整</p></li><li><p>✅ <strong>技能复用</strong> - 预置技能包开箱即用</p></li></ul><p><strong>缺点</strong>：</p><ul><li><p>❌ 复杂场景需要更多上下文</p></li><li><p>❌ 依赖 AI 模型的理解能力</p></li></ul><h3 id=23-对比总结>2.3 对比总结</h3><table><thead><tr><th>特性</th><th>Playwright CLI</th><th>agent-browser</th></tr></thead><tbody><tr><td>开发团队</td><td>Microsoft</td><td>Vercel Labs</td></tr><tr><td>实现语言</td><td>Node.js</td><td>Rust (原生高性能)</td></tr><tr><td>学习成本</td><td>高（需编程）</td><td>低（自然语言）</td></tr><tr><td>灵活性</td><td>低（固定脚本）</td><td>高（动态响应）</td></tr><tr><td>维护成本</td><td>高</td><td>低</td></tr><tr><td>适合场景</td><td>回归测试、CI/CD</td><td>探索性任务、数据提取</td></tr></tbody></table><p><strong>推荐策略</strong>：</p><ul><li><p><strong>日常任务</strong> → 使用 agent-browser（OpenClaw + 自然语言）</p></li><li><p><strong>固定流程</strong> → 使用 Playwright CLI（测试脚本）</p></li><li><p><strong>混合使用</strong> → agent-browser 探索 + Playwright 固化</p></li></ul><hr><h2 id=三openclaw-浏览器操作入门>三、OpenClaw 浏览器操作入门</h2><h3 id=31-环境准备>3.1 环境准备</h3><pre tabindex=0><code># 1. 安装 agent-browser
+npm install -g agent-browser
+
+# 2. 安装浏览器依赖
+agent-browser install
+agent-browser install --with-deps  # Linux 系统推荐
+
+# 3. 验证安装
+agent-browser --version
+</code></pre><h3 id=32-openclaw-技能配置>3.2 OpenClaw 技能配置</h3><p>在 OpenClaw 工作区中，浏览器操作技能已预置在：</p><pre tabindex=0><code>~/.openclaw/workspace/skills/agent-browser/
+├── SKILL.md          # 技能说明文档
+├── _meta.json        # 技能元数据
+└── CONTRIBUTING.md   # 贡献指南
+</code></pre><p><strong>技能元数据</strong>：</p><pre tabindex=0><code>{
+  &#34;name&#34;: &#34;Agent Browser&#34;,
+  &#34;emoji&#34;: &#34;🌐&#34;,
+  &#34;requires&#34;: {
+    &#34;bins&#34;: [&#34;node&#34;, &#34;npm&#34;]
+  }
+}
+</code></pre><h3 id=33-基本使用方式>3.3 基本使用方式</h3><p>在 OpenClaw 对话中，直接使用自然语言指令：</p><pre tabindex=0><code>用户：帮我打开百度首页
+AI:  好的，正在打开 https://www.baidu.com...
+     ✅ 页面已加载，标题：&#34;百度一下，你就知道&#34;
+     需要我做什么操作吗？
+
+用户：搜索&#34;Playwright 教程&#34;
+AI:  正在搜索...
+     ✅ 搜索结果已加载，找到约 1,230,000 个结果
+     需要我提取结果链接或截图吗？
+
+用户：截图保存
+AI:  📸 已截图保存
+     MEDIA:/path/to/screenshot.png
+</code></pre><hr><h2 id=四核心操作技能>四、核心操作技能</h2><h3 id=41-页面导航>4.1 页面导航</h3><pre tabindex=0><code># OpenClaw 指令示例
+&#34;打开 https://example.com&#34;
+&#34;返回首页&#34;
+&#34;后退一页&#34;
+&#34;刷新当前页面&#34;
+</code></pre><p><strong>底层命令</strong>：</p><pre tabindex=0><code>agent-browser open &lt;url&gt;        # 导航到 URL
+agent-browser back              # 后退
+agent-browser forward           # 前进
+agent-browser reload            # 刷新
+agent-browser close             # 关闭浏览器
+</code></pre><h3 id=42-页面快照核心技能>4.2 页面快照（核心技能）</h3><p>快照是 AI 理解页面的关键，会返回可交互元素及其引用 ID：</p><pre tabindex=0><code># OpenClaw 指令
+&#34;分析当前页面有哪些可操作元素&#34;
+&#34;获取页面快照&#34;
+</code></pre><p><strong>底层命令</strong>：</p><pre tabindex=0><code>agent-browser snapshot -i       # 交互式元素（推荐）
+agent-browser snapshot          # 完整无障碍树
+agent-browser snapshot -c       # 紧凑输出
+agent-browser snapshot -d 3     # 限制深度
+</code></pre><p><strong>快照输出示例</strong>：</p><pre tabindex=0><code>Interactive elements:
+  @e1: textbox &#34;搜索&#34; [placeholder=&#34;请输入关键词&#34;]
+  @e2: button &#34;百度一下&#34; [type=&#34;submit&#34;]
+  @e3: link &#34;新闻&#34; [href=&#34;/news&#34;]
+  @e4: link &#34;图片&#34; [href=&#34;/image&#34;]
+</code></pre><h3 id=43-元素交互>4.3 元素交互</h3><pre tabindex=0><code># OpenClaw 指令
+&#34;点击搜索按钮&#34;
+&#34;在搜索框输入&#39;Playwright 教程&#39;&#34;
+&#34;按下回车键&#34;
+</code></pre><p><strong>底层命令</strong>：</p><pre tabindex=0><code>agent-browser click @e1         # 点击元素
+agent-browser fill @e2 &#34;text&#34;   # 填充输入框
+agent-browser type @e2 &#34;text&#34;   # 输入（不清空）
+agent-browser press Enter       # 按键
+agent-browser hover @e1         # 悬停
+agent-browser check @e1         # 勾选复选框
+</code></pre><h3 id=44-信息提取>4.4 信息提取</h3><pre tabindex=0><code># OpenClaw 指令
+&#34;获取页面标题&#34;
+&#34;提取所有搜索结果链接&#34;
+&#34;这个按钮的文字是什么&#34;
+</code></pre><p><strong>底层命令</strong>：</p><pre tabindex=0><code>agent-browser get title         # 页面标题
+agent-browser get url           # 当前 URL
+agent-browser get text @e1      # 元素文本
+agent-browser get html @e1      # 元素 HTML
+agent-browser get count &#34;.item&#34; # 元素数量
+</code></pre><h3 id=45-截图与录制>4.5 截图与录制</h3><pre tabindex=0><code># OpenClaw 指令
+&#34;截图保存&#34;
+&#34;录制我的操作流程&#34;
+&#34;生成 PDF 报告&#34;
+</code></pre><p><strong>底层命令</strong>：</p><pre tabindex=0><code>agent-browser screenshot path.png           # 截图
+agent-browser screenshot --full path.png    # 全屏截图
+agent-browser record start demo.webm        # 开始录制
+agent-browser record stop                   # 停止录制
+agent-browser pdf output.pdf                # 生成 PDF
+</code></pre><h3 id=46-状态管理>4.6 状态管理</h3><pre tabindex=0><code># OpenClaw 指令
+&#34;保存登录状态&#34;
+&#34;加载之前的会话&#34;
+</code></pre><p><strong>底层命令</strong>：</p><pre tabindex=0><code>agent-browser state save auth.json    # 保存状态
+agent-browser state load auth.json    # 加载状态
+</code></pre><hr><h2 id=五实战演练百度搜索自动化>五、实战演练：百度搜索自动化</h2><h3 id=51-场景描述>5.1 场景描述</h3><p>使用 OpenClaw + agent-browser 完成百度搜索任务：</p><ol><li><p>打开百度首页</p></li><li><p>搜索"Playwright 教程"</p></li><li><p>提取前 5 个搜索结果</p></li><li><p>截图保存</p></li></ol><h3 id=52-openclaw-对话流程>5.2 OpenClaw 对话流程</h3><pre tabindex=0><code>用户：帮我做个百度搜索测试
+
+AI: 好的，我来帮你完成百度搜索自动化测试。
+
+🔧 步骤 1/4: 打开百度首页
+   ✅ 已打开 https://www.baidu.com
+   页面标题：&#34;百度一下，你就知道&#34;
+
+🔧 步骤 2/4: 分析页面元素
+   获取到以下可交互元素：
+   - @e1: 搜索框 [id=&#34;kw&#34;]
+   - @e2: 搜索按钮 [id=&#34;su&#34;]
+   
+🔧 步骤 3/4: 执行搜索
+   正在输入&#34;Playwright 教程&#34;...
+   正在点击搜索按钮...
+   ✅ 搜索结果已加载，找到约 1,230,000 个结果
+
+🔧 步骤 4/4: 提取结果并截图
+   已提取前 5 个搜索结果：
+   1. Playwright 官方文档 - https://playwright.dev
+   2. Playwright 入门教程 - https://example.com/tutorial
+   3. ...
+   
+   📸 截图已保存：screenshots/baidu-search.png
+
+✅ 测试完成！需要我做其他操作吗？
+</code></pre><h3 id=53-底层命令流程>5.3 底层命令流程</h3><pre tabindex=0><code># 1. 打开页面
+agent-browser open https://www.baidu.com
+
+# 2. 获取快照
+agent-browser snapshot -i
+# 返回：@e1 (搜索框), @e2 (搜索按钮)
+
+# 3. 输入搜索词
+agent-browser fill @e1 &#34;Playwright 教程&#34;
+
+# 4. 点击搜索
+agent-browser click @e2
+
+# 5. 等待加载
+agent-browser wait --load networkidle
+
+# 6. 提取结果
+agent-browser get count &#34;.result.c-container&#34;
+agent-browser get text &#34;.result .c-title&#34; --json
+
+# 7. 截图
+agent-browser screenshot screenshots/baidu-search.png
+</code></pre><h3 id=54-完整脚本可选>5.4 完整脚本（可选）</h3><p>如需固化为可复用脚本：</p><pre tabindex=0><code>#!/bin/bash
+# baidu-search.sh
+
+URL=&#34;https://www.baidu.com&#34;
+KEYWORD=&#34;Playwright 教程&#34;
+OUTPUT_DIR=&#34;screenshots&#34;
+
+mkdir -p $OUTPUT_DIR
+
+echo &#34;🔍 打开百度首页...&#34;
+agent-browser open $URL
+
+echo &#34;📸 获取页面元素...&#34;
+SNAPSHOT=$(agent-browser snapshot -i --json)
+
+echo &#34;⌨️  输入搜索词：$KEYWORD&#34;
+# 从快照中解析搜索框 ref
+SEARCH_BOX=$(echo $SNAPSHOT | jq -r &#39;.elements[] | select(.role==&#34;textbox&#34;) | .ref&#39;)
+agent-browser fill @$SEARCH_BOX &#34;$KEYWORD&#34;
+
+echo &#34;🖱️  点击搜索按钮...&#34;
+SEARCH_BTN=$(echo $SNAPSHOT | jq -r &#39;.elements[] | select(.role==&#34;button&#34;) | .ref&#39;)
+agent-browser click @$SEARCH_BTN
+
+echo &#34;⏳ 等待加载...&#34;
+agent-browser wait --load networkidle
+
+echo &#34;💾 保存截图...&#34;
+agent-browser screenshot &#34;$OUTPUT_DIR/search-result.png&#34;
+
+echo &#34;✅ 完成！&#34;
+agent-browser close
+</code></pre><hr><h2 id=六进阶技能>六、进阶技能</h2><h3 id=61-多标签页操作>6.1 多标签页操作</h3><pre tabindex=0><code># OpenClaw 指令
+&#34;在新标签页打开这个链接&#34;
+&#34;切换到第二个标签页&#34;
+&#34;关闭当前标签页&#34;
+
+# 底层命令
+agent-browser tab new [url]       # 新标签页
+agent-browser tab 2               # 切换到标签页 2
+agent-browser tab list            # 列出所有标签页
+agent-browser tab close           # 关闭当前标签页
+</code></pre><h3 id=62-表单自动化>6.2 表单自动化</h3><pre tabindex=0><code># OpenClaw 指令
+&#34;填写登录表单&#34;
+&#34;提交表单&#34;
+&#34;处理弹窗&#34;
+
+# 底层命令
+agent-browser fill @e1 &#34;username&#34;
+agent-browser fill @e2 &#34;password&#34;
+agent-browser click @e3  # 提交按钮
+
+# 处理弹窗
+agent-browser dialog accept
+</code></pre><h3 id=63-文件操作>6.3 文件操作</h3><pre tabindex=0><code># OpenClaw 指令
+&#34;上传这个文件&#34;
+&#34;下载页面中的文件&#34;
+
+# 底层命令
+agent-browser upload @e1 file.pdf
+agent-browser wait for download
+</code></pre><h3 id=64-认证状态复用>6.4 认证状态复用</h3><pre tabindex=0><code># 首次登录并保存状态
+agent-browser open https://app.example.com/login
+# ... 填写表单并提交 ...
+agent-browser wait --url &#34;/dashboard&#34;
+agent-browser state save auth.json
+
+# 后续使用
+agent-browser state load auth.json
+agent-browser open https://app.example.com/dashboard
+</code></pre><h3 id=65-数据提取json-输出>6.5 数据提取（JSON 输出）</h3><pre tabindex=0><code># 提取结构化数据
+agent-browser snapshot -i --json | jq &#39;.elements[] | select(.role==&#34;link&#34;)&#39;
+
+# 提取所有搜索结果
+agent-browser get text &#34;.result .c-title&#34; --json
+</code></pre><hr><h2 id=七调试技巧>七、调试技巧</h2><h3 id=71-可视化调试>7.1 可视化调试</h3><pre tabindex=0><code># 显示浏览器窗口（非无头模式）
+agent-browser open example.com --headed
+
+# 高亮元素
+agent-browser highlight @e1
+
+# 查看控制台日志
+agent-browser console
+
+# 查看页面错误
+agent-browser errors
+</code></pre><h3 id=72-追踪录制>7.2 追踪录制</h3><pre tabindex=0><code># 录制操作过程
+agent-browser record start demo.webm
+# ... 执行操作 ...
+agent-browser record stop
+
+# 回放查看
+# 使用任何视频播放器打开 demo.webm
+</code></pre><h3 id=73-常见问题排查>7.3 常见问题排查</h3><pre tabindex=0><code class=language-| data-lang=|>| --- | --- |
+| 元素找不到 | 重新 snapshot 获取最新 refs |
+| 页面未加载 | 添加wait --load networkidle |
+| 命令不响应 | 检查agent-browser --version |
+| 浏览器打不开 | 运行agent-browser install --with-deps |
+
+
+---
+
+
+## 八、技能包获取
+
+### 8.1 安装 agent-browser 技能
+
+```
+# 方法 1：直接安装
+npm install -g agent-browser
+agent-browser install
+
+# 方法 2：通过 ClawHub（OpenClaw 技能市场）
+clawhub install agent-browser
+
+```
+
+### 8.2 技能文件位置
+
+```
+~/.openclaw/workspace/skills/agent-browser/
+
+```
+
+### 8.3 技能使用说明
+
+1. 
+
+**查看技能文档**：
+```
+cat ~/.openclaw/workspace/skills/agent-browser/SKILL.md
+
+```
+
+
+2. 
+
+**在 OpenClaw 中使用**：
+- 直接用自然语言描述任务
+
+- AI 会自动调用 agent-browser 命令
+
+- 支持截图、文件等媒体输出
+
+
+- 
+
+**自定义技能**：
+- 复制 `agent-browser` 技能目录
+
+- 修改 `SKILL.md` 和 `_meta.json`
+
+- 添加自定义命令封装
+
+
+---
+
+
+## 九、总结与最佳实践
+
+### 9.1 选择建议
+| 场景 | 推荐方式 |
+| --- | --- |
+| 一次性任务 | MCP（自然语言） |
+| 探索性测试 | MCP（动态交互） |
+| 数据提取 | MCP + JSON 输出 |
+| 回归测试 | CLI（固定脚本） |
+| CI/CD 集成 | CLI（自动化） |
+| 复杂流程 | MCP 探索 → CLI 固化 |
+
+
+### 9.2 最佳实践清单
+
+1. 
+
+**优先使用语义化定位**
+- `getByRole()` &gt; `getByText()` &gt; CSS 选择器
+
+
+- 
+
+**快照后操作**
+- 每次导航后重新 snapshot 获取 refs
+
+
+- 
+
+**合理使用等待**
+- `wait --load networkidle` 优于硬编码延迟
+
+
+- 
+
+**状态保存**
+- 登录状态用 `state save` 复用
+
+
+- 
+
+**错误处理**
+- 使用 `--json` 输出便于程序处理
+
+
+- 
+
+**技能组合**
+- 结合其他 OpenClaw 技能（如文件处理、消息推送）
+
+
+### 9.3 学习资源
+
+- **agent-browser 文档**: [https://github.com/vercel-labs/agent-browser](https://github.com/vercel-labs/agent-browser)
+
+- **Playwright 官方**: [https://playwright.dev](https://playwright.dev)
+
+- **OpenClaw 文档**: [https://docs.openclaw.ai](https://docs.openclaw.ai)
+
+- **MCP 协议**: [https://modelcontextprotocol.io](https://modelcontextprotocol.io)
+
+
+---
+
+
+## 附录：快速命令参考
+
+```
+# 安装
+npm install -g agent-browser
+agent-browser install
+
+# 导航
+agent-browser open &lt;url&gt;
+agent-browser back / forward / reload
+agent-browser close
+
+# 快照
+agent-browser snapshot -i        # 交互式元素（推荐）
+agent-browser snapshot --json    # JSON 输出
+
+# 交互
+agent-browser click @e1
+agent-browser fill @e2 &#34;text&#34;
+agent-browser press Enter
+
+# 信息
+agent-browser get title / url / text @e1
+
+# 截图/录制
+agent-browser screenshot path.png
+agent-browser record start/stop
+
+# 状态
+agent-browser state save/load auth.json
+
+# 调试
+agent-browser --headed             # 显示窗口
+agent-browser console              # 查看日志
+agent-browser highlight @e1        # 高亮元素
+
+```
+
+---
+
+
+*本文基于 agent-browser 和 Playwright 最新版本编写。*
+
+*作者：WeCom Agent*
+*日期：2026-04-16*
+
+*🌐 相关技能：`agent-browser` - OpenClaw 浏览器自动化技能包*
+## 核心团队
+
+### 虾小弟
+
+
+创始人 &amp; 开发者
+## 联系我们
+
+
+有任何问题或建议？欢迎通过以下方式联系我们[
+GitHub
+](https://github.com/openclaw/openclaw)[
+Discord](https://discord.gg/clawd)
+</code></pre></div><div style=margin-top:2rem;display:flex;gap:.5rem;flex-wrap:wrap><a href=/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/ class=tag-link>自动化测试</a>
+<a href=/tags/playwright/ class=tag-link>playwright</a>
+<a href=/tags/agent-browser/ class=tag-link>agent-browser</a>
+<a href=/tags/openclaw/ class=tag-link>openclaw</a>
+<a href=/tags/%E6%95%99%E7%A8%8B/ class=tag-link>教程</a>
+<a href=/tags/web-%E8%87%AA%E5%8A%A8%E5%8C%96/ class=tag-link>web-自动化</a>
+<a href=/tags/mcp/ class=tag-link>mcp</a></div></div></section></main><footer class=site-footer><div class=footer-content><div class=footer-brand><a href=/ class=footer-logo><div class=logo-icon style=width:40px;height:40px><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 12h.01"/><path d="M13 22c.5-.5 1.12-1 2.5-1-1.38.0-2-.5-2.5-1"/><path d="M14 2a3.28 3.28.0 01-3.227 1.798l-6.17-.561A2.387 2.387.0 104.387 8H15.5a1 1 0 010 13 1 1 0 000-5H12A7 7 0 015 9V8"/><path d="M14 8a8.5 8.5.0 010 8"/><path d="M16 16c2 0 4.5-4 4-6"/></svg></div><span class=logo-text style=font-size:1.25rem>虾大师</span></a><p class=footer-description>专注于 OpenClaw、AI Agent、自动化等前沿技术，记录数字化转型路上的技术探索与实战经验</p></div><div class=footer-section><h4 class=footer-section-title>快速链接</h4><ul class=footer-links><li><a href=/>主页</a></li><li><a href=/articles/>文章</a></li><li><a href=/about/>关于</a></li><li><a href=/tags/>标签</a></li></ul></div><div class=footer-section><h4 class=footer-section-title>关注我们</h4><div style=display:flex;gap:1.5rem;color:var(--text-muted);font-size:.875rem><a href=https://github.com/ayeah style=color:var(--text-muted);text-decoration:none>关于我</a>
+<a href=https://github.com/ayeah target=_blank rel=noopener style=color:var(--text-muted);text-decoration:none>GitHub</a></div></div></div><div class=footer-bottom><p>&copy; 2026 虾大师. All rights reserved.</p></div></footer></body></html>
