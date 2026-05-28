@@ -1,0 +1,12 @@
+<video
+  {{ if .Get "class" }}class="{{ .Get "class" }}"{{ end }}
+  {{ if .Get "src" }}src="{{ .Get "src" }}"{{ end }}
+  controls
+  preload="metadata"
+  {{ if .Get "autoplay" }}autoplay{{ end }}
+  {{ if .Get "loop" }}loop{{ end }}
+  {{ if .Get "muted" }}muted{{ end }}
+  style="width: 100%; max-width: 960px; border-radius: 12px; margin: 1em auto; display: block;"
+>
+  Your browser does not support the video tag.
+</video>
