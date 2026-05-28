@@ -4,6 +4,7 @@ date: 2026-05-28T14:43:00+08:00
 draft: false
 tags: ["OpenClaw", "Hermes Agent", "hyperframes", "remotion", "AI视频", "代码驱动视频"]
 categories: ["AI工具"]
+cover: "/images/covers/hyperframes-remotion-article.jpg"
 summary: "对AI Agent说一句话，它就帮你做完视频——从技能安装、自然语言操作到飞书交付，hyperframes和remotion两大视频技能一文入门。"
 ---
 
