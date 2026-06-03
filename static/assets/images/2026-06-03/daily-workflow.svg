@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 320" width="860" height="320">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="card1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#818cf8"/>
+      <stop offset="100%" stop-color="#6366f1"/>
+    </linearGradient>
+    <linearGradient id="card2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f472b6"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+    <linearGradient id="card3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#2dd4bf"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="860" height="320" rx="12" fill="url(#bg)"/>
+  
+  <!-- Title -->
+  <text x="430" y="38" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="bold" fill="#e2e8f0">日常炒股 AI 辅助流程（每天 30 分钟）</text>
+  
+  <!-- Card 1: stock-picker -->
+  <rect x="40" y="65" width="230" height="200" rx="10" fill="url(#card1)" opacity="0.15" stroke="#818cf8" stroke-width="1.5"/>
+  <rect x="40" y="65" width="230" height="44" rx="10" fill="url(#card1)" opacity="0.4"/>
+  <text x="155" y="93" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="bold" fill="#eef2ff">每日开盘前</text>
+  <text x="155" y="130" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#c7d2fe">stock-picker</text>
+  <text x="155" y="152" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#94a3b8">粗筛候选池</text>
+  <line x1="70" y1="170" x2="240" y2="170" stroke="#818cf8" stroke-width="0.5" opacity="0.4"/>
+  <text x="155" y="192" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#94a3b8">价值 / 成长 / 动量</text>
+  <text x="155" y="210" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#94a3b8">多因子快速筛选</text>
+  <rect x="105" y="228" width="100" height="28" rx="14" fill="#818cf8" opacity="0.3"/>
+  <text x="155" y="247" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#c7d2fe">⏱ 5 分钟</text>
+  
+  <!-- Arrow 1 -->
+  <line x1="278" y1="165" x2="310" y2="165" stroke="#2dd4bf" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Card 2: glmv-stock-analyst -->
+  <rect x="315" y="65" width="230" height="200" rx="10" fill="url(#card2)" opacity="0.15" stroke="#f472b6" stroke-width="1.5"/>
+  <rect x="315" y="65" width="230" height="44" rx="10" fill="url(#card2)" opacity="0.4"/>
+  <text x="430" y="93" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="bold" fill="#fdf2f8">午休 / 下班后</text>
+  <text x="430" y="130" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#fbcfe8">glmv-stock-analyst</text>
+  <text x="430" y="152" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#94a3b8">深度分析目标股</text>
+  <line x1="345" y1="170" x2="515" y2="170" stroke="#f472b6" stroke-width="0.5" opacity="0.4"/>
+  <text x="430" y="192" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#94a3b8">K线图 + 多维度研报</text>
+  <text x="430" y="210" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#94a3b8">技术面 / 基本面 / 资金面</text>
+  <rect x="380" y="228" width="100" height="28" rx="14" fill="#f472b6" opacity="0.3"/>
+  <text x="430" y="247" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#fbcfe8">⏱ 10 分钟</text>
+  
+  <!-- Arrow 2 -->
+  <line x1="553" y1="165" x2="585" y2="165" stroke="#2dd4bf" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Card 3: stockquant -->
+  <rect x="590" y="65" width="230" height="200" rx="10" fill="url(#card3)" opacity="0.15" stroke="#34d399" stroke-width="1.5"/>
+  <rect x="590" y="65" width="230" height="44" rx="10" fill="url(#card3)" opacity="0.4"/>
+  <text x="705" y="93" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="bold" fill="#ecfdf5">周末复盘</text>
+  <text x="705" y="130" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#6ee7b7">stockquant</text>
+  <text x="705" y="152" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#94a3b8">持仓策略调整</text>
+  <line x1="620" y1="170" x2="790" y2="170" stroke="#34d399" stroke-width="0.5" opacity="0.4"/>
+  <text x="705" y="192" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#94a3b8">卖出策略 + 置信度评级</text>
+  <text x="705" y="210" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#94a3b8">证据卡 + 魔鬼代言人</text>
+  <rect x="655" y="228" width="100" height="28" rx="14" fill="#34d399" opacity="0.3"/>
+  <text x="705" y="247" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#6ee7b7">⏱ 15 分钟</text>
+  
+  <!-- Bottom tagline -->
+  <text x="430" y="298" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#2dd4bf">选股 → 分析 → 操盘决策 · 不盯盘也能覆盖全流程</text>
+</svg>
