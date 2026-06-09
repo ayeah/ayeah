@@ -65,7 +65,9 @@ GitHub</a>
 {{ range first 6 .Site.RegularPages.ByDate.Reverse }}
 <a href={{ .Permalink }} class=article-card>
 {{ if .Params.cover }}
-<div class=article-card-image><img src={{ .Params.cover }} alt={{ .Title }}></div>
+{{ $coverImg := .Params.cover }}
+{{ if not (hasPrefix $coverImg "/") }}{{ if not (hasPrefix $coverImg "http") }}{{ with .Resources.GetMatch $coverImg }}{{ $coverImg = .RelPermalink }}{{ end }}{{ end }}{{ end }}
+<div class=article-card-image><img src={{ $coverImg }} alt={{ .Title }}></div>
 {{ else }}
 <div class=article-card-image>
 <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
