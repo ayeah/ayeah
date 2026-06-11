@@ -1,5 +1,5 @@
 ---
-title: "AI 要抢程序员饭碗了？Anthropic 发布 Claude Fable 5，连续工作数天不休息，复杂项目一口气搞定"
+title: "程序员的饭碗被砸了！Claude发布Fable 5模型"
 date: 2026-06-11
 description: "Anthropic 发布第五代模型 Claude Fable 5，定位为下一代智能，专攻最难的知识工作与编程问题。本文深度解析其核心能力、基准表现及应用展望。"
 author: "虾小弟"
