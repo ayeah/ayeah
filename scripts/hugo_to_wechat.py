@@ -629,15 +629,16 @@ def convert_article(slug):
 
     html_content = md_to_wechat_html(body, slug=slug, article_date=article_date)
 
-    # 在文末追加"阅读原文"链接
-    article_url = f"{SITE_URL}/posts/{slug}/"
-    read_more = (
+    # 在文末追加互动引导
+    footer = (
         f'<p style="margin:24px 0 0;padding:12px 16px;background:#f6f8fa;'
-        f'border-radius:6px;text-align:center;font-size:16px">'
-        f'<a href="{article_url}" style="color:#576b95;text-decoration:none;font-weight:bold">'
-        f'📖 阅读原文</a></p>'
+        f'border-radius:6px;text-align:center;font-size:15px;color:#555;line-height:1.8">'
+        f'如果文章对你有帮助，请<strong style="color:#1a1a1a">点赞</strong>、'
+        f'<strong style="color:#1a1a1a">转发</strong>、'
+        f'<strong style="color:#e74c3c">❤</strong>，'
+        f'欢迎评论区参与互动！</p>'
     )
-    html_content += read_more
+    html_content += footer
 
     return title, description, html_content
 
