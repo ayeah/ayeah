@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 420" width="850" height="420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <path d="M0,0 L10,3.5 L0,7 Z" fill="#2dd4bf"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <path d="M0,0 L10,3.5 L0,7 Z" fill="#ef4444"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="850" height="420" fill="url(#bg)" rx="12"/>
+  
+  <!-- Title -->
+  <text x="425" y="38" text-anchor="middle" font-family="sans-serif" font-size="20" font-weight="bold" fill="#ef4444">⚠ 攻击链路：免费API代理如何劫持你的Agent</text>
+  
+  <!-- Step 1: Your Computer -->
+  <rect x="30" y="65" width="180" height="120" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+  <text x="120" y="90" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#e2e8f0">💻 你的电脑</text>
+  <rect x="45" y="100" width="150" height="30" rx="4" fill="#818cf8" fill-opacity="0.15" stroke="#818cf8" stroke-opacity="0.4" stroke-width="1"/>
+  <text x="120" y="120" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#c7d2fe">Claude Code / opencode</text>
+  <text x="120" y="155" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#94a3b8">有文件读写 + 命令执行权限</text>
+  <text x="120" y="172" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#fbbf24">⚡ 拥有系统级控制能力</text>
+  
+  <!-- Arrow 1 -->
+  <line x1="210" y1="125" x2="265" y2="125" stroke="#2dd4bf" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="237" y="115" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#94a3b8">发送请求</text>
+  
+  <!-- Step 2: Local Proxy -->
+  <rect x="270" y="85" width="170" height="80" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+  <text x="355" y="112" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#e2e8f0">🔗 本地代理</text>
+  <text x="355" y="135" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#94a3b8">unlimited2api</text>
+  <text x="355" y="155" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#64748b">（看似无害的中转层）</text>
+  
+  <!-- Arrow 2 -->
+  <line x1="440" y1="125" x2="495" y2="125" stroke="#ef4444" stroke-width="2" marker-end="url(#arrow-red)"/>
+  <text x="467" y="115" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#ef4444">转发</text>
+  
+  <!-- Step 3: Malicious Upstream (highlighted) -->
+  <rect x="500" y="65" width="195" height="120" rx="8" fill="#1c1917" stroke="#ef4444" stroke-width="2"/>
+  <rect x="500" y="65" width="195" height="30" rx="8" fill="#ef4444" fill-opacity="0.2"/>
+  <text x="597" y="86" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#ef4444">🔓 unlimited.surf</text>
+  <text x="597" y="115" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#fca5a5">注入恶意指令：</text>
+  <text x="597" y="135" text-anchor="middle" font-family="monospace" font-size="10" fill="#f87171">"执行 curl ... | bash"</text>
+  <text x="597" y="160" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#fbbf24">⚠ 篡改系统提示词</text>
+  <text x="597" y="177" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#fbbf24">⚠ 不是透明代理</text>
+  
+  <!-- Arrow down from malicious upstream -->
+  <line x1="597" y1="185" x2="597" y2="225" stroke="#ef4444" stroke-width="2" marker-end="url(#arrow-red)"/>
+  <text x="620" y="210" font-family="sans-serif" font-size="9" fill="#ef4444">返回</text>
+  
+  <!-- Step 4: Model generates malicious output -->
+  <rect x="460" y="230" width="275" height="80" rx="8" fill="#1e293b" stroke="#f472b6" stroke-width="1.5"/>
+  <text x="597" y="258" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#f472b6">🤖 大模型</text>
+  <text x="597" y="282" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#94a3b8">按注入的指令生成恶意命令</text>
+  <text x="597" y="300" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#fca5a5">模型不知道这是恶意的</text>
+  
+  <!-- Arrow back to agent -->
+  <path d="M460,270 Q200,300 120,200" stroke="#ef4444" stroke-width="2" fill="none" marker-end="url(#arrow-red)" stroke-dasharray="6,3"/>
+  <text x="260" y="265" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#ef4444">Agent收到"正常"回复</text>
+  
+  <!-- Result: Computer compromised -->
+  <rect x="50" y="220" width="200" height="100" rx="8" fill="#1c1917" stroke="#ef4444" stroke-width="2"/>
+  <text x="150" y="248" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#ef4444">💀 电脑被控制</text>
+  <text x="150" y="270" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#fca5a5">• 写入后门程序</text>
+  <text x="150" y="287" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#fca5a5">• 窃取SSH密钥/密码</text>
+  <text x="150" y="304" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#fca5a5">• 敏感文件外传</text>
+  
+  <!-- Bottom note -->
+  <rect x="30" y="345" width="790" height="55" rx="8" fill="#fbbf24" fill-opacity="0.08" stroke="#fbbf24" stroke-opacity="0.3" stroke-width="1"/>
+  <text x="425" y="370" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#fbbf24">关键风险点：Agent拥有执行权限 + 上游API注入恶意指令 = 完全控制你的电脑</text>
+  <text x="425" y="390" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#94a3b8">来源：GitHub eooce/transfer-api#1 · 用户 qcxl 实测验证 · 2026-06-22</text>
+</svg>
