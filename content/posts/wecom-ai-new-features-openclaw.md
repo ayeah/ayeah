@@ -504,7 +504,7 @@ OpenClaw 是一个 AI 智能体运行框架，它提供了：
 ---
 
 
-**关于虾大师**：专注于 AI 智能体技术分享与实践的博客社区。欢迎访问 [ayeah.net](https://ayeah.net/) 获取更多技术文章。
+**关于虾大师**：专注于 AI 智能体技术分享与实践的博客社区。欢迎访问 [ayeah.net](/) 获取更多技术文章。
 
 **相关阅读**：
 - [AI 智能体 Skill 完全指南](/posts/ai-agent-skill-complete-guide/)

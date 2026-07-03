@@ -9,7 +9,7 @@
 {{ if eq .Section "articles" }}
 <div class=articles-grid id=articlesGrid>
 {{ range (where site.RegularPages "Type" "posts").ByDate.Reverse }}
-<a href={{ .Permalink }} class=article-card data-date="{{ .Date.Format "2006-01-02" }}">
+<a href={{ .RelPermalink }} class=article-card data-date="{{ .Date.Format "2006-01-02" }}">
 {{ if .Params.cover }}
 {{ $coverImg := .Params.cover }}
 {{ if not (hasPrefix $coverImg "/") }}{{ if not (hasPrefix $coverImg "http") }}{{ with .Resources.GetMatch $coverImg }}{{ $coverImg = .RelPermalink }}{{ end }}{{ end }}{{ end }}
@@ -38,7 +38,7 @@
 {{ else }}
 <div class=articles-grid>
 {{ range .Pages.ByDate.Reverse }}
-<a href={{ .Permalink }} class=article-card>
+<a href={{ .RelPermalink }} class=article-card>
 {{ if .Params.cover }}
 {{ $coverImg := .Params.cover }}
 {{ if not (hasPrefix $coverImg "/") }}{{ if not (hasPrefix $coverImg "http") }}{{ with .Resources.GetMatch $coverImg }}{{ $coverImg = .RelPermalink }}{{ end }}{{ end }}{{ end }}

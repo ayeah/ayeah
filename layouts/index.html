@@ -63,7 +63,7 @@ GitHub</a>
 </div>
 <div class=articles-grid>
 {{ range first 6 .Site.RegularPages.ByDate.Reverse }}
-<a href={{ .Permalink }} class=article-card>
+<a href={{ .RelPermalink }} class=article-card>
 {{ if .Params.cover }}
 {{ $coverImg := .Params.cover }}
 {{ if not (hasPrefix $coverImg "/") }}{{ if not (hasPrefix $coverImg "http") }}{{ with .Resources.GetMatch $coverImg }}{{ $coverImg = .RelPermalink }}{{ end }}{{ end }}{{ end }}

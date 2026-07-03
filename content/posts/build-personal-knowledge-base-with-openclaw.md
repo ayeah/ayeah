@@ -426,9 +426,9 @@ OpenClaw 智能体
 
 - [OpenClaw 技能开发文档](https://docs.openclaw.ai/skills/)
 
-- [RAG 系统架构详解](https://ayeah.net/posts/rag-architecture-guide/)
+- [RAG 系统架构详解](/posts/rag-architecture-guide/)
 
-- [个人知识管理方法论](https://ayeah.net/posts/personal-knowledge-management/)
+- [个人知识管理方法论](/posts/personal-knowledge-management/)
 
 
 ---

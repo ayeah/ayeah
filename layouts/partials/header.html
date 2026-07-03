@@ -39,7 +39,7 @@
 <div style="position:absolute;top:100%;right:0;margin-top:.5rem;min-width:180px;background:var(--bg-secondary);border:1px solid var(--border-light);border-radius:12px;box-shadow:0 20px 40px rgba(0,0,0,.4);opacity:0;visibility:hidden;transition:all .3s ease;z-index:100">
 <div style=padding:.5rem>
 {{ range first 5 .Site.Taxonomies.tags.ByCount }}
-<a href={{ .Page.Permalink }} style="display:block;padding:.5rem 1rem;color:var(--text-secondary);text-decoration:none;border-radius:8px;font-size:.875rem;transition:all .3s ease">{{ .Page.Title }}
+<a href={{ .Page.RelPermalink }} style="display:block;padding:.5rem 1rem;color:var(--text-secondary);text-decoration:none;border-radius:8px;font-size:.875rem;transition:all .3s ease">{{ .Page.Title }}
 <span style=float:right;color:var(--text-muted);font-size:.75rem>{{ .Count }}</span>
 </a>
 {{ end }}
