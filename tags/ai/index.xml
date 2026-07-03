@@ -1,218 +1,39 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ai on 虾大师</title><link>https://ayeah.net/tags/ai/</link><description>Recent content in Ai on 虾大师</description><generator>Hugo</generator><language>zh</language><lastBuildDate>Mon, 20 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://ayeah.net/tags/ai/index.xml" rel="self" type="application/rss+xml"/><item><title>AI Agent 记忆系统优化最佳实践</title><link>https://ayeah.net/posts/ai-agent-memory-optimization/</link><pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/ai-agent-memory-optimization/</guid><description>&lt;h2 id="-前言"&gt;📋 前言&lt;/h2&gt;
-&lt;p&gt;AI Agent 的记忆系统是实现智能对话连续性和个性化服务的关键组件。本文基于 OpenClaw 记忆系统架构，结合业界主流记忆方案（MemOS、阿里云百炼、Hermes 等），为企业级 AI Agent 记忆系统设计提供完整的实践指导。&lt;/p&gt;
-&lt;h2 id="1-记忆系统核心架构"&gt;1. 记忆系统核心架构&lt;/h2&gt;
-&lt;h3 id="11-记忆分层模型"&gt;1.1 记忆分层模型&lt;/h3&gt;
-&lt;p&gt;一个完整的 AI Agent 记忆系统应该包含以下层次：&lt;/p&gt;
-&lt;pre tabindex="0"&gt;&lt;code&gt;┌─────────────────────────────────────────────────────────────┐
-│ 应用层 (Application Layer) │
-│ - 对话上下文 - 任务状态 - 用户意图 - 工具调用历史 │
-├─────────────────────────────────────────────────────────────┤
-│ 短期记忆 (Short-term Memory) │
-│ - 会话历史 - 工作记忆 - 注意力窗口 - 临时缓存 │
-│ - 生命周期：单次会话 / 数小时 │
-├─────────────────────────────────────────────────────────────┤
-│ 长期记忆 (Long-term Memory) │
-│ - 用户画像 - 偏好设置 - 历史决策 - 知识沉淀 │
-│ - 生命周期：持久化 / 数月 - 数年 │
-├─────────────────────────────────────────────────────────────┤
-│ 记忆管理 (Memory Management) │
-│ - 编码 (Encoding) - 存储 (Storage) - 检索 (Retrieval) │
-│ - 巩固 (Consolidation) - 遗忘 (Forgetting) │
-└─────────────────────────────────────────────────────────────┘
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="12-记忆操作生命周期"&gt;1.2 记忆操作生命周期&lt;/h3&gt;
-&lt;p&gt;********************************| 阶段 | 描述 | 关键技术 |
-| &amp;mdash; | &amp;mdash; | &amp;mdash; |
-| 编码 | 将原始信息转化为可存储格式 | 文本分块、向量化、元数据提取 |
-| 存储 | 持久化到存储介质 | SQLite、向量数据库、云存储 |
-| 索引 | 建立检索结构 | 倒排索引、HNSW、IVF-PQ |
-| 检索 | 根据查询召回相关记忆 | 语义搜索、关键词匹配、混合搜索 |
-| 重排序 | 对检索结果进行精排 | Cross-Encoder、LLM Rerank |
-| 融合 | 将记忆注入上下文 | Prompt 工程、上下文窗口管理 |
-| 巩固 | 将短期记忆转化为长期记忆 | 定期汇总、重要性评分、去重 |
-| 遗忘 | 清理低价值记忆 | 时间衰减、使用频率、主动删除 |&lt;/p&gt;</description></item><item><title>CoPaw vs OpenClaw：两大个人 AI 助手系统深度对比评测</title><link>https://ayeah.net/posts/copaw-vs-openclaw-personal-assistant-comparison/</link><pubDate>Tue, 14 Apr 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/copaw-vs-openclaw-personal-assistant-comparison/</guid><description>&lt;blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;strong&gt;阅读时间&lt;/strong&gt;：约 12 分钟
-&lt;strong&gt;最后更新&lt;/strong&gt;：2026 年 4 月 14 日&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AI on 虾大师</title><link>https://ayeah.net/tags/ai/</link><description>Recent content in AI on 虾大师</description><generator>Hugo</generator><language>zh</language><lastBuildDate>Fri, 03 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://ayeah.net/tags/ai/index.xml" rel="self" type="application/rss+xml"/><item><title>发现宝藏！白嫖Token神器OmniRoute</title><link>https://ayeah.net/posts/omniroute-free-token-gateway/</link><pubDate>Fri, 03 Jul 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/omniroute-free-token-gateway/</guid><description>&lt;h2 id="引言"&gt;引言&lt;/h2&gt;
+&lt;p&gt;最近注册了不少免费的Token服务，但基本都有使用量限制，一超就要切换，非常影响使用体验，所以想自己写个API代理，统一调用model-id，只要出现429或其他错误，就自动切换下一个服务商。正当我思考功能时，发现了这个更强大的&lt;strong&gt;OmniRoute&lt;/strong&gt;，内置了很多免费层的服务商，专门针对我们这种白嫖党有组合规则，真是太贴心了！既然有这么强大的系统，就不用自己手搓了，开箱即用！&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;什么是OmniRoute？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;简单来说，它是一个&lt;strong&gt;AI API网关&lt;/strong&gt;，帮你把多个AI服务提供商（比如OpenAI、Claude、Gemini、以及各种免费平台）统一成一个接口。当某个服务商的额度用完或出现错误时，它会自动切换到下一个可用的服务商，完全无感知。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;核心特性：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;🌐 &lt;strong&gt;237个AI提供商&lt;/strong&gt;，其中90+有免费额度&lt;/li&gt;
+&lt;li&gt;🔄 &lt;strong&gt;17种路由策略&lt;/strong&gt;，支持优先级、权重、成本优化等&lt;/li&gt;
+&lt;li&gt;🗜️ &lt;strong&gt;Token压缩&lt;/strong&gt;，最高节省95%用量&lt;/li&gt;
+&lt;li&gt;🛡️ &lt;strong&gt;自动故障转移&lt;/strong&gt;，遇到429或错误自动切换&lt;/li&gt;
+&lt;li&gt;🐳 &lt;strong&gt;Docker部署&lt;/strong&gt;，一键启动，支持NAS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src="https://ayeah.net/images/omniroute/01-dashboard-overview.png" alt="OmniRoute Dashboard总览"&gt;&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id="前言"&gt;前言&lt;/h2&gt;
-&lt;p&gt;个人 AI 助手赛道正迎来爆发式增长。在众多开源项目中，&lt;strong&gt;CoPaw（现更名为 QwenPaw）&lt;/strong&gt; 和 &lt;strong&gt;OpenClaw&lt;/strong&gt; 凭借各自的优势脱颖而出，成为开发者关注的焦点。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;CoPaw/QwenPaw&lt;/strong&gt;：基于阿里 AgentScope 构建，主打轻量化和快速部署&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;OpenClaw&lt;/strong&gt;：社区驱动的开源项目，以强大的渠道集成和主动式任务执行著称&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="本文将从架构设计功能特性部署难度生态扩展等多个维度进行深度对比帮助你选择最适合的个人-ai-助手系统"&gt;本文将从架构设计、功能特性、部署难度、生态扩展等多个维度进行深度对比，帮助你选择最适合的个人 AI 助手系统。&lt;/h2&gt;
-&lt;h2 id="一项目背景与定位"&gt;一、项目背景与定位&lt;/h2&gt;
-&lt;h3 id="11-copawqwenpaw"&gt;1.1 CoPaw（QwenPaw）&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;基本信息&lt;/strong&gt;：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;官方名称&lt;/strong&gt;：QwenPaw（原名 CoPaw，Co Personal Agent Workstation）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;开发团队&lt;/strong&gt;：AgentScope 社区（阿里达摩院背景）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;技术栈&lt;/strong&gt;：Python + AgentScope 框架&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;定位&lt;/strong&gt;：轻量级个人 AI 助手工作站&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;仓库&lt;/strong&gt;：https://github.com/agentscope-ai/QwenPaw&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;核心理念&lt;/strong&gt;：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;“部署在你自己的环境中，支持多种聊天平台接入，具备强大的扩展能力”&lt;/p&gt;
-&lt;h3 id="12-openclaw"&gt;1.2 OpenClaw&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;基本信息&lt;/strong&gt;：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;官方名称&lt;/strong&gt;：OpenClaw — Personal AI Assistant&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;开发团队&lt;/strong&gt;：社区驱动（核心贡献者 @steipete 等）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;技术栈&lt;/strong&gt;：Node.js/TypeScript + 原生网关架构&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;定位&lt;/strong&gt;：全功能个人 AI 助手运行时平台&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;仓库&lt;/strong&gt;：https://github.com/openclaw/openclaw&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;官网&lt;/strong&gt;：https://openclaw.ai&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;核心理念&lt;/strong&gt;：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;“The AI that actually does things.” —— 一个真正能做事的 AI 助手&lt;/p&gt;</description></item><item><title>GLM-5.1 模型深度评测：智谱 AI 新一代大语言模型全面解析</title><link>https://ayeah.net/posts/glm-51-deep-review-zhipu-llm/</link><pubDate>Tue, 14 Apr 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/glm-51-deep-review-zhipu-llm/</guid><description>&lt;blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;strong&gt;阅读时间&lt;/strong&gt;：约 8 分钟&lt;/p&gt;
-&lt;h2 id="前言"&gt;前言&lt;/h2&gt;
-&lt;p&gt;在大语言模型竞争日益激烈的今天，智谱 AI（Zhipu AI）推出的 GLM 系列模型一直备受关注。作为清华大学知识工程实验室（KEG）孵化的人工智能企业，智谱 AI 凭借其深厚的学术背景和扎实的技术实力，在国内大模型领域占据重要地位。&lt;/p&gt;
-&lt;h2 id="本文综合多方评测信息对-glm-51-模型进行全方位解析帮助开发者和企业用户了解这款模型的核心能力与适用场景"&gt;本文综合多方评测信息，对 GLM-5.1 模型进行全方位解析，帮助开发者和企业用户了解这款模型的核心能力与适用场景。&lt;/h2&gt;
-&lt;h2 id="一glm-系列模型演进历程"&gt;一、GLM 系列模型演进历程&lt;/h2&gt;
-&lt;h3 id="11-从-glm-到-glm-51"&gt;1.1 从 GLM 到 GLM-5.1&lt;/h3&gt;
-&lt;p&gt;GLM（Generalized Language Model）是智谱 AI 自主研发的预训练模型架构，其核心创新在于采用&lt;strong&gt;双向注意力机制&lt;/strong&gt;与&lt;strong&gt;自回归填充&lt;/strong&gt;相结合的方式，在保持语言理解能力的同时，兼顾了生成任务的需求。&lt;/p&gt;
-&lt;p&gt;主要版本演进：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;GLM-130B&lt;/strong&gt;（2022）：开源的千亿参数模型，奠定了 GLM 架构的基础&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;ChatGLM&lt;/strong&gt; 系列：针对对话场景优化的轻量化版本&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;GLM-4&lt;/strong&gt;（2024）：全面升级的多模态大模型&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;GLM-5.1&lt;/strong&gt;（2025-2026）：最新一代模型，在推理能力、代码生成和长上下文处理上实现显著突破&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id="12-glm-51-的定位"&gt;1.2 GLM-5.1 的定位&lt;/h3&gt;
-&lt;h2 id="glm-51-定位于企业级通用大模型在保持高性价比的同时提供接近顶尖模型的综合能力其主要竞争对手包括-gpt-4-系列claude-35qwen25-等"&gt;GLM-5.1 定位于&lt;strong&gt;企业级通用大模型&lt;/strong&gt;，在保持高性价比的同时，提供接近顶尖模型的综合能力。其主要竞争对手包括 GPT-4 系列、Claude 3.5、Qwen2.5 等。&lt;/h2&gt;
-&lt;h2 id="二核心技术特性"&gt;二、核心技术特性&lt;/h2&gt;
-&lt;h3 id="21-架构创新"&gt;2.1 架构创新&lt;/h3&gt;
-&lt;p&gt;GLM-5.1 延续了 GLM 系列的混合注意力架构，并进行了多项优化：****************| 特性 | 说明 |
-| &amp;mdash; | &amp;mdash; |
-| 混合注意力机制 | 结合双向编码与自回归解码，平衡理解与生成能力 |
-| 稀疏 MoE 结构 | 采用混合专家模型，提升推理效率 |
-| 长上下文支持 | 原生支持 128K+ token 上下文窗口 |
-| 多模态融合 | 支持文本、图像、表格等多种输入形式 |&lt;/p&gt;</description></item><item><title>Hermes Agent vs OpenClaw：两大开源 AI 智能体框架深度对比与选型指南</title><link>https://ayeah.net/posts/hermes-agent-vs-openclaw-comparison-guide/</link><pubDate>Tue, 14 Apr 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/hermes-agent-vs-openclaw-comparison-guide/</guid><description>&lt;blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;strong&gt;阅读时间&lt;/strong&gt;：约 15 分钟
-&lt;strong&gt;最后更新&lt;/strong&gt;：2026 年 4 月 14 日
-&lt;strong&gt;数据来源&lt;/strong&gt;：GitHub 官方仓库、社区文档、第三方评测&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id="前言"&gt;前言&lt;/h2&gt;
-&lt;p&gt;开源 AI 智能体赛道正迎来前所未有的繁荣。在众多优秀项目中，&lt;strong&gt;Hermes Agent&lt;/strong&gt; 和 &lt;strong&gt;OpenClaw&lt;/strong&gt; 凭借各自独特的设计理念和技术优势，成为开发者关注的焦点。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Hermes Agent&lt;/strong&gt;：由 NousResearch 开发，号称&amp;quot;The agent that grows with you&amp;quot;，以动态成长和自适应学习为核心特色&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;OpenClaw&lt;/strong&gt;：社区驱动的个人 AI 助手运行时平台，以多通道集成和主动式任务执行著称&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="本文将从架构设计核心特性生态系统部署难度等多个维度进行深度对比并给出专业的选型建议"&gt;本文将从架构设计、核心特性、生态系统、部署难度等多个维度进行深度对比，并给出专业的选型建议。&lt;/h2&gt;
-&lt;h2 id="一项目背景与定位"&gt;一、项目背景与定位&lt;/h2&gt;
-&lt;h3 id="11-hermes-agent"&gt;1.1 Hermes Agent&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;基本信息&lt;/strong&gt;：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;开发团队&lt;/strong&gt;：NousResearch（知名 AI 研究机构）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;技术栈&lt;/strong&gt;：Python + 自适应学习框架&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;定位&lt;/strong&gt;：可成长的个人 AI 智能体框架&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;仓库&lt;/strong&gt;：https://github.com/NousResearch/hermes-agent&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;官网&lt;/strong&gt;：https://hermes-agent.nousresearch.com&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Stars&lt;/strong&gt;：84,000+（截至 2026 年 4 月）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;许可证&lt;/strong&gt;：MIT&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;核心理念&lt;/strong&gt;：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;“The agent that grows with you” —— 一个与你共同成长的智能体&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;核心特色&lt;/strong&gt;：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;动态能力扩展&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;自适应学习机制&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;长期记忆进化&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;多模型协同&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id="12-openclaw"&gt;1.2 OpenClaw&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;基本信息&lt;/strong&gt;：&lt;/p&gt;</description></item><item><title>AI 智能体 Skill 完全指南：从概念到实战</title><link>https://ayeah.net/posts/ai-agent-skill-complete-guide/</link><pubDate>Sun, 29 Mar 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/ai-agent-skill-complete-guide/</guid><description>&lt;h2 id="-什么是-ai-智能体-skill"&gt;🎯 什么是 AI 智能体 Skill？&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;Skill（技能）&lt;/strong&gt; 是 AI 智能体的核心能力单元，它定义了智能体能够执行的具体任务和操作。就像人类通过学习掌握各种技能一样，AI 智能体通过 Skill 系统获得与外部世界交互的能力。&lt;/p&gt;
-&lt;h3 id="核心定义"&gt;核心定义&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Skill 是一个封装了特定功能模块的代码单元，它使 AI 能够：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;感知外部环境（读取文件、查询 API、搜索信息）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;执行具体操作（发送消息、创建文档、管理日程）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;与用户进行有意义的交互&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="-skill-的基本概念"&gt;📚 Skill 的基本概念&lt;/h2&gt;
-&lt;h3 id="1-技能类型"&gt;1. 技能类型&lt;/h3&gt;
-&lt;p&gt;根据功能领域，Skill 可以分为以下几类：********************| 类型 | 描述 | 示例 |
-| &amp;mdash; | &amp;mdash; | &amp;mdash; |
-| 信息查询 | 获取外部数据 | 天气查询、新闻搜索、文档读取 |
-| 内容创作 | 生成或编辑内容 | 文章撰写、代码生成、图片处理 |
-| 任务管理 | 执行工作流程 | 待办事项、日程安排、会议管理 |
-| 系统集成 | 连接第三方服务 | 企业微信、飞书、GitHub |
-| 系统运维 | 管理和监控 | 健康检查、备份、部署 |&lt;/p&gt;</description></item></channel></rss>
+&lt;h2 id="1-安装docker一键部署"&gt;1. 安装：Docker一键部署&lt;/h2&gt;
+&lt;p&gt;OmniRoute支持多种安装方式（npm全局安装、Docker、Electron桌面应用、Termux手机端），但我最喜欢&lt;strong&gt;Docker&lt;/strong&gt;，干净利落，直接部署在我的NAS上。&lt;/p&gt;
+&lt;h3 id="快速启动"&gt;快速启动&lt;/h3&gt;
+&lt;p&gt;打开终端，运行以下命令：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"&gt;1
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"&gt;2
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"&gt;3
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"&gt;4
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"&gt;5
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"&gt;6
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker run -d &lt;span style="color:#f1fa8c"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --name omniroute &lt;span style="color:#f1fa8c"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --restart unless-stopped &lt;span style="color:#f1fa8c"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --stop-timeout &lt;span style="color:#bd93f9"&gt;40&lt;/span&gt; &lt;span style="color:#f1fa8c"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -p 20128:20128 &lt;span style="color:#f1fa8c"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -v omniroute-data:/app/data &lt;span style="color:#f1fa8c"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; diegosouzapw/omniroute:latest
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;参数说明：&lt;/strong&gt;&lt;/p&gt;</description></item></channel></rss>

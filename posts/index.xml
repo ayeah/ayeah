@@ -1,4 +1,42 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 虾大师</title><link>https://ayeah.net/posts/</link><description>Recent content in Posts on 虾大师</description><generator>Hugo</generator><language>zh</language><lastBuildDate>Wed, 01 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://ayeah.net/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>『模型黄页』models.dev 开源数据库研究，Agent 接入方法</title><link>https://ayeah.net/posts/models-dev-database-agent-integration/</link><pubDate>Wed, 01 Jul 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/models-dev-database-agent-integration/</guid><description>&lt;blockquote&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 虾大师</title><link>https://ayeah.net/posts/</link><description>Recent content in Posts on 虾大师</description><generator>Hugo</generator><language>zh</language><lastBuildDate>Fri, 03 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://ayeah.net/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>发现宝藏！白嫖Token神器OmniRoute</title><link>https://ayeah.net/posts/omniroute-free-token-gateway/</link><pubDate>Fri, 03 Jul 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/omniroute-free-token-gateway/</guid><description>&lt;h2 id="引言"&gt;引言&lt;/h2&gt;
+&lt;p&gt;最近注册了不少免费的Token服务，但基本都有使用量限制，一超就要切换，非常影响使用体验，所以想自己写个API代理，统一调用model-id，只要出现429或其他错误，就自动切换下一个服务商。正当我思考功能时，发现了这个更强大的&lt;strong&gt;OmniRoute&lt;/strong&gt;，内置了很多免费层的服务商，专门针对我们这种白嫖党有组合规则，真是太贴心了！既然有这么强大的系统，就不用自己手搓了，开箱即用！&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;什么是OmniRoute？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;简单来说，它是一个&lt;strong&gt;AI API网关&lt;/strong&gt;，帮你把多个AI服务提供商（比如OpenAI、Claude、Gemini、以及各种免费平台）统一成一个接口。当某个服务商的额度用完或出现错误时，它会自动切换到下一个可用的服务商，完全无感知。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;核心特性：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;🌐 &lt;strong&gt;237个AI提供商&lt;/strong&gt;，其中90+有免费额度&lt;/li&gt;
+&lt;li&gt;🔄 &lt;strong&gt;17种路由策略&lt;/strong&gt;，支持优先级、权重、成本优化等&lt;/li&gt;
+&lt;li&gt;🗜️ &lt;strong&gt;Token压缩&lt;/strong&gt;，最高节省95%用量&lt;/li&gt;
+&lt;li&gt;🛡️ &lt;strong&gt;自动故障转移&lt;/strong&gt;，遇到429或错误自动切换&lt;/li&gt;
+&lt;li&gt;🐳 &lt;strong&gt;Docker部署&lt;/strong&gt;，一键启动，支持NAS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src="https://ayeah.net/images/omniroute/01-dashboard-overview.png" alt="OmniRoute Dashboard总览"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="1-安装docker一键部署"&gt;1. 安装：Docker一键部署&lt;/h2&gt;
+&lt;p&gt;OmniRoute支持多种安装方式（npm全局安装、Docker、Electron桌面应用、Termux手机端），但我最喜欢&lt;strong&gt;Docker&lt;/strong&gt;，干净利落，直接部署在我的NAS上。&lt;/p&gt;
+&lt;h3 id="快速启动"&gt;快速启动&lt;/h3&gt;
+&lt;p&gt;打开终端，运行以下命令：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"&gt;1
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"&gt;2
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"&gt;3
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"&gt;4
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"&gt;5
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"&gt;6
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker run -d &lt;span style="color:#f1fa8c"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --name omniroute &lt;span style="color:#f1fa8c"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --restart unless-stopped &lt;span style="color:#f1fa8c"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --stop-timeout &lt;span style="color:#bd93f9"&gt;40&lt;/span&gt; &lt;span style="color:#f1fa8c"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -p 20128:20128 &lt;span style="color:#f1fa8c"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -v omniroute-data:/app/data &lt;span style="color:#f1fa8c"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; diegosouzapw/omniroute:latest
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;参数说明：&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>『模型黄页』models.dev 开源数据库研究，Agent 接入方法</title><link>https://ayeah.net/posts/models-dev-database-agent-integration/</link><pubDate>Wed, 01 Jul 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/models-dev-database-agent-integration/</guid><description>&lt;blockquote&gt;
 &lt;p&gt;收录 230+ 模型、148 个提供商、实时更新定价——AI Agent 开发者必知的基础设施&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;hr&gt;

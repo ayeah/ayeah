@@ -1,4 +1,42 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>开源 on 虾大师</title><link>https://ayeah.net/tags/%E5%BC%80%E6%BA%90/</link><description>Recent content in 开源 on 虾大师</description><generator>Hugo</generator><language>zh</language><lastBuildDate>Wed, 17 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://ayeah.net/tags/%E5%BC%80%E6%BA%90/index.xml" rel="self" type="application/rss+xml"/><item><title>GLM-5.2 开源发布：国产大模型比肩 Claude Opus，中西结合开启高效开发新时代</title><link>https://ayeah.net/posts/glm-52-open-source-flagship/</link><pubDate>Wed, 17 Jun 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/glm-52-open-source-flagship/</guid><description>&lt;p&gt;&lt;strong&gt;2026年6月17日&lt;/strong&gt; — 智谱今日正式上线并开源新一代旗舰大模型 GLM-5.2，这是目前全球排名最高的开源模型之一，在多项权威评测中与 Anthropic 的 Claude Opus 4.8 仅相差 1%–4%。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>开源 on 虾大师</title><link>https://ayeah.net/tags/%E5%BC%80%E6%BA%90/</link><description>Recent content in 开源 on 虾大师</description><generator>Hugo</generator><language>zh</language><lastBuildDate>Fri, 03 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://ayeah.net/tags/%E5%BC%80%E6%BA%90/index.xml" rel="self" type="application/rss+xml"/><item><title>发现宝藏！白嫖Token神器OmniRoute</title><link>https://ayeah.net/posts/omniroute-free-token-gateway/</link><pubDate>Fri, 03 Jul 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/omniroute-free-token-gateway/</guid><description>&lt;h2 id="引言"&gt;引言&lt;/h2&gt;
+&lt;p&gt;最近注册了不少免费的Token服务，但基本都有使用量限制，一超就要切换，非常影响使用体验，所以想自己写个API代理，统一调用model-id，只要出现429或其他错误，就自动切换下一个服务商。正当我思考功能时，发现了这个更强大的&lt;strong&gt;OmniRoute&lt;/strong&gt;，内置了很多免费层的服务商，专门针对我们这种白嫖党有组合规则，真是太贴心了！既然有这么强大的系统，就不用自己手搓了，开箱即用！&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;什么是OmniRoute？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;简单来说，它是一个&lt;strong&gt;AI API网关&lt;/strong&gt;，帮你把多个AI服务提供商（比如OpenAI、Claude、Gemini、以及各种免费平台）统一成一个接口。当某个服务商的额度用完或出现错误时，它会自动切换到下一个可用的服务商，完全无感知。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;核心特性：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;🌐 &lt;strong&gt;237个AI提供商&lt;/strong&gt;，其中90+有免费额度&lt;/li&gt;
+&lt;li&gt;🔄 &lt;strong&gt;17种路由策略&lt;/strong&gt;，支持优先级、权重、成本优化等&lt;/li&gt;
+&lt;li&gt;🗜️ &lt;strong&gt;Token压缩&lt;/strong&gt;，最高节省95%用量&lt;/li&gt;
+&lt;li&gt;🛡️ &lt;strong&gt;自动故障转移&lt;/strong&gt;，遇到429或错误自动切换&lt;/li&gt;
+&lt;li&gt;🐳 &lt;strong&gt;Docker部署&lt;/strong&gt;，一键启动，支持NAS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src="https://ayeah.net/images/omniroute/01-dashboard-overview.png" alt="OmniRoute Dashboard总览"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="1-安装docker一键部署"&gt;1. 安装：Docker一键部署&lt;/h2&gt;
+&lt;p&gt;OmniRoute支持多种安装方式（npm全局安装、Docker、Electron桌面应用、Termux手机端），但我最喜欢&lt;strong&gt;Docker&lt;/strong&gt;，干净利落，直接部署在我的NAS上。&lt;/p&gt;
+&lt;h3 id="快速启动"&gt;快速启动&lt;/h3&gt;
+&lt;p&gt;打开终端，运行以下命令：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"&gt;1
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"&gt;2
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"&gt;3
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"&gt;4
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"&gt;5
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"&gt;6
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker run -d &lt;span style="color:#f1fa8c"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --name omniroute &lt;span style="color:#f1fa8c"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --restart unless-stopped &lt;span style="color:#f1fa8c"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --stop-timeout &lt;span style="color:#bd93f9"&gt;40&lt;/span&gt; &lt;span style="color:#f1fa8c"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -p 20128:20128 &lt;span style="color:#f1fa8c"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -v omniroute-data:/app/data &lt;span style="color:#f1fa8c"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; diegosouzapw/omniroute:latest
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;参数说明：&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>GLM-5.2 开源发布：国产大模型比肩 Claude Opus，中西结合开启高效开发新时代</title><link>https://ayeah.net/posts/glm-52-open-source-flagship/</link><pubDate>Wed, 17 Jun 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/glm-52-open-source-flagship/</guid><description>&lt;p&gt;&lt;strong&gt;2026年6月17日&lt;/strong&gt; — 智谱今日正式上线并开源新一代旗舰大模型 GLM-5.2，这是目前全球排名最高的开源模型之一，在多项权威评测中与 Anthropic 的 Claude Opus 4.8 仅相差 1%–4%。&lt;/p&gt;
 &lt;h2 id="核心亮点"&gt;核心亮点&lt;/h2&gt;
 &lt;h3 id="1m-上下文长程任务真正可用"&gt;1M 上下文：长程任务真正可用&lt;/h3&gt;
 &lt;p&gt;GLM-5.2 支持真正可用的 &lt;strong&gt;1M 上下文窗口&lt;/strong&gt;（最大输出 128K tokens），能够承载项目级工程上下文。在实际测试中，模型累计处理超过 85 万 tokens，接近用满 1M 上下文窗口。智谱用一个直观的例子说明：&amp;ldquo;用一句话描述需求，它就能自主完成开发、联调、测试到打包上线，几小时内交付一个网页、手机、小程序都能用的完整应用，而这过去往往需要一支团队干上数周。&amp;rdquo;&lt;/p&gt;
