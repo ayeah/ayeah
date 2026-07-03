@@ -5,6 +5,7 @@ draft: false
 tags: ["AI", "开源", "Docker", "Token优化", "免费模型"]
 categories: ["AI工具"]
 description: "OmniRoute是一个开源AI网关，聚合237个AI提供商（90+免费），通过智能路由和自动故障转移，让你永不停机。支持Docker部署，内置Token压缩，最高可节省95%用量。"
+cover: "/images/omniroute/cover.png"
 ---
 
 ## 引言
