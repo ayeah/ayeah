@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 768px;
+    height: 1024px;
+    background: transparent;
+    overflow: hidden;
+  }
+  
+  .label {
+    position: absolute;
+    white-space: nowrap;
+  }
+  
+  /* Main title - use KaiTi (楷体) for brush-like Chinese feel */
+  .title {
+    top: 42px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-1.5deg);
+    font-size: 56px;
+    font-weight: 900;
+    color: #C41818;
+    letter-spacing: 6px;
+    font-family: "KaiTi", "STKaiti", "Kaiti SC", "楷体", "AR PL UKai CN", serif;
+    text-shadow: 
+      2px 2px 0px rgba(200,50,50,0.12),
+      0 0 12px rgba(200,0,0,0.06);
+    /* Simulate thick marker pen */
+    -webkit-text-stroke: 1px rgba(160,15,15,0.4);
+    paint-order: stroke fill;
+  }
+  
+  /* Subtitle - OmniRoute in bold sans-serif */
+  .subtitle {
+    top: 115px;
+    left: 50%;
+    transform: translateX(-50%) rotate(0.5deg);
+    font-size: 40px;
+    font-weight: 900;
+    color: #2A2A2A;
+    letter-spacing: 4px;
+    font-family: "Arial Black", "Impact", "Helvetica Neue", sans-serif;
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.08);
+  }
+  
+  /* Orange wavy underline for subtitle */
+  .underline {
+    position: absolute;
+    top: 164px;
+    left: 215px;
+    width: 340px;
+    height: 5px;
+    background: #E87020;
+    transform: rotate(-0.3deg);
+    border-radius: 3px;
+    opacity: 0.75;
+  }
+  
+  /* Annotation labels - handwritten brush style */
+  .badge {
+    font-family: "KaiTi", "STKaiti", "Kaiti SC", "楷体", "AR PL UKai CN", serif;
+    font-weight: bold;
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.06);
+  }
+  
+  .b-baozhang {
+    top: 235px;
+    right: 78px;
+    font-size: 30px;
+    color: #D42020;
+    transform: rotate(-10deg);
+    padding: 6px 14px;
+    border: 3px solid #D42020;
+    border-radius: 40px;
+    opacity: 0.85;
+  }
+  
+  .b-free {
+    top: 355px;
+    left: 42px;
+    font-size: 32px;
+    color: #E87020;
+    transform: rotate(6deg);
+  }
+  
+  .b-providers {
+    bottom: 115px;
+    left: 145px;
+    font-size: 24px;
+    color: #2060C0;
+    transform: rotate(-4deg);
+    font-style: italic;
+  }
+  
+  .b-ready {
+    bottom: 65px;
+    right: 110px;
+    font-size: 24px;
+    color: #B01010;
+    transform: rotate(5deg);
+    font-weight: 900;
+  }
+  
+  /* Decorative sparkles */
+  .sparkle {
+    position: absolute;
+    color: #E8A020;
+    opacity: 0.65;
+  }
+  .sp1 { top: 50px; left: 108px; font-size: 22px; transform: rotate(15deg); }
+  .sp2 { top: 45px; right: 95px; font-size: 18px; transform: rotate(-25deg); }
+  .sp3 { top: 96px; left: 148px; font-size: 13px; transform: rotate(35deg); color: #E87020; }
+  .sp4 { bottom: 300px; right: 65px; font-size: 16px; transform: rotate(20deg); color: #E87020; }
+</style>
+</head>
+<body>
+  <div class="label title">白嫖Token神器</div>
+  <div class="label subtitle">OmniRoute</div>
+  <div class="underline"></div>
+  
+  <div class="label badge b-baozhang">宝藏</div>
+  <div class="label badge b-free">免费!</div>
+  <div class="label badge b-providers">237个提供商</div>
+  <div class="label badge b-ready">开箱即用</div>
+  
+  <div class="sparkle sp1">✦</div>
+  <div class="sparkle sp2">✧</div>
+  <div class="sparkle sp3">⋆</div>
+  <div class="sparkle sp4">✦</div>
+</body>
+</html>
