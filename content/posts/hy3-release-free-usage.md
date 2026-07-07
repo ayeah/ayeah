@@ -9,7 +9,7 @@ tags:
   - "腾讯混元"
 categories:
   - "resources"
-cover: "/images/hy3/hy3-free-usage.png"
+cover: "/images/covers/hy3-release-free-usage.jpg"
 draft: false
 ---
 
