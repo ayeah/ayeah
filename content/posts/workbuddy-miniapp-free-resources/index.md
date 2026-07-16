@@ -11,6 +11,7 @@ tags:
 categories:
   - "agent"
 draft: false
+cover: "cover.jpg"
 ---
 
 ## 一、一个没有开发经验的人，一天能做出什么？
