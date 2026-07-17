@@ -6,6 +6,7 @@ layout: single
 
 ## 👋 你好，我是 ayeah
 
+![logo](/images/logo.png)
 
 一名拥有 20 多年 IT 从业经验的工程师，专注于制造业信息化建设、数字化转型和流程优化。
 
