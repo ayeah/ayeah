@@ -1,4 +1,17 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>虾大师</title><link>https://ayeah.net/</link><description>Recent content on 虾大师</description><generator>Hugo</generator><language>zh</language><lastBuildDate>Mon, 20 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://ayeah.net/index.xml" rel="self" type="application/rss+xml"/><item><title>北大发布《Harness Engineering》报告：驯服Agent，从能用走向可靠的进阶之路</title><link>https://ayeah.net/posts/harness-engineering-pku-agent/</link><pubDate>Mon, 20 Jul 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/harness-engineering-pku-agent/</guid><description>&lt;p&gt;2026年7月，北大青鸟人工智能研究院（AI肖睿团队）发布了一份69页的深度技术报告——《Harness Engineering——驯服Agent》。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>虾大师</title><link>https://ayeah.net/</link><description>Recent content on 虾大师</description><generator>Hugo</generator><language>zh</language><lastBuildDate>Thu, 23 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://ayeah.net/index.xml" rel="self" type="application/rss+xml"/><item><title>跟着大神学AI：700万下载的grill-me技能，如何用5行字改变AI工作结果</title><link>https://ayeah.net/posts/grill-me-5-lines-change-ai/</link><pubDate>Thu, 23 Jul 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/grill-me-5-lines-change-ai/</guid><description>&lt;h2 id="先说个前情提要"&gt;先说个前情提要&lt;/h2&gt;
+&lt;p&gt;之前我写过一篇文章叫&lt;a href="../claude-fable-5-agent-guide/"&gt;《AI大神教你玩Agent：如何全面发掘模型潜力》&lt;/a&gt;，核心观点就一句话：&lt;strong&gt;模型越强，方法越重要。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;你给 Agent 发了一大段需求，它做出来的东西还是偏离你的预期？这不是模型不行，而是你还不会&amp;quot;问&amp;quot;。&lt;/p&gt;
+&lt;p&gt;那篇文章讲的是&amp;quot;怎么问&amp;quot;的大方向。今天这篇，我要给你看一个具体的、可以直接抄作业的答案。&lt;/p&gt;
+&lt;p&gt;这个答案来自 GitHub 上一个 183K Stars 的项目，最火的技能下载量超过 700 万次。而它的核心内容，只有 5 行字。&lt;/p&gt;
+&lt;h2 id="matt-pocock-是谁"&gt;Matt Pocock 是谁？&lt;/h2&gt;
+&lt;p&gt;如果你写 TypeScript，大概率听过这个名字。&lt;/p&gt;
+&lt;p&gt;Matt Pocock 是 TypeScript 领域最知名的教育者之一，他创办的 Total TypeScript 课程帮助了全球数十万开发者。但让他真正出圈的，不是课程，而是他在 GitHub 上开源的一个 skills 仓库。&lt;/p&gt;
+&lt;p&gt;这个仓库叫 mattpocock/skills，Star 数 183K，Fork 数 15.6K。里面装的不是代码库，而是一整套&amp;quot;怎么跟 AI 协作&amp;quot;的方法论，打包成了一个个可以即插即用的 Skill 文件。&lt;/p&gt;
+&lt;p&gt;你可以把它理解成：&lt;strong&gt;一个顶级程序员把自己跟 AI 打交道的全部经验，写成了说明书，免费送给你。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="01-workflow.png" alt="Matt Pocock 的 AI 开发工作流全景图"&gt;&lt;/p&gt;
+&lt;p&gt;整套工作流长这样：先用 grill-me 把需求问清楚，再用 to-spec 写成规格书，然后 to-tickets 拆成任务，接着 implement 用 TDD 方式写代码，写完 code-review 自动审查，最后 improve 优化架构。&lt;/p&gt;
+&lt;p&gt;每个 Skill 只做一件事，做完就收工。你可以全用，也可以只挑一个。&lt;/p&gt;
+&lt;p&gt;而这套流程里下载量最高的，就是第一步——grill-me。&lt;/p&gt;</description></item><item><title>北大发布《Harness Engineering》报告：驯服Agent，从能用走向可靠的进阶之路</title><link>https://ayeah.net/posts/harness-engineering-pku-agent/</link><pubDate>Mon, 20 Jul 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/harness-engineering-pku-agent/</guid><description>&lt;p&gt;2026年7月，北大青鸟人工智能研究院（AI肖睿团队）发布了一份69页的深度技术报告——《Harness Engineering——驯服Agent》。&lt;/p&gt;
 &lt;p&gt;这份报告从Prompt Engineering到Context Engineering，再到Harness Engineering和Loop Engineering，系统梳理了AI Agent工程实践的四阶段演进路径。对于正在接触和落地AI Agent的开发者来说，这是一份非常值得细读的参考材料。&lt;/p&gt;
 &lt;h2 id="为什么需要驯服agent"&gt;为什么需要&amp;quot;驯服&amp;quot;Agent？&lt;/h2&gt;
 &lt;p&gt;报告开篇就点出了一个关键问题：&lt;strong&gt;模型能力的提升，并不等于系统可靠性的提升&lt;/strong&gt;。&lt;/p&gt;
