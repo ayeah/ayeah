@@ -614,6 +614,12 @@ def convert_article(slug):
     """转换指定 slug 的文章，返回 (title, description, html_content)"""
     md_path = os.path.join(CONTENT_DIR, f"{slug}.md")
 
+    # 支持 page bundle 格式: content/posts/<slug>/index.md
+    if not os.path.exists(md_path):
+        bundle_path = os.path.join(CONTENT_DIR, slug, "index.md")
+        if os.path.exists(bundle_path):
+            md_path = bundle_path
+
     if not os.path.exists(md_path):
         print(f"❌ 文章不存在: {md_path}")
         sys.exit(1)
