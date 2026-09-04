@@ -17,8 +17,8 @@ import urllib.parse
 from datetime import datetime
 from pathlib import Path
 
-# Hugo 项目路径
-HUGO_DIR = "/opt/data/ayeah-hugo"
+# Hugo 项目路径（可用环境变量 HUGO_DIR 覆盖）
+HUGO_DIR = os.environ.get("HUGO_DIR", "/opt/data/ayeah-hugo")
 CONTENT_DIR = os.path.join(HUGO_DIR, "content", "posts")
 OUTPUT_DIR = os.path.join(HUGO_DIR, "output")
 SITE_URL = "https://ayeah.net"
@@ -425,6 +425,21 @@ def escape_html(text):
     return text
 
 
+def render_code_block(code_lines):
+    """渲染公众号兼容代码块。
+
+    微信富文本编辑器会合并空白/吞掉 <pre> 内裸换行，因此：
+    - 每行单独 HTML 转义后用 <br/> 连接（对齐 wechat_draft_bundle.py 的修复）
+    - 指定等宽字体与前景色，避免被微信降级为默认字体
+    """
+    escaped = '<br/>'.join(escape_html(l) for l in code_lines)
+    return (
+        f'<pre style="background:#f6f8fa;padding:14px;border-radius:6px;font-size:13px;'
+        f'line-height:1.6;overflow-x:auto;white-space:pre-wrap;word-break:break-all;'
+        f'font-family:Menlo,Consolas,monospace;color:#333;">{escaped}</pre>'
+    )
+
+
 # ─── 核心转换 ──────────────────────────────────────────────
 
 def md_to_wechat_html(md_body, slug="", article_date=""):
@@ -474,25 +489,13 @@ def md_to_wechat_html(md_body, slug="", article_date=""):
                             )
                         else:
                             # Mermaid 渲染失败，保留原 ASCII 代码块
-                            html_parts.append(
-                                f'<pre style="background:#f6f8fa;padding:12px;border-radius:6px;'
-                                f'font-size:14px;line-height:1.6;overflow-x:auto;white-space:pre-wrap;'
-                                f'word-break:break-all">{escape_html(code_text)}</pre>'
-                            )
+                            html_parts.append(render_code_block(code_lines))
                     else:
                         # 无法转换为 Mermaid，保留原样
-                        html_parts.append(
-                            f'<pre style="background:#f6f8fa;padding:12px;border-radius:6px;'
-                            f'font-size:14px;line-height:1.6;overflow-x:auto;white-space:pre-wrap;'
-                            f'word-break:break-all">{escape_html(code_text)}</pre>'
-                        )
+                        html_parts.append(render_code_block(code_lines))
                 else:
                     # 普通代码块
-                    html_parts.append(
-                        f'<pre style="background:#f6f8fa;padding:12px;border-radius:6px;'
-                        f'font-size:14px;line-height:1.6;overflow-x:auto;white-space:pre-wrap;'
-                        f'word-break:break-all">{escape_html(code_text)}</pre>'
-                    )
+                    html_parts.append(render_code_block(code_lines))
 
                 code_lines = []
                 in_code_block = False
