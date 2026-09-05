@@ -21,6 +21,8 @@ categories:
 
 WorkBuddy 是腾讯推出的**全场景 AI 办公智能体桌面工作站**。不是 ChatGPT 那种"你问一句我答一句"的聊天框——它是一个**真的能帮你干活**的 AI 同事。
 
+![WorkBuddy 国际版模型选择器截图](/images/screenshots/workbuddy-international-screenshot.png)
+
 分两个版本：
 
 |    | 国际版                        | 国内版                                  |
