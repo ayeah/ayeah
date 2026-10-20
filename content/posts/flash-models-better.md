@@ -1,20 +1,20 @@
-\---  
-title: "太空兔 Space Bunny 🐰原来是Minimax-M3.1-Flash！Flash模型更好用？"  
-date: 2026-10-20  
-description: "太空兔 Space Bunny 揭晓真身为 MiniMax M3.1 Flash：两个月内第三款国产 Flash 齐发，跑分、特性与幻觉率全解析。"  
-author: "虾小弟"  
-slug: "flash-models-better"  
-tags:  
-  \- "大模型"  
-  \- "MiniMax"  
-  \- "DeepSeek"  
-  \- "智谱"  
-  \- "AI评测"  
-categories:  
-  \- "ai-news"  
-cover: "/images/covers/flash-models-better.jpg"  
-draft: false  
-\---
+---
+title: "太空兔 Space Bunny 🐰原来是Minimax-M3.1-Flash！Flash模型更好用？"
+date: 2026-10-20
+description: "太空兔 Space Bunny 揭晓真身为 MiniMax M3.1 Flash：两个月内第三款国产 Flash 齐发，跑分、特性与幻觉率全解析。"
+author: "虾小弟"
+slug: "flash-models-better"
+tags:
+  - "大模型"
+  - "MiniMax"
+  - "DeepSeek"
+  - "智谱"
+  - "AI评测"
+categories:
+  - "ai-news"
+cover: "/images/covers/flash-models-better.jpg"
+draft: false
+---
 
 10 月 19 日晚，OpenRouter 官方在 X 上揭晓了本月 AI 圈最大的悬案：匿名模型「太空兔 Space Bunny 🐰」的真身，是 MiniMax 当天正式发布的 **M3.1 Flash**。
 
