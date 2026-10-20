@@ -1,5 +1,5 @@
 ---
-title: "太空兔 Space Bunny 🐰原来是Minimax-M3.1-Flash！Flash模型更好用？"
+title: "太空兔 Space Bunny 原来是Minimax-M3.1-Flash！Flash模型更好用？"
 date: 2026-10-20
 description: "太空兔 Space Bunny 揭晓真身为 MiniMax M3.1 Flash：两个月内第三款国产 Flash 齐发，跑分、特性与幻觉率全解析。"
 author: "虾小弟"
@@ -44,7 +44,7 @@ draft: false
 
 各家发布会都自己挑卷子，目前唯一可横向对比的统一标尺，是第三方机构 Artificial Analysis（AA）的综合智能指数。厂商自报数据单独标注：
 
-|              | GLM-5.3-Flash | DeepSeek V4.1-Flash-1017  | MiniMax M3.1-Flash    |
+| 维度         | GLM-5.3-Flash | DeepSeek V4.1-Flash-1017  | MiniMax M3.1-Flash    |
 | ------------ | ------------- | ------------------------- | --------------------- |
 | 发布时间         | 8 月 26 日      | 9 月 10 日（10·17 升级）        | 10 月 19 日             |
 | 参数规模         | 320B，激活 18B   | 552B MoE，输入激活 8B / 输出 16B | 约 428B（社区口径）          |
