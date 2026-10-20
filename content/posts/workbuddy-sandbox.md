@@ -134,6 +134,8 @@ https://<X_IDE_SPACE_KEY>--<端口>.<X_IDE_SPACE_REGION>.sandbox.cloudstudio.clu
 > 帮我部署 <https://cnb.cool/aican.do/workbuddy-devtop>，用里面的 DEPLOY.md 来部署。
 
 **实测**：约 4 分钟完成，容器内 `xfce4-session` 在 `DISPLAY=:1` 正常运行，通过浏览器能访问 Ubuntu 桌面。
+![云端 Ubuntu 桌面：Xubuntu + XFCE，浏览器直接访问](/images/illustrations/workbuddy-sandbox/05-devtop.jpg)
+
 
 ### 提示词二：安装 1Panel
 
@@ -152,6 +154,8 @@ https://<X_IDE_SPACE_KEY>--<端口>.<X_IDE_SPACE_REGION>.sandbox.cloudstudio.clu
 > 安装成功后，用沙箱自带的 supervisord（PID 1）保活：在 `/usr/local/share/supervisor/` 下新增一个 conf 配置文件，避免 1Panel 进程因休眠或重启而挂掉。
 
 **实测**：按此提示词一次安装成功。然后用浏览器登录 1Panel，就能管理沙箱服务器。
+![1Panel 面板概览：CPU、内存与已装应用一览](/images/illustrations/workbuddy-sandbox/06-1panel.png)
+
 
 ### 提示词三：沙箱云端签到（资料库持久化）
 
@@ -182,3 +186,5 @@ https://<X_IDE_SPACE_KEY>--<端口>.<X_IDE_SPACE_REGION>.sandbox.cloudstudio.clu
 > 立刻手动跑一次签到，告诉我：是否签到成功、获得了多少积分、当前连续签到天数、积分余额。
 
 **要点**：凭据文件 `checkin-rt.json` 必须放在资料库中，沙箱自带读取资料库的接口，不用专门配置。
+![自动签到成功：积分与连续天数](/images/illustrations/workbuddy-sandbox/07-checkin.png)
+
