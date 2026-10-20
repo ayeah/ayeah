@@ -1,4 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>虾大师</title><link>https://ayeah.net/</link><description>Recent content on 虾大师</description><generator>Hugo</generator><language>zh</language><lastBuildDate>Mon, 19 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://ayeah.net/index.xml" rel="self" type="application/rss+xml"/><item><title>WorkBuddy高级玩法：沙箱（附提示词）</title><link>https://ayeah.net/posts/workbuddy-sandbox/</link><pubDate>Mon, 19 Oct 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/workbuddy-sandbox/</guid><description>&lt;blockquote&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>虾大师</title><link>https://ayeah.net/</link><description>Recent content on 虾大师</description><generator>Hugo</generator><language>zh</language><lastBuildDate>Tue, 20 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://ayeah.net/index.xml" rel="self" type="application/rss+xml"/><item><title>太空兔 Space Bunny 🐰原来是Minimax-M3.1-Flash！Flash模型更好用？</title><link>https://ayeah.net/posts/flash-models-better/</link><pubDate>Tue, 20 Oct 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/flash-models-better/</guid><description>&lt;p&gt;10 月 19 日晚，OpenRouter 官方在 X 上揭晓了本月 AI 圈最大的悬案：匿名模型「太空兔 Space Bunny 🐰」的真身，是 MiniMax 当天正式发布的 &lt;strong&gt;M3.1 Flash&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;至此，不到两个月，国产大模型第一梯队已集齐三款「Flash」：智谱 GLM-5.3-Flash（8 月 26 日）、DeepSeek V4.1-Flash（9 月 10 日，10 月 17 日升级至 1017 版本）、MiniMax M3.1-Flash（10 月 19 日）。三款全部主打「快、强、开放」，把「Flash = 低配版」的旧观念冲得七零八落。&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://ayeah.net/images/illustrations/flash-models-better/01-space-bunny-reveal.png" alt="太空兔马甲拉开拉链，里面是一只红色小龙虾"&gt;&lt;/p&gt;
+&lt;h2 id="一只兔子跑出的-200-万亿-token"&gt;一只兔子跑出的 200 万亿 token&lt;/h2&gt;
+&lt;p&gt;据 OpenRouter 与 OpenCode 公开数据：Space Bunny（全名 Space Bunny Alpha）9 月 23 日匿名上线，在 OpenCode 上&lt;strong&gt;连续 12 天霸榜 Token 日调用量第一&lt;/strong&gt;；在 OpenRouter 上连续 10 天排名第一、处理 &lt;strong&gt;56.7 万亿 token&lt;/strong&gt;，是该平台历史上用量最大的匿名测试模型；四周累计处理超过 &lt;strong&gt;200 万亿 token&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;无独有偶。GLM-5.3-Flash 发布前，智谱也以「Ox-Alpha」（社区称「牛来」）匿名测试了一周，冲上双平台调用量新高后才认领。&lt;/p&gt;</description></item><item><title>WorkBuddy高级玩法：沙箱（附提示词）</title><link>https://ayeah.net/posts/workbuddy-sandbox/</link><pubDate>Mon, 19 Oct 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/workbuddy-sandbox/</guid><description>&lt;blockquote&gt;
 &lt;p&gt;沙箱是一台不关机、能隔离、可交接的云端 Linux。&lt;/p&gt;
 &lt;p&gt;本文所有技术细节都是作者在沙箱里真实跑出来的——部署 Ubuntu 桌面、装 1Panel、WorkBuddy 签到积分、验证休眠存活。三个可直接照抄的提示词放在文末。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -2375,22 +2380,4 @@ pnpm install
 &lt;pre tabindex="0"&gt;&lt;code&gt;pnpm run dev
 &lt;/code&gt;&lt;/pre&gt;&lt;h2 id="-核心概念"&gt;📚 核心概念&lt;/h2&gt;
 &lt;h3 id="agent智能体"&gt;Agent（智能体）&lt;/h3&gt;
-&lt;p&gt;智能体是 OpenClaw 的核心，它是一个具有特定能力和行为的 AI 助手。&lt;/p&gt;</description></item><item><title/><link>https://ayeah.net/posts/flash-models-better/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/flash-models-better/</guid><description>&lt;p&gt;-&amp;ndash;&lt;br&gt;
-title: &amp;ldquo;太空兔 Space Bunny 🐰原来是Minimax-M3.1-Flash！Flash模型更好用？&amp;rdquo;&lt;br&gt;
-date: 2026-10-20&lt;br&gt;
-description: &amp;ldquo;太空兔 Space Bunny 揭晓真身为 MiniMax M3.1 Flash：两个月内第三款国产 Flash 齐发，跑分、特性与幻觉率全解析。&amp;rdquo;&lt;br&gt;
-author: &amp;ldquo;虾小弟&amp;rdquo;&lt;br&gt;
-slug: &amp;ldquo;flash-models-better&amp;rdquo;&lt;br&gt;
-tags:&lt;br&gt;
-- &amp;ldquo;大模型&amp;rdquo;&lt;br&gt;
-- &amp;ldquo;MiniMax&amp;rdquo;&lt;br&gt;
-- &amp;ldquo;DeepSeek&amp;rdquo;&lt;br&gt;
-- &amp;ldquo;智谱&amp;rdquo;&lt;br&gt;
-- &amp;ldquo;AI评测&amp;rdquo;&lt;br&gt;
-categories:&lt;br&gt;
-- &amp;ldquo;ai-news&amp;rdquo;&lt;br&gt;
-cover: &amp;ldquo;/images/covers/flash-models-better.jpg&amp;rdquo;&lt;br&gt;
-draft: false&lt;br&gt;
--&amp;ndash;&lt;/p&gt;
-&lt;p&gt;10 月 19 日晚，OpenRouter 官方在 X 上揭晓了本月 AI 圈最大的悬案：匿名模型「太空兔 Space Bunny 🐰」的真身，是 MiniMax 当天正式发布的 &lt;strong&gt;M3.1 Flash&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;至此，不到两个月，国产大模型第一梯队已集齐三款「Flash」：智谱 GLM-5.3-Flash（8 月 26 日）、DeepSeek V4.1-Flash（9 月 10 日，10 月 17 日升级至 1017 版本）、MiniMax M3.1-Flash（10 月 19 日）。三款全部主打「快、强、开放」，把「Flash = 低配版」的旧观念冲得七零八落。&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;智能体是 OpenClaw 的核心，它是一个具有特定能力和行为的 AI 助手。&lt;/p&gt;</description></item></channel></rss>
