@@ -141,10 +141,11 @@ https://<X_IDE_SPACE_KEY>--<端口>.<X_IDE_SPACE_REGION>.sandbox.cloudstudio.clu
 
 > 安装 1Panel V2 版本。
 >
-> 执行以下安装脚本，使用脚本自带的 `-y` 参数，以中文、默认配置、复用已有 Docker 完成安装：
+> 先下载安装脚本，再执行（用脚本自带的 `-y` 参数，以中文、默认配置、复用已有 Docker 完成安装）：
 >
 > ```
-> bash -c "$(curl -sSL https://resource.fit2cloud.com/1panel/package/v2/quick_start.sh)"
+> curl -sSL https://resource.fit2cloud.com/1panel/package/v2/quick_start.sh -o quick_start.sh
+> bash quick_start.sh -y
 > ```
 >
 > 配置安全入口为 1panel，用户名 admin，密码 1Panel@2026，然后把管理端口暴露到沙箱公网：获取沙箱变量 X_IDE_SPACE_KEY、X_IDE_SPACE_REGION 和端口，拼接公网 URL。
