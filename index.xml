@@ -1,4 +1,43 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>虾大师</title><link>https://ayeah.net/</link><description>Recent content on 虾大师</description><generator>Hugo</generator><language>zh</language><lastBuildDate>Tue, 20 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://ayeah.net/index.xml" rel="self" type="application/rss+xml"/><item><title>太空兔 Space Bunny 原来是Minimax-M3.1-Flash！Flash模型更好用？</title><link>https://ayeah.net/posts/flash-models-better/</link><pubDate>Tue, 20 Oct 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/flash-models-better/</guid><description>&lt;p&gt;10 月 19 日晚，OpenRouter 官方在 X 上揭晓了本月 AI 圈最大的悬案：匿名模型「太空兔 Space Bunny 🐰」的真身，是 MiniMax 当天正式发布的 &lt;strong&gt;M3.1 Flash&lt;/strong&gt;。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>虾大师</title><link>https://ayeah.net/</link><description>Recent content on 虾大师</description><generator>Hugo</generator><language>zh</language><lastBuildDate>Thu, 29 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://ayeah.net/index.xml" rel="self" type="application/rss+xml"/><item><title>三步实现WorkBuddy云端签到，再也不用挂机了！</title><link>https://ayeah.net/posts/workbuddy-cloud-checkin/</link><pubDate>Thu, 29 Oct 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/workbuddy-cloud-checkin/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;上一篇讲沙箱，这篇只讲一件事：怎么让 WorkBuddy 在你关机之后，仍然每天早上 8 点自己签到。&lt;/p&gt;
+&lt;p&gt;三步，不用懂沙箱。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;上一篇《&lt;a href="https://ayeah.net/posts/workbuddy-sandbox/"&gt;WorkBuddy高级玩法：沙箱（附提示词）&lt;/a&gt;》里提过云端签到的提示词，不少朋友反馈：沙箱那套太绕，看着就劝退。所以这次换个最省事的路子——不用懂沙箱，三步设好定时任务，之后不开机也能每天自动签到拿积分。&lt;/p&gt;
+&lt;p&gt;（还没装客户端的，先去 workbuddy.cn 下一个。）&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://ayeah.net/images/illustrations/workbuddy-cloud-checkin/01-handover.png" alt="把登录态交给云端，关机也能签到"&gt;&lt;/p&gt;
+&lt;h2 id="第一步把登录态文件导出到资料库"&gt;第一步：把登录态文件导出到资料库&lt;/h2&gt;
+&lt;p&gt;打开自己的 WorkBuddy 客户端，先在「专家·技能·连接器」里装好「WorkBuddy 积分助手」技能，再新建任务，输入这段提示词：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/totorosir-workbuddy-score 帮我导出包含我 refresh_token 的 checkin-rt.json 文件，放在我的资料库中。
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src="https://ayeah.net/images/illustrations/workbuddy-cloud-checkin/02-export-prompt.png" alt="在客户端里装好技能，把这句提示词发出去"&gt;&lt;/p&gt;
+&lt;h2 id="第二步确认资料库里已经有这个文件"&gt;第二步：确认资料库里已经有这个文件&lt;/h2&gt;
+&lt;p&gt;打开左侧「资料库」，在「最近」里能看到 checkin-rt.json 就说明成功了。没看到的话，回到上一步把提示词重发一次。&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://ayeah.net/images/illustrations/workbuddy-cloud-checkin/03-library.png" alt="资料库里出现 checkin-rt.json，第一步就成了"&gt;&lt;/p&gt;
+&lt;h2 id="第三步用浏览器打开网页版-workbuddy"&gt;第三步：用浏览器打开网页版 WorkBuddy&lt;/h2&gt;
+&lt;p&gt;访问 workbuddy.cn，点页面中间的「在线使用 WorkBuddy」，不用下载客户端。&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://ayeah.net/images/illustrations/workbuddy-cloud-checkin/04-web-entry.png" alt="点「在线使用 WorkBuddy」，不用下载客户端"&gt;&lt;/p&gt;
+&lt;p&gt;然后输入这段提示词：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;帮我设定一个定时任务：每天早上 8:00 执行积分任务。先写一个脚本，从资料库中读取 checkin-rt.json（里面是长期可用的 refresh_token），再通过 /totorosir-workbuddy-score 用这个 refresh_token 完成签到，最后把更新后的 checkin-rt.json 写回资料库。注意每次任务启动都是全新的沙箱环境，所以脚本要直接写在定时任务的提示词里。
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src="https://ayeah.net/images/illustrations/workbuddy-cloud-checkin/05-web-prompt.png" alt="网页版里发出这句，定时任务就建好了"&gt;&lt;/p&gt;
+&lt;h2 id="验收确认任务真的建好了"&gt;验收：确认任务真的建好了&lt;/h2&gt;
+&lt;p&gt;回到客户端打开「定时任务」，会看到真的多了一条带 ☁️ 图标的任务，点开能看到完整的提示词。&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://ayeah.net/images/illustrations/workbuddy-cloud-checkin/06-task-card.png" alt="带 ☁️ 图标的那条，就是云端定时任务"&gt;&lt;/p&gt;
+&lt;p&gt;之后你还可以按自己的需求扩展功能，比如加企业微信、飞书提醒，或者把签到日志写回资料库——直接在网页上跟 AI 说一声让它改就行（别手动编辑提示词）。&lt;/p&gt;
+&lt;h2 id="之后就全自动了"&gt;之后就全自动了&lt;/h2&gt;
+&lt;p&gt;不管有没有开机、有没有登录，签到和「派猫猫旅行」都会照常执行，效果可以在「积分记录」里看。&lt;/p&gt;</description></item><item><title>太空兔 Space Bunny 原来是Minimax-M3.1-Flash！Flash模型更好用？</title><link>https://ayeah.net/posts/flash-models-better/</link><pubDate>Tue, 20 Oct 2026 00:00:00 +0000</pubDate><guid>https://ayeah.net/posts/flash-models-better/</guid><description>&lt;p&gt;10 月 19 日晚，OpenRouter 官方在 X 上揭晓了本月 AI 圈最大的悬案：匿名模型「太空兔 Space Bunny 🐰」的真身，是 MiniMax 当天正式发布的 &lt;strong&gt;M3.1 Flash&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;至此，不到两个月，国产大模型第一梯队已集齐三款「Flash」：智谱 GLM-5.3-Flash（8 月 26 日）、DeepSeek V4.1-Flash（9 月 10 日，10 月 17 日升级至 1017 版本）、MiniMax M3.1-Flash（10 月 19 日）。三款全部主打「快、强、开放」，把「Flash = 低配版」的旧观念冲得七零八落。&lt;/p&gt;
 &lt;p&gt;&lt;img src="https://ayeah.net/images/illustrations/flash-models-better/01-space-bunny-reveal.png" alt="太空兔马甲拉开拉链，里面是一只红色小龙虾"&gt;&lt;/p&gt;
 &lt;h2 id="一只兔子跑出的-200-万亿-token"&gt;一只兔子跑出的 200 万亿 token&lt;/h2&gt;
