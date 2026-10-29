@@ -758,6 +758,10 @@ body::before {
     padding: 1.5rem;
     overflow-x: auto;
     margin-bottom: 1.5rem;
+    /* 长提示词自动换行：否则一行 200 字会被横向裁掉，读者只能看到开头 */
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    word-break: break-word;
 }
 
 .article-body pre code {
@@ -1019,7 +1023,16 @@ body::before {
 /* 代码高亮覆盖 */
 .highlight {
     border-radius: 12px;
-    overflow: hidden;
+    /* 原来是 hidden：pre 已自动换行，这里留 auto 兜底，避免极端长串被裁掉 */
+    overflow-x: auto;
+}
+
+/* 行内代码里的长路径/长命令也别撑破正文 */
+.article-body p code,
+.article-body li code,
+.article-body blockquote code {
+    overflow-wrap: anywhere;
+    word-break: break-word;
 }
 
 /* 滚动条美化 */
